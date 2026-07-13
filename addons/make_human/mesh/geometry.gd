@@ -1,4 +1,4 @@
-class_name MakeHumanMeshData
+class_name MakeHumanGeometry
 extends Resource
 ## Raw MakeHuman mesh data imported from OBJ.
 ##

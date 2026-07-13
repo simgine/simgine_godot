@@ -50,7 +50,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 		return ERR_PARSE_ERROR
 
 	var included_groups: PackedStringArray = options["included_groups"]
-	var mesh_data := MakeHumanMeshData.new()
+	var geometry := MakeHumanGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
 	while not file.eof_reached():
@@ -72,7 +72,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 				var x := parts[1].to_float()
 				var y := parts[2].to_float()
 				var z := parts[3].to_float()
-				mesh_data.vertices.push_back(Vector3(x, y, z))
+				geometry.vertices.push_back(Vector3(x, y, z))
 			"vt":
 				if parts.size() != 3:
 					push_error("Unsupported UV at %d: '%s'" % [line_index, line])
@@ -80,7 +80,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 
 				var u := parts[1].to_float()
 				var v := parts[2].to_float()
-				mesh_data.uvs.append(Vector2(u, 1.0 - v)) # V should be flipped to match Godot.
+				geometry.uvs.append(Vector2(u, 1.0 - v)) # V should be flipped to match Godot.
 			"vn":
 				# Normals are ignored and will be generated automatically.
 				pass
@@ -98,11 +98,11 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 
 				var quad = _parse_quad(parts, line_index)
 				if quad:
-					mesh_data.quads.push_back(quad)
+					geometry.quads.push_back(quad)
 			_:
 				push_error("Unsupported tag at %d: '%s'" % [line_index, line])
 
-	return ResourceSaver.save(mesh_data, "%s.%s" % [save_path, _get_save_extension()])
+	return ResourceSaver.save(geometry, "%s.%s" % [save_path, _get_save_extension()])
 
 
 func _include_vertices(groups: PackedStringArray, included_groups: PackedStringArray) -> bool:
