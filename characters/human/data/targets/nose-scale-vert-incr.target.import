@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b5bnxmos6jnyw"
+path="res://.godot/imported/nose-scale-vert-incr.target-d85bfe672737ba5e1b98f37c95663a80.res"
+
+[deps]
+
+source_file="res://characters/human/data/targets/nose-scale-vert-incr.target"
+dest_files=["res://.godot/imported/nose-scale-vert-incr.target-d85bfe672737ba5e1b98f37c95663a80.res"]
+
+[params]
+

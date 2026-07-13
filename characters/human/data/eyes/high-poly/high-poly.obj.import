@@ -1,0 +1,15 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://bl7edm52joxmi"
+path="res://.godot/imported/high-poly.obj-6a0a344153824c5bb47b8c4e75b8fdc6.res"
+
+[deps]
+
+source_file="res://characters/human/data/eyes/high-poly/high-poly.obj"
+dest_files=["res://.godot/imported/high-poly.obj-6a0a344153824c5bb47b8c4e75b8fdc6.res"]
+
+[params]
+
+included_groups=PackedStringArray()

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://cldpx2aurjlmy"
+path="res://.godot/imported/ice.mhmat-371c1d24cf2a3df658640b1820609046.res"
+
+[deps]
+
+source_file="res://characters/human/data/eyes/materials/ice.mhmat"
+dest_files=["res://.godot/imported/ice.mhmat-371c1d24cf2a3df658640b1820609046.res"]
+
+[params]
+
