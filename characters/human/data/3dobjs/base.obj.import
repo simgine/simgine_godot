@@ -1,0 +1,15 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://cq4l65kp7fx6a"
+path="res://.godot/imported/base.obj-24c9cca7b6311ab1fef77e6486955b98.res"
+
+[deps]
+
+source_file="res://characters/human/data/3dobjs/base.obj"
+dest_files=["res://.godot/imported/base.obj-24c9cca7b6311ab1fef77e6486955b98.res"]
+
+[params]
+
+included_groups=PackedStringArray("body")
