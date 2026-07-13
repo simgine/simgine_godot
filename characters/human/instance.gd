@@ -17,7 +17,7 @@ func _validate_property(property: Dictionary) -> void:
 
 
 func _rebuild_topology() -> void:
-	var base := ResourceLoader.load("res://characters/human/data/3dobjs/base.obj") as MakeHumanMeshData
+	var base := ResourceLoader.load("res://characters/human/data/3dobjs/base.obj") as MakeHumanGeometry
 	if not base:
 		push_error("unable to load base mesh")
 		return

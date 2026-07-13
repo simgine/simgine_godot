@@ -9,7 +9,7 @@ extends Resource
 @export var license: String
 @export var description: String
 @export var tags: PackedStringArray
-@export var mesh_data: MakeHumanMeshData
+@export var geometry: MakeHumanGeometry
 @export var material: MakeHumanMaterial
 @export var x_scale: MakeHumanScale
 @export var y_scale: MakeHumanScale

@@ -9,15 +9,15 @@ var _obj_vertices: PackedVector3Array
 var _obj_to_render: Array[PackedInt32Array]
 
 
-func build_body(mesh_data: MakeHumanMeshData, targets: Array[MakeHumanTarget.Meta]) -> ArrayMesh:
+func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta]) -> ArrayMesh:
 	_targets = targets
-	_obj_vertices = mesh_data.vertices
-	_obj_to_render.resize(mesh_data.vertices.size())
+	_obj_vertices = geometry.vertices
+	_obj_to_render.resize(geometry.vertices.size())
 	for vertices in _obj_to_render:
 		vertices.clear()
 
 	var mesh = ArrayMesh.new()
-	var arrays := _build_surface(mesh_data)
+	var arrays := _build_surface(geometry)
 
 	var blend_shapes := []
 	for target_meta in _targets:
@@ -45,18 +45,18 @@ func build_body(mesh_data: MakeHumanMeshData, targets: Array[MakeHumanTarget.Met
 	return mesh
 
 
-func _build_surface(mesh_data: MakeHumanMeshData) -> Array:
+func _build_surface(geometry: MakeHumanGeometry) -> Array:
 	var vertices := PackedVector3Array()
 	var uvs := PackedVector2Array()
 	var normals := PackedVector3Array()
 	var indices := PackedInt32Array()
-	for quad in mesh_data.quads:
+	for quad in geometry.quads:
 		var corners := PackedInt32Array()
 		corners.resize(4)
 
-		var p0 := mesh_data.vertices[quad.vertex_indices[0]]
-		var p1 := mesh_data.vertices[quad.vertex_indices[1]]
-		var p2 := mesh_data.vertices[quad.vertex_indices[2]]
+		var p0 := geometry.vertices[quad.vertex_indices[0]]
+		var p1 := geometry.vertices[quad.vertex_indices[1]]
+		var p2 := geometry.vertices[quad.vertex_indices[2]]
 		var normal := (p1 - p0).cross(p2 - p0).normalized()
 
 		for corner_index in range(4):
@@ -65,8 +65,8 @@ func _build_surface(mesh_data: MakeHumanMeshData) -> Array:
 			var render_vertex_index := vertices.size()
 
 			corners[corner_index] = render_vertex_index
-			vertices.append(mesh_data.vertices[vertex_index])
-			uvs.append(mesh_data.uvs[uv_index])
+			vertices.append(geometry.vertices[vertex_index])
+			uvs.append(geometry.uvs[uv_index])
 			normals.append(normal)
 			_obj_to_render[vertex_index].append(render_vertex_index)
 

@@ -87,9 +87,9 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 				pass
 			"obj_file":
 				var path = base_dir.path_join(value)
-				var mesh_data := ResourceLoader.load(path, "MakeHumanMeshData") as MakeHumanMeshData
-				if mesh_data != null:
-					attachment.mesh_data = mesh_data
+				var geometry := ResourceLoader.load(path, "MakeHumanGeometry") as MakeHumanGeometry
+				if geometry != null:
+					attachment.geometry = geometry
 				else:
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
