@@ -51,8 +51,6 @@ func _build_surface(mesh_data: MakeHumanMeshData) -> Array:
 	var normals := PackedVector3Array()
 	var indices := PackedInt32Array()
 	for quad in mesh_data.quads:
-		assert(quad.vertex_indices.size() == 4)
-
 		var corners := PackedInt32Array()
 		corners.resize(4)
 
