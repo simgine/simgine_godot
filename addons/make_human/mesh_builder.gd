@@ -84,6 +84,9 @@ func _generate_smooth_normals(
 		var i2 := quad.vertex_indices[2]
 		var i3 := quad.vertex_indices[3]
 
+		# Use the opposite winding from the render indices to produce
+		# outward-facing normals.
+
 		# Triangle 1: 0, 1, 2.
 		var normal_1 := (vertices[i1] - vertices[i0]).cross(
 			vertices[i2] - vertices[i0],
