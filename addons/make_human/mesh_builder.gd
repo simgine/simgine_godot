@@ -1,23 +1,23 @@
 class_name MakeHumanMeshBuilder
 
 var _targets: Array[MakeHumanTarget.Meta]
-## All MakeHuman base mesh vertices: body + helper geometry.
+## All base body mesh vertices: body + helper geometry.
 ##
 ## Needed for morphs and clothes.
-var _obj_vertices: PackedVector3Array
-## OBJ vertex index -> array of render mesh vertex indices.
-var _obj_to_render: Array[PackedInt32Array]
+var _body_vertices: PackedVector3Array
+## Base body mesh vertex index -> multiple render mesh vertex indices.
+var _body_to_mesh: Array[PackedInt32Array]
 
 
 func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta]) -> ArrayMesh:
 	_targets = targets
-	_obj_vertices = geometry.vertices
-	_obj_to_render.resize(geometry.vertices.size())
-	for vertices in _obj_to_render:
+	_body_vertices = geometry.vertices
+	_body_to_mesh.resize(geometry.vertices.size())
+	for vertices in _body_to_mesh:
 		vertices.clear()
 
 	var mesh = ArrayMesh.new()
-	var arrays := _build_surface(geometry)
+	var arrays := _build_arrays(geometry)
 
 	var blend_shapes := []
 	for target_meta in _targets:
@@ -26,9 +26,9 @@ func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta
 
 		for i in target_meta.target.vertex_indices.size():
 			var vertex_index = target_meta.target.vertex_indices[i]
-			if vertex_index >= _obj_to_render.size():
+			if vertex_index >= _body_to_mesh.size():
 				continue
-			for render_vertex_index in _obj_to_render[vertex_index]:
+			for render_vertex_index in _body_to_mesh[vertex_index]:
 				shape_vertices[render_vertex_index] = target_meta.target.offsets[i]
 
 		var shape = []
@@ -45,11 +45,11 @@ func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta
 	return mesh
 
 
-func _build_surface(geometry: MakeHumanGeometry) -> Array:
-	var vertices := PackedVector3Array()
-	var uvs := PackedVector2Array()
-	var normals := PackedVector3Array()
-	var indices := PackedInt32Array()
+func _build_arrays(geometry: MakeHumanGeometry) -> Array:
+	var mesh_vertices := PackedVector3Array()
+	var mesh_uvs := PackedVector2Array()
+	var mesh_normals := PackedVector3Array()
+	var mesh_indices := PackedInt32Array()
 	for quad in geometry.quads:
 		var corners := PackedInt32Array()
 		corners.resize(4)
@@ -62,27 +62,27 @@ func _build_surface(geometry: MakeHumanGeometry) -> Array:
 		for corner_index in range(4):
 			var vertex_index := quad.vertex_indices[corner_index]
 			var uv_index := quad.uv_indices[corner_index]
-			var render_vertex_index := vertices.size()
+			var mesh_vertex_index := mesh_vertices.size()
 
-			corners[corner_index] = render_vertex_index
-			vertices.append(geometry.vertices[vertex_index])
-			uvs.append(geometry.uvs[uv_index])
-			normals.append(normal)
-			_obj_to_render[vertex_index].append(render_vertex_index)
+			corners[corner_index] = mesh_vertex_index
+			mesh_vertices.append(geometry.vertices[vertex_index])
+			mesh_uvs.append(geometry.uvs[uv_index])
+			mesh_normals.append(normal)
+			_body_to_mesh[vertex_index].append(mesh_vertex_index)
 
 		# Convert the quad into 2 triangles.
-		indices.append(corners[0])
-		indices.append(corners[2])
-		indices.append(corners[1])
+		mesh_indices.append(corners[0])
+		mesh_indices.append(corners[2])
+		mesh_indices.append(corners[1])
 
-		indices.append(corners[0])
-		indices.append(corners[3])
-		indices.append(corners[2])
+		mesh_indices.append(corners[0])
+		mesh_indices.append(corners[3])
+		mesh_indices.append(corners[2])
 
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
-	arrays[Mesh.ARRAY_VERTEX] = vertices
-	arrays[Mesh.ARRAY_NORMAL] = normals
-	arrays[Mesh.ARRAY_TEX_UV] = uvs
-	arrays[Mesh.ARRAY_INDEX] = indices
+	arrays[Mesh.ARRAY_VERTEX] = mesh_vertices
+	arrays[Mesh.ARRAY_NORMAL] = mesh_normals
+	arrays[Mesh.ARRAY_TEX_UV] = mesh_uvs
+	arrays[Mesh.ARRAY_INDEX] = mesh_indices
 	return arrays
