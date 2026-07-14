@@ -112,7 +112,7 @@ func _generate_smooth_normals(
 	return normals
 
 
-func _build_blend_shapes(geometry: MakeHumanGeometry, vertices_count: int) -> Array:
+func _build_blend_shapes(geometry: MakeHumanGeometry, vertex_count: int) -> Array:
 	var blend_shapes := []
 	for target_meta in _targets:
 		var deformed_vertices := geometry.vertices.duplicate()
@@ -126,10 +126,10 @@ func _build_blend_shapes(geometry: MakeHumanGeometry, vertices_count: int) -> Ar
 		var deformed_normals := _generate_smooth_normals(deformed_vertices, geometry.quads)
 
 		var shape_vertices := PackedVector3Array()
-		shape_vertices.resize(vertices_count)
+		shape_vertices.resize(vertex_count)
 
 		var shape_normals := PackedVector3Array()
-		shape_normals.resize(vertices_count)
+		shape_normals.resize(vertex_count)
 
 		for vertex_index in _body_to_mesh.size():
 			for mesh_vertex_index in _body_to_mesh[vertex_index]:
