@@ -67,8 +67,8 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 			_parse_comment_meta(line, attachment)
 			continue
 
-		var tag := ""
-		var value := line
+		var tag := line
+		var value := ""
 		var separator := line.find(" ")
 		if separator != -1:
 			tag = line.substr(0, separator)
