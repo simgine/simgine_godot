@@ -12,4 +12,4 @@ dest_files=["res://.godot/imported/base.obj-24c9cca7b6311ab1fef77e6486955b98.res
 
 [params]
 
-included_groups=PackedStringArray("body")
+mode=1

@@ -9,6 +9,11 @@ extends EditorImportPlugin
 ## Supports only a subset of OBJ that is used in
 ## MakeHuman assets.
 
+enum ImportMode {
+	ATTACHMENT,
+	BODY,
+}
+
 
 func _get_importer_name() -> String:
 	return "make_human.obj_importer"
@@ -37,8 +42,10 @@ func _get_preset_name(_preset_index: int) -> String:
 func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]:
 	return [
 		{
-			"name": "included_groups",
-			"default_value": PackedStringArray(),
+			"name": "mode",
+			"default_value": ImportMode.ATTACHMENT,
+			"property_hint": PROPERTY_HINT_ENUM,
+			"hint_string": "Attachment,Body",
 		},
 	]
 
@@ -49,7 +56,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 		push_error("Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())])
 		return ERR_PARSE_ERROR
 
-	var included_groups: PackedStringArray = options["included_groups"]
+	var mode: ImportMode = options["mode"]
 	var geometry := MakeHumanGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
@@ -65,6 +72,9 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 		var tag := parts[0]
 		match tag:
 			"v":
+				if mode == ImportMode.ATTACHMENT:
+					# Attachment vertex positions are reconstructed from the body using .mhclo data.
+					continue
 				if parts.size() != 4:
 					push_error("Unsupported vertex at %d: '%s'" % [line_index, line])
 					continue
@@ -90,7 +100,8 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 			"g":
 				last_groups = parts.slice(1)
 			"f":
-				if not _include_vertices(last_groups, included_groups):
+				if mode == ImportMode.BODY and "body" not in last_groups:
+					# Ignore helper geometry.
 					continue
 				if parts.size() != 5:
 					push_error("Unsupported face at %d: '%s'" % [line_index, line])
@@ -103,17 +114,6 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 				push_error("Unsupported tag at %d: '%s'" % [line_index, line])
 
 	return ResourceSaver.save(geometry, "%s.%s" % [save_path, _get_save_extension()])
-
-
-func _include_vertices(groups: PackedStringArray, included_groups: PackedStringArray) -> bool:
-	if groups.is_empty() or included_groups.is_empty():
-		return true
-
-	for group in included_groups:
-		if group in groups:
-			return true
-
-	return false
 
 
 func _parse_quad(parts: PackedStringArray, line_index: int) -> MakeHumanQuad:
