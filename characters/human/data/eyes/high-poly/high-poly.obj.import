@@ -12,4 +12,4 @@ dest_files=["res://.godot/imported/high-poly.obj-6a0a344153824c5bb47b8c4e75b8fdc
 
 [params]
 
-included_groups=PackedStringArray()
+mode=0

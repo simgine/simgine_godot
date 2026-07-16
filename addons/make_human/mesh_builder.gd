@@ -119,7 +119,7 @@ static func _fit_attachment_vertices(
 	assert(attachment.ref_c.size() == vertex_count)
 	assert(attachment.weights.size() == vertex_count)
 	assert(attachment.offsets.size() == vertex_count)
-	assert(attachment.geometry.vertices.size() == vertex_count)
+	assert(attachment.geometry.vertices.size() == 0)
 
 	var offset_scale := _get_attachment_offset_scale(
 		attachment,
