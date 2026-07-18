@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhclo_importer"
+type="Resource"
+uid="uid://djhd8x8rwt4q1"
+path="res://.godot/imported/high-poly.mhclo-6494b8696d5b9475680d9986f5276ee3.res"
+
+[deps]
+
+source_file="res://characters/human/assets/eyes/high-poly/high-poly.mhclo"
+dest_files=["res://.godot/imported/high-poly.mhclo-6494b8696d5b9475680d9986f5276ee3.res"]
+
+[params]
+
