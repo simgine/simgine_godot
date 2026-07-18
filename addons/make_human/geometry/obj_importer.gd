@@ -56,7 +56,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 		push_error("Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())])
 		return ERR_PARSE_ERROR
 
-	var mode: ImportMode = options["mode"]
+	var mode: ImportMode = options.mode
 	var geometry := MakeHumanGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
