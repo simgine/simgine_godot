@@ -1,6 +1,6 @@
 class_name MakeHumanMeshBuilder
 
-var _targets: Array[MakeHumanTarget.Meta]
+var _targets: Array[MakeHumanTarget]
 ## All base body mesh vertices: body + helper geometry.
 ##
 ## Needed for morphs and clothes.
@@ -188,7 +188,7 @@ static func _get_attachment_axis_scale(
 	return absf(maximum - minimum) / scale.factor
 
 
-func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta]) -> ArrayMesh:
+func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget]) -> ArrayMesh:
 	var surface := _build_surface(geometry)
 
 	_targets = targets
@@ -198,8 +198,8 @@ func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget.Meta
 	var mesh := ArrayMesh.new()
 	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
 
-	for target_meta in _targets:
-		mesh.add_blend_shape(target_meta.path.get_file().get_basename())
+	for target in _targets:
+		mesh.add_blend_shape(target.resource_path.get_file().get_basename())
 
 	var blend_shapes := _build_body_blend_shapes(
 		geometry,
@@ -231,9 +231,9 @@ func build_attachment(attachment: MakeHumanAttachment) -> ArrayMesh:
 	var mesh := ArrayMesh.new()
 	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
 
-	for target_meta in _targets:
+	for target in _targets:
 		mesh.add_blend_shape(
-			target_meta.path.get_file().get_basename(),
+			target.resource_path.get_file().get_basename(),
 		)
 
 	var blend_shapes := _build_attachment_blend_shapes(
@@ -254,14 +254,14 @@ func build_attachment(attachment: MakeHumanAttachment) -> ArrayMesh:
 
 func _build_body_blend_shapes(geometry: MakeHumanGeometry, vertex_count: int) -> Array:
 	var blend_shapes := []
-	for target_meta in _targets:
+	for target in _targets:
 		var deformed_vertices := geometry.vertices.duplicate()
-		for i in target_meta.target.vertex_indices.size():
-			var vertex_index := target_meta.target.vertex_indices[i]
+		for i in target.vertex_indices.size():
+			var vertex_index := target.vertex_indices[i]
 			if vertex_index >= _body_to_mesh.size():
 				continue
 
-			deformed_vertices[vertex_index] += target_meta.target.offsets[i]
+			deformed_vertices[vertex_index] += target.offsets[i]
 
 		var deformed_normals := _generate_smooth_normals(deformed_vertices, geometry.quads)
 
@@ -292,15 +292,15 @@ func _build_attachment_blend_shapes(
 		mesh_vertex_count: int,
 ) -> Array:
 	var blend_shapes := []
-	for target_meta in _targets:
+	for target in _targets:
 		var deformed_body_vertices := _body_vertices.duplicate()
 
-		for i in target_meta.target.vertex_indices.size():
-			var body_vertex_index := target_meta.target.vertex_indices[i]
+		for i in target.vertex_indices.size():
+			var body_vertex_index := target.vertex_indices[i]
 			if body_vertex_index >= deformed_body_vertices.size():
 				continue
 
-			deformed_body_vertices[body_vertex_index] += target_meta.target.offsets[i]
+			deformed_body_vertices[body_vertex_index] += target.offsets[i]
 
 		var deformed_vertices := _fit_attachment_vertices(attachment, deformed_body_vertices)
 		var deformed_normals := _generate_smooth_normals(deformed_vertices, attachment.geometry.quads)
