@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhclo_importer"
+type="Resource"
+uid="uid://cqjj6e30c48hp"
+path="res://.godot/imported/female_elegantsuit01.mhclo-4bfc837912725e2939ee81ffd33753c3.res"
+
+[deps]
+
+source_file="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo"
+dest_files=["res://.godot/imported/female_elegantsuit01.mhclo-4bfc837912725e2939ee81ffd33753c3.res"]
+
+[params]
+

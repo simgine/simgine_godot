@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/make_human/plugin.cfg")
 
+[make_human]
+
+general/assets="res://characters/human/assets"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

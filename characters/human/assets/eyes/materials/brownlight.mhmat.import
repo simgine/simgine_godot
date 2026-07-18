@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://bldsm7xaprl0"
+path="res://.godot/imported/brownlight.mhmat-7f322954e63483040d47ce98a1ff8731.res"
+
+[deps]
+
+source_file="res://characters/human/assets/eyes/materials/brownlight.mhmat"
+dest_files=["res://.godot/imported/brownlight.mhmat-7f322954e63483040d47ce98a1ff8731.res"]
+
+[params]
+
