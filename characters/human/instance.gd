@@ -28,15 +28,15 @@ func _rebuild_topology() -> void:
 	mesh = builder.build_body(base, targets)
 
 
-func _load_targets() -> Array[MakeHumanTarget.Meta]:
+func _load_targets() -> Array[MakeHumanTarget]:
 	var dir = "res://characters/human/data/targets/"
-	var targets: Array[MakeHumanTarget.Meta]
+	var targets: Array[MakeHumanTarget]
 	var resources := ResourceLoader.list_directory(dir)
 	for path in resources:
 		if path.get_extension() == "target":
 			var target := ResourceLoader.load(dir.path_join(path)) as MakeHumanTarget
 			if target != null:
-				targets.push_back(MakeHumanTarget.Meta.new(path, target))
+				targets.push_back(target)
 			else:
 				push_error("unable to load %s" % path)
 
