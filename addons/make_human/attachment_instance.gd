@@ -37,4 +37,9 @@ func _set_base(value: MakeHumanBase) -> void:
 
 
 func _update_mesh() -> void:
-	mesh = base.get_attachment_mesh(attachment) if base and attachment else null
+	if base and attachment:
+		mesh = base.get_attachment_mesh(attachment)
+		material_override = attachment.material
+	else:
+		mesh = null
+		material_override = null
