@@ -1,12 +1,31 @@
-class_name MakeHumanMeshBuilder
-
-var _targets: Array[MakeHumanTarget]
-## All base body mesh vertices: body + helper geometry.
+@tool
+class_name MakeHumanBase
+extends Resource
+## Base geometry with associated morphs.
 ##
-## Needed for morphs and clothes.
-var _body_vertices: PackedVector3Array
-## Base body mesh vertex index -> multiple render mesh vertex indices.
-var _body_to_mesh: Array[PackedInt32Array]
+## Can construct meshes for the body and attachments.
+## All built meshes are cached. Since it's a resource,
+## all instances with the same resource will share these meshes.
+
+@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_meshes := _rebuild_meshes
+@export var targets: Array[MakeHumanTarget]:
+	set(value):
+		targets = value
+		_rebuild_meshes()
+@export var geometry: MakeHumanGeometry:
+	set(value):
+		geometry = value
+		_rebuild_meshes()
+
+## Cached base mesh.
+var _mesh: ArrayMesh
+## Cached attachment meshes.
+##
+## Maps the instance ID of a [MakeHumanAttachment] to weak references to the
+## mesh and attachment.
+## Weak references are used to automatically invalidate the cached data once
+## it is no longer in use. The entries themselves are not removed.
+var _attachments: Dictionary[int, AttachmentEntry]
 
 
 ## Builds render surface arrays and records geometry to the surface vertices mapping.
@@ -16,8 +35,8 @@ var _body_to_mesh: Array[PackedInt32Array]
 ##
 ## Separate positions are needed for attachments because their positions are
 ## reconstructed from body vertices rather than taken from their geometry.
-static func _build_surface(geometry: MakeHumanGeometry, vertices_override := PackedVector3Array()) -> SurfaceBuildData:
-	var vertices := geometry.vertices if vertices_override.is_empty() else vertices_override
+static func _build_surface(surface_geometry: MakeHumanGeometry, vertices_override := PackedVector3Array()) -> SurfaceBuildData:
+	var vertices := surface_geometry.vertices if vertices_override.is_empty() else vertices_override
 
 	var mesh_vertices := PackedVector3Array()
 	var mesh_uvs := PackedVector2Array()
@@ -26,8 +45,8 @@ static func _build_surface(geometry: MakeHumanGeometry, vertices_override := Pac
 	var geometry_to_mesh: Array[PackedInt32Array] = []
 	geometry_to_mesh.resize(vertices.size())
 
-	var normals := _generate_smooth_normals(vertices, geometry.quads)
-	for quad in geometry.quads:
+	var normals := _generate_smooth_normals(vertices, surface_geometry.quads)
+	for quad in surface_geometry.quads:
 		var corners := PackedInt32Array()
 		corners.resize(4)
 
@@ -39,7 +58,7 @@ static func _build_surface(geometry: MakeHumanGeometry, vertices_override := Pac
 			corners[corner_index] = mesh_vertex_index
 
 			mesh_vertices.append(vertices[vertex_index])
-			mesh_uvs.append(geometry.uvs[uv_index])
+			mesh_uvs.append(surface_geometry.uvs[uv_index])
 			mesh_normals.append(normals[vertex_index])
 
 			geometry_to_mesh[vertex_index].append(mesh_vertex_index)
@@ -188,54 +207,85 @@ static func _get_attachment_axis_scale(
 	return absf(maximum - minimum) / scale.factor
 
 
-func build_body(geometry: MakeHumanGeometry, targets: Array[MakeHumanTarget]) -> ArrayMesh:
-	var surface := _build_surface(geometry)
+func get_mesh() -> ArrayMesh:
+	if not geometry:
+		return null
 
-	_targets = targets
-	_body_vertices = geometry.vertices
-	_body_to_mesh = surface.geometry_to_mesh
+	if not _mesh:
+		_mesh = ArrayMesh.new()
+		_populate_mesh()
 
-	var mesh := ArrayMesh.new()
-	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
+	return _mesh
 
-	for target in _targets:
-		mesh.add_blend_shape(target.resource_path.get_file().get_basename())
 
-	var blend_shapes := _build_body_blend_shapes(
-		geometry,
-		surface.arrays[Mesh.ARRAY_VERTEX].size(),
-	)
+func get_attachment_mesh(attachment: MakeHumanAttachment) -> ArrayMesh:
+	if not attachment or not geometry:
+		return null
 
-	mesh.add_surface_from_arrays(
-		Mesh.PRIMITIVE_TRIANGLES,
-		surface.arrays,
-		blend_shapes,
-	)
-	mesh.surface_set_name(0, "Body")
+	var id = attachment.get_instance_id()
+	var entry: AttachmentEntry = _attachments.get(id)
+	var mesh := entry.get_mesh() if entry else null
+
+	if not mesh:
+		mesh = ArrayMesh.new()
+		_populate_attachment_mesh(mesh, attachment)
+		_attachments[id] = AttachmentEntry.new(mesh, attachment)
 
 	return mesh
 
 
-func build_attachment(attachment: MakeHumanAttachment) -> ArrayMesh:
-	assert(not _body_vertices.is_empty(), "body mesh should be built before the attachments")
+func _rebuild_meshes() -> void:
+	if geometry:
+		if _mesh:
+			_populate_mesh()
+
+		for id in _attachments:
+			var entry := _attachments[id]
+			var attachment := entry.get_attachment()
+			var mesh := entry.get_mesh()
+			if attachment and mesh:
+				_populate_attachment_mesh(mesh, attachment)
+
+	emit_changed()
+
+
+func _populate_mesh() -> void:
+	print("Building base mesh")
+	_mesh.clear_surfaces()
+	_mesh.clear_blend_shapes()
+	_mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
+
+	for target in targets:
+		_mesh.add_blend_shape(target.resource_path.get_file().get_basename())
+
+	var surface := _build_surface(geometry)
+	var blend_shapes := _build_body_blend_shapes(
+		surface.geometry_to_mesh,
+		surface.arrays[Mesh.ARRAY_VERTEX].size(),
+	)
+
+	_mesh.add_surface_from_arrays(
+		Mesh.PRIMITIVE_TRIANGLES,
+		surface.arrays,
+		blend_shapes,
+	)
+	_mesh.surface_set_name(0, "Body")
+
+
+func _populate_attachment_mesh(mesh: ArrayMesh, attachment: MakeHumanAttachment) -> void:
+	print("Building attachment ", attachment)
+	mesh.clear_surfaces()
+	mesh.clear_blend_shapes()
+	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
+
+	for target in targets:
+		mesh.add_blend_shape(target.resource_path.get_file().get_basename())
 
 	var attachment_vertices := _fit_attachment_vertices(
 		attachment,
-		_body_vertices,
+		geometry.vertices,
 	)
-	var surface := _build_surface(
-		attachment.geometry,
-		attachment_vertices,
-	)
-
-	var mesh := ArrayMesh.new()
-	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
-
-	for target in _targets:
-		mesh.add_blend_shape(
-			target.resource_path.get_file().get_basename(),
-		)
-
+	var surface := _build_surface(attachment.geometry, attachment_vertices)
 	var blend_shapes := _build_attachment_blend_shapes(
 		attachment,
 		surface.geometry_to_mesh,
@@ -249,19 +299,18 @@ func build_attachment(attachment: MakeHumanAttachment) -> ArrayMesh:
 	)
 	mesh.surface_set_name(0, attachment.name)
 
-	return mesh
 
-
-func _build_body_blend_shapes(geometry: MakeHumanGeometry, vertex_count: int) -> Array:
+func _build_body_blend_shapes(
+		geometry_to_mesh: Array[PackedInt32Array],
+		vertex_count: int,
+) -> Array:
 	var blend_shapes := []
-	for target in _targets:
+	for target in targets:
 		var deformed_vertices := geometry.vertices.duplicate()
 		for i in target.vertex_indices.size():
 			var vertex_index := target.vertex_indices[i]
-			if vertex_index >= _body_to_mesh.size():
-				continue
-
-			deformed_vertices[vertex_index] += target.offsets[i]
+			if vertex_index < deformed_vertices.size():
+				deformed_vertices[vertex_index] += target.offsets[i]
 
 		var deformed_normals := _generate_smooth_normals(deformed_vertices, geometry.quads)
 
@@ -271,8 +320,8 @@ func _build_body_blend_shapes(geometry: MakeHumanGeometry, vertex_count: int) ->
 		var shape_normals := PackedVector3Array()
 		shape_normals.resize(vertex_count)
 
-		for vertex_index in _body_to_mesh.size():
-			for mesh_vertex_index in _body_to_mesh[vertex_index]:
+		for vertex_index in geometry_to_mesh.size():
+			for mesh_vertex_index in geometry_to_mesh[vertex_index]:
 				shape_normals[mesh_vertex_index] = deformed_normals[vertex_index]
 				shape_vertices[mesh_vertex_index] = deformed_vertices[vertex_index]
 
@@ -288,31 +337,28 @@ func _build_body_blend_shapes(geometry: MakeHumanGeometry, vertex_count: int) ->
 
 func _build_attachment_blend_shapes(
 		attachment: MakeHumanAttachment,
-		attachment_to_mesh: Array[PackedInt32Array],
-		mesh_vertex_count: int,
+		geometry_to_mesh: Array[PackedInt32Array],
+		vertex_count: int,
 ) -> Array:
 	var blend_shapes := []
-	for target in _targets:
-		var deformed_body_vertices := _body_vertices.duplicate()
-
+	for target in targets:
+		var deformed_body_vertices := geometry.vertices.duplicate()
 		for i in target.vertex_indices.size():
 			var body_vertex_index := target.vertex_indices[i]
-			if body_vertex_index >= deformed_body_vertices.size():
-				continue
-
-			deformed_body_vertices[body_vertex_index] += target.offsets[i]
+			if body_vertex_index < deformed_body_vertices.size():
+				deformed_body_vertices[body_vertex_index] += target.offsets[i]
 
 		var deformed_vertices := _fit_attachment_vertices(attachment, deformed_body_vertices)
 		var deformed_normals := _generate_smooth_normals(deformed_vertices, attachment.geometry.quads)
 
 		var shape_vertices := PackedVector3Array()
-		shape_vertices.resize(mesh_vertex_count)
+		shape_vertices.resize(vertex_count)
 
 		var shape_normals := PackedVector3Array()
-		shape_normals.resize(mesh_vertex_count)
+		shape_normals.resize(vertex_count)
 
-		for vertex_index in attachment_to_mesh.size():
-			for mesh_vertex_index in attachment_to_mesh[vertex_index]:
+		for vertex_index in geometry_to_mesh.size():
+			for mesh_vertex_index in geometry_to_mesh[vertex_index]:
 				shape_vertices[mesh_vertex_index] = deformed_vertices[vertex_index]
 				shape_normals[mesh_vertex_index] = deformed_normals[vertex_index]
 
@@ -323,6 +369,27 @@ func _build_attachment_blend_shapes(
 		blend_shapes.append(shape)
 
 	return blend_shapes
+
+
+class AttachmentEntry:
+	var _mesh: WeakRef
+	var _attachment: WeakRef
+
+
+	func _init(
+			mesh: ArrayMesh,
+			attachment: MakeHumanAttachment,
+	) -> void:
+		_mesh = weakref(mesh)
+		_attachment = weakref(attachment)
+
+
+	func get_mesh() -> ArrayMesh:
+		return _mesh.get_ref() as ArrayMesh
+
+
+	func get_attachment() -> MakeHumanAttachment:
+		return _attachment.get_ref() as MakeHumanAttachment
 
 
 class SurfaceBuildData:

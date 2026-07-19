@@ -1,11 +1,23 @@
 [gd_scene format=3 uid="uid://btv6l1574un8"]
 
-[ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://characters/human/instance.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b2252k7j67cgr" path="res://addons/make_human/base_instance.gd" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://cei1nhbrq8lrc" path="res://characters/human/mh08.tres" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://csktcojttu6o5" path="res://addons/make_human/attachment_instance.gd" id="3_1bvp3"]
+[ext_resource type="Resource" uid="uid://cqjj6e30c48hp" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo" id="4_lquwl"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
-[node name="MakeHumanInstance" type="MeshInstance3D" parent="." unique_id=1960018182]
+[node name="MakeHumanBaseInstance" type="MeshInstance3D" parent="." unique_id=140829650]
 blend_shapes/buttocks-volume-incr = 0.0
 blend_shapes/nose-scale-vert-incr = 0.0
 script = ExtResource("1_ig7tw")
-metadata/_custom_type_script = "uid://cwil141xwoe0w"
+base = ExtResource("2_0xm2m")
+metadata/_custom_type_script = "uid://b2252k7j67cgr"
+
+[node name="MakeHumanAttachmentInstance" type="MeshInstance3D" parent="MakeHumanBaseInstance" unique_id=412281353]
+blend_shapes/buttocks-volume-incr = 0.0
+blend_shapes/nose-scale-vert-incr = 0.0
+script = ExtResource("3_1bvp3")
+base = ExtResource("2_0xm2m")
+attachment = ExtResource("4_lquwl")
+metadata/_custom_type_script = "uid://csktcojttu6o5"
