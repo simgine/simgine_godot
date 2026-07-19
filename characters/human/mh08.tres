@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MakeHumanBase" format=3 uid="uid://cei1nhbrq8lrc"]
+
+[ext_resource type="Resource" uid="uid://cq4l65kp7fx6a" path="res://characters/human/assets/3dobjs/base.obj" id="1_3ypqq"]
+[ext_resource type="Script" uid="uid://wbo3sn1njtlw" path="res://addons/make_human/base.gd" id="1_6vhn5"]
+[ext_resource type="Script" uid="uid://cjexrci76duhv" path="res://addons/make_human/target/target.gd" id="2_hobls"]
+[ext_resource type="Resource" uid="uid://cspvi2tntycks" path="res://characters/human/assets/targets/buttocks-volume-incr.target" id="4_wxdg5"]
+[ext_resource type="Resource" uid="uid://b5bnxmos6jnyw" path="res://characters/human/assets/targets/nose-scale-vert-incr.target" id="5_qo1jo"]
+
+[resource]
+script = ExtResource("1_6vhn5")
+geometry = ExtResource("1_3ypqq")
+targets = Array[ExtResource("2_hobls")]([ExtResource("4_wxdg5"), ExtResource("5_qo1jo")])
+metadata/_custom_type_script = "uid://wbo3sn1njtlw"
