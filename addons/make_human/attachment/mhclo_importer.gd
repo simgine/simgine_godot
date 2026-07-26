@@ -94,14 +94,14 @@ func _import(
 			"uuid":
 				pass
 			"obj_file":
-				var path = base_dir.path_join(value)
+				var path := base_dir.path_join(value)
 				var geometry := ResourceLoader.load(path, "MHGeometry") as MHGeometry
 				if geometry != null:
 					attachment.geometry = geometry
 				else:
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
-				var path = base_dir.path_join(value)
+				var path := base_dir.path_join(value)
 				var material := ResourceLoader.load(path, "MHMaterial") as MHMaterial
 				if material != null:
 					attachment.material = material
@@ -146,7 +146,7 @@ func _import(
 	return ResourceSaver.save(attachment, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_comment_meta(line: String, attachment: MHAttachment):
+func _parse_comment_meta(line: String, attachment: MHAttachment) -> void:
 	var comment := line.substr(1).strip_edges()
 	var separator := comment.find(" ")
 	if separator == -1:
