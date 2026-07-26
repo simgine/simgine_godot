@@ -3,10 +3,10 @@ extends EditorPlugin
 
 const ASSETS_DIR_SETTING := "make_human/general/assets"
 
-var _obj_importer := MakeHumanObjImporter.new()
-var _target_importer := MakeHumanTargetImporter.new()
-var _mhmat_importer := MakeHumanMhmatImporter.new()
-var _mhclo_importer := MakeHumanMhcloImporter.new()
+var _obj_importer := MHObjImporter.new()
+var _target_importer := MHTargetImporter.new()
+var _mhmat_importer := MHMatImporter.new()
+var _mhclo_importer := MHCloImporter.new()
 
 
 func _enter_tree() -> void:

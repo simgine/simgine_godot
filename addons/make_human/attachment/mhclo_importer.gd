@@ -1,4 +1,4 @@
-class_name MakeHumanMhcloImporter
+class_name MHCloImporter
 extends EditorImportPlugin
 ## Importer for MakeHuman `.mhclo` files.
 ##
@@ -54,7 +54,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 
 	var section := Section.NONE
 	var base_dir := source_file.get_base_dir()
-	var attachment := MakeHumanAttachment.new()
+	var attachment := MHAttachment.new()
 	var line_index := 0
 	while not file.eof_reached():
 		line_index += 1
@@ -87,14 +87,14 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 				pass
 			"obj_file":
 				var path = base_dir.path_join(value)
-				var geometry := ResourceLoader.load(path, "MakeHumanGeometry") as MakeHumanGeometry
+				var geometry := ResourceLoader.load(path, "MHGeometry") as MHGeometry
 				if geometry != null:
 					attachment.geometry = geometry
 				else:
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
 				var path = base_dir.path_join(value)
-				var material := ResourceLoader.load(path, "MakeHumanMaterial") as MakeHumanMaterial
+				var material := ResourceLoader.load(path, "MHMaterial") as MHMaterial
 				if material != null:
 					attachment.material = material
 				else:
@@ -138,7 +138,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 	return ResourceSaver.save(attachment, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_comment_meta(line: String, attachment: MakeHumanAttachment):
+func _parse_comment_meta(line: String, attachment: MHAttachment):
 	var comment := line.substr(1).strip_edges()
 	var separator := comment.find(" ")
 	if separator == -1:
@@ -156,13 +156,13 @@ func _parse_comment_meta(line: String, attachment: MakeHumanAttachment):
 			pass
 
 
-func _parse_scale(value: String, line_index: int) -> MakeHumanScale:
+func _parse_scale(value: String, line_index: int) -> MHScale:
 	var parts := value.split(" ", false)
 	if parts.size() != 3:
 		push_error("Invalid X scale at %d: '%s'" % [line_index, value])
 		return null
 
-	var scale := MakeHumanScale.new()
+	var scale := MHScale.new()
 	scale.min_vertex = parts[0].to_int()
 	scale.max_vertex = parts[1].to_int()
 	scale.factor = parts[2].to_float()
@@ -171,7 +171,7 @@ func _parse_scale(value: String, line_index: int) -> MakeHumanScale:
 
 func _parse_vertex_mapping(
 		line: String,
-		attachment: MakeHumanAttachment,
+		attachment: MHAttachment,
 ) -> bool:
 	var parts := line.split(" ", false)
 	match parts.size():

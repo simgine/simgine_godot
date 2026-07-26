@@ -1,4 +1,4 @@
-class_name MakeHumanGeometry
+class_name MHGeometry
 extends Resource
 ## Raw MakeHuman mesh data imported from OBJ.
 ##
@@ -13,4 +13,4 @@ extends Resource
 
 @export_storage var vertices: PackedVector3Array
 @export_storage var uvs: PackedVector2Array
-@export_storage var quads: Array[MakeHumanQuad]
+@export_storage var quads: Array[MHQuad]

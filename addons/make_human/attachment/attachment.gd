@@ -1,4 +1,4 @@
-class_name MakeHumanAttachment
+class_name MHAttachment
 extends Resource
 ## Metadata and geometry for a mesh that is fitted to and deforms with the
 ## body mesh.
@@ -21,19 +21,19 @@ extends Resource
 ## But its vertex positions are ignored. Instead, each attachment
 ## vertex position is reconstructed from the body using the fitting data in
 ## this resource.
-@export var geometry: MakeHumanGeometry
+@export var geometry: MHGeometry
 ## Material loaded from the attachment's referenced `.mhmat` file.
-@export var material: MakeHumanMaterial
+@export var material: MHMaterial
 ## Defines how attachment offsets are scaled along the X axis as the body
 ## changes shape.
 ##
 ## The scale is calculated from the distance between two selected body
 ## vertices relative to the reference distance stored in the `.mhclo` file.
-@export var x_scale: MakeHumanScale
+@export var x_scale: MHScale
 ## Like [member x_scale], but for Y axis.
-@export var y_scale: MakeHumanScale
+@export var y_scale: MHScale
 ## Like [member x_scale], but for Z axis.
-@export var z_scale: MakeHumanScale
+@export var z_scale: MHScale
 ## Stacking depth used to determine the attachment's order relative to the
 ## body and other attachments.
 ##

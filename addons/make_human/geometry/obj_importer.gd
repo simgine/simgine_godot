@@ -1,4 +1,4 @@
-class_name MakeHumanObjImporter
+class_name MHObjImporter
 extends EditorImportPlugin
 ## Importer for MakeHuman `.obj` files.
 ##
@@ -57,7 +57,7 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 		return ERR_PARSE_ERROR
 
 	var mode: ImportMode = options.mode
-	var geometry := MakeHumanGeometry.new()
+	var geometry := MHGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
 	while not file.eof_reached():
@@ -116,8 +116,8 @@ func _import(source_file: String, save_path: String, options: Dictionary, _platf
 	return ResourceSaver.save(geometry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_quad(parts: PackedStringArray, line_index: int) -> MakeHumanQuad:
-	var quad := MakeHumanQuad.new()
+func _parse_quad(parts: PackedStringArray, line_index: int) -> MHQuad:
+	var quad := MHQuad.new()
 	for i in range(1, parts.size()):
 		var corner = parts[i]
 		var items := corner.split("/")
