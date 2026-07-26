@@ -7,7 +7,6 @@ extends Resource
 ## All built meshes are cached. Since it's a resource,
 ## all instances with the same resource will share these meshes.
 
-@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_meshes := _rebuild_meshes
 @export var targets: Array[MHTarget]:
 	set(value):
 		targets = value
@@ -16,6 +15,8 @@ extends Resource
 	set(value):
 		geometry = value
 		_rebuild_meshes()
+
+@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_meshes := _rebuild_meshes
 
 ## Cached base mesh.
 var _mesh: ArrayMesh
@@ -152,10 +153,11 @@ static func _fit_attachment_vertices(
 		var offset := attachment.offsets[vertex_index]
 
 		# Barycentric position relative to the referenced body vertices.
-		var position := (
-			body_vertices[ref_a] * weights.x + body_vertices[ref_b] * weights.y
-			+ body_vertices[ref_c] * weights.z
-		)
+		var weighted_a := body_vertices[ref_a] * weights.x
+		var weighted_b := body_vertices[ref_b] * weights.y
+		var weighted_c := body_vertices[ref_c] * weights.z
+
+		var position := weighted_a + weighted_b + weighted_c
 
 		var scaled_offset := Vector3(
 			offset.x * offset_scale.x,
