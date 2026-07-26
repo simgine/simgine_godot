@@ -108,33 +108,33 @@ func _import(
 				pass
 			# Textures
 			"diffuseTexture", "diffusemapTexture", "albedoTexture", "albedoMapTexture", "basecolorTexture", "basecolorMapTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.albedo_texture = texture
 			"bumpmapTexture", "bumpTexture":
 				pass
 			"normalmapTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.normal_enabled = true
 					material.normal_texture = texture
 			"displacementmapTexture", "specularmapTexture", "transmissionmapTexture", "opacitymapTexture", "opacityTexture", "opacityMapTexture":
 				pass
 			"roughnessmapTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.roughness_texture = texture
 			"metallicmapTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.metallic_texture = texture
 			"aomapTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.ao_enabled = true
 					material.ao_texture = texture
 			"emissionColorMapTexture", "emissiveTexture", "emissionTexture":
-				var texture = _load_texture(base_dir, value, line_index)
+				var texture := _load_texture(base_dir, value, line_index)
 				if texture:
 					material.emission_enabled = true
 					material.emission_texture = texture
@@ -210,7 +210,7 @@ func _import(
 
 
 func _load_texture(base_dir: String, value: String, line_index: int) -> Texture2D:
-	var path = base_dir.path_join(value)
+	var path := base_dir.path_join(value)
 	var texture := ResourceLoader.load(path, "Texture2D") as Texture2D
 	if texture == null:
 		push_error("Could not load texture '%s' at %d" % [path, line_index])

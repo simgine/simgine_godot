@@ -115,7 +115,7 @@ func _import(
 					push_error("Unsupported face at %d: '%s'" % [line_index, line])
 					continue
 
-				var quad = _parse_quad(parts, line_index)
+				var quad := _parse_quad(parts, line_index)
 				if quad:
 					geometry.quads.push_back(quad)
 			_:
@@ -127,7 +127,7 @@ func _import(
 func _parse_quad(parts: PackedStringArray, line_index: int) -> MHQuad:
 	var quad := MHQuad.new()
 	for i in range(1, parts.size()):
-		var corner = parts[i]
+		var corner := parts[i]
 		var items := corner.split("/")
 		if items.size() != 2:
 			push_error("Unsupported corner at %d: '%s'" % [line_index, corner])
