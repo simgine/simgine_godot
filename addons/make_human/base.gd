@@ -35,7 +35,10 @@ var _attachments: Dictionary[int, AttachmentEntry]
 ##
 ## Separate positions are needed for attachments because their positions are
 ## reconstructed from body vertices rather than taken from their geometry.
-static func _build_surface(surface_geometry: MHGeometry, vertices_override := PackedVector3Array()) -> SurfaceBuildData:
+static func _build_surface(
+	surface_geometry: MHGeometry,
+	vertices_override := PackedVector3Array(),
+) -> SurfaceBuildData:
 	var vertices := surface_geometry.vertices if vertices_override.is_empty() else vertices_override
 
 	var mesh_vertices := PackedVector3Array()
@@ -88,8 +91,8 @@ static func _build_surface(surface_geometry: MHGeometry, vertices_override := Pa
 
 ## Builds area-weighted smooth normals for the geometry vertices.
 static func _generate_smooth_normals(
-		vertices: PackedVector3Array,
-		quads: Array[MHQuad],
+	vertices: PackedVector3Array,
+	quads: Array[MHQuad],
 ) -> PackedVector3Array:
 	var normals := PackedVector3Array()
 	normals.resize(vertices.size())
@@ -104,17 +107,13 @@ static func _generate_smooth_normals(
 		# outward-facing normals.
 
 		# Triangle 1: 0, 1, 2.
-		var normal_1 := (vertices[i1] - vertices[i0]).cross(
-			vertices[i2] - vertices[i0],
-		)
+		var normal_1 := (vertices[i1] - vertices[i0]).cross(vertices[i2] - vertices[i0])
 		normals[i0] += normal_1
 		normals[i2] += normal_1
 		normals[i1] += normal_1
 
 		# Triangle 2: 0, 2, 3.
-		var normal_2 := (vertices[i2] - vertices[i0]).cross(
-			vertices[i3] - vertices[i0],
-		)
+		var normal_2 := (vertices[i2] - vertices[i0]).cross(vertices[i3] - vertices[i0])
 		normals[i0] += normal_2
 		normals[i3] += normal_2
 		normals[i2] += normal_2
@@ -130,8 +129,8 @@ static func _generate_smooth_normals(
 
 ## Reconstructs the attachment vertex positions for the current body shape.
 static func _fit_attachment_vertices(
-		attachment: MHAttachment,
-		body_vertices: PackedVector3Array,
+	attachment: MHAttachment,
+	body_vertices: PackedVector3Array,
 ) -> PackedVector3Array:
 	var vertex_count := attachment.ref_a.size()
 	assert(attachment.ref_b.size() == vertex_count)
@@ -140,10 +139,7 @@ static func _fit_attachment_vertices(
 	assert(attachment.offsets.size() == vertex_count)
 	assert(attachment.geometry.vertices.size() == 0)
 
-	var offset_scale := _get_attachment_offset_scale(
-		attachment,
-		body_vertices,
-	)
+	var offset_scale := _get_attachment_offset_scale(attachment, body_vertices)
 
 	var vertices := PackedVector3Array()
 	vertices.resize(vertex_count)
@@ -157,9 +153,8 @@ static func _fit_attachment_vertices(
 
 		# Barycentric position relative to the referenced body vertices.
 		var position := (
-				body_vertices[ref_a] * weights.x
-				+ body_vertices[ref_b] * weights.y
-				+ body_vertices[ref_c] * weights.z
+			body_vertices[ref_a] * weights.x + body_vertices[ref_b] * weights.y
+			+ body_vertices[ref_c] * weights.z
 		)
 
 		var scaled_offset := Vector3(
@@ -174,32 +169,20 @@ static func _fit_attachment_vertices(
 
 
 static func _get_attachment_offset_scale(
-		attachment: MHAttachment,
-		body_vertices: PackedVector3Array,
+	attachment: MHAttachment,
+	body_vertices: PackedVector3Array,
 ) -> Vector3:
 	return Vector3(
-		_get_attachment_axis_scale(
-			attachment.x_scale,
-			body_vertices,
-			Vector3.AXIS_X,
-		),
-		_get_attachment_axis_scale(
-			attachment.y_scale,
-			body_vertices,
-			Vector3.AXIS_Y,
-		),
-		_get_attachment_axis_scale(
-			attachment.z_scale,
-			body_vertices,
-			Vector3.AXIS_Z,
-		),
+		_get_attachment_axis_scale(attachment.x_scale, body_vertices, Vector3.AXIS_X),
+		_get_attachment_axis_scale(attachment.y_scale, body_vertices, Vector3.AXIS_Y),
+		_get_attachment_axis_scale(attachment.z_scale, body_vertices, Vector3.AXIS_Z),
 	)
 
 
 static func _get_attachment_axis_scale(
-		scale: MHScale,
-		body_vertices: PackedVector3Array,
-		axis: int,
+	scale: MHScale,
+	body_vertices: PackedVector3Array,
+	axis: int,
 ) -> float:
 	assert(not is_zero_approx(scale.factor))
 	var minimum := body_vertices[scale.min_vertex][axis]
@@ -264,11 +247,7 @@ func _populate_mesh() -> void:
 		surface.arrays[Mesh.ARRAY_VERTEX].size(),
 	)
 
-	_mesh.add_surface_from_arrays(
-		Mesh.PRIMITIVE_TRIANGLES,
-		surface.arrays,
-		blend_shapes,
-	)
+	_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface.arrays, blend_shapes)
 	_mesh.surface_set_name(0, "Body")
 
 
@@ -281,10 +260,7 @@ func _populate_attachment_mesh(mesh: ArrayMesh, attachment: MHAttachment) -> voi
 	for target in targets:
 		mesh.add_blend_shape(target.resource_path.get_file().get_basename())
 
-	var attachment_vertices := _fit_attachment_vertices(
-		attachment,
-		geometry.vertices,
-	)
+	var attachment_vertices := _fit_attachment_vertices(attachment, geometry.vertices)
 	var surface := _build_surface(attachment.geometry, attachment_vertices)
 	var blend_shapes := _build_attachment_blend_shapes(
 		attachment,
@@ -292,17 +268,13 @@ func _populate_attachment_mesh(mesh: ArrayMesh, attachment: MHAttachment) -> voi
 		surface.arrays[Mesh.ARRAY_VERTEX].size(),
 	)
 
-	mesh.add_surface_from_arrays(
-		Mesh.PRIMITIVE_TRIANGLES,
-		surface.arrays,
-		blend_shapes,
-	)
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface.arrays, blend_shapes)
 	mesh.surface_set_name(0, attachment.name)
 
 
 func _build_body_blend_shapes(
-		geometry_to_mesh: Array[PackedInt32Array],
-		vertex_count: int,
+	geometry_to_mesh: Array[PackedInt32Array],
+	vertex_count: int,
 ) -> Array:
 	var blend_shapes := []
 	for target in targets:
@@ -336,9 +308,9 @@ func _build_body_blend_shapes(
 
 
 func _build_attachment_blend_shapes(
-		attachment: MHAttachment,
-		geometry_to_mesh: Array[PackedInt32Array],
-		vertex_count: int,
+	attachment: MHAttachment,
+	geometry_to_mesh: Array[PackedInt32Array],
+	vertex_count: int,
 ) -> Array:
 	var blend_shapes := []
 	for target in targets:
@@ -349,7 +321,10 @@ func _build_attachment_blend_shapes(
 				deformed_body_vertices[body_vertex_index] += target.offsets[i]
 
 		var deformed_vertices := _fit_attachment_vertices(attachment, deformed_body_vertices)
-		var deformed_normals := _generate_smooth_normals(deformed_vertices, attachment.geometry.quads)
+		var deformed_normals := _generate_smooth_normals(
+			deformed_vertices,
+			attachment.geometry.quads,
+		)
 
 		var shape_vertices := PackedVector3Array()
 		shape_vertices.resize(vertex_count)
@@ -376,10 +351,7 @@ class AttachmentEntry:
 	var _attachment: WeakRef
 
 
-	func _init(
-			mesh: ArrayMesh,
-			attachment: MHAttachment,
-	) -> void:
+	func _init(mesh: ArrayMesh, attachment: MHAttachment) -> void:
 		_mesh = weakref(mesh)
 		_attachment = weakref(attachment)
 

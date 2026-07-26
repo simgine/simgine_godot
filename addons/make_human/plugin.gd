@@ -15,11 +15,7 @@ func _enter_tree() -> void:
 
 	ProjectSettings.set_initial_value(ASSETS_DIR_SETTING, "")
 	ProjectSettings.add_property_info(
-		{
-			"name": ASSETS_DIR_SETTING,
-			"type": TYPE_STRING,
-			"hint": PROPERTY_HINT_DIR,
-		},
+		{ "name": ASSETS_DIR_SETTING, "type": TYPE_STRING, "hint": PROPERTY_HINT_DIR },
 	)
 
 	add_import_plugin(_obj_importer)

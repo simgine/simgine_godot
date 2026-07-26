@@ -46,10 +46,18 @@ func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]
 	return []
 
 
-func _import(source_file: String, save_path: String, _options: Dictionary, _platform_variants: Array, _gen_files: Array) -> Error:
+func _import(
+	source_file: String,
+	save_path: String,
+	_options: Dictionary,
+	_platform_variants: Array,
+	_gen_files: Array,
+) -> Error:
 	var file := FileAccess.open(source_file, FileAccess.READ)
 	if not file:
-		push_error("Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())])
+		push_error(
+			"Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())]
+		)
 		return ERR_PARSE_ERROR
 
 	var section := Section.NONE
@@ -169,10 +177,7 @@ func _parse_scale(value: String, line_index: int) -> MHScale:
 	return scale
 
 
-func _parse_vertex_mapping(
-		line: String,
-		attachment: MHAttachment,
-) -> bool:
+func _parse_vertex_mapping(line: String, attachment: MHAttachment) -> bool:
 	var parts := line.split(" ", false)
 	match parts.size():
 		1:
@@ -190,19 +195,11 @@ func _parse_vertex_mapping(
 			attachment.ref_c.append(parts[2].to_int())
 
 			attachment.weights.append(
-				Vector3(
-					parts[3].to_float(),
-					parts[4].to_float(),
-					parts[5].to_float(),
-				),
+				Vector3(parts[3].to_float(), parts[4].to_float(), parts[5].to_float()),
 			)
 
 			attachment.offsets.append(
-				Vector3(
-					parts[6].to_float(),
-					parts[7].to_float(),
-					parts[8].to_float(),
-				),
+				Vector3(parts[6].to_float(), parts[7].to_float(), parts[8].to_float()),
 			)
 			return true
 		_:

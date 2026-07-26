@@ -33,10 +33,18 @@ func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]
 	return []
 
 
-func _import(source_file: String, save_path: String, _options: Dictionary, _platform_variants: Array, _gen_files: Array) -> Error:
+func _import(
+	source_file: String,
+	save_path: String,
+	_options: Dictionary,
+	_platform_variants: Array,
+	_gen_files: Array,
+) -> Error:
 	var file := FileAccess.open(source_file, FileAccess.READ)
 	if not file:
-		push_error("Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())])
+		push_error(
+			"Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())]
+		)
 		return ERR_PARSE_ERROR
 
 	var base_dir := source_file.get_base_dir()

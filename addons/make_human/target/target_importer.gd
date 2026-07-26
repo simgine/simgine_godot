@@ -33,10 +33,18 @@ func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]
 	return []
 
 
-func _import(source_file: String, save_path: String, _options: Dictionary, _platform_variants: Array, _gen_files: Array) -> Error:
+func _import(
+	source_file: String,
+	save_path: String,
+	_options: Dictionary,
+	_platform_variants: Array,
+	_gen_files: Array,
+) -> Error:
 	var bytes := FileAccess.get_file_as_bytes(source_file)
 	if FileAccess.get_open_error() != OK:
-		push_error("Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())])
+		push_error(
+			"Unable to open '%s': %s" % [source_file, error_string(FileAccess.get_open_error())]
+		)
 		return ERR_PARSE_ERROR
 
 	if source_file.get_extension().to_lower() == "gz":
@@ -60,11 +68,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 
 		target.vertex_indices.push_back(parts[0].to_int())
 		target.offsets.push_back(
-			Vector3(
-				parts[1].to_float(),
-				parts[2].to_float(),
-				parts[3].to_float(),
-			),
+			Vector3(parts[1].to_float(), parts[2].to_float(), parts[3].to_float()),
 		)
 
 	return ResourceSaver.save(target, "%s.%s" % [save_path, _get_save_extension()])
