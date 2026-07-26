@@ -1,5 +1,5 @@
 @tool
-class_name MakeHumanBase
+class_name MHBase
 extends Resource
 ## Base geometry with associated morphs.
 ##
@@ -8,11 +8,11 @@ extends Resource
 ## all instances with the same resource will share these meshes.
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_meshes := _rebuild_meshes
-@export var targets: Array[MakeHumanTarget]:
+@export var targets: Array[MHTarget]:
 	set(value):
 		targets = value
 		_rebuild_meshes()
-@export var geometry: MakeHumanGeometry:
+@export var geometry: MHGeometry:
 	set(value):
 		geometry = value
 		_rebuild_meshes()
@@ -21,7 +21,7 @@ extends Resource
 var _mesh: ArrayMesh
 ## Cached attachment meshes.
 ##
-## Maps the instance ID of a [MakeHumanAttachment] to weak references to the
+## Maps the instance ID of a [MHAttachment] to weak references to the
 ## mesh and attachment.
 ## Weak references are used to automatically invalidate the cached data once
 ## it is no longer in use. The entries themselves are not removed.
@@ -30,12 +30,12 @@ var _attachments: Dictionary[int, AttachmentEntry]
 
 ## Builds render surface arrays and records geometry to the surface vertices mapping.
 ##
-## Uses [member MakeHumanGeometry.vertices] when [param vertices_override] is empty.
+## Uses [member MHGeometry.vertices] when [param vertices_override] is empty.
 ## Otherwise, [param vertices_override] provides the vertex positions.
 ##
 ## Separate positions are needed for attachments because their positions are
 ## reconstructed from body vertices rather than taken from their geometry.
-static func _build_surface(surface_geometry: MakeHumanGeometry, vertices_override := PackedVector3Array()) -> SurfaceBuildData:
+static func _build_surface(surface_geometry: MHGeometry, vertices_override := PackedVector3Array()) -> SurfaceBuildData:
 	var vertices := surface_geometry.vertices if vertices_override.is_empty() else vertices_override
 
 	var mesh_vertices := PackedVector3Array()
@@ -89,7 +89,7 @@ static func _build_surface(surface_geometry: MakeHumanGeometry, vertices_overrid
 ## Builds area-weighted smooth normals for the geometry vertices.
 static func _generate_smooth_normals(
 		vertices: PackedVector3Array,
-		quads: Array[MakeHumanQuad],
+		quads: Array[MHQuad],
 ) -> PackedVector3Array:
 	var normals := PackedVector3Array()
 	normals.resize(vertices.size())
@@ -130,7 +130,7 @@ static func _generate_smooth_normals(
 
 ## Reconstructs the attachment vertex positions for the current body shape.
 static func _fit_attachment_vertices(
-		attachment: MakeHumanAttachment,
+		attachment: MHAttachment,
 		body_vertices: PackedVector3Array,
 ) -> PackedVector3Array:
 	var vertex_count := attachment.ref_a.size()
@@ -174,7 +174,7 @@ static func _fit_attachment_vertices(
 
 
 static func _get_attachment_offset_scale(
-		attachment: MakeHumanAttachment,
+		attachment: MHAttachment,
 		body_vertices: PackedVector3Array,
 ) -> Vector3:
 	return Vector3(
@@ -197,7 +197,7 @@ static func _get_attachment_offset_scale(
 
 
 static func _get_attachment_axis_scale(
-		scale: MakeHumanScale,
+		scale: MHScale,
 		body_vertices: PackedVector3Array,
 		axis: int,
 ) -> float:
@@ -218,7 +218,7 @@ func get_mesh() -> ArrayMesh:
 	return _mesh
 
 
-func get_attachment_mesh(attachment: MakeHumanAttachment) -> ArrayMesh:
+func get_attachment_mesh(attachment: MHAttachment) -> ArrayMesh:
 	if not attachment or not geometry:
 		return null
 
@@ -272,7 +272,7 @@ func _populate_mesh() -> void:
 	_mesh.surface_set_name(0, "Body")
 
 
-func _populate_attachment_mesh(mesh: ArrayMesh, attachment: MakeHumanAttachment) -> void:
+func _populate_attachment_mesh(mesh: ArrayMesh, attachment: MHAttachment) -> void:
 	print("Building attachment ", attachment)
 	mesh.clear_surfaces()
 	mesh.clear_blend_shapes()
@@ -336,7 +336,7 @@ func _build_body_blend_shapes(
 
 
 func _build_attachment_blend_shapes(
-		attachment: MakeHumanAttachment,
+		attachment: MHAttachment,
 		geometry_to_mesh: Array[PackedInt32Array],
 		vertex_count: int,
 ) -> Array:
@@ -378,7 +378,7 @@ class AttachmentEntry:
 
 	func _init(
 			mesh: ArrayMesh,
-			attachment: MakeHumanAttachment,
+			attachment: MHAttachment,
 	) -> void:
 		_mesh = weakref(mesh)
 		_attachment = weakref(attachment)
@@ -388,8 +388,8 @@ class AttachmentEntry:
 		return _mesh.get_ref() as ArrayMesh
 
 
-	func get_attachment() -> MakeHumanAttachment:
-		return _attachment.get_ref() as MakeHumanAttachment
+	func get_attachment() -> MHAttachment:
+		return _attachment.get_ref() as MHAttachment
 
 
 class SurfaceBuildData:

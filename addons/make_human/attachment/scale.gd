@@ -1,4 +1,4 @@
-class_name MakeHumanScale
+class_name MHScale
 extends Resource
 ## Defines how attachment offsets are scaled along one coordinate axis.
 ##

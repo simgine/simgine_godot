@@ -1,4 +1,4 @@
-class_name MakeHumanMaterial
+class_name MHMaterial
 extends StandardMaterial3D
 ## A material for use with MakeHuman meshes.
 ##

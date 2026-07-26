@@ -1,4 +1,4 @@
-class_name MakeHumanMhmatImporter
+class_name MHMatImporter
 extends EditorImportPlugin
 ## Importer for MakeHuman `.mhmat` files.
 ##
@@ -40,7 +40,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 		return ERR_PARSE_ERROR
 
 	var base_dir := source_file.get_base_dir()
-	var material := MakeHumanMaterial.new()
+	var material := MHMaterial.new()
 	var line_index := 0
 	while not file.eof_reached():
 		line_index += 1

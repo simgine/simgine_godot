@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MakeHumanBase" format=3 uid="uid://cei1nhbrq8lrc"]
+[gd_resource type="Resource" script_class="MHBase" format=3 uid="uid://cei1nhbrq8lrc"]
 
 [ext_resource type="Resource" uid="uid://cq4l65kp7fx6a" path="res://characters/human/assets/3dobjs/base.obj" id="1_3ypqq"]
 [ext_resource type="Script" uid="uid://wbo3sn1njtlw" path="res://addons/make_human/base.gd" id="1_6vhn5"]

@@ -1,10 +1,10 @@
 @tool
-class_name MakeHumanAttachmentInstance
+class_name MHAttachmentInstance
 extends MeshInstance3D
 
-@export var base: MakeHumanBase:
+@export var base: MHBase:
 	set = _set_base
-@export var attachment: MakeHumanAttachment:
+@export var attachment: MHAttachment:
 	set(value):
 		if attachment != value:
 			attachment = value
@@ -21,7 +21,7 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NONE
 
 
-func _set_base(value: MakeHumanBase) -> void:
+func _set_base(value: MHBase) -> void:
 	if base == value:
 		return
 

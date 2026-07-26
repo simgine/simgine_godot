@@ -1,8 +1,8 @@
 @tool
-class_name MakeHumanBaseInstance
+class_name MHBaseInstance
 extends MeshInstance3D
 
-@export var base: MakeHumanBase:
+@export var base: MHBase:
 	set = _set_base
 
 
@@ -12,7 +12,7 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NONE
 
 
-func _set_base(value: MakeHumanBase) -> void:
+func _set_base(value: MHBase) -> void:
 	if base == value:
 		return
 

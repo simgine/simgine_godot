@@ -1,4 +1,4 @@
-class_name MakeHumanQuad
+class_name MHQuad
 extends Resource
 
 @export_storage var vertex_indices: PackedInt32Array

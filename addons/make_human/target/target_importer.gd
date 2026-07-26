@@ -1,4 +1,4 @@
-class_name MakeHumanTargetImporter
+class_name MHTargetImporter
 extends EditorImportPlugin
 ## Importer for MakeHuman `.target` files.
 ##
@@ -44,7 +44,7 @@ func _import(source_file: String, save_path: String, _options: Dictionary, _plat
 
 	var text := bytes.get_string_from_utf8()
 
-	var target := MakeHumanTarget.new()
+	var target := MHTarget.new()
 	var line_index := 0
 	for line in text.split("\n", false):
 		line_index += 1

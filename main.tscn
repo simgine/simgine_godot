@@ -7,14 +7,14 @@
 
 [node name="Main" type="Node" unique_id=1601018697]
 
-[node name="MakeHumanBaseInstance" type="MeshInstance3D" parent="." unique_id=140829650]
+[node name="MHBaseInstance" type="MeshInstance3D" parent="." unique_id=140829650]
 blend_shapes/buttocks-volume-incr = 0.0
 blend_shapes/nose-scale-vert-incr = 0.0
 script = ExtResource("1_ig7tw")
 base = ExtResource("2_0xm2m")
 metadata/_custom_type_script = "uid://b2252k7j67cgr"
 
-[node name="MakeHumanAttachmentInstance" type="MeshInstance3D" parent="MakeHumanBaseInstance" unique_id=412281353]
+[node name="MHAttachmentInstance" type="MeshInstance3D" parent="MHBaseInstance" unique_id=412281353]
 blend_shapes/buttocks-volume-incr = 0.0
 blend_shapes/nose-scale-vert-incr = 0.0
 script = ExtResource("3_1bvp3")
