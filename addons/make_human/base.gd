@@ -207,7 +207,7 @@ func get_attachment_mesh(attachment: MHAttachment) -> ArrayMesh:
 	if not attachment or not geometry:
 		return null
 
-	var id = attachment.get_instance_id()
+	var id := attachment.get_instance_id()
 	var entry: AttachmentEntry = _attachments.get(id)
 	var mesh := entry.get_mesh() if entry else null
 
