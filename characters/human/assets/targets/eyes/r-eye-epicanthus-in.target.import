@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cu7a7y5uihafd"
+path="res://.godot/imported/r-eye-epicanthus-in.target-1e6e776d7c2a283ee972d2713eaa5c18.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/r-eye-epicanthus-in.target"
+dest_files=["res://.godot/imported/r-eye-epicanthus-in.target-1e6e776d7c2a283ee972d2713eaa5c18.res"]
+
+[params]
+

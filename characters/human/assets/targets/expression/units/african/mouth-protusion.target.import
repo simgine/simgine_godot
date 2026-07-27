@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dis3h36p0uju5"
+path="res://.godot/imported/mouth-protusion.target-427c29eac534339e5a3d37b72b89fbb9.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/mouth-protusion.target"
+dest_files=["res://.godot/imported/mouth-protusion.target-427c29eac534339e5a3d37b72b89fbb9.res"]
+
+[params]
+

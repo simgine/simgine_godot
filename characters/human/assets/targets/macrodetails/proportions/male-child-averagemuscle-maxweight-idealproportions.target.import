@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bh3lpua0gy3p7"
+path="res://.godot/imported/male-child-averagemuscle-maxweight-idealproportions.target-ea18a14ba0e056f1ed2ad5701fdb320b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/male-child-averagemuscle-maxweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-child-averagemuscle-maxweight-idealproportions.target-ea18a14ba0e056f1ed2ad5701fdb320b.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://2sxroqugrfwf"
+path="res://.godot/imported/mouth-corner-puller.target-22a43eb556f6fa58af6baccafaf7be3b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/mouth-corner-puller.target"
+dest_files=["res://.godot/imported/mouth-corner-puller.target-22a43eb556f6fa58af6baccafaf7be3b.res"]
+
+[params]
+

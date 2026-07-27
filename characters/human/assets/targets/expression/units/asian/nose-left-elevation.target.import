@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://2i7q3dkr2o07"
+path="res://.godot/imported/nose-left-elevation.target-5567fed34b5a1a54f468036a6bd2006f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/asian/nose-left-elevation.target"
+dest_files=["res://.godot/imported/nose-left-elevation.target-5567fed34b5a1a54f468036a6bd2006f.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://de8vnypnfrqnj"
+path="res://.godot/imported/measure-bust-circ-incr.target-02034f389d264e199f33dfc4850fc3e3.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/measure-bust-circ-incr.target"
+dest_files=["res://.godot/imported/measure-bust-circ-incr.target-02034f389d264e199f33dfc4850fc3e3.res"]
+
+[params]
+

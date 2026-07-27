@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://2y85asq43xhh"
+path="res://.godot/imported/neck-double-incr.target-59b3b9cf330d76f6bf3854b83da492b5.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/neck-double-incr.target"
+dest_files=["res://.godot/imported/neck-double-incr.target-59b3b9cf330d76f6bf3854b83da492b5.res"]
+
+[params]
+

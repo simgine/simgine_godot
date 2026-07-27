@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://et58oowsr58e"
+path="res://.godot/imported/male-old-averagemuscle-maxweight-minheight.target-b08076126be49d62092922fe49c6abeb.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/male-old-averagemuscle-maxweight-minheight.target"
+dest_files=["res://.godot/imported/male-old-averagemuscle-maxweight-minheight.target-b08076126be49d62092922fe49c6abeb.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d2fdmreitvl0u"
+path="res://.godot/imported/forehead-temple-incr.target-e9e4e258c124975831f44ddcfa525f05.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/forehead/forehead-temple-incr.target"
+dest_files=["res://.godot/imported/forehead-temple-incr.target-e9e4e258c124975831f44ddcfa525f05.res"]
+
+[params]
+

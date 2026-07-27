@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://da3r7svg7gp4d"
+path="res://.godot/imported/l-foot-scale-horiz-incr.target-d3e01f062c521702bea294ab5174ab5a.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/feet/l-foot-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/l-foot-scale-horiz-incr.target-d3e01f062c521702bea294ab5174ab5a.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dsr6klxwikwno"
+path="res://.godot/imported/l-eye-height2-incr.target-cc7bb8b4fc9cca6889f97334280606d4.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-height2-incr.target"
+dest_files=["res://.godot/imported/l-eye-height2-incr.target-cc7bb8b4fc9cca6889f97334280606d4.res"]
+
+[params]
+

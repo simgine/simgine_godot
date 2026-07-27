@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bdukc41t1w0dd"
+path="res://.godot/imported/l-ear-trans-forward.target-447123b896b6fbf7e0f539754e25ac15.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/l-ear-trans-forward.target"
+dest_files=["res://.godot/imported/l-ear-trans-forward.target-447123b896b6fbf7e0f539754e25ac15.res"]
+
+[params]
+

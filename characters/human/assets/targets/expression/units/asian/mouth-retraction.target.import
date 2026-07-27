@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dpvdelklj5gvd"
+path="res://.godot/imported/mouth-retraction.target-620f3b5b0381bdd6964bee20e647831e.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/asian/mouth-retraction.target"
+dest_files=["res://.godot/imported/mouth-retraction.target-620f3b5b0381bdd6964bee20e647831e.res"]
+
+[params]
+

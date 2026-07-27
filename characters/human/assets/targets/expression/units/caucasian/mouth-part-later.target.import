@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bhanjr3u3worp"
+path="res://.godot/imported/mouth-part-later.target-e0299791d32f815ca53120c48a3c82c4.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/mouth-part-later.target"
+dest_files=["res://.godot/imported/mouth-part-later.target-e0299791d32f815ca53120c48a3c82c4.res"]
+
+[params]
+

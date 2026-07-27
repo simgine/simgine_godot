@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://diph5ukinr16b"
+path="res://.godot/imported/female-old-minmuscle-maxweight-maxheight.target-2f5147d55ac8870f471a2311fd321cc9.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/female-old-minmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/female-old-minmuscle-maxweight-maxheight.target-2f5147d55ac8870f471a2311fd321cc9.res"]
+
+[params]
+

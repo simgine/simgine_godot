@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cm11gxo0owe8y"
+path="res://.godot/imported/head-angle-in.target-72551fd30dc9c883211291e64d05fff1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-angle-in.target"
+dest_files=["res://.godot/imported/head-angle-in.target-72551fd30dc9c883211291e64d05fff1.res"]
+
+[params]
+

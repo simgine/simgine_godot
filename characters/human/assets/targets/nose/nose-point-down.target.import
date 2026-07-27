@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://4cqmhte7ge4t"
+path="res://.godot/imported/nose-point-down.target-d28cbab46d1bc7f41b37f0c45aba8a3e.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-point-down.target"
+dest_files=["res://.godot/imported/nose-point-down.target-d28cbab46d1bc7f41b37f0c45aba8a3e.res"]
+
+[params]
+

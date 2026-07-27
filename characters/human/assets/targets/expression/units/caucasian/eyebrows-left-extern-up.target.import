@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://emcph7sh2efi"
+path="res://.godot/imported/eyebrows-left-extern-up.target-acbf82d983e253a0195ef2434f36f286.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eyebrows-left-extern-up.target"
+dest_files=["res://.godot/imported/eyebrows-left-extern-up.target-acbf82d983e253a0195ef2434f36f286.res"]
+
+[params]
+

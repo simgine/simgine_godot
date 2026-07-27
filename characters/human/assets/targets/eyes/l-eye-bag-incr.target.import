@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c5wvhqujhxu3o"
+path="res://.godot/imported/l-eye-bag-incr.target-ce7295329d5068fced75d0677f0824d0.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-bag-incr.target"
+dest_files=["res://.godot/imported/l-eye-bag-incr.target-ce7295329d5068fced75d0677f0824d0.res"]
+
+[params]
+

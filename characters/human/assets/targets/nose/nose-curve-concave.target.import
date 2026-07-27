@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d3qox0bvcomyv"
+path="res://.godot/imported/nose-curve-concave.target-dd952ca286313b36d71361eecbe744b6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-curve-concave.target"
+dest_files=["res://.godot/imported/nose-curve-concave.target-dd952ca286313b36d71361eecbe744b6.res"]
+
+[params]
+

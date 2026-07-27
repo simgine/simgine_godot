@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b4n8mpbjf7wdg"
+path="res://.godot/imported/r-upperarm-muscle-decr.target-05a5f743fa5875d72c053ce3e4d3d833.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/r-upperarm-muscle-decr.target"
+dest_files=["res://.godot/imported/r-upperarm-muscle-decr.target-05a5f743fa5875d72c053ce3e4d3d833.res"]
+
+[params]
+

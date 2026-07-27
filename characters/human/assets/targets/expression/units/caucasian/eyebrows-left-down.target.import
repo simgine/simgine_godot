@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dgdjwj6uxsmg2"
+path="res://.godot/imported/eyebrows-left-down.target-096828651453f94001141457ef403f59.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eyebrows-left-down.target"
+dest_files=["res://.godot/imported/eyebrows-left-down.target-096828651453f94001141457ef403f59.res"]
+
+[params]
+

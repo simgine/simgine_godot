@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cec8r3jdqycag"
+path="res://.godot/imported/female-old-averagemuscle-maxweight-maxheight.target-6cff9364af0eff31cecadf12af8cfdc2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/female-old-averagemuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-maxweight-maxheight.target-6cff9364af0eff31cecadf12af8cfdc2.res"]
+
+[params]
+

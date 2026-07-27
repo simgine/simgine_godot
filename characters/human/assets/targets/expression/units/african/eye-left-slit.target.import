@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cskwwswrjx831"
+path="res://.godot/imported/eye-left-slit.target-2434da5d909b9659b43c3d48cf6bc83f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/eye-left-slit.target"
+dest_files=["res://.godot/imported/eye-left-slit.target-2434da5d909b9659b43c3d48cf6bc83f.res"]
+
+[params]
+

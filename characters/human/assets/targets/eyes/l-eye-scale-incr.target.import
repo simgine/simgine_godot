@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dldxartk3fn0s"
+path="res://.godot/imported/l-eye-scale-incr.target-c5eee0116a5a8143961d3c8ae242ca04.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-scale-incr.target"
+dest_files=["res://.godot/imported/l-eye-scale-incr.target-c5eee0116a5a8143961d3c8ae242ca04.res"]
+
+[params]
+

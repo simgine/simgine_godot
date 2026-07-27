@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cdm845pbkoi17"
+path="res://.godot/imported/mouth-retraction.target-036f7a8e05fb8d0ffc066f2cfff65397.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/mouth-retraction.target"
+dest_files=["res://.godot/imported/mouth-retraction.target-036f7a8e05fb8d0ffc066f2cfff65397.res"]
+
+[params]
+

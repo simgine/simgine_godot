@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ybobea4s1g0x"
+path="res://.godot/imported/asymm-trunk-1-r.target-6449866d96c797d74e2424daabd097b1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asymm-trunk-1-r.target"
+dest_files=["res://.godot/imported/asymm-trunk-1-r.target-6449866d96c797d74e2424daabd097b1.res"]
+
+[params]
+

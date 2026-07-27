@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dar7phnxm58wo"
+path="res://.godot/imported/female-old-maxmuscle-averageweight-uncommonproportions.target-f7e877152658a180c851147de9b38ca7.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/female-old-maxmuscle-averageweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-old-maxmuscle-averageweight-uncommonproportions.target-f7e877152658a180c851147de9b38ca7.res"]
+
+[params]
+

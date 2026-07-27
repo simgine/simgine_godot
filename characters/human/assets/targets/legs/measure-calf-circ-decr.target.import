@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dk3udgx3y33me"
+path="res://.godot/imported/measure-calf-circ-decr.target-63aa302805b5c43441236dcfd930b58a.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/measure-calf-circ-decr.target"
+dest_files=["res://.godot/imported/measure-calf-circ-decr.target-63aa302805b5c43441236dcfd930b58a.res"]
+
+[params]
+

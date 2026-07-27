@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b05bi7vave7ev"
+path="res://.godot/imported/male-child-maxmuscle-maxweight-maxheight.target-87f744267770f0e78c9f5ea23723e8b6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/male-child-maxmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/male-child-maxmuscle-maxweight-maxheight.target-87f744267770f0e78c9f5ea23723e8b6.res"]
+
+[params]
+

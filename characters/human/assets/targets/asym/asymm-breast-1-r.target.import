@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cy7pnhsslenja"
+path="res://.godot/imported/asymm-breast-1-r.target-5ed06114f25bc67ee04048b04deff5fe.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asymm-breast-1-r.target"
+dest_files=["res://.godot/imported/asymm-breast-1-r.target-5ed06114f25bc67ee04048b04deff5fe.res"]
+
+[params]
+

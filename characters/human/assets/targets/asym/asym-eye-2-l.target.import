@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://rv8blympmj24"
+path="res://.godot/imported/asym-eye-2-l.target-3d12f4bebbfd839a1207569b22470d52.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asym-eye-2-l.target"
+dest_files=["res://.godot/imported/asym-eye-2-l.target-3d12f4bebbfd839a1207569b22470d52.res"]
+
+[params]
+

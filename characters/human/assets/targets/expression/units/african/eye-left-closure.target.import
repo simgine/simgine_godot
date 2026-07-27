@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bp3rey8h0cxu3"
+path="res://.godot/imported/eye-left-closure.target-b2d62c62c59cc5819d453d8f9c7d2e4c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/eye-left-closure.target"
+dest_files=["res://.godot/imported/eye-left-closure.target-b2d62c62c59cc5819d453d8f9c7d2e4c.res"]
+
+[params]
+

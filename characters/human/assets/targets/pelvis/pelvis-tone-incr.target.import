@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://120gx13lmnsv"
+path="res://.godot/imported/pelvis-tone-incr.target-880f232e1df75988954f2f0219e602df.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/pelvis/pelvis-tone-incr.target"
+dest_files=["res://.godot/imported/pelvis-tone-incr.target-880f232e1df75988954f2f0219e602df.res"]
+
+[params]
+

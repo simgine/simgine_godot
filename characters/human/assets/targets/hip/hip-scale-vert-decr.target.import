@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://psvymrv5odxv"
+path="res://.godot/imported/hip-scale-vert-decr.target-eef62785bbb261f50b5d69f19a7bf7de.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hip/hip-scale-vert-decr.target"
+dest_files=["res://.godot/imported/hip-scale-vert-decr.target-eef62785bbb261f50b5d69f19a7bf7de.res"]
+
+[params]
+

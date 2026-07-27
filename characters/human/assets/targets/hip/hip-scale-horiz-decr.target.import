@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://7oos1jlsnboc"
+path="res://.godot/imported/hip-scale-horiz-decr.target-1f48f86d5194b61c4f3256564933eec1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hip/hip-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/hip-scale-horiz-decr.target-1f48f86d5194b61c4f3256564933eec1.res"]
+
+[params]
+

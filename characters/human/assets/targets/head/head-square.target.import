@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://uh1rn30o1k5x"
+path="res://.godot/imported/head-square.target-ed98abb8ed8ae91a463f8ccd200180e7.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-square.target"
+dest_files=["res://.godot/imported/head-square.target-ed98abb8ed8ae91a463f8ccd200180e7.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bnl207qfvglss"
+path="res://.godot/imported/universal-male-young-minmuscle-minweight.target-9b932daaa8d8192874e6ce01087f0aef.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/universal-male-young-minmuscle-minweight.target"
+dest_files=["res://.godot/imported/universal-male-young-minmuscle-minweight.target-9b932daaa8d8192874e6ce01087f0aef.res"]
+
+[params]
+

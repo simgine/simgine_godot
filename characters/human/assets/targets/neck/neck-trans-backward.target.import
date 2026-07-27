@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bmrb26fkm5evf"
+path="res://.godot/imported/neck-trans-backward.target-96f0594659d6124e4ea4a1158f201e79.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/neck-trans-backward.target"
+dest_files=["res://.godot/imported/neck-trans-backward.target-96f0594659d6124e4ea4a1158f201e79.res"]
+
+[params]
+

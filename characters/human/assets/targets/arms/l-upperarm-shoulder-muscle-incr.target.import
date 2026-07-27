@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://uay6i00fkt1h"
+path="res://.godot/imported/l-upperarm-shoulder-muscle-incr.target-4177fac7bf074309e2f51d5867d0163c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/l-upperarm-shoulder-muscle-incr.target"
+dest_files=["res://.godot/imported/l-upperarm-shoulder-muscle-incr.target-4177fac7bf074309e2f51d5867d0163c.res"]
+
+[params]
+

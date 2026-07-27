@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhshldn876ska"
+path="res://.godot/imported/measure-hips-circ-incr.target-4753ad61037a09726ad0602d1258e39f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/measure-hips-circ-incr.target"
+dest_files=["res://.godot/imported/measure-hips-circ-incr.target-4753ad61037a09726ad0602d1258e39f.res"]
+
+[params]
+

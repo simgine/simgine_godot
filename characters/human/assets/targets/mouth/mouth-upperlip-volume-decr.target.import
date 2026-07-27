@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://da3cdrur50wcu"
+path="res://.godot/imported/mouth-upperlip-volume-decr.target-fee9f27343ae5065b24e57312c993bbc.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-upperlip-volume-decr.target"
+dest_files=["res://.godot/imported/mouth-upperlip-volume-decr.target-fee9f27343ae5065b24e57312c993bbc.res"]
+
+[params]
+

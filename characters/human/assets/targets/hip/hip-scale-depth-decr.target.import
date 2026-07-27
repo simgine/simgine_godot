@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://chphlh85xdyqp"
+path="res://.godot/imported/hip-scale-depth-decr.target-647796361797f810e7361f8a510ab53f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hip/hip-scale-depth-decr.target"
+dest_files=["res://.godot/imported/hip-scale-depth-decr.target-647796361797f810e7361f8a510ab53f.res"]
+
+[params]
+

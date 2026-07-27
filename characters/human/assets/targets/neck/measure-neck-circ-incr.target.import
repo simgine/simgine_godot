@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d37bntvw36i6r"
+path="res://.godot/imported/measure-neck-circ-incr.target-091f526dd016610daeff1b083b9d87ff.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/measure-neck-circ-incr.target"
+dest_files=["res://.godot/imported/measure-neck-circ-incr.target-091f526dd016610daeff1b083b9d87ff.res"]
+
+[params]
+

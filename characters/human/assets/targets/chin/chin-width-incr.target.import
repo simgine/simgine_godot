@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b0o6uqeubwpfr"
+path="res://.godot/imported/chin-width-incr.target-70c671fac0b41fe0e78a6522c349eb90.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-width-incr.target"
+dest_files=["res://.godot/imported/chin-width-incr.target-70c671fac0b41fe0e78a6522c349eb90.res"]
+
+[params]
+

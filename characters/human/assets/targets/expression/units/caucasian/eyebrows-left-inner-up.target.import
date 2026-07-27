@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cfrmn433ujhub"
+path="res://.godot/imported/eyebrows-left-inner-up.target-59aff4a1c37f35218e2b31a6744016b5.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eyebrows-left-inner-up.target"
+dest_files=["res://.godot/imported/eyebrows-left-inner-up.target-59aff4a1c37f35218e2b31a6744016b5.res"]
+
+[params]
+

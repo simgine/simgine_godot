@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c6gy5vn20jeej"
+path="res://.godot/imported/r-cheek-trans-down.target-e081d5fb8f3edbc3f2dc736157246ecb.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/cheek/r-cheek-trans-down.target"
+dest_files=["res://.godot/imported/r-cheek-trans-down.target-e081d5fb8f3edbc3f2dc736157246ecb.res"]
+
+[params]
+

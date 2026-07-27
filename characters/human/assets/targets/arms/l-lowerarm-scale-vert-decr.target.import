@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dtarvhdpkbewy"
+path="res://.godot/imported/l-lowerarm-scale-vert-decr.target-d0e212f6d7374f17ecda2f7cc60a8f7a.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/l-lowerarm-scale-vert-decr.target"
+dest_files=["res://.godot/imported/l-lowerarm-scale-vert-decr.target-d0e212f6d7374f17ecda2f7cc60a8f7a.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dh865d27tk072"
+path="res://.godot/imported/l-lowerarm-scale-depth-incr.target-e37b377cc5479d82dce255e98eb4af03.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/l-lowerarm-scale-depth-incr.target"
+dest_files=["res://.godot/imported/l-lowerarm-scale-depth-incr.target-e37b377cc5479d82dce255e98eb4af03.res"]
+
+[params]
+

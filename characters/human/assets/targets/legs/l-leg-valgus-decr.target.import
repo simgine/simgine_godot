@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://0lg8auh1rycx"
+path="res://.godot/imported/l-leg-valgus-decr.target-607d20b3ace3ababc36471dbc227c3f5.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/l-leg-valgus-decr.target"
+dest_files=["res://.godot/imported/l-leg-valgus-decr.target-607d20b3ace3ababc36471dbc227c3f5.res"]
+
+[params]
+

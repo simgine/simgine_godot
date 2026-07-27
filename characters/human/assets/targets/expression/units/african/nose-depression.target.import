@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ghgbe552j6rc"
+path="res://.godot/imported/nose-depression.target-333da31d7d2e3fcb473894766f1a578c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/nose-depression.target"
+dest_files=["res://.godot/imported/nose-depression.target-333da31d7d2e3fcb473894766f1a578c.res"]
+
+[params]
+

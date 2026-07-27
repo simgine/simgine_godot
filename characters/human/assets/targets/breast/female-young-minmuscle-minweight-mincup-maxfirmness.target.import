@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b7h5i4nrajioi"
+path="res://.godot/imported/female-young-minmuscle-minweight-mincup-maxfirmness.target-82101ae5679406ff059c958b9d947738.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/breast/female-young-minmuscle-minweight-mincup-maxfirmness.target"
+dest_files=["res://.godot/imported/female-young-minmuscle-minweight-mincup-maxfirmness.target-82101ae5679406ff059c958b9d947738.res"]
+
+[params]
+

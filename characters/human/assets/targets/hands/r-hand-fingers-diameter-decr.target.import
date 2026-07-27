@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://beuwe4jxb3kvm"
+path="res://.godot/imported/r-hand-fingers-diameter-decr.target-0cce53d6854b3942e938c509e23af3bd.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hands/r-hand-fingers-diameter-decr.target"
+dest_files=["res://.godot/imported/r-hand-fingers-diameter-decr.target-0cce53d6854b3942e938c509e23af3bd.res"]
+
+[params]
+

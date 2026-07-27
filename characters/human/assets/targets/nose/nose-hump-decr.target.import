@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bg5gcimck54va"
+path="res://.godot/imported/nose-hump-decr.target-1e5c492bd1675322fd5bbfabb06a4214.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-hump-decr.target"
+dest_files=["res://.godot/imported/nose-hump-decr.target-1e5c492bd1675322fd5bbfabb06a4214.res"]
+
+[params]
+

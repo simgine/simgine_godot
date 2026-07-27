@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://7tbncmecgiyx"
+path="res://.godot/imported/measure-upperarm-length-incr.target-686ed229e4928814a7d8f11c257f9871.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/measure-upperarm-length-incr.target"
+dest_files=["res://.godot/imported/measure-upperarm-length-incr.target-686ed229e4928814a7d8f11c257f9871.res"]
+
+[params]
+

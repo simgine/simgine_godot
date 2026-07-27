@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b8dlbss4ky8qd"
+path="res://.godot/imported/measure-wrist-circ-incr.target-7e4c91a5c761bef86eb5320403c7bfb2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hands/measure-wrist-circ-incr.target"
+dest_files=["res://.godot/imported/measure-wrist-circ-incr.target-7e4c91a5c761bef86eb5320403c7bfb2.res"]
+
+[params]
+

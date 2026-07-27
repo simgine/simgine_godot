@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cw7yijyew7q1n"
+path="res://.godot/imported/measure-knee-circ-decr.target-6e62c2a8f645b80e565dcb4dc5525c16.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/measure-knee-circ-decr.target"
+dest_files=["res://.godot/imported/measure-knee-circ-decr.target-6e62c2a8f645b80e565dcb4dc5525c16.res"]
+
+[params]
+

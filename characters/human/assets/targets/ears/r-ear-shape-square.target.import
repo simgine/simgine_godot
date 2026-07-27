@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://0juymiot1wlw"
+path="res://.godot/imported/r-ear-shape-square.target-332ba780280a524925ec7e09bf1b0923.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/r-ear-shape-square.target"
+dest_files=["res://.godot/imported/r-ear-shape-square.target-332ba780280a524925ec7e09bf1b0923.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d2jhnj7jmna7f"
+path="res://.godot/imported/eye-left-opened-up.target-e71c1c58db1b9f430e13ac4d49ca2f6f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/asian/eye-left-opened-up.target"
+dest_files=["res://.godot/imported/eye-left-opened-up.target-e71c1c58db1b9f430e13ac4d49ca2f6f.res"]
+
+[params]
+

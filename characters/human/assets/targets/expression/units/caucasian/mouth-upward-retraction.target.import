@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://3w05xuyh47sr"
+path="res://.godot/imported/mouth-upward-retraction.target-d8394220ad32b4a2f9003ccc92988447.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/mouth-upward-retraction.target"
+dest_files=["res://.godot/imported/mouth-upward-retraction.target-d8394220ad32b4a2f9003ccc92988447.res"]
+
+[params]
+

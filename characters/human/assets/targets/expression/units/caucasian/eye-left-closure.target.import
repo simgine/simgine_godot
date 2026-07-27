@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dyyyftwmc13xb"
+path="res://.godot/imported/eye-left-closure.target-fe3693ae1c8aa8ad6cce85397fc9649b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eye-left-closure.target"
+dest_files=["res://.godot/imported/eye-left-closure.target-fe3693ae1c8aa8ad6cce85397fc9649b.res"]
+
+[params]
+

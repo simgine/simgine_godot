@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b5mk24cb0c0qw"
+path="res://.godot/imported/l-upperleg-scale-depth-decr.target-fa3ef9459199004317faea30fe22c055.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/l-upperleg-scale-depth-decr.target"
+dest_files=["res://.godot/imported/l-upperleg-scale-depth-decr.target-fa3ef9459199004317faea30fe22c055.res"]
+
+[params]
+

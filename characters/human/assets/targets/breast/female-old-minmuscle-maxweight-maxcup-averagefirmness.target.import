@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://y0a556qroipd"
+path="res://.godot/imported/female-old-minmuscle-maxweight-maxcup-averagefirmness.target-9257baec8f0d3ac664eb67a6b670092d.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/breast/female-old-minmuscle-maxweight-maxcup-averagefirmness.target"
+dest_files=["res://.godot/imported/female-old-minmuscle-maxweight-maxcup-averagefirmness.target-9257baec8f0d3ac664eb67a6b670092d.res"]
+
+[params]
+

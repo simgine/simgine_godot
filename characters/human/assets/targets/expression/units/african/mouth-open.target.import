@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ddbhkueubpaw7"
+path="res://.godot/imported/mouth-open.target-781ddc2a7f0c1ce16020e882d9db0934.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/mouth-open.target"
+dest_files=["res://.godot/imported/mouth-open.target-781ddc2a7f0c1ce16020e882d9db0934.res"]
+
+[params]
+

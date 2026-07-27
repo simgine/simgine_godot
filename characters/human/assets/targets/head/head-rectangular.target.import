@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://de5kqlbjm0251"
+path="res://.godot/imported/head-rectangular.target-765190dc5a9897c64419f98cd97d2cea.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-rectangular.target"
+dest_files=["res://.godot/imported/head-rectangular.target-765190dc5a9897c64419f98cd97d2cea.res"]
+
+[params]
+

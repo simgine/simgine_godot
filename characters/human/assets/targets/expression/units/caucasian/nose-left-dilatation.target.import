@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://7pgi84cngkvj"
+path="res://.godot/imported/nose-left-dilatation.target-ed6ee9e26ac601b562fb4b2f8435b153.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/nose-left-dilatation.target"
+dest_files=["res://.godot/imported/nose-left-dilatation.target-ed6ee9e26ac601b562fb4b2f8435b153.res"]
+
+[params]
+

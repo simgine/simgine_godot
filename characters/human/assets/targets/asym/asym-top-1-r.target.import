@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c0oc6ay53hldo"
+path="res://.godot/imported/asym-top-1-r.target-cba3335dbf640965f2e249f47393333c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asym-top-1-r.target"
+dest_files=["res://.godot/imported/asym-top-1-r.target-cba3335dbf640965f2e249f47393333c.res"]
+
+[params]
+

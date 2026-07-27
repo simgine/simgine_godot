@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c1nefnrun3054"
+path="res://.godot/imported/male-young-averagemuscle-maxweight-idealproportions.target-674ea678285bb49c687b6c84e806f414.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/male-young-averagemuscle-maxweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-young-averagemuscle-maxweight-idealproportions.target-674ea678285bb49c687b6c84e806f414.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cxb760b7u0syg"
+path="res://.godot/imported/mouth-retraction.target-42294df4eeb3ca0fff1f33688947cd27.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/mouth-retraction.target"
+dest_files=["res://.godot/imported/mouth-retraction.target-42294df4eeb3ca0fff1f33688947cd27.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b0bwibu5slq2m"
+path="res://.godot/imported/r-cheek-volume-incr.target-3a4285890d9285fcb00dae0a107bf7fe.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/cheek/r-cheek-volume-incr.target"
+dest_files=["res://.godot/imported/r-cheek-volume-incr.target-3a4285890d9285fcb00dae0a107bf7fe.res"]
+
+[params]
+

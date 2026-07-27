@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b5gvugnwvtahn"
+path="res://.godot/imported/nose-trans-in.target-e8db313cda0f8d194d6187a82a96441f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-trans-in.target"
+dest_files=["res://.godot/imported/nose-trans-in.target-e8db313cda0f8d194d6187a82a96441f.res"]
+
+[params]
+

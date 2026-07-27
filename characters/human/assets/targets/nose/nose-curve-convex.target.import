@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b4nbfivuoisqi"
+path="res://.godot/imported/nose-curve-convex.target-186a1a5002dbf2ae0d75eb72fc69781b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-curve-convex.target"
+dest_files=["res://.godot/imported/nose-curve-convex.target-186a1a5002dbf2ae0d75eb72fc69781b.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhnigw6wa4cnj"
+path="res://.godot/imported/mouth-lowerlip-volume-decr.target-8b4b08d3821e3bfb7a1826aa057d0e86.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-lowerlip-volume-decr.target"
+dest_files=["res://.godot/imported/mouth-lowerlip-volume-decr.target-8b4b08d3821e3bfb7a1826aa057d0e86.res"]
+
+[params]
+

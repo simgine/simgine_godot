@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c7yk5uq8ptkgh"
+path="res://.godot/imported/l-ear-rot-forward.target-8a959df78c82a2344348e0f81b738133.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/l-ear-rot-forward.target"
+dest_files=["res://.godot/imported/l-ear-rot-forward.target-8a959df78c82a2344348e0f81b738133.res"]
+
+[params]
+

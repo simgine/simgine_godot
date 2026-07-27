@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bf66b8hubeeeo"
+path="res://.godot/imported/mouth-protusion.target-1591f9f9addc6c7a0018af9b09a084f2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/mouth-protusion.target"
+dest_files=["res://.godot/imported/mouth-protusion.target-1591f9f9addc6c7a0018af9b09a084f2.res"]
+
+[params]
+

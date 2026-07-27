@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://8jktc178b76m"
+path="res://.godot/imported/r-hand-trans-in.target-af2d2e065563de57e3d7021d7919856e.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hands/r-hand-trans-in.target"
+dest_files=["res://.godot/imported/r-hand-trans-in.target-af2d2e065563de57e3d7021d7919856e.res"]
+
+[params]
+

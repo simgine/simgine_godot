@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://depnxlhyq2rrm"
+path="res://.godot/imported/forehead-scale-vert-incr.target-d751be5dbc714b30b89ea96bae5ef0a5.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/forehead/forehead-scale-vert-incr.target"
+dest_files=["res://.godot/imported/forehead-scale-vert-incr.target-d751be5dbc714b30b89ea96bae5ef0a5.res"]
+
+[params]
+
