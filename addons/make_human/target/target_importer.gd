@@ -14,7 +14,7 @@ func _get_visible_name() -> String:
 
 
 func _get_recognized_extensions() -> PackedStringArray:
-	return ["target", "target.gz", "ptarget", "ptarget.gz"]
+	return ["target", "ptarget", "gz"]
 
 
 func _get_save_extension() -> String:
