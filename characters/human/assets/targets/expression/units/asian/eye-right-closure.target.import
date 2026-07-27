@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://y54ola46i8qb"
+path="res://.godot/imported/eye-right-closure.target-4605465b0705655ad942f98b180e6826.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/asian/eye-right-closure.target"
+dest_files=["res://.godot/imported/eye-right-closure.target-4605465b0705655ad942f98b180e6826.res"]
+
+[params]
+

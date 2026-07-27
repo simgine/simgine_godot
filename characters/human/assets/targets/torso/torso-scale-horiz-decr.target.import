@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cvf1u1l31m66l"
+path="res://.godot/imported/torso-scale-horiz-decr.target-0da5468ad2beff8ff3fa6a68a5671516.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/torso-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/torso-scale-horiz-decr.target-0da5468ad2beff8ff3fa6a68a5671516.res"]
+
+[params]
+

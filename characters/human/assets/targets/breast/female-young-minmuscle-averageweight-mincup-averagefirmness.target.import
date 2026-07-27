@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://br0ffyq6417qn"
+path="res://.godot/imported/female-young-minmuscle-averageweight-mincup-averagefirmness.target-ac24a1b2d11baca8448c68d6eba301ce.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/breast/female-young-minmuscle-averageweight-mincup-averagefirmness.target"
+dest_files=["res://.godot/imported/female-young-minmuscle-averageweight-mincup-averagefirmness.target-ac24a1b2d11baca8448c68d6eba301ce.res"]
+
+[params]
+

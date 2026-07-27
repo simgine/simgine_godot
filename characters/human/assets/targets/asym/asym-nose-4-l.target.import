@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bnmk05wcxmah2"
+path="res://.godot/imported/asym-nose-4-l.target-91cb277a25f8bc2d9a3cc52f4c0dbf81.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asym-nose-4-l.target"
+dest_files=["res://.godot/imported/asym-nose-4-l.target-91cb277a25f8bc2d9a3cc52f4c0dbf81.res"]
+
+[params]
+

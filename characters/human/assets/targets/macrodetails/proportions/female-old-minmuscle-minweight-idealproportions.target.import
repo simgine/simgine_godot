@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cxdjmguck32r"
+path="res://.godot/imported/female-old-minmuscle-minweight-idealproportions.target-7caab1984d58c03b4fdda84146011eac.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/female-old-minmuscle-minweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-old-minmuscle-minweight-idealproportions.target-7caab1984d58c03b4fdda84146011eac.res"]
+
+[params]
+

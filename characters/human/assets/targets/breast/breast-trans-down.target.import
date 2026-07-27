@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://qfc8201gt228"
+path="res://.godot/imported/breast-trans-down.target-60c8a70503a08abe5d5a0cc2d9fe3306.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/breast/breast-trans-down.target"
+dest_files=["res://.godot/imported/breast-trans-down.target-60c8a70503a08abe5d5a0cc2d9fe3306.res"]
+
+[params]
+

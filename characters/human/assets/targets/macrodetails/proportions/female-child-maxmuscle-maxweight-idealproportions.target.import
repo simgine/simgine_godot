@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://4dmmogew6w4r"
+path="res://.godot/imported/female-child-maxmuscle-maxweight-idealproportions.target-54a8597c84f92ef0144722288261a057.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/female-child-maxmuscle-maxweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-child-maxmuscle-maxweight-idealproportions.target-54a8597c84f92ef0144722288261a057.res"]
+
+[params]
+

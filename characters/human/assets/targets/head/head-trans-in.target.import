@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://g3y0a5eel34c"
+path="res://.godot/imported/head-trans-in.target-7ba0a01d0d6021fcffa6ee0f68577e6c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-trans-in.target"
+dest_files=["res://.godot/imported/head-trans-in.target-7ba0a01d0d6021fcffa6ee0f68577e6c.res"]
+
+[params]
+

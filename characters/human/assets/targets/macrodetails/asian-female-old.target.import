@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cyg1xmkibtrvp"
+path="res://.godot/imported/asian-female-old.target-b3598102447d31cf158fdad7de20a9c7.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/asian-female-old.target"
+dest_files=["res://.godot/imported/asian-female-old.target-b3598102447d31cf158fdad7de20a9c7.res"]
+
+[params]
+

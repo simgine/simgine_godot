@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://co6xwegdnjh4k"
+path="res://.godot/imported/chin-bones-incr.target-bd4964b8f111df8b57167c875b862c2f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-bones-incr.target"
+dest_files=["res://.godot/imported/chin-bones-incr.target-bd4964b8f111df8b57167c875b862c2f.res"]
+
+[params]
+

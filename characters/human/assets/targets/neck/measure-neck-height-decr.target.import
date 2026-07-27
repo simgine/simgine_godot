@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b0rjwqsaw3giu"
+path="res://.godot/imported/measure-neck-height-decr.target-63fd3ffa4787ad0df5f827f22030f014.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/measure-neck-height-decr.target"
+dest_files=["res://.godot/imported/measure-neck-height-decr.target-63fd3ffa4787ad0df5f827f22030f014.res"]
+
+[params]
+

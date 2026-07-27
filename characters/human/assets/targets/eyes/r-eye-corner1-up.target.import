@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bd7yngq4ey3ox"
+path="res://.godot/imported/r-eye-corner1-up.target-2f480555b6899994d5a909b1fef8ddef.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/r-eye-corner1-up.target"
+dest_files=["res://.godot/imported/r-eye-corner1-up.target-2f480555b6899994d5a909b1fef8ddef.res"]
+
+[params]
+

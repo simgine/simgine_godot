@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dlyghduh3dj8h"
+path="res://.godot/imported/asym-mouth-1-r.target-f3f9ee640cae02ef6b39747198a7f22b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/asym/asym-mouth-1-r.target"
+dest_files=["res://.godot/imported/asym-mouth-1-r.target-f3f9ee640cae02ef6b39747198a7f22b.res"]
+
+[params]
+

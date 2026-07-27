@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ebohm1erxlr7"
+path="res://.godot/imported/l-ear-shape-round.target-162a9c379b8f7e4d4d7d3815a3a37b72.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/l-ear-shape-round.target"
+dest_files=["res://.godot/imported/l-ear-shape-round.target-162a9c379b8f7e4d4d7d3815a3a37b72.res"]
+
+[params]
+

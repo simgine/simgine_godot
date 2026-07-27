@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://sci28jf0odbo"
+path="res://.godot/imported/female-child-minmuscle-averageweight-uncommonproportions.target-9c22d91717e25629ade2b81d4854984c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/female-child-minmuscle-averageweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-child-minmuscle-averageweight-uncommonproportions.target-9c22d91717e25629ade2b81d4854984c.res"]
+
+[params]
+

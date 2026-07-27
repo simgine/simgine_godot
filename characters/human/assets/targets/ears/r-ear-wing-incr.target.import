@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d00l4mwnmeitx"
+path="res://.godot/imported/r-ear-wing-incr.target-8c14949ea93bacfe6e1c44ac09e533e9.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/r-ear-wing-incr.target"
+dest_files=["res://.godot/imported/r-ear-wing-incr.target-8c14949ea93bacfe6e1c44ac09e533e9.res"]
+
+[params]
+

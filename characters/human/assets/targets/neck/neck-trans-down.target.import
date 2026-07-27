@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://uxg1xqqxwcxd"
+path="res://.godot/imported/neck-trans-down.target-32b3100dd81f1dfbcfa632228e96e6fc.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/neck-trans-down.target"
+dest_files=["res://.godot/imported/neck-trans-down.target-32b3100dd81f1dfbcfa632228e96e6fc.res"]
+
+[params]
+

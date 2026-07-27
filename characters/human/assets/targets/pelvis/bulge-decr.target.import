@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dfrwo3js2slg8"
+path="res://.godot/imported/bulge-decr.target-0d6c13aca27a7cd4cd8caf63ca63d8a2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/pelvis/bulge-decr.target"
+dest_files=["res://.godot/imported/bulge-decr.target-0d6c13aca27a7cd4cd8caf63ca63d8a2.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bovut45um6gwg"
+path="res://.godot/imported/breast-point-decr.target-e004894f562b0959f7b62e87b07ac967.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/breast/breast-point-decr.target"
+dest_files=["res://.godot/imported/breast-point-decr.target-e004894f562b0959f7b62e87b07ac967.res"]
+
+[params]
+

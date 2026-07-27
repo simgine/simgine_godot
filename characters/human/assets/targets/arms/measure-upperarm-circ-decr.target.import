@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dygugtr5b8le6"
+path="res://.godot/imported/measure-upperarm-circ-decr.target-7ebe56d6c822b3d56b228755e60a929f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/measure-upperarm-circ-decr.target"
+dest_files=["res://.godot/imported/measure-upperarm-circ-decr.target-7ebe56d6c822b3d56b228755e60a929f.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d4jyr0bkpeecw"
+path="res://.godot/imported/mouth-part-later.target-6ebf518ce976c1036399dc17ba21debf.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/african/mouth-part-later.target"
+dest_files=["res://.godot/imported/mouth-part-later.target-6ebf518ce976c1036399dc17ba21debf.res"]
+
+[params]
+

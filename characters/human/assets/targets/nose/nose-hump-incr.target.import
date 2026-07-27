@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://1lcqh4ja8hfg"
+path="res://.godot/imported/nose-hump-incr.target-c0409a6b0faa5ac497a1969f3848b833.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-hump-incr.target"
+dest_files=["res://.godot/imported/nose-hump-incr.target-c0409a6b0faa5ac497a1969f3848b833.res"]
+
+[params]
+

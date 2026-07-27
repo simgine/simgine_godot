@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bj8k8owxjcvfq"
+path="res://.godot/imported/r-lowerleg-scale-depth-incr.target-c34f4c311ab45029bde9267949093c8b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/r-lowerleg-scale-depth-incr.target"
+dest_files=["res://.godot/imported/r-lowerleg-scale-depth-incr.target-c34f4c311ab45029bde9267949093c8b.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://id1i6rj25jsf"
+path="res://.godot/imported/mouth-open.target-6ef6ef4601a05392c72f181a482d3af6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/asian/mouth-open.target"
+dest_files=["res://.godot/imported/mouth-open.target-6ef6ef4601a05392c72f181a482d3af6.res"]
+
+[params]
+

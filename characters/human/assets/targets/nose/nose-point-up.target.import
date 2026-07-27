@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ct2tsao05quc1"
+path="res://.godot/imported/nose-point-up.target-ccbca1c168eb93a36cff43a7275da772.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-point-up.target"
+dest_files=["res://.godot/imported/nose-point-up.target-ccbca1c168eb93a36cff43a7275da772.res"]
+
+[params]
+

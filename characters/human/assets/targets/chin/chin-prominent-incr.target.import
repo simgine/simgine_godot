@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d27sm2x6ke3mu"
+path="res://.godot/imported/chin-prominent-incr.target-dab09c31a21380d85e09e1144ede2a0d.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-prominent-incr.target"
+dest_files=["res://.godot/imported/chin-prominent-incr.target-dab09c31a21380d85e09e1144ede2a0d.res"]
+
+[params]
+

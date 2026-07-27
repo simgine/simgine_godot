@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://vk1t02m6wsrv"
+path="res://.godot/imported/male-old-maxmuscle-maxweight-maxheight.target-04b1da8c55a75861324029ea699cbfd2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/male-old-maxmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/male-old-maxmuscle-maxweight-maxheight.target-04b1da8c55a75861324029ea699cbfd2.res"]
+
+[params]
+

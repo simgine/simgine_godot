@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://gif1fjvdas34"
+path="res://.godot/imported/eye-right-slit.target-faac0c605c4c1bfb78e928d9c6ce07e6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eye-right-slit.target"
+dest_files=["res://.godot/imported/eye-right-slit.target-faac0c605c4c1bfb78e928d9c6ce07e6.res"]
+
+[params]
+

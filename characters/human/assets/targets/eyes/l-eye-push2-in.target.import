@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cfsasawl76njt"
+path="res://.godot/imported/l-eye-push2-in.target-8237fd1200f07863a68f210c2a9eca35.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-push2-in.target"
+dest_files=["res://.godot/imported/l-eye-push2-in.target-8237fd1200f07863a68f210c2a9eca35.res"]
+
+[params]
+

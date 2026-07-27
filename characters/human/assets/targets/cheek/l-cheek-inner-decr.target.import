@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dk566g8aof4w4"
+path="res://.godot/imported/l-cheek-inner-decr.target-30ee7ceb1f8445361bb94b0740d3450f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/cheek/l-cheek-inner-decr.target"
+dest_files=["res://.godot/imported/l-cheek-inner-decr.target-30ee7ceb1f8445361bb94b0740d3450f.res"]
+
+[params]
+

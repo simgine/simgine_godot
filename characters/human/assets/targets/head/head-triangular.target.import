@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dfksbm56u4u62"
+path="res://.godot/imported/head-triangular.target-e121778f60091224ad944c9584a9eb3e.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-triangular.target"
+dest_files=["res://.godot/imported/head-triangular.target-e121778f60091224ad944c9584a9eb3e.res"]
+
+[params]
+

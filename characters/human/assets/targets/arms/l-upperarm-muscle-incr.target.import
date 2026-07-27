@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dnn0k35cmfstl"
+path="res://.godot/imported/l-upperarm-muscle-incr.target-2fefeeb93a898300cc82c47be61d3c70.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/l-upperarm-muscle-incr.target"
+dest_files=["res://.godot/imported/l-upperarm-muscle-incr.target-2fefeeb93a898300cc82c47be61d3c70.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://34go6nw23b57"
+path="res://.godot/imported/hip-trans-up.target-b858e621c912eedbc4ffedb1b3d7c997.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/hip/hip-trans-up.target"
+dest_files=["res://.godot/imported/hip-trans-up.target-b858e621c912eedbc4ffedb1b3d7c997.res"]
+
+[params]
+

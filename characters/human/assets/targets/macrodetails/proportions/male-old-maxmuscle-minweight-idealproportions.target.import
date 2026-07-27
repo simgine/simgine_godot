@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cy1lsam110s87"
+path="res://.godot/imported/male-old-maxmuscle-minweight-idealproportions.target-604536e9c5b91839e7016f517c03581f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/male-old-maxmuscle-minweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-old-maxmuscle-minweight-idealproportions.target-604536e9c5b91839e7016f517c03581f.res"]
+
+[params]
+

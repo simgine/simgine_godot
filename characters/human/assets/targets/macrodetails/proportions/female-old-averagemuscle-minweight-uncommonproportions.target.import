@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dghn0butblrw3"
+path="res://.godot/imported/female-old-averagemuscle-minweight-uncommonproportions.target-b778ee2f0a066973a40e3a7a211c18f8.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/female-old-averagemuscle-minweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-minweight-uncommonproportions.target-b778ee2f0a066973a40e3a7a211c18f8.res"]
+
+[params]
+

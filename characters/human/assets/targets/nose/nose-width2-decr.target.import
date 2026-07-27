@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bd6h6ylfp5chu"
+path="res://.godot/imported/nose-width2-decr.target-88b4a41d843cb6b6c98e5ed8b036dab6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-width2-decr.target"
+dest_files=["res://.godot/imported/nose-width2-decr.target-88b4a41d843cb6b6c98e5ed8b036dab6.res"]
+
+[params]
+

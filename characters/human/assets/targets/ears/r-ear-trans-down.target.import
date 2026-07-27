@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://butgfsc0wopf5"
+path="res://.godot/imported/r-ear-trans-down.target-60b56eeb8525a964e5f51d8d17e5fa6f.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/r-ear-trans-down.target"
+dest_files=["res://.godot/imported/r-ear-trans-down.target-60b56eeb8525a964e5f51d8d17e5fa6f.res"]
+
+[params]
+

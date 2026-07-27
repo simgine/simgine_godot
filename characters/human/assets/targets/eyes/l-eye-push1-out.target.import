@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b85np5kc8pnhq"
+path="res://.godot/imported/l-eye-push1-out.target-7dd0cf728025a9f3bac6e9a1aafd8251.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-push1-out.target"
+dest_files=["res://.godot/imported/l-eye-push1-out.target-7dd0cf728025a9f3bac6e9a1aafd8251.res"]
+
+[params]
+

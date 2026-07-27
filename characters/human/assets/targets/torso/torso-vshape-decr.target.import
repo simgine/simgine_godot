@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dyj2yrgrnx23f"
+path="res://.godot/imported/torso-vshape-decr.target-8dcd85084b67f286c715561f03be5203.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/torso-vshape-decr.target"
+dest_files=["res://.godot/imported/torso-vshape-decr.target-8dcd85084b67f286c715561f03be5203.res"]
+
+[params]
+

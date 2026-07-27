@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bt4kr21e4rrk2"
+path="res://.godot/imported/torso-muscle-pectoral-incr.target-03f485cc8ed6790b33dbbf1caf54d7dc.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/torso-muscle-pectoral-incr.target"
+dest_files=["res://.godot/imported/torso-muscle-pectoral-incr.target-03f485cc8ed6790b33dbbf1caf54d7dc.res"]
+
+[params]
+

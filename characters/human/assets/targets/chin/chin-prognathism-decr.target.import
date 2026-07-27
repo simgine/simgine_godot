@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ctwie86k57flm"
+path="res://.godot/imported/chin-prognathism-decr.target-008cd457b4f3d139032c98985b1f57c1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-prognathism-decr.target"
+dest_files=["res://.godot/imported/chin-prognathism-decr.target-008cd457b4f3d139032c98985b1f57c1.res"]
+
+[params]
+

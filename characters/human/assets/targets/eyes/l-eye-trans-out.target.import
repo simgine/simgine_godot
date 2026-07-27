@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://co77xisro7m8k"
+path="res://.godot/imported/l-eye-trans-out.target-40bc47940aa120f054e3bc55912c761b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/l-eye-trans-out.target"
+dest_files=["res://.godot/imported/l-eye-trans-out.target-40bc47940aa120f054e3bc55912c761b.res"]
+
+[params]
+

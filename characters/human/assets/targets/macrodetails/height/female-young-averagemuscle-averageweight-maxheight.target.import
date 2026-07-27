@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cy8ritniy5c7"
+path="res://.godot/imported/female-young-averagemuscle-averageweight-maxheight.target-f62b33bb3bbe730805f1232f57dd9044.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/female-young-averagemuscle-averageweight-maxheight.target"
+dest_files=["res://.godot/imported/female-young-averagemuscle-averageweight-maxheight.target-f62b33bb3bbe730805f1232f57dd9044.res"]
+
+[params]
+

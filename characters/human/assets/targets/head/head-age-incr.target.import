@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bmocukrkhb4el"
+path="res://.godot/imported/head-age-incr.target-9631c8f58ac4448e0d8e933d9dbcabc8.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-age-incr.target"
+dest_files=["res://.godot/imported/head-age-incr.target-9631c8f58ac4448e0d8e933d9dbcabc8.res"]
+
+[params]
+

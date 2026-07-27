@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://sowde1bds1cd"
+path="res://.godot/imported/eye-left-slit.target-d54c8be19fcac1cedc219070d1ad13e2.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eye-left-slit.target"
+dest_files=["res://.godot/imported/eye-left-slit.target-d54c8be19fcac1cedc219070d1ad13e2.res"]
+
+[params]
+

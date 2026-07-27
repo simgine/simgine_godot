@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c1ei8xl768r0c"
+path="res://.godot/imported/r-eye-bag-out.target-0dc1ed8c59768af7917352770b09ca8b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/eyes/r-eye-bag-out.target"
+dest_files=["res://.godot/imported/r-eye-bag-out.target-0dc1ed8c59768af7917352770b09ca8b.res"]
+
+[params]
+

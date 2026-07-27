@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cfc72j1fysmf1"
+path="res://.godot/imported/male-young-minmuscle-maxweight-uncommonproportions.target-4cb3b88533c232b22c0946bff5b90bce.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/proportions/male-young-minmuscle-maxweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/male-young-minmuscle-maxweight-uncommonproportions.target-4cb3b88533c232b22c0946bff5b90bce.res"]
+
+[params]
+

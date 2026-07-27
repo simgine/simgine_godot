@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cddajbiikkqwq"
+path="res://.godot/imported/r-foot-scale-depth-incr.target-ee8a53c28d65ffc57e011ebb9ec39710.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/feet/r-foot-scale-depth-incr.target"
+dest_files=["res://.godot/imported/r-foot-scale-depth-incr.target-ee8a53c28d65ffc57e011ebb9ec39710.res"]
+
+[params]
+

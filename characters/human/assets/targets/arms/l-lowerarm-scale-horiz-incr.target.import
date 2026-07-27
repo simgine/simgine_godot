@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dk1xs1bhftqnu"
+path="res://.godot/imported/l-lowerarm-scale-horiz-incr.target-232270ebbf6d3313518e62a869cd5c66.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/arms/l-lowerarm-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/l-lowerarm-scale-horiz-incr.target-232270ebbf6d3313518e62a869cd5c66.res"]
+
+[params]
+

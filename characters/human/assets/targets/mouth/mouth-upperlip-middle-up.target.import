@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://w3fl7xbjcmyc"
+path="res://.godot/imported/mouth-upperlip-middle-up.target-ce1a23efb8aa35ee6130da94419ac647.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-upperlip-middle-up.target"
+dest_files=["res://.godot/imported/mouth-upperlip-middle-up.target-ce1a23efb8aa35ee6130da94419ac647.res"]
+
+[params]
+

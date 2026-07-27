@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://tnqi0p65002g"
+path="res://.godot/imported/mouth-laugh-lines-out.target-2b8439e3e163b01a6d2b71db36392770.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-laugh-lines-out.target"
+dest_files=["res://.godot/imported/mouth-laugh-lines-out.target-2b8439e3e163b01a6d2b71db36392770.res"]
+
+[params]
+

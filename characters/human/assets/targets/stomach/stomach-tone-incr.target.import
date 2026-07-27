@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c4hecmkilkh20"
+path="res://.godot/imported/stomach-tone-incr.target-4603e5737ec415a1fd6ca68a1f3f4eeb.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/stomach/stomach-tone-incr.target"
+dest_files=["res://.godot/imported/stomach-tone-incr.target-4603e5737ec415a1fd6ca68a1f3f4eeb.res"]
+
+[params]
+

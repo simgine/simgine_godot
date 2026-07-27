@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bit62hxps0r6o"
+path="res://.godot/imported/measure-lowerleg-height-incr.target-9b69a2247b230d333d52f0cbad54f658.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/measure-lowerleg-height-incr.target"
+dest_files=["res://.godot/imported/measure-lowerleg-height-incr.target-9b69a2247b230d333d52f0cbad54f658.res"]
+
+[params]
+

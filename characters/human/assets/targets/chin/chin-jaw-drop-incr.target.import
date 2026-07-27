@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://daxmkyywfamkm"
+path="res://.godot/imported/chin-jaw-drop-incr.target-657ef2afe5665f3ed73abfa4d4a68d24.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-jaw-drop-incr.target"
+dest_files=["res://.godot/imported/chin-jaw-drop-incr.target-657ef2afe5665f3ed73abfa4d4a68d24.res"]
+
+[params]
+

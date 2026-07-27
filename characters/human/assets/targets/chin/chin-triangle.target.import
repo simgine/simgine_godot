@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c4e1arvygoqoy"
+path="res://.godot/imported/chin-triangle.target-34b50c72a3a19f589fe92e36b182d3df.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/chin/chin-triangle.target"
+dest_files=["res://.godot/imported/chin-triangle.target-34b50c72a3a19f589fe92e36b182d3df.res"]
+
+[params]
+

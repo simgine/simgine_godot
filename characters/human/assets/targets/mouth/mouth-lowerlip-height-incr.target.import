@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ce3hq3fhwgag3"
+path="res://.godot/imported/mouth-lowerlip-height-incr.target-3ff230a3cf0d828818ced87dea108eb9.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-lowerlip-height-incr.target"
+dest_files=["res://.godot/imported/mouth-lowerlip-height-incr.target-3ff230a3cf0d828818ced87dea108eb9.res"]
+
+[params]
+

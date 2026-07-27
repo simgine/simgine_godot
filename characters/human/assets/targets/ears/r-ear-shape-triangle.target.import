@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://nkgevi48wp7"
+path="res://.godot/imported/r-ear-shape-triangle.target-69c2c72429713a28b2fb79f5f57406c1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/ears/r-ear-shape-triangle.target"
+dest_files=["res://.godot/imported/r-ear-shape-triangle.target-69c2c72429713a28b2fb79f5f57406c1.res"]
+
+[params]
+

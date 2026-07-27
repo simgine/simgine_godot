@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://csapnx5gywj3f"
+path="res://.godot/imported/l-cheek-volume-decr.target-d0d5c29b5d4fbdfdc83add5cdfb0e506.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/cheek/l-cheek-volume-decr.target"
+dest_files=["res://.godot/imported/l-cheek-volume-decr.target-d0d5c29b5d4fbdfdc83add5cdfb0e506.res"]
+
+[params]
+

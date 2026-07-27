@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://co4wuaiwwnmaa"
+path="res://.godot/imported/neck-scale-horiz-incr.target-9a0ecc487adc19f9fa50f016e95ce142.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/neck/neck-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/neck-scale-horiz-incr.target-9a0ecc487adc19f9fa50f016e95ce142.res"]
+
+[params]
+

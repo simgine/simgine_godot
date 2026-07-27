@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d3xvc30l8fixk"
+path="res://.godot/imported/nose-volume-incr.target-9921fb3f10c285ad7ee7a3a98aacfbe5.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-volume-incr.target"
+dest_files=["res://.godot/imported/nose-volume-incr.target-9921fb3f10c285ad7ee7a3a98aacfbe5.res"]
+
+[params]
+

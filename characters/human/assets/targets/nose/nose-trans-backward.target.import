@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://duiebs4weayvc"
+path="res://.godot/imported/nose-trans-backward.target-8ee5e3484cca55946e191b25289eefc8.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/nose/nose-trans-backward.target"
+dest_files=["res://.godot/imported/nose-trans-backward.target-8ee5e3484cca55946e191b25289eefc8.res"]
+
+[params]
+

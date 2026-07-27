@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ctvgv6ceehxc4"
+path="res://.godot/imported/measure-underbust-circ-decr.target-c0c65e0c6cc4dcd5e9d7fb6e49a67b41.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/torso/measure-underbust-circ-decr.target"
+dest_files=["res://.godot/imported/measure-underbust-circ-decr.target-c0c65e0c6cc4dcd5e9d7fb6e49a67b41.res"]
+
+[params]
+

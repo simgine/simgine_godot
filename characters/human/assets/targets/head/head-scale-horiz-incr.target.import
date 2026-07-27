@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cge00t056scoh"
+path="res://.godot/imported/head-scale-horiz-incr.target-3bdbd17bbffadb94e47ba6ed5dd7acb1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/head/head-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/head-scale-horiz-incr.target-3bdbd17bbffadb94e47ba6ed5dd7acb1.res"]
+
+[params]
+

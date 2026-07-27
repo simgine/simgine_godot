@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dadi508ly8wbv"
+path="res://.godot/imported/eyebrows-right-down.target-3a46152b840a313bcd60949f58f33217.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/expression/units/caucasian/eyebrows-right-down.target"
+dest_files=["res://.godot/imported/eyebrows-right-down.target-3a46152b840a313bcd60949f58f33217.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://v13mldb708g0"
+path="res://.godot/imported/caucasian-male-baby.target-a5df51a2ad91551b96173c4cf1d39c1a.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/caucasian-male-baby.target"
+dest_files=["res://.godot/imported/caucasian-male-baby.target-a5df51a2ad91551b96173c4cf1d39c1a.res"]
+
+[params]
+

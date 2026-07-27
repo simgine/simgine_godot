@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://pdl0vrjyr0go"
+path="res://.godot/imported/female-baby-minmuscle-maxweight-maxheight.target-cad9e28970fb60636ff88b3fbe2bb7e0.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/macrodetails/height/female-baby-minmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/female-baby-minmuscle-maxweight-maxheight.target-cad9e28970fb60636ff88b3fbe2bb7e0.res"]
+
+[params]
+

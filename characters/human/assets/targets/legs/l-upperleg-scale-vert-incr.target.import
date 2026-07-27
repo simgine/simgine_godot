@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://drgr43esf7le6"
+path="res://.godot/imported/l-upperleg-scale-vert-incr.target-a176ee75f787526c958a136072ad1147.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/l-upperleg-scale-vert-incr.target"
+dest_files=["res://.godot/imported/l-upperleg-scale-vert-incr.target-a176ee75f787526c958a136072ad1147.res"]
+
+[params]
+

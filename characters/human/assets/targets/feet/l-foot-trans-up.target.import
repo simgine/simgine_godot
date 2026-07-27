@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://deg0lo2don6kp"
+path="res://.godot/imported/l-foot-trans-up.target-3154df83c7437c0b5208b80bb7d8f89b.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/feet/l-foot-trans-up.target"
+dest_files=["res://.godot/imported/l-foot-trans-up.target-3154df83c7437c0b5208b80bb7d8f89b.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cii27bk6l8lgd"
+path="res://.godot/imported/r-upperleg-fat-incr.target-034e81b91fb8ed687a067f5cd5ae8ec8.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/legs/r-upperleg-fat-incr.target"
+dest_files=["res://.godot/imported/r-upperleg-fat-incr.target-034e81b91fb8ed687a067f5cd5ae8ec8.res"]
+
+[params]
+

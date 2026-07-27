@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cd6xx88glhkfa"
+path="res://.godot/imported/mouth-angles-down.target-f16f0da2407d616b8edc5929ad8f18d1.res"
+
+[deps]
+
+source_file="res://characters/human/assets/targets/mouth/mouth-angles-down.target"
+dest_files=["res://.godot/imported/mouth-angles-down.target-f16f0da2407d616b8edc5929ad8f18d1.res"]
+
+[params]
+
