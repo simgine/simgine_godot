@@ -6,4 +6,4 @@ extends Resource
 ## with left/right flags and opposite-direction pairing.
 
 ## Body sections.
-@export var sections: Dictionary[String, MHTargetSection]
+@export var sections: Array[MHTargetSection]

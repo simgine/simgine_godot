@@ -15,6 +15,3 @@ extends Resource
 
 ## Maps opposing directions to targets.
 @export var opposites: MHTargetOpposites
-
-## All target file names in this category (without `.target/.target.gz` extension).
-@export var targets: Array[MHTarget]
