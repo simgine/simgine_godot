@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://b2252k7j67cgr" path="res://addons/make_human/base_instance.gd" id="1_ig7tw"]
 [ext_resource type="Resource" uid="uid://cei1nhbrq8lrc" path="res://characters/human/mh08.tres" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://csktcojttu6o5" path="res://addons/make_human/attachment_instance.gd" id="3_1bvp3"]
+[ext_resource type="Material" uid="uid://dek281e6unbxh" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhmat" id="3_272bh"]
 [ext_resource type="Resource" uid="uid://cqjj6e30c48hp" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
+[ext_resource type="Resource" uid="uid://d26sarld4l3y" path="res://characters/human/assets/targets/target.json" id="7_kek77"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
@@ -15,9 +18,15 @@ base = ExtResource("2_0xm2m")
 metadata/_custom_type_script = "uid://b2252k7j67cgr"
 
 [node name="MHAttachmentInstance" type="MeshInstance3D" parent="MHBaseInstance" unique_id=412281353]
+material_override = ExtResource("3_272bh")
 blend_shapes/buttocks-volume-incr = 0.0
 blend_shapes/nose-scale-vert-incr = 0.0
 script = ExtResource("3_1bvp3")
 base = ExtResource("2_0xm2m")
 attachment = ExtResource("4_lquwl")
 metadata/_custom_type_script = "uid://csktcojttu6o5"
+
+[node name="MHInstance" type="MeshInstance3D" parent="." unique_id=1467881423]
+script = ExtResource("6_5vw27")
+target_metadata = ExtResource("7_kek77")
+metadata/_custom_type_script = "uid://cwil141xwoe0w"
