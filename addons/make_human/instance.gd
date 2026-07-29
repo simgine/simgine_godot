@@ -14,6 +14,12 @@ const TARGET_PREFIX: String = "targets/"
 var target_values: Dictionary[String, float]
 
 
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "mesh":
+		# Hide entirely since it is constructed dynamically.
+		property.usage = PROPERTY_USAGE_NONE
+
+
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 

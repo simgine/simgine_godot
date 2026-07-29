@@ -6,11 +6,13 @@
 [ext_resource type="Material" uid="uid://dek281e6unbxh" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhmat" id="3_272bh"]
 [ext_resource type="Resource" uid="uid://cqjj6e30c48hp" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
+[ext_resource type="Resource" uid="uid://cq4l65kp7fx6a" path="res://characters/human/assets/3dobjs/base.obj" id="7_5vw27"]
 [ext_resource type="Resource" uid="uid://d26sarld4l3y" path="res://characters/human/assets/targets/target.json" id="7_kek77"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
 [node name="MHBaseInstance" type="MeshInstance3D" parent="." unique_id=140829650]
+visible = false
 blend_shapes/buttocks-volume-incr = 0.0
 blend_shapes/nose-scale-vert-incr = 0.0
 script = ExtResource("1_ig7tw")
@@ -28,5 +30,6 @@ metadata/_custom_type_script = "uid://csktcojttu6o5"
 
 [node name="MHInstance" type="MeshInstance3D" parent="." unique_id=1467881423]
 script = ExtResource("6_5vw27")
+base_geometry = ExtResource("7_5vw27")
 target_metadata = ExtResource("7_kek77")
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
