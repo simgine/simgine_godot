@@ -12,9 +12,16 @@ extends Resource
 ## clothes and body parts, because MHCLO and targets refer to OBJ vertices,
 ## which are different from render mesh vertices (because they're duplicated).
 
+@export var uvs: PackedVector2Array:
+	set(value):
+		uvs = value
+		_render_topology = null
+
 @export_storage var vertices: PackedVector3Array
-@export_storage var uvs: PackedVector2Array
-@export_storage var quads: Array[MHQuad]
+@export_storage var quads: Array[MHQuad]:
+	set(value):
+		quads = value
+		_render_topology = null
 
 var _render_topology: MHRenderTopology
 
