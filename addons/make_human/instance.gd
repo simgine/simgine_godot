@@ -192,38 +192,28 @@ func _apply_target(vertices: PackedVector3Array, target: MHTarget, weight: float
 func _build_surface(geometry: MHGeometry, vertices: PackedVector3Array) -> Array:
 	assert(vertices.size() == geometry.vertices.size())
 
-	var render_vertices := PackedVector3Array()
-	var render_uvs := PackedVector2Array()
-	var render_normals := PackedVector3Array()
-	var render_indices := PackedInt32Array()
+	var topology := geometry.get_render_topology()
 	var geometry_normals := _generate_smooth_normals(vertices, geometry.quads)
 
-	for quad in geometry.quads:
-		var first_render_vertex := render_vertices.size()
+	var render_vertices := PackedVector3Array()
+	render_vertices.resize(topology.vertex_count())
 
-		for corner_index in range(4):
-			var vertex_index := quad.vertex_indices[corner_index]
-			var uv_index := quad.uv_indices[corner_index]
+	var render_normals := PackedVector3Array()
+	render_normals.resize(topology.vertex_count())
 
-			render_vertices.append(vertices[vertex_index])
-			render_uvs.append(geometry.uvs[uv_index])
-			render_normals.append(geometry_normals[vertex_index])
+	for render_index in topology.vertex_count():
+		var geometry_index := topology.geometry_indices[render_index]
 
-		# Convert the quad into two triangles.
-		render_indices.append(first_render_vertex)
-		render_indices.append(first_render_vertex + 2)
-		render_indices.append(first_render_vertex + 1)
-
-		render_indices.append(first_render_vertex)
-		render_indices.append(first_render_vertex + 3)
-		render_indices.append(first_render_vertex + 2)
+		render_vertices[render_index] = vertices[geometry_index]
+		render_normals[render_index] = geometry_normals[geometry_index]
 
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
+
 	arrays[Mesh.ARRAY_VERTEX] = render_vertices
 	arrays[Mesh.ARRAY_NORMAL] = render_normals
-	arrays[Mesh.ARRAY_TEX_UV] = render_uvs
-	arrays[Mesh.ARRAY_INDEX] = render_indices
+	arrays[Mesh.ARRAY_TEX_UV] = topology.uvs
+	arrays[Mesh.ARRAY_INDEX] = topology.indices
 
 	return arrays
 
