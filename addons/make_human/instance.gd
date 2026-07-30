@@ -226,7 +226,7 @@ func _generate_smooth_normals(
 	var normals := PackedVector3Array()
 	normals.resize(vertices.size())
 
-	for quad: MHQuad in quads:
+	for quad in quads:
 		var i0 := quad.vertex_indices[0]
 		var i1 := quad.vertex_indices[1]
 		var i2 := quad.vertex_indices[2]
