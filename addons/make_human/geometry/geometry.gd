@@ -1,3 +1,4 @@
+@tool
 class_name MHGeometry
 extends Resource
 ## Raw MakeHuman mesh data imported from OBJ.
@@ -14,3 +15,12 @@ extends Resource
 @export_storage var vertices: PackedVector3Array
 @export_storage var uvs: PackedVector2Array
 @export_storage var quads: Array[MHQuad]
+
+var _render_topology: MHRenderTopology
+
+
+func get_render_topology() -> MHRenderTopology:
+	if not _render_topology:
+		_render_topology = MHRenderTopology.new(uvs, quads)
+
+	return _render_topology
