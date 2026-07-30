@@ -113,11 +113,12 @@ func _rebuild_mesh() -> void:
 	var vertices := _build_deformed_vertices()
 	var arrays := _build_surface(base_geometry, vertices)
 
-	var generated_mesh := ArrayMesh.new()
-	generated_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	generated_mesh.surface_set_name(0, "Body")
+	if not mesh:
+		mesh = ArrayMesh.new()
+	mesh.clear_surfaces()
 
-	mesh = generated_mesh
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	mesh.surface_set_name(0, "Body")
 
 
 func _build_deformed_vertices() -> PackedVector3Array:
