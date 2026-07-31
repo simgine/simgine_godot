@@ -28,8 +28,6 @@ var _topology: RenderTopology
 ## Creates a surface for an [ArrayMesh] based on the geometry vertices
 ## transformed by morph targets.
 func build_surface(morphed_vertices: PackedVector3Array) -> Array:
-	assert(vertices.size() == morphed_vertices.size())
-
 	var geometry_normals := _generate_smooth_normals(morphed_vertices)
 
 	if not _topology:
