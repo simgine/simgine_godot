@@ -2,6 +2,8 @@
 class_name MHInstance
 extends MeshInstance3D
 
+signal body_changed
+
 const TARGET_PREFIX: String = "targets/"
 
 @export var base_geometry: MHGeometry:
@@ -12,6 +14,9 @@ const TARGET_PREFIX: String = "targets/"
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh := _rebuild_mesh
 
 var target_values: Dictionary[String, float]
+
+# Geometry body vertices after applying the current target values.
+var _morphed_vertices := PackedVector3Array()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -81,6 +86,10 @@ func set_target(target_name: StringName, value: float) -> void:
 	_rebuild_mesh()
 
 
+func get_morphed_vertices() -> PackedVector3Array:
+	return _morphed_vertices
+
+
 func _add_category(
 	properties: Array[Dictionary],
 	section: MHTargetSection,
@@ -107,11 +116,13 @@ func _slider(path: String) -> Dictionary:
 
 func _rebuild_mesh() -> void:
 	if base_geometry == null:
+		_morphed_vertices = PackedVector3Array()
 		mesh = null
+		body_changed.emit()
 		return
 
-	var vertices := _build_morphed_vertices()
-	var arrays := base_geometry.build_surface(vertices)
+	_morphed_vertices = _build_morphed_vertices()
+	var arrays := base_geometry.build_surface(_morphed_vertices)
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
@@ -121,6 +132,8 @@ func _rebuild_mesh() -> void:
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	array_mesh.surface_set_name(0, "Body")
+
+	body_changed.emit()
 
 
 func _build_morphed_vertices() -> PackedVector3Array:
