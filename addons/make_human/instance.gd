@@ -110,8 +110,8 @@ func _rebuild_mesh() -> void:
 		mesh = null
 		return
 
-	var vertices := _build_deformed_vertices()
-	var arrays := _build_surface(base_geometry, vertices)
+	var vertices := _build_morphed_vertices()
+	var arrays := base_geometry.build_surface(vertices)
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
@@ -123,7 +123,7 @@ func _rebuild_mesh() -> void:
 	array_mesh.surface_set_name(0, "Body")
 
 
-func _build_deformed_vertices() -> PackedVector3Array:
+func _build_morphed_vertices() -> PackedVector3Array:
 	var vertices := base_geometry.vertices.duplicate()
 
 	if target_metadata == null:
@@ -190,69 +190,3 @@ func _apply_target(vertices: PackedVector3Array, target: MHTarget, weight: float
 		var vertex_index := target.vertex_indices[index]
 		if vertex_index < vertices.size():
 			vertices[vertex_index] += target.offsets[index] * weight
-
-
-func _build_surface(geometry: MHGeometry, vertices: PackedVector3Array) -> Array:
-	assert(vertices.size() == geometry.vertices.size())
-
-	var topology := geometry.get_render_topology()
-	var geometry_normals := _generate_smooth_normals(vertices, geometry.quads)
-
-	var render_vertices := PackedVector3Array()
-	render_vertices.resize(topology.vertex_count())
-
-	var render_normals := PackedVector3Array()
-	render_normals.resize(topology.vertex_count())
-
-	for render_index in topology.vertex_count():
-		var geometry_index := topology.geometry_indices[render_index]
-
-		render_vertices[render_index] = vertices[geometry_index]
-		render_normals[render_index] = geometry_normals[geometry_index]
-
-	var arrays := []
-	arrays.resize(Mesh.ARRAY_MAX)
-
-	arrays[Mesh.ARRAY_VERTEX] = render_vertices
-	arrays[Mesh.ARRAY_NORMAL] = render_normals
-	arrays[Mesh.ARRAY_TEX_UV] = topology.uvs
-	arrays[Mesh.ARRAY_INDEX] = topology.indices
-
-	return arrays
-
-
-func _generate_smooth_normals(
-	vertices: PackedVector3Array,
-	quads: Array[MHQuad],
-) -> PackedVector3Array:
-	var normals := PackedVector3Array()
-	normals.resize(vertices.size())
-
-	for quad in quads:
-		var i0 := quad.vertex_indices[0]
-		var i1 := quad.vertex_indices[1]
-		var i2 := quad.vertex_indices[2]
-		var i3 := quad.vertex_indices[3]
-
-		# Use the opposite winding from the render indices to produce
-		# outward-facing normals.
-
-		# Triangle 1: 0, 1, 2.
-		var normal_1 := (vertices[i1] - vertices[i0]).cross(vertices[i2] - vertices[i0])
-		normals[i0] += normal_1
-		normals[i2] += normal_1
-		normals[i1] += normal_1
-
-		# Triangle 2: 0, 2, 3.
-		var normal_2 := (vertices[i2] - vertices[i0]).cross(vertices[i3] - vertices[i0])
-		normals[i0] += normal_2
-		normals[i3] += normal_2
-		normals[i2] += normal_2
-
-	for index in normals.size():
-		if normals[index].is_zero_approx():
-			normals[index] = Vector3.UP
-		else:
-			normals[index] = normals[index].normalized()
-
-	return normals
