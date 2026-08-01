@@ -120,11 +120,11 @@ func _slider(path: String) -> Dictionary:
 
 func _rebuild_mesh() -> void:
 	if not base_geometry:
-		_morphed_vertices = PackedVector3Array()
+		_morphed_vertices.clear()
 		mesh = null
 		return
 
-	_morphed_vertices = _build_morphed_vertices()
+	_rebuild_morphed_vertices()
 	var arrays := base_geometry.build_surface(_morphed_vertices)
 
 	var array_mesh := mesh as ArrayMesh
@@ -137,24 +137,21 @@ func _rebuild_mesh() -> void:
 	array_mesh.surface_set_name(0, "Body")
 
 
-func _build_morphed_vertices() -> PackedVector3Array:
-	var vertices := base_geometry.vertices.duplicate()
+func _rebuild_morphed_vertices() -> void:
+	_morphed_vertices.clear()
+	_morphed_vertices.append_array(base_geometry.vertices)
 
 	if not target_metadata:
-		return vertices
+		return
 
 	for section in target_metadata.sections:
 		for category in section.categories:
-			_apply_category(vertices, section, category)
+			_apply_category(section, category)
 
-	return vertices
+	return
 
 
-func _apply_category(
-	vertices: PackedVector3Array,
-	section: MHTargetSection,
-	category: MHTargetCategory,
-) -> void:
+func _apply_category(section: MHTargetSection, category: MHTargetCategory) -> void:
 	if not category.opposites:
 		return
 
@@ -162,21 +159,18 @@ func _apply_category(
 
 	if category.has_left_and_right:
 		_apply_signed_targets(
-			vertices,
 			target_values.get(path + "/left", 0.0),
 			category.opposites.negative_left,
 			category.opposites.positive_left,
 		)
 
 		_apply_signed_targets(
-			vertices,
 			target_values.get(path + "/right", 0.0),
 			category.opposites.negative_right,
 			category.opposites.positive_right,
 		)
 	else:
 		_apply_signed_targets(
-			vertices,
 			target_values.get(path, 0.0),
 			category.opposites.negative_unsided,
 			category.opposites.positive_unsided,
@@ -184,26 +178,25 @@ func _apply_category(
 
 
 func _apply_signed_targets(
-	vertices: PackedVector3Array,
 	value: float,
 	negative_target: MHTarget,
 	positive_target: MHTarget,
 ) -> void:
 	if value < 0.0:
-		_apply_target(vertices, negative_target, -value)
+		_apply_target(negative_target, -value)
 	elif value > 0.0:
-		_apply_target(vertices, positive_target, value)
+		_apply_target(positive_target, value)
 
 
-func _apply_target(vertices: PackedVector3Array, target: MHTarget, weight: float) -> void:
+func _apply_target(target: MHTarget, weight: float) -> void:
 	if not target:
 		return
 
 	assert(target.vertex_indices.size() == target.offsets.size())
 	for index in target.vertex_indices.size():
 		var vertex_index := target.vertex_indices[index]
-		if vertex_index < vertices.size():
-			vertices[vertex_index] += target.offsets[index] * weight
+		if vertex_index < _morphed_vertices.size():
+			_morphed_vertices[vertex_index] += target.offsets[index] * weight
 
 
 func _rebuild_attachments() -> void:
