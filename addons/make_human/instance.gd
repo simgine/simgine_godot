@@ -124,31 +124,24 @@ func _rebuild_mesh() -> void:
 		mesh = null
 		return
 
-	_rebuild_morphed_vertices()
-	var arrays := base_geometry.build_surface(_morphed_vertices)
+	_morphed_vertices.clear()
+	_morphed_vertices.append_array(base_geometry.vertices)
+
+	if target_metadata:
+		for section in target_metadata.sections:
+			for category in section.categories:
+				_apply_category(section, category)
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
+	var arrays := base_geometry.build_surface(_morphed_vertices)
+
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	array_mesh.surface_set_name(0, "Body")
-
-
-func _rebuild_morphed_vertices() -> void:
-	_morphed_vertices.clear()
-	_morphed_vertices.append_array(base_geometry.vertices)
-
-	if not target_metadata:
-		return
-
-	for section in target_metadata.sections:
-		for category in section.categories:
-			_apply_category(section, category)
-
-	return
 
 
 func _apply_category(section: MHTargetSection, category: MHTargetCategory) -> void:
