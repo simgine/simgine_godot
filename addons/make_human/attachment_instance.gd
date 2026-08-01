@@ -5,17 +5,11 @@ extends MeshInstance3D
 @export var attachment: MHAttachment:
 	set = set_attachment
 
-@export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh := _rebuild_mesh
-
-var _body: MHInstance
+@export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh_action := rebuild_mesh
 
 
 func _enter_tree() -> void:
-	_set_body()
-
-
-func _exit_tree() -> void:
-	_unset_body()
+	rebuild_mesh()
 
 
 func _get_configuration_warnings() -> PackedStringArray:
@@ -38,41 +32,23 @@ func set_attachment(value: MHAttachment) -> void:
 		return
 
 	if attachment:
-		attachment.changed.disconnect(_rebuild_mesh)
+		attachment.changed.disconnect(rebuild_mesh)
 
 	attachment = value
 
 	if attachment:
-		attachment.changed.connect(_rebuild_mesh)
+		attachment.changed.connect(rebuild_mesh)
 
-	_rebuild_mesh()
+	rebuild_mesh()
 
 
-func _set_body() -> void:
-	_unset_body()
-
-	_body = get_parent() as MHInstance
-	if not _body:
+func rebuild_mesh() -> void:
+	var body := get_parent() as MHInstance
+	if body == null or attachment == null or attachment.geometry == null:
 		mesh = null
 		return
 
-	_body.body_changed.connect(_rebuild_mesh)
-	_rebuild_mesh()
-
-
-func _unset_body() -> void:
-	if _body:
-		_body.body_changed.disconnect(_rebuild_mesh)
-
-	_body = null
-
-
-func _rebuild_mesh() -> void:
-	if _body == null or attachment == null or attachment.geometry == null:
-		mesh = null
-		return
-
-	var body_vertices := _body.get_morphed_vertices()
+	var body_vertices := body.get_morphed_vertices()
 	if body_vertices.is_empty():
 		mesh = null
 		return

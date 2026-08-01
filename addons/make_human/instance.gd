@@ -2,8 +2,6 @@
 class_name MHInstance
 extends MeshInstance3D
 
-signal body_changed
-
 const TARGET_PREFIX: String = "targets/"
 
 @export var base_geometry: MHGeometry:
@@ -11,7 +9,7 @@ const TARGET_PREFIX: String = "targets/"
 @export var target_metadata: MHTargetMetadata:
 	set = set_target_metadata
 
-@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh := _rebuild_mesh
+@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
 var target_values: Dictionary[String, float]
 
@@ -63,6 +61,7 @@ func set_base_geometry(value: MHGeometry) -> void:
 
 	target_values.clear()
 	_rebuild_mesh()
+	_rebuild_attachments()
 
 
 func set_target_metadata(value: MHTargetMetadata) -> void:
@@ -73,6 +72,7 @@ func set_target_metadata(value: MHTargetMetadata) -> void:
 
 	target_values.clear()
 	_rebuild_mesh()
+	_rebuild_attachments()
 
 	notify_property_list_changed()
 
@@ -83,7 +83,9 @@ func set_target(target_name: StringName, value: float) -> void:
 		target_values.erase(target_name)
 	else:
 		target_values[target_name] = clamped
+
 	_rebuild_mesh()
+	_rebuild_attachments()
 
 
 func get_morphed_vertices() -> PackedVector3Array:
@@ -118,7 +120,6 @@ func _rebuild_mesh() -> void:
 	if base_geometry == null:
 		_morphed_vertices = PackedVector3Array()
 		mesh = null
-		body_changed.emit()
 		return
 
 	_morphed_vertices = _build_morphed_vertices()
@@ -132,8 +133,6 @@ func _rebuild_mesh() -> void:
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	array_mesh.surface_set_name(0, "Body")
-
-	body_changed.emit()
 
 
 func _build_morphed_vertices() -> PackedVector3Array:
@@ -203,3 +202,10 @@ func _apply_target(vertices: PackedVector3Array, target: MHTarget, weight: float
 		var vertex_index := target.vertex_indices[index]
 		if vertex_index < vertices.size():
 			vertices[vertex_index] += target.offsets[index] * weight
+
+
+func _rebuild_attachments() -> void:
+	for child in get_children():
+		var attachment := child as MHAttachmentInstance
+		if attachment:
+			attachment.rebuild_mesh()
