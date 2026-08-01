@@ -79,3 +79,11 @@ extends Resource
 ## Each component is adjusted using [member x_scale], [member y_scale], or
 ## [member z_scale] before being added to the weighted position.
 @export_storage var offsets: PackedVector3Array
+
+## Inclusive ranges of body-mesh vertices hidden by this attachment.
+##
+## Stored as consecutive start/end pairs:
+## `[start_0, end_0, start_1, end_1, ...]`.
+##
+## A single vertex is represented as a range whose start and end are equal.
+@export_storage var delete_verts: PackedInt32Array
