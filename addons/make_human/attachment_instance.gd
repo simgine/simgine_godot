@@ -44,7 +44,7 @@ func set_attachment(value: MHAttachment) -> void:
 
 func rebuild_mesh() -> void:
 	var body := get_parent() as MHInstance
-	if body == null or attachment == null or attachment.geometry == null:
+	if not body or not attachment or not attachment.geometry:
 		mesh = null
 		return
 
@@ -57,7 +57,7 @@ func rebuild_mesh() -> void:
 	var arrays := attachment.geometry.build_surface(attachment_vertices)
 
 	var array_mesh := mesh as ArrayMesh
-	if array_mesh == null:
+	if not array_mesh:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 

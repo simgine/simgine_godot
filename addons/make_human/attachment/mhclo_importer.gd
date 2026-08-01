@@ -96,14 +96,14 @@ func _import(
 			"obj_file":
 				var path := base_dir.path_join(value)
 				var geometry := ResourceLoader.load(path, "MHGeometry") as MHGeometry
-				if geometry != null:
+				if geometry:
 					attachment.geometry = geometry
 				else:
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
 				var path := base_dir.path_join(value)
 				var material := ResourceLoader.load(path, "MHMaterial") as MHMaterial
-				if material != null:
+				if material:
 					attachment.material = material
 				else:
 					push_error("Could not load material '%s' at %d" % [path, line_index])
