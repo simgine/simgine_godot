@@ -14,7 +14,7 @@ const TARGET_PREFIX: String = "targets/"
 var target_values: Dictionary[String, float]
 
 # Geometry body vertices after applying the current target values.
-var _morphed_vertices := PackedVector3Array()
+var _morphed_vertices: PackedVector3Array
 
 
 func _validate_property(property: Dictionary) -> void:
