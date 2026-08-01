@@ -28,7 +28,7 @@ func _validate_property(property: Dictionary) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
-	if target_metadata == null:
+	if not target_metadata:
 		return properties
 
 	for section in target_metadata.sections:
@@ -119,7 +119,7 @@ func _slider(path: String) -> Dictionary:
 
 
 func _rebuild_mesh() -> void:
-	if base_geometry == null:
+	if not base_geometry:
 		_morphed_vertices = PackedVector3Array()
 		mesh = null
 		return
@@ -140,7 +140,7 @@ func _rebuild_mesh() -> void:
 func _build_morphed_vertices() -> PackedVector3Array:
 	var vertices := base_geometry.vertices.duplicate()
 
-	if target_metadata == null:
+	if not target_metadata:
 		return vertices
 
 	for section in target_metadata.sections:
@@ -155,7 +155,7 @@ func _apply_category(
 	section: MHTargetSection,
 	category: MHTargetCategory,
 ) -> void:
-	if category.opposites == null:
+	if not category.opposites:
 		return
 
 	var path := "%s/%s" % [section.label, category.name]
@@ -196,7 +196,7 @@ func _apply_signed_targets(
 
 
 func _apply_target(vertices: PackedVector3Array, target: MHTarget, weight: float) -> void:
-	if target == null:
+	if not target:
 		return
 
 	assert(target.vertex_indices.size() == target.offsets.size())

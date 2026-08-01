@@ -212,7 +212,7 @@ func _import(
 func _load_texture(base_dir: String, value: String, line_index: int) -> Texture2D:
 	var path := base_dir.path_join(value)
 	var texture := ResourceLoader.load(path, "Texture2D") as Texture2D
-	if texture == null:
+	if not texture:
 		push_error("Could not load texture '%s' at %d" % [path, line_index])
 
 	return texture
