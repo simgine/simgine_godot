@@ -137,10 +137,10 @@ func _import(
 						push_error("Unknown tag at %d: '%s'" % [line_index, line])
 					Section.VERTS:
 						if not _parse_vertex_mapping(line, attachment):
-							push_error("Unknown vertex mapping at %d: '%s'" % [line_index, line])
+							push_error("Invalid vertex mapping at %d: '%s'" % [line_index, line])
 					Section.DELETE_VERTS:
-						# Not supported yet.
-						pass
+						if not _parse_delete_verts(line, attachment):
+							push_error("Invalid delete vertices at %d: '%s'" % [line_index, line])
 				continue
 
 	return ResourceSaver.save(attachment, "%s.%s" % [save_path, _get_save_extension()])
@@ -204,3 +204,32 @@ func _parse_vertex_mapping(line: String, attachment: MHAttachment) -> bool:
 			return true
 		_:
 			return false
+
+
+func _parse_delete_verts(line: String, attachment: MHAttachment) -> bool:
+	var parts := line.split(" ", false)
+
+	var index := 0
+	while index < parts.size():
+		var start := parts[index].to_int()
+		index += 1
+
+		if index < parts.size() and parts[index] == "-":
+			index += 1
+			if index >= parts.size():
+				return false
+
+			var end := parts[index].to_int()
+			index += 1
+
+			if end < start:
+				return false
+
+			attachment.delete_verts.push_back(start)
+			attachment.delete_verts.push_back(end)
+		else:
+			# Single value, start and end are equal.
+			attachment.delete_verts.push_back(start)
+			attachment.delete_verts.push_back(start)
+
+	return true
