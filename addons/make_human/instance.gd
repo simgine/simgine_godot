@@ -13,7 +13,9 @@ const TARGET_PREFIX: String = "targets/"
 
 var target_values: Dictionary[String, float]
 
-# Geometry body vertices after applying the current target values.
+## Geometry body vertices after applying the current target values.
+##
+## Stored to fit attachments geometry based on it.
 var _morphed_vertices: PackedVector3Array
 
 
