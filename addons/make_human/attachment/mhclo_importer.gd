@@ -10,7 +10,7 @@ extends EditorImportPlugin
 ## https://github.com/makehumancommunity/mpfb2/issues/409
 ##
 ## To make our parser compatible, we try to parse regular
-## tags first and fallback to vertex parsing.
+## tags first and fallback to vertex or delete verts parsing.
 enum Section {
 	NONE,
 	VERTS,
