@@ -1,7 +1,9 @@
 @tool
+class_name MakeHumanPlugin
 extends EditorPlugin
 
-const ASSETS_DIR_SETTING := "make_human/general/assets"
+const BASE_OBJ_SETTING := "make_human/paths/base_obj"
+const TARGET_JSON_SETTING := "make_human/paths/target_json"
 
 var _obj_importer := MHObjImporter.new()
 var _target_importer := MHTargetImporter.new()
@@ -12,13 +14,8 @@ var _mhclo_importer := MHCloImporter.new()
 
 
 func _enter_tree() -> void:
-	if not ProjectSettings.has_setting(ASSETS_DIR_SETTING):
-		ProjectSettings.set_setting(ASSETS_DIR_SETTING, "")
-
-	ProjectSettings.set_initial_value(ASSETS_DIR_SETTING, "")
-	ProjectSettings.add_property_info(
-		{ "name": ASSETS_DIR_SETTING, "type": TYPE_STRING, "hint": PROPERTY_HINT_DIR },
-	)
+	_add_setting(BASE_OBJ_SETTING, TYPE_STRING, PROPERTY_HINT_FILE)
+	_add_setting(TARGET_JSON_SETTING, TYPE_STRING, PROPERTY_HINT_FILE)
 
 	add_import_plugin(_obj_importer)
 	add_import_plugin(_target_importer)
@@ -35,3 +32,11 @@ func _exit_tree() -> void:
 	remove_import_plugin(_macro_json_importer)
 	remove_import_plugin(_mhmat_importer)
 	remove_import_plugin(_mhclo_importer)
+
+
+func _add_setting(path: String, type: Variant.Type, hint: PropertyHint) -> void:
+	if not ProjectSettings.has_setting(path):
+		ProjectSettings.set_setting(path, "")
+
+	ProjectSettings.set_initial_value(path, "")
+	ProjectSettings.add_property_info({ "name": path, "type": type, "hint": hint })

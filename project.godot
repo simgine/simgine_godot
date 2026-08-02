@@ -33,7 +33,8 @@ enabled=PackedStringArray("res://addons/make_human/plugin.cfg")
 
 [make_human]
 
-general/assets="res://characters/human/assets"
+paths/base_obj="uid://cq4l65kp7fx6a"
+paths/target_json="uid://d26sarld4l3y"
 
 [physics]
 

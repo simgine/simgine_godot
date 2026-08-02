@@ -4,10 +4,8 @@ extends MeshInstance3D
 
 const TARGET_PREFIX: String = "targets/"
 
-@export var base_geometry: MHGeometry:
-	set = set_base_geometry
-@export var target_metadata: MHTargetMetadata:
-	set = set_target_metadata
+var base_geometry: MHGeometry
+var target_metadata: MHTargetMetadata
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
@@ -17,6 +15,19 @@ var target_values: Dictionary[String, float]
 ##
 ## Stored to fit attachments geometry based on it.
 var _morphed_vertices: PackedVector3Array
+
+
+func _init() -> void:
+	var base_obj: String = ProjectSettings.get_setting(MakeHumanPlugin.BASE_OBJ_SETTING)
+	base_geometry = ResourceLoader.load(base_obj) as MHGeometry
+
+	var target_json: String = ProjectSettings.get_setting(MakeHumanPlugin.TARGET_JSON_SETTING)
+	target_metadata = ResourceLoader.load(target_json) as MHTargetMetadata
+
+
+func _ready() -> void:
+	_rebuild_mesh()
+	_rebuild_attachments()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -53,30 +64,6 @@ func _set(property: StringName, value: Variant) -> bool:
 		return true
 
 	return false
-
-
-func set_base_geometry(value: MHGeometry) -> void:
-	if base_geometry == value:
-		return
-
-	base_geometry = value
-
-	target_values.clear()
-	_rebuild_mesh()
-	_rebuild_attachments()
-
-
-func set_target_metadata(value: MHTargetMetadata) -> void:
-	if target_metadata == value:
-		return
-
-	target_metadata = value
-
-	target_values.clear()
-	_rebuild_mesh()
-	_rebuild_attachments()
-
-	notify_property_list_changed()
 
 
 func set_target(target_name: StringName, value: float) -> void:
