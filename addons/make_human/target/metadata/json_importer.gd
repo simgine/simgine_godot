@@ -132,11 +132,11 @@ func _load_target(section_dir: String, target_name: String) -> MHTarget:
 	var base_path := section_dir.path_join(target_name)
 	var full_path := base_path + ".target"
 	if FileAccess.file_exists(full_path):
-		return ResourceLoader.load(full_path, "MHTarget") as MHTarget
+		return ResourceLoader.load(full_path) as MHTarget
 
 	full_path = base_path + ".target.gz"
 	if FileAccess.file_exists(full_path):
-		return ResourceLoader.load(full_path, "MHTarget") as MHTarget
+		return ResourceLoader.load(full_path) as MHTarget
 
 	push_error("Unable to find '%s'" % base_path)
 	return null
