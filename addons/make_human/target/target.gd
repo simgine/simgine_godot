@@ -6,3 +6,11 @@ extends Resource
 
 @export_storage var vertex_indices: PackedInt32Array
 @export_storage var offsets: PackedVector3Array
+
+
+func apply(vertices: PackedVector3Array, weight: float) -> void:
+	assert(vertex_indices.size() == offsets.size())
+	for index in vertex_indices.size():
+		var vertex_index := vertex_indices[index]
+		if vertex_index < vertices.size():
+			vertices[vertex_index] += offsets[index] * weight

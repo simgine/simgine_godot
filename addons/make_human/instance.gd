@@ -175,21 +175,10 @@ func _apply_signed_targets(
 	negative_target: MHTarget,
 	positive_target: MHTarget,
 ) -> void:
-	if value < 0.0:
-		_apply_target(negative_target, -value)
-	elif value > 0.0:
-		_apply_target(positive_target, value)
-
-
-func _apply_target(target: MHTarget, weight: float) -> void:
-	if not target:
-		return
-
-	assert(target.vertex_indices.size() == target.offsets.size())
-	for index in target.vertex_indices.size():
-		var vertex_index := target.vertex_indices[index]
-		if vertex_index < _morphed_vertices.size():
-			_morphed_vertices[vertex_index] += target.offsets[index] * weight
+	if value < 0.0 and negative_target:
+		negative_target.apply(_morphed_vertices, -value)
+	elif value > 0.0 and positive_target:
+		positive_target.apply(_morphed_vertices, value)
 
 
 func _rebuild_attachments() -> void:
