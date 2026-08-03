@@ -1,8 +1,6 @@
 @tool
 extends EditorPlugin
 
-const ASSETS_DIR_SETTING := "make_human/general/assets"
-
 var _obj_importer := MHObjImporter.new()
 var _target_importer := MHTargetImporter.new()
 var _target_json_importer := MHTargetJSONImporter.new()
@@ -12,14 +10,6 @@ var _mhclo_importer := MHCloImporter.new()
 
 
 func _enter_tree() -> void:
-	if not ProjectSettings.has_setting(ASSETS_DIR_SETTING):
-		ProjectSettings.set_setting(ASSETS_DIR_SETTING, "")
-
-	ProjectSettings.set_initial_value(ASSETS_DIR_SETTING, "")
-	ProjectSettings.add_property_info(
-		{ "name": ASSETS_DIR_SETTING, "type": TYPE_STRING, "hint": PROPERTY_HINT_DIR },
-	)
-
 	add_import_plugin(_obj_importer)
 	add_import_plugin(_target_importer)
 	add_import_plugin(_target_json_importer)
