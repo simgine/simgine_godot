@@ -1,4 +1,4 @@
-class_name MHMacroMetadata
+class_name MHMacroTargetRegistry
 extends Resource
 
 ## Maps macro attribute names to their definitions.

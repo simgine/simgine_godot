@@ -55,18 +55,18 @@ func _import(
 		return ERR_PARSE_ERROR
 
 	var base_dir := source_file.get_base_dir()
-	var metadata := _parse_metadata(json.data, base_dir)
+	var registry := _parse_registry(json.data, base_dir)
 
-	return ResourceSaver.save(metadata, "%s.%s" % [save_path, _get_save_extension()])
+	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_metadata(dict: Dictionary, base_dir: String) -> MHTargetMetadata:
-	var metadata := MHTargetMetadata.new()
+func _parse_registry(dict: Dictionary, base_dir: String) -> MHTargetRegistry:
+	var registry := MHTargetRegistry.new()
 	for label: String in dict:
 		var section := _parse_section(dict[label], base_dir.path_join(label))
-		metadata.sections.push_back(section)
+		registry.sections.push_back(section)
 
-	return metadata
+	return registry
 
 
 func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
