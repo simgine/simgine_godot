@@ -44,13 +44,20 @@ func _get_priority() -> float:
 
 
 func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]:
-	return []
+	return [
+		{
+			"name": "mode",
+			"default_value": ImportMode.ATTACHMENT,
+			"property_hint": PROPERTY_HINT_ENUM,
+			"hint_string": "Attachment,Body",
+		},
+	]
 
 
 func _import(
 	source_file: String,
 	save_path: String,
-	_options: Dictionary,
+	options: Dictionary,
 	_platform_variants: Array,
 	_gen_files: Array,
 ) -> Error:
@@ -61,8 +68,7 @@ func _import(
 		)
 		return ERR_PARSE_ERROR
 
-	var is_body := source_file.ends_with("3dobjs/base.obj")
-
+	var mode: ImportMode = options.mode
 	var geometry := MHGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
@@ -78,7 +84,7 @@ func _import(
 		var tag := parts[0]
 		match tag:
 			"v":
-				if not is_body:
+				if mode == ImportMode.ATTACHMENT:
 					# Attachment vertex positions are reconstructed from the body using .mhclo data.
 					continue
 				if parts.size() != 4:
@@ -106,7 +112,7 @@ func _import(
 			"g":
 				last_groups = parts.slice(1)
 			"f":
-				if is_body and "body" not in last_groups:
+				if mode == ImportMode.BODY and "body" not in last_groups:
 					# Ignore helper geometry.
 					continue
 				if parts.size() != 5:
