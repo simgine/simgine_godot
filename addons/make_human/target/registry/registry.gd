@@ -1,6 +1,6 @@
-class_name MHTargetMetadata
+class_name MHTargetRegistry
 extends Resource
-## Data from `target.json`.
+## Targets from `target.json`.
 ##
 ## Categorizes all individual morph targets by body region,
 ## with left/right flags and opposite-direction pairing.

@@ -58,25 +58,25 @@ func _import(
 		push_error("Root is not an object")
 		return ERR_PARSE_ERROR
 
-	var metadata := _parse_metadata(json.data)
-	if not metadata:
+	var registry := _parse_registry(json.data)
+	if not registry:
 		return ERR_PARSE_ERROR
 
-	return ResourceSaver.save(metadata, "%s.%s" % [save_path, _get_save_extension()])
+	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_metadata(dict: Dictionary) -> MHMacroMetadata:
-	var metadata := MHMacroMetadata.new()
+func _parse_registry(dict: Dictionary) -> MHMacroTargetRegistry:
+	var registry := MHMacroTargetRegistry.new()
 
 	var macrotargets: Dictionary = dict.macrotargets
 	for name: String in macrotargets:
-		metadata.macrotargets[name] = _parse_target(macrotargets[name])
+		registry.macrotargets[name] = _parse_target(macrotargets[name])
 
 	var combinations: Dictionary = dict.combinations
 	for name: String in combinations:
-		metadata.combinations[name] = combinations[name]
+		registry.combinations[name] = combinations[name]
 
-	return metadata
+	return registry
 
 
 func _parse_target(dict: Dictionary) -> MHMacroTarget:

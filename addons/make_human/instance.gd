@@ -6,8 +6,8 @@ const TARGET_PREFIX: String = "targets/"
 
 @export var base_geometry: MHGeometry:
 	set = set_base_geometry
-@export var target_metadata: MHTargetMetadata:
-	set = set_target_metadata
+@export var target_registry: MHTargetRegistry:
+	set = set_target_registry
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
@@ -28,10 +28,10 @@ func _validate_property(property: Dictionary) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
-	if not target_metadata:
+	if not target_registry:
 		return properties
 
-	for section in target_metadata.sections:
+	for section in target_registry.sections:
 		for category in section.categories:
 			_add_category(properties, section, category)
 
@@ -66,11 +66,11 @@ func set_base_geometry(value: MHGeometry) -> void:
 	_rebuild_attachments()
 
 
-func set_target_metadata(value: MHTargetMetadata) -> void:
-	if target_metadata == value:
+func set_target_registry(value: MHTargetRegistry) -> void:
+	if target_registry == value:
 		return
 
-	target_metadata = value
+	target_registry = value
 
 	target_values.clear()
 	_rebuild_mesh()
@@ -127,8 +127,8 @@ func _rebuild_mesh() -> void:
 	_morphed_vertices.clear()
 	_morphed_vertices.append_array(base_geometry.vertices)
 
-	if target_metadata:
-		for section in target_metadata.sections:
+	if target_registry:
+		for section in target_registry.sections:
 			for category in section.categories:
 				_apply_category(section, category)
 
