@@ -2,7 +2,7 @@
 class_name MHInstance
 extends MeshInstance3D
 
-const TARGET_PREFIX: String = "targets/"
+const TARGETS_PREFIX: String = "targets/"
 
 @export var base_geometry: MHGeometry:
 	set = set_base_geometry
@@ -39,7 +39,7 @@ func _get_property_list() -> Array[Dictionary]:
 
 
 func _get(property: StringName) -> Variant:
-	if property.begins_with(TARGET_PREFIX):
+	if property.begins_with(TARGETS_PREFIX):
 		var target_name := _property_to_target_name(property)
 		return target_values.get(target_name)
 
@@ -47,7 +47,7 @@ func _get(property: StringName) -> Variant:
 
 
 func _set(property: StringName, value: Variant) -> bool:
-	if property.begins_with(TARGET_PREFIX):
+	if property.begins_with(TARGETS_PREFIX):
 		var target_name := _property_to_target_name(property)
 		set_target(target_name, value)
 		return true
@@ -113,7 +113,7 @@ func _add_category(
 
 func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 	return {
-		"name": TARGET_PREFIX + path,
+		"name": TARGETS_PREFIX + path,
 		"type": TYPE_FLOAT,
 		"hint": PROPERTY_HINT_RANGE,
 		"hint_string": "%f,%f,0.01" % [minimum, maximum],
@@ -123,7 +123,7 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 
 func _property_to_target_name(property: String) -> String:
 	# Strips prefix and section name.
-	var sep_pos := property.find("/", TARGET_PREFIX.length())
+	var sep_pos := property.find("/", TARGETS_PREFIX.length())
 	assert(sep_pos != -1)
 	return property.substr(sep_pos + 1)
 
