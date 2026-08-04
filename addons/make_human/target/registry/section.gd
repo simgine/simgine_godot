@@ -1,3 +1,4 @@
+@tool
 class_name MHTargetSection
 extends Resource
 ## Section object from `target.json`.
@@ -10,3 +11,8 @@ extends Resource
 
 ## List of deformation category objects.
 @export var categories: Array[MHTargetCategory]
+
+
+func apply(vertices: PackedVector3Array, values: Dictionary[StringName, float]) -> void:
+	for category in categories:
+		category.apply(vertices, values)
