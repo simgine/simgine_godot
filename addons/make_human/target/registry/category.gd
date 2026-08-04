@@ -5,7 +5,7 @@ extends Resource
 ## Internal identifier.
 ##
 ## Often includes an opposite pair suffix like `-decr-incr`, `-down-up`, `-in-out`.
-@export var name: String
+@export var name: StringName
 
 ## Display label for the UI.
 @export var label: String
@@ -15,3 +15,6 @@ extends Resource
 
 ## Maps opposing directions to targets.
 @export var opposites: MHTargetOpposites
+
+## All targets in this category.
+@export var targets: Dictionary[StringName, MHTarget]

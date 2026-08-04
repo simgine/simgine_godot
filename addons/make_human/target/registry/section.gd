@@ -10,6 +10,3 @@ extends Resource
 
 ## List of deformation category objects.
 @export var categories: Array[MHTargetCategory]
-
-## Targets that don't fit into any auto-detected category
-@export var unsorted: Array[MHTarget]
