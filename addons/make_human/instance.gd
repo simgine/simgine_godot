@@ -38,6 +38,33 @@ func _get_property_list() -> Array[Dictionary]:
 	return properties
 
 
+func _add_category(
+	properties: Array[Dictionary],
+	section: MHTargetSection,
+	category: MHTargetCategory,
+) -> void:
+	var path := "%s/%s" % [section.label, category.name]
+
+	if category.opposites:
+		if category.has_left_and_right:
+			properties.append(_slider(path + "/left", -1.0, 1.0))
+			properties.append(_slider(path + "/right", -1.0, 1.0))
+		else:
+			properties.append(_slider(path, -1.0, 1.0))
+	else:
+		properties.append(_slider(path, 0.0, 1.0))
+
+
+func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
+	return {
+		"name": TARGETS_PREFIX + path,
+		"type": TYPE_FLOAT,
+		"hint": PROPERTY_HINT_RANGE,
+		"hint_string": "%f,%f,0.01" % [minimum, maximum],
+		"usage": PROPERTY_USAGE_EDITOR,
+	}
+
+
 func _get(property: StringName) -> Variant:
 	if property.begins_with(TARGETS_PREFIX):
 		var target_name := _property_to_target_name(property)
@@ -53,6 +80,13 @@ func _set(property: StringName, value: Variant) -> bool:
 		return true
 
 	return false
+
+
+func _property_to_target_name(property: String) -> String:
+	# Strips prefix and section name.
+	var sep_pos := property.find("/", TARGETS_PREFIX.length())
+	assert(sep_pos != -1)
+	return property.substr(sep_pos + 1)
 
 
 func set_base_geometry(value: MHGeometry) -> void:
@@ -90,44 +124,6 @@ func set_target(target_name: StringName, value: float) -> void:
 	_rebuild_attachments()
 
 
-func get_morphed_vertices() -> PackedVector3Array:
-	return _morphed_vertices
-
-
-func _add_category(
-	properties: Array[Dictionary],
-	section: MHTargetSection,
-	category: MHTargetCategory,
-) -> void:
-	var path := "%s/%s" % [section.label, category.name]
-
-	if category.opposites:
-		if category.has_left_and_right:
-			properties.append(_slider(path + "/left", -1.0, 1.0))
-			properties.append(_slider(path + "/right", -1.0, 1.0))
-		else:
-			properties.append(_slider(path, -1.0, 1.0))
-	else:
-		properties.append(_slider(path, 0.0, 1.0))
-
-
-func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
-	return {
-		"name": TARGETS_PREFIX + path,
-		"type": TYPE_FLOAT,
-		"hint": PROPERTY_HINT_RANGE,
-		"hint_string": "%f,%f,0.01" % [minimum, maximum],
-		"usage": PROPERTY_USAGE_EDITOR,
-	}
-
-
-func _property_to_target_name(property: String) -> String:
-	# Strips prefix and section name.
-	var sep_pos := property.find("/", TARGETS_PREFIX.length())
-	assert(sep_pos != -1)
-	return property.substr(sep_pos + 1)
-
-
 func _rebuild_mesh() -> void:
 	if not base_geometry:
 		_morphed_vertices.clear()
@@ -157,3 +153,7 @@ func _rebuild_attachments() -> void:
 		var attachment := child as MHAttachmentInstance
 		if attachment:
 			attachment.rebuild_mesh()
+
+
+func get_morphed_vertices() -> PackedVector3Array:
+	return _morphed_vertices
