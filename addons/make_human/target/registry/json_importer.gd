@@ -78,10 +78,6 @@ func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
 		var category := _parse_category(category_dict, section_dir)
 		section.categories.push_back(category)
 
-	for name: String in dict.get("unsorted"):
-		var target := _load_target(section_dir, name)
-		section.unsorted.push_back(target)
-
 	return section
 
 
@@ -93,42 +89,26 @@ func _parse_category(dict: Dictionary, section_dir: String) -> MHTargetCategory:
 
 	var opposites: Dictionary = dict.get("opposites", { })
 	if opposites:
-		category.opposites = _parse_opposites(opposites, section_dir)
+		category.opposites = _parse_opposites(opposites)
+
+	for target_name: String in dict.targets:
+		category.targets[target_name] = _load_target(target_name, section_dir)
 
 	return category
 
 
-func _parse_opposites(dict: Dictionary, section_dir: String) -> MHTargetOpposites:
+func _parse_opposites(dict: Dictionary) -> MHTargetOpposites:
 	var opposites := MHTargetOpposites.new()
-
-	var negative_left: String = dict["negative-left"]
-	if negative_left:
-		opposites.negative_left = _load_target(section_dir, negative_left)
-
-	var negative_right: String = dict["negative-right"]
-	if negative_right:
-		opposites.negative_right = _load_target(section_dir, negative_right)
-
-	var negative_unsided: String = dict["negative-unsided"]
-	if negative_unsided:
-		opposites.negative_unsided = _load_target(section_dir, negative_unsided)
-
-	var positive_left: String = dict["positive-left"]
-	if positive_left:
-		opposites.positive_left = _load_target(section_dir, positive_left)
-
-	var positive_right: String = dict["positive-right"]
-	if positive_right:
-		opposites.positive_right = _load_target(section_dir, positive_right)
-
-	var positive_unsided: String = dict["positive-unsided"]
-	if positive_unsided:
-		opposites.positive_unsided = _load_target(section_dir, positive_unsided)
-
+	opposites.negative_left = dict["negative-left"]
+	opposites.negative_right = dict["negative-right"]
+	opposites.negative_unsided = dict["negative-unsided"]
+	opposites.positive_left = dict["positive-left"]
+	opposites.positive_right = dict["positive-right"]
+	opposites.positive_unsided = dict["positive-unsided"]
 	return opposites
 
 
-func _load_target(section_dir: String, target_name: String) -> MHTarget:
+func _load_target(target_name: String, section_dir: String) -> MHTarget:
 	var base_path := section_dir.path_join(target_name)
 	var full_path := base_path + ".target"
 	if FileAccess.file_exists(full_path):

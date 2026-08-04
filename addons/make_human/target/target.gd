@@ -1,3 +1,4 @@
+@tool
 class_name MHTarget
 extends Resource
 ## A morph target (shape key) for the MakeHuman base mesh.
