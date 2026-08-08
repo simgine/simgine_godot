@@ -4,10 +4,8 @@ extends MeshInstance3D
 
 const TARGETS_PREFIX: String = "targets/"
 
-@export var base_geometry: MHGeometry:
-	set = set_base_geometry
-@export var target_registry: MHTargetRegistry:
-	set = set_target_registry
+var _base_geometry: MHGeometry
+var _target_registry: MHTargetRegistry
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
@@ -19,6 +17,21 @@ var target_values: Dictionary[StringName, float]
 var _morphed_vertices: PackedVector3Array
 
 
+func _init() -> void:
+	var data_dir: String = ProjectSettings.get_setting(MakeHumanPlugin.DATA_DIR_SETTING)
+
+	var base_obj := data_dir.path_join("3dobjs/base.obj")
+	_base_geometry = ResourceLoader.load(base_obj)
+
+	var target_json := data_dir.path_join("targets/target.json")
+	_target_registry = ResourceLoader.load(target_json)
+
+
+func _ready() -> void:
+	_rebuild_mesh()
+	_rebuild_attachments()
+
+
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "mesh":
 		# Hide entirely since it is constructed dynamically.
@@ -28,10 +41,7 @@ func _validate_property(property: Dictionary) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
-	if not target_registry:
-		return properties
-
-	for section in target_registry.sections:
+	for section in _target_registry.sections:
 		for category in section.categories:
 			_add_category(properties, section, category)
 
@@ -89,30 +99,6 @@ func _property_to_target_name(property: String) -> String:
 	return property.substr(sep_pos + 1)
 
 
-func set_base_geometry(value: MHGeometry) -> void:
-	if base_geometry == value:
-		return
-
-	base_geometry = value
-
-	target_values.clear()
-	_rebuild_mesh()
-	_rebuild_attachments()
-
-
-func set_target_registry(value: MHTargetRegistry) -> void:
-	if target_registry == value:
-		return
-
-	target_registry = value
-
-	target_values.clear()
-	_rebuild_mesh()
-	_rebuild_attachments()
-
-	notify_property_list_changed()
-
-
 func set_target(target_name: StringName, value: float) -> void:
 	var clamped := clampf(value, -1.0, 1.0)
 	if is_zero_approx(clamped):
@@ -125,23 +111,17 @@ func set_target(target_name: StringName, value: float) -> void:
 
 
 func _rebuild_mesh() -> void:
-	if not base_geometry:
-		_morphed_vertices.clear()
-		mesh = null
-		return
-
 	_morphed_vertices.clear()
-	_morphed_vertices.append_array(base_geometry.vertices)
+	_morphed_vertices.append_array(_base_geometry.vertices)
 
-	if target_registry:
-		target_registry.apply(_morphed_vertices, target_values)
+	_target_registry.apply(_morphed_vertices, target_values)
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := base_geometry.build_surface(_morphed_vertices)
+	var arrays := _base_geometry.build_surface(_morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)

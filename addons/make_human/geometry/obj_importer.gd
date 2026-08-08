@@ -9,11 +9,6 @@ extends EditorImportPlugin
 ## Supports only a subset of OBJ that is used in
 ## MakeHuman assets.
 
-enum ImportMode {
-	ATTACHMENT,
-	BODY,
-}
-
 
 func _get_importer_name() -> String:
 	return "make_human.obj_importer"
@@ -44,20 +39,13 @@ func _get_priority() -> float:
 
 
 func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]:
-	return [
-		{
-			"name": "mode",
-			"default_value": ImportMode.ATTACHMENT,
-			"property_hint": PROPERTY_HINT_ENUM,
-			"hint_string": "Attachment,Body",
-		},
-	]
+	return []
 
 
 func _import(
 	source_file: String,
 	save_path: String,
-	options: Dictionary,
+	_options: Dictionary,
 	_platform_variants: Array,
 	_gen_files: Array,
 ) -> Error:
@@ -68,7 +56,8 @@ func _import(
 		)
 		return ERR_PARSE_ERROR
 
-	var mode: ImportMode = options.mode
+	var is_body := source_file.ends_with("3dobjs/base.obj")
+
 	var geometry := MHGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
@@ -84,7 +73,7 @@ func _import(
 		var tag := parts[0]
 		match tag:
 			"v":
-				if mode == ImportMode.ATTACHMENT:
+				if not is_body:
 					# Attachment vertex positions are reconstructed from the body using .mhclo data.
 					continue
 				if parts.size() != 4:
@@ -112,7 +101,7 @@ func _import(
 			"g":
 				last_groups = parts.slice(1)
 			"f":
-				if mode == ImportMode.BODY and "body" not in last_groups:
+				if is_body and "body" not in last_groups:
 					# Ignore helper geometry.
 					continue
 				if parts.size() != 5:
