@@ -1,4 +1,4 @@
-class_name MHMacroTargetPart
+class_name MHMacroPart
 extends Resource
 
 ## Lower bound of this segment (inclusive).

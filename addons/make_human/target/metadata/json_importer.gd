@@ -1,16 +1,16 @@
-class_name MHTargetJSONImporter
+class_name MHJSONImporter
 extends EditorImportPlugin
-## Importer for `target.json`.
+## Importer for `target.json` and `macro.json`.
 ##
 ## For details, see https://github.com/makehumancommunity/mpfb2/blob/master/docs/fileformats/target_metadata.md
 
 
 func _get_importer_name() -> String:
-	return "make_human.target_json_importer"
+	return "make_human.json_importer"
 
 
 func _get_visible_name() -> String:
-	return "MakeHuman Target JSON Importer"
+	return "MakeHuman JSON Importer"
 
 
 func _get_recognized_extensions() -> PackedStringArray:
@@ -54,19 +54,23 @@ func _import(
 		)
 		return ERR_PARSE_ERROR
 
-	var base_dir := source_file.get_base_dir()
-	var registry := _parse_registry(json.data, base_dir)
+	if source_file.ends_with("target.json"):
+		var targets_dir := source_file.get_base_dir()
+		return _import_target_registry(json.data, targets_dir, save_path)
+	if source_file.ends_with("macro.json"):
+		return _import_macro_registry(json.data, save_path)
+	else:
+		push_error("Unknown MakeHuman JSON")
+		return ERR_PARSE_ERROR
 
-	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
-
-func _parse_registry(dict: Dictionary, base_dir: String) -> MHTargetRegistry:
+func _import_target_registry(dict: Dictionary, targets_dir: String, save_path: String) -> Error:
 	var registry := MHTargetRegistry.new()
 	for label: String in dict:
-		var section := _parse_section(dict[label], base_dir.path_join(label))
+		var section := _parse_section(dict[label], targets_dir.path_join(label))
 		registry.sections.push_back(section)
 
-	return registry
+	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
 
 func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
@@ -120,3 +124,37 @@ func _load_target(target_name: String, section_dir: String) -> MHTarget:
 
 	push_error("Unable to find '%s'" % base_path)
 	return null
+
+
+func _import_macro_registry(dict: Dictionary, save_path: String) -> Error:
+	var registry := MHMacroRegistry.new()
+
+	var macrotargets: Dictionary = dict.macrotargets
+	for name: String in macrotargets:
+		registry.macrotargets[name] = _parse_macro(macrotargets[name])
+
+	var combinations: Dictionary = dict.combinations
+	for name: String in combinations:
+		registry.combinations[name] = combinations[name]
+
+	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
+
+
+func _parse_macro(dict: Dictionary) -> MHMacro:
+	var macro := MHMacro.new()
+	macro.label = dict.label
+
+	for part_dict: Dictionary in dict.parts:
+		var part := _parse_macro_part(part_dict)
+		macro.parts.push_back(part)
+
+	return macro
+
+
+func _parse_macro_part(dict: Dictionary) -> MHMacroPart:
+	var part := MHMacroPart.new()
+	part.lowest = dict.lowest
+	part.highest = dict.highest
+	part.low = dict.low
+	part.high = dict.high
+	return part
