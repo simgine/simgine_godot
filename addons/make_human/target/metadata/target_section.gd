@@ -13,6 +13,6 @@ extends Resource
 @export var categories: Array[MHTargetCategory]
 
 
-func apply(vertices: PackedVector3Array, values: Dictionary[StringName, float]) -> void:
+func apply(vertices: PackedVector3Array, modifiers: Dictionary[StringName, float]) -> void:
 	for category in categories:
-		category.apply(vertices, values)
+		category.apply(vertices, modifiers)

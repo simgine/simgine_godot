@@ -10,6 +10,6 @@ extends Resource
 @export var sections: Array[MHTargetSection]
 
 
-func apply(vertices: PackedVector3Array, values: Dictionary[StringName, float]) -> void:
+func apply(vertices: PackedVector3Array, modifiers: Dictionary[StringName, float]) -> void:
 	for section in sections:
-		section.apply(vertices, values)
+		section.apply(vertices, modifiers)

@@ -21,53 +21,53 @@ extends Resource
 @export var targets: Dictionary[StringName, MHTarget]
 
 
-func apply(vertices: PackedVector3Array, values: Dictionary[StringName, float]) -> void:
+func apply(vertices: PackedVector3Array, modifiers: Dictionary[StringName, float]) -> void:
 	if opposites:
 		if has_left_and_right:
-			_apply_sided_category(vertices, values)
+			_apply_sided_category(vertices, modifiers)
 		else:
-			_apply_unsided_category(vertices, values)
+			_apply_unsided_category(vertices, modifiers)
 	else:
-		_apply_simple_category(vertices, values)
+		_apply_simple_category(vertices, modifiers)
 
 
 func _apply_simple_category(
 	vertices: PackedVector3Array,
-	values: Dictionary[StringName, float],
+	modifiers: Dictionary[StringName, float],
 ) -> void:
 	for target_name in targets:
-		var weight: float = values.get(target_name, 0.0)
+		var weight: float = modifiers.get(target_name, 0.0)
 		var target := targets[target_name]
 		target.apply(vertices, weight)
 
 
 func _apply_sided_category(
 	vertices: PackedVector3Array,
-	values: Dictionary[StringName, float],
+	modifiers: Dictionary[StringName, float],
 ) -> void:
 	_apply_signed(
 		vertices,
 		opposites.negative_left,
 		opposites.positive_left,
-		values.get(name + "/left", 0.0),
+		modifiers.get(name + "/left", 0.0),
 	)
 	_apply_signed(
 		vertices,
 		opposites.negative_right,
 		opposites.positive_right,
-		values.get(name + "/right", 0.0),
+		modifiers.get(name + "/right", 0.0),
 	)
 
 
 func _apply_unsided_category(
 	vertices: PackedVector3Array,
-	values: Dictionary[StringName, float],
+	modifiers: Dictionary[StringName, float],
 ) -> void:
 	_apply_signed(
 		vertices,
 		opposites.negative_unsided,
 		opposites.positive_unsided,
-		values.get(name, 0.0),
+		modifiers.get(name, 0.0),
 	)
 
 

@@ -9,7 +9,7 @@ var _target_registry: MHTargetRegistry
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
-var target_values: Dictionary[StringName, float]
+var modifiers: Dictionary[StringName, float]
 
 ## Geometry body vertices after applying the current target values.
 ##
@@ -78,7 +78,7 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 func _get(property: StringName) -> Variant:
 	if property.begins_with(TARGETS_PREFIX):
 		var target_name := _property_to_target_name(property)
-		return target_values.get(target_name)
+		return modifiers.get(target_name)
 
 	return null
 
@@ -102,9 +102,9 @@ func _property_to_target_name(property: String) -> String:
 func set_target(target_name: StringName, value: float) -> void:
 	var clamped := clampf(value, -1.0, 1.0)
 	if is_zero_approx(clamped):
-		target_values.erase(target_name)
+		modifiers.erase(target_name)
 	else:
-		target_values[target_name] = clamped
+		modifiers[target_name] = clamped
 
 	_rebuild_mesh()
 	_rebuild_attachments()
@@ -114,7 +114,7 @@ func _rebuild_mesh() -> void:
 	_morphed_vertices.clear()
 	_morphed_vertices.append_array(_base_geometry.vertices)
 
-	_target_registry.apply(_morphed_vertices, target_values)
+	_target_registry.apply(_morphed_vertices, modifiers)
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
