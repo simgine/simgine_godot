@@ -2,7 +2,7 @@
 class_name MHInstance
 extends MeshInstance3D
 
-const TARGETS_PREFIX: String = "targets/"
+const MODIFIERS_PREFIX := "modifiers/"
 
 var _base_geometry: MHGeometry
 var _target_registry: MHTargetRegistry
@@ -67,7 +67,7 @@ func _add_category(
 
 func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 	return {
-		"name": TARGETS_PREFIX + path,
+		"name": MODIFIERS_PREFIX + path,
 		"type": TYPE_FLOAT,
 		"hint": PROPERTY_HINT_RANGE,
 		"hint_string": "%f,%f,0.01" % [minimum, maximum],
@@ -76,35 +76,36 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 
 
 func _get(property: StringName) -> Variant:
-	if property.begins_with(TARGETS_PREFIX):
-		var target_name := _property_to_target_name(property)
-		return modifiers.get(target_name)
+	if property.begins_with(MODIFIERS_PREFIX):
+		var modifier_name := _property_to_modifier_name(property)
+		return modifiers.get(modifier_name)
 
 	return null
 
 
 func _set(property: StringName, value: Variant) -> bool:
-	if property.begins_with(TARGETS_PREFIX):
-		var target_name := _property_to_target_name(property)
-		set_modifier(target_name, value)
+	if property.begins_with(MODIFIERS_PREFIX):
+		var modifier_name := _property_to_modifier_name(property)
+		set_modifier(modifier_name, value)
 		return true
 
 	return false
 
 
-func _property_to_target_name(property: String) -> String:
+func _property_to_modifier_name(property: String) -> String:
 	# Strips prefix and section name.
-	var sep_pos := property.find("/", TARGETS_PREFIX.length())
+	var sep_pos := property.find("/", MODIFIERS_PREFIX.length())
 	assert(sep_pos != -1)
 	return property.substr(sep_pos + 1)
 
 
-func set_modifier(target_name: StringName, value: float) -> void:
+func set_modifier(modifier_name: StringName, value: float) -> void:
 	var clamped := clampf(value, -1.0, 1.0)
+
 	if is_zero_approx(clamped):
-		modifiers.erase(target_name)
+		modifiers.erase(modifier_name)
 	else:
-		modifiers[target_name] = clamped
+		modifiers[modifier_name] = clamped
 
 	_rebuild_mesh()
 	_rebuild_attachments()
