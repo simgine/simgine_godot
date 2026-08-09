@@ -86,7 +86,7 @@ func _get(property: StringName) -> Variant:
 func _set(property: StringName, value: Variant) -> bool:
 	if property.begins_with(TARGETS_PREFIX):
 		var target_name := _property_to_target_name(property)
-		set_target(target_name, value)
+		set_modifier(target_name, value)
 		return true
 
 	return false
@@ -99,7 +99,7 @@ func _property_to_target_name(property: String) -> String:
 	return property.substr(sep_pos + 1)
 
 
-func set_target(target_name: StringName, value: float) -> void:
+func set_modifier(target_name: StringName, value: float) -> void:
 	var clamped := clampf(value, -1.0, 1.0)
 	if is_zero_approx(clamped):
 		modifiers.erase(target_name)
