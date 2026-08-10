@@ -6,6 +6,9 @@ extends Resource
 ## Categorizes all individual morph targets by body region,
 ## with left/right flags and opposite-direction pairing.
 
+## Default weight for all modifiers.
+const DEFAULT_MODIFIER := 0.0
+
 ## Body sections.
 @export var sections: Array[MHTargetSection]
 

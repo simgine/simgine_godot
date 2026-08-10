@@ -1,8 +1,8 @@
 [remap]
 
-importer="make_human.macro_json_importer"
+importer="make_human.json_importer"
 type="Resource"
-uid="uid://n46ocinu3x47"
+uid="uid://rwn1dv1lhdq"
 path="res://.godot/imported/macro.json-d6de5456efe6bf135ac19efeb980688d.res"
 
 [deps]

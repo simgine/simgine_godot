@@ -6,14 +6,15 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 var _base_geometry: MHGeometry
 var _target_registry: MHTargetRegistry
+var _macro_registry: MHMacroRegistry
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
 var modifiers: Dictionary[StringName, float]
 
-## Geometry body vertices after applying the current target values.
+## Body vertices after applying the current modifier values.
 ##
-## Stored to fit attachments geometry based on it.
+## Stored to fit attachment geometry to the morphed body.
 var _morphed_vertices: PackedVector3Array
 
 
@@ -25,6 +26,9 @@ func _init() -> void:
 
 	var target_json := data_dir.path_join("targets/target.json")
 	_target_registry = ResourceLoader.load(target_json)
+
+	var macro_json := data_dir.path_join("targets/macrodetails/macro.json")
+	_macro_registry = ResourceLoader.load(macro_json)
 
 
 func _ready() -> void:
@@ -40,6 +44,12 @@ func _validate_property(property: Dictionary) -> void:
 
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
+
+	for macro_name in _macro_registry.macrotargets:
+		properties.append(_slider(macro_name, 0.0, 1.0))
+
+	for race in MHMacroRegistry.RACES:
+		properties.append(_slider("race/" + race, 0.0, 1.0))
 
 	for section in _target_registry.sections:
 		for category in section.categories:
@@ -78,7 +88,7 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 func _get(property: StringName) -> Variant:
 	if property.begins_with(MODIFIERS_PREFIX):
 		var modifier_name := _property_to_modifier_name(property)
-		return modifiers.get(modifier_name)
+		return modifiers.get(modifier_name, _get_default_modifier(modifier_name))
 
 	return null
 
@@ -92,29 +102,42 @@ func _set(property: StringName, value: Variant) -> bool:
 	return false
 
 
-func _property_to_modifier_name(property: String) -> String:
-	# Strips prefix and section name.
-	var sep_pos := property.find("/", MODIFIERS_PREFIX.length())
-	assert(sep_pos != -1)
-	return property.substr(sep_pos + 1)
+func _property_to_modifier_name(property: String) -> StringName:
+	# Strips prefix and inspector group.
+	var separator := property.find("/", MODIFIERS_PREFIX.length())
+	if separator == -1:
+		# Macro modifiers don't have an inspector group.
+		return property.substr(MODIFIERS_PREFIX.length())
+	return property.substr(separator + 1)
 
 
 func set_modifier(modifier_name: StringName, value: float) -> void:
-	var clamped := clampf(value, -1.0, 1.0)
+	var default := _get_default_modifier(modifier_name)
 
-	if is_zero_approx(clamped):
+	if is_equal_approx(value, default):
 		modifiers.erase(modifier_name)
 	else:
-		modifiers[modifier_name] = clamped
+		modifiers[modifier_name] = value
 
 	_rebuild_mesh()
 	_rebuild_attachments()
+
+
+func _get_default_modifier(modifier_name: StringName) -> float:
+	if _macro_registry.macrotargets.has(modifier_name):
+		return MHMacroRegistry.DEFAULT_MODIFIER
+
+	if modifier_name in MHMacroRegistry.RACES:
+		return MHMacroRegistry.DEFAULT_RACE_MODIFIER
+
+	return MHTargetRegistry.DEFAULT_MODIFIER
 
 
 func _rebuild_mesh() -> void:
 	_morphed_vertices.clear()
 	_morphed_vertices.append_array(_base_geometry.vertices)
 
+	_macro_registry.apply(_morphed_vertices, modifiers)
 	_target_registry.apply(_morphed_vertices, modifiers)
 
 	var array_mesh := mesh as ArrayMesh

@@ -4,6 +4,24 @@ extends EditorImportPlugin
 ##
 ## For details, see https://github.com/makehumancommunity/mpfb2/blob/master/docs/fileformats/target_metadata.md
 
+## Additional metadata required to interpret `macro.json`.
+##
+## Some of this information is hardcoded in MPFB2 rather than stored
+## in `macro.json`, so it is represented explicitly here.
+const MACRO_METADATA: Dictionary[StringName, Dictionary] = {
+	"racegenderage": { "directory": "macrodetails" },
+	"genderagemuscleweight": { "directory": "macrodetails", "prefix": "universal" },
+	"genderagemuscleweightproportions": { "directory": "macrodetails/proportions" },
+	"genderagemuscleweightheight": { "directory": "macrodetails/height" },
+	"genderagemuscleweightcupsizefirmness": {
+		"directory": "breast",
+		# MPFB2 uses only the female component for breast targets.
+		"allowed_components": { &"gender": [&"female"] },
+		# MPFB2 excludes gender from the breast target weight.
+		"weight_exclusions": [&"gender"],
+	},
+}
+
 
 func _get_importer_name() -> String:
 	return "make_human.json_importer"
@@ -58,7 +76,8 @@ func _import(
 		var targets_dir := source_file.get_base_dir()
 		return _import_target_registry(json.data, targets_dir, save_path)
 	if source_file.ends_with("macro.json"):
-		return _import_macro_registry(json.data, save_path)
+		var targets_dir := source_file.get_base_dir().get_base_dir()
+		return _import_macro_registry(json.data, targets_dir, save_path)
 	else:
 		push_error("Unknown MakeHuman JSON")
 		return ERR_PARSE_ERROR
@@ -112,21 +131,7 @@ func _parse_opposites(dict: Dictionary) -> MHTargetOpposites:
 	return opposites
 
 
-func _load_target(target_name: String, section_dir: String) -> MHTarget:
-	var base_path := section_dir.path_join(target_name)
-	var full_path := base_path + ".target"
-	if FileAccess.file_exists(full_path):
-		return ResourceLoader.load(full_path) as MHTarget
-
-	full_path = base_path + ".target.gz"
-	if FileAccess.file_exists(full_path):
-		return ResourceLoader.load(full_path) as MHTarget
-
-	push_error("Unable to find '%s'" % base_path)
-	return null
-
-
-func _import_macro_registry(dict: Dictionary, save_path: String) -> Error:
+func _import_macro_registry(dict: Dictionary, targets_dir: String, save_path: String) -> Error:
 	var registry := MHMacroRegistry.new()
 
 	var macrotargets: Dictionary = dict.macrotargets
@@ -135,7 +140,13 @@ func _import_macro_registry(dict: Dictionary, save_path: String) -> Error:
 
 	var combinations: Dictionary = dict.combinations
 	for name: String in combinations:
-		registry.combinations[name] = combinations[name]
+		var combination := _parse_combination(
+			name,
+			combinations[name],
+			registry.macrotargets,
+			targets_dir,
+		)
+		registry.combinations.push_back(combination)
 
 	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
@@ -158,3 +169,90 @@ func _parse_macro_part(dict: Dictionary) -> MHMacroPart:
 	part.low = dict.low
 	part.high = dict.high
 	return part
+
+
+func _parse_combination(
+	combination_name: String,
+	dimensions: PackedStringArray,
+	macrotargets: Dictionary[StringName, MHMacro],
+	targets_dir: String,
+) -> MHMacroCombination:
+	var combination := MHMacroCombination.new()
+	combination.dimensions.assign(dimensions)
+
+	var metadata: Dictionary = MACRO_METADATA[combination_name]
+	combination.allowed_components.assign(metadata.get("allowed_components", { }))
+	combination.weight_exclusions.assign(metadata.get("weight_exclusions", []))
+
+	var component_sets: Array[PackedStringArray]
+	for name in combination.dimensions:
+		if name == "race":
+			component_sets.push_back(MHMacroRegistry.RACES)
+		else:
+			component_sets.push_back(macrotargets[name].get_components())
+
+	var target_dir := targets_dir.path_join(metadata.directory)
+	var selected_components: PackedStringArray # Temporary value to build current component combination.
+	var prefix: String = metadata.get("prefix", "")
+	_load_target_combinations(
+		combination,
+		component_sets,
+		selected_components,
+		0,
+		target_dir,
+		prefix,
+	)
+
+	return combination
+
+
+func _load_target_combinations(
+	combination: MHMacroCombination,
+	component_sets: Array[PackedStringArray],
+	selected_components: PackedStringArray,
+	dim_index: int,
+	target_dir: String,
+	prefix: String,
+) -> void:
+	if dim_index == component_sets.size():
+		var without_prefix := "-".join(selected_components)
+		var target_name := without_prefix
+		if prefix:
+			target_name = prefix + "-" + without_prefix
+
+		# Missing combinations are expected. For example, there are no baby proportion
+		# targets and no male breast targets in the bundled data.
+		var target := _load_target(target_name, target_dir, true)
+		if target:
+			combination.targets[without_prefix] = target
+
+		return
+
+	var component_names := component_sets[dim_index]
+	for name in component_names:
+		selected_components.push_back(name)
+		_load_target_combinations(
+			combination,
+			component_sets,
+			selected_components,
+			dim_index + 1,
+			target_dir,
+			prefix,
+		)
+		selected_components.remove_at(selected_components.size() - 1)
+
+
+func _load_target(target_name: String, dir: String, optional := false) -> MHTarget:
+	var base_path := dir.path_join(target_name)
+	var full_path := base_path + ".target"
+	if FileAccess.file_exists(full_path):
+		return ResourceLoader.load(full_path) as MHTarget
+
+	full_path = base_path + ".target.gz"
+	if FileAccess.file_exists(full_path):
+		return ResourceLoader.load(full_path) as MHTarget
+
+	if not optional:
+		push_error("Unable to find '%s'" % base_path)
+
+	return null
