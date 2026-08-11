@@ -48,24 +48,17 @@ func rebuild_mesh() -> void:
 		mesh = null
 		return
 
-	var body_vertices := body.get_morphed_vertices()
-	if body_vertices.is_empty():
-		mesh = null
-		return
-
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
+	var body_vertices := body.get_morphed_vertices()
 	var arrays := attachment.build_surface(body_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	array_mesh.surface_set_name(
-		0,
-		attachment.name if not attachment.name.is_empty() else "Attachment",
-	)
+	array_mesh.surface_set_name(0, attachment.name)
 
 	if attachment.material:
 		array_mesh.surface_set_material(0, attachment.material)
