@@ -4,7 +4,7 @@ extends MeshInstance3D
 
 const MODIFIERS_PREFIX := "modifiers/"
 
-var _base_geometry: MHGeometry
+var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
 var _macro_registry: MHMacroRegistry
 
@@ -22,7 +22,7 @@ func _init() -> void:
 	var data_dir: String = ProjectSettings.get_setting(MakeHumanPlugin.DATA_DIR_SETTING)
 
 	var base_obj := data_dir.path_join("3dobjs/base.obj")
-	_base_geometry = ResourceLoader.load(base_obj)
+	_body_geometry = ResourceLoader.load(base_obj)
 
 	var target_json := data_dir.path_join("targets/target.json")
 	_target_registry = ResourceLoader.load(target_json)
@@ -135,7 +135,7 @@ func _get_default_modifier(modifier_name: StringName) -> float:
 
 func _rebuild_mesh() -> void:
 	_morphed_vertices.clear()
-	_morphed_vertices.append_array(_base_geometry.vertices)
+	_morphed_vertices.append_array(_body_geometry.vertices)
 
 	_macro_registry.apply(_morphed_vertices, modifiers)
 	_target_registry.apply(_morphed_vertices, modifiers)
@@ -145,7 +145,7 @@ func _rebuild_mesh() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := _base_geometry.build_surface(_morphed_vertices)
+	var arrays := _body_geometry.build_surface(_morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)

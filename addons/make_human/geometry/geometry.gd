@@ -1,38 +1,34 @@
 @tool
 class_name MHGeometry
 extends Resource
-## Raw MakeHuman mesh data imported from OBJ.
+## MakeHuman mesh data imported from OBJ.
 ##
-## Unlike materials, a Godot ArrayMesh cannot be fully imported on its own,
-## because it's based on morph targets and their values.
-##
-## Keeping the original OBJ vertex indices is also important for fitting
-## clothes and body parts, because MHCLO and targets refer to OBJ vertices,
-## which are different from render mesh vertices (because they're duplicated).
+## Used for attachments. Doesn't include vertices because they are
+## dynamically reconstructed from [MHBodyGeometry] using MHCLO data
+## after all morph targets are applied. A renderable [ArrayMesh] is
+## constructed at runtime with [method build_surface].
 
-@export var uvs: PackedVector2Array:
+## UV coordinates.
+@export_storage var uvs: PackedVector2Array:
 	set(value):
 		uvs = value
 		_topology = null
 
-@export_storage var vertices: PackedVector3Array
+## Quad faces.
+##
+## In MakeHuman OBJ files all faces are represented as quads.
 @export_storage var quads: Array[MHQuad]:
 	set(value):
 		quads = value
 		_topology = null
 
-## Cached data for [build_surface].
+## Cached data for [method build_surface].
 var _topology: RenderTopology
 
 
-## Creates a surface for an [ArrayMesh] based on the geometry vertices
-## transformed by morph targets.
-func build_surface(morphed_vertices: PackedVector3Array) -> Array:
-	# Geometry for attachments don't have geometry vertices,
-	# they constructed from MHCLO data.
-	assert(vertices.size() == 0 || vertices.size() == morphed_vertices.size())
-
-	var geometry_normals := _generate_smooth_normals(morphed_vertices)
+## Creates a [ArrayMesh] surface based on the geometry vertices.
+func build_surface(vertices: PackedVector3Array) -> Array:
+	var geometry_normals := _generate_smooth_normals(vertices)
 
 	if not _topology:
 		_topology = RenderTopology.new()
@@ -49,7 +45,7 @@ func build_surface(morphed_vertices: PackedVector3Array) -> Array:
 	for render_index in vertex_count:
 		var geometry_index := _topology.geometry_indices[render_index]
 
-		render_vertices[render_index] = morphed_vertices[geometry_index]
+		render_vertices[render_index] = vertices[geometry_index]
 		render_normals[render_index] = geometry_normals[geometry_index]
 
 	var arrays := []
@@ -100,11 +96,10 @@ func _generate_smooth_normals(morphed_vertices: PackedVector3Array) -> PackedVec
 
 ## Builds and stores a render topology from UV and quad data.
 ##
-## [MHGeometry] stores the original geometry topology used by MakeHuman targets:
-## one position per geometry vertex, quad vertex indices, and separate UV indices.
-## Morph targets modify these original geometry vertices.
+## MakeHuman geometry uses separate indices for vertex positions and UV
+## coordinates. Godot's [ArrayMesh], however, uses a single index for all
+## vertex attributes.
 ##
-## Godot's [ArrayMesh], however, uses a single index for all vertex attributes.
 ## A render vertex therefore represents an attribute combination:
 ## geometry vertex + UV coordinate.
 ##

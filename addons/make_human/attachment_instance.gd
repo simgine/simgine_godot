@@ -79,10 +79,6 @@ func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 	assert(attachment.ref_c.size() == vertex_count)
 	assert(attachment.weights.size() == vertex_count)
 	assert(attachment.offsets.size() == vertex_count)
-	assert(
-		attachment.geometry.vertices.size() == 0,
-		"vertices derived from the body and the attachment data",
-	)
 
 	var offset_scale := _calculate_offset_scale(body_vertices)
 

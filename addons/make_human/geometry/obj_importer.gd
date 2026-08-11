@@ -58,7 +58,7 @@ func _import(
 
 	var is_body := source_file.ends_with("3dobjs/base.obj")
 
-	var geometry := MHGeometry.new()
+	var geometry := MHBodyGeometry.new() if is_body else MHGeometry.new()
 	var line_index := 0
 	var last_groups: PackedStringArray
 	while not file.eof_reached():
