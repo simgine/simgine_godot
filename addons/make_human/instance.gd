@@ -15,7 +15,7 @@ var modifiers: Dictionary[StringName, float]
 ## Body vertices after applying the current modifier values.
 ##
 ## Stored to fit attachment geometry to the morphed body.
-var _morphed_vertices: PackedVector3Array
+var morphed_vertices: PackedVector3Array
 
 
 func _init() -> void:
@@ -134,11 +134,11 @@ func _get_default_modifier(modifier_name: StringName) -> float:
 
 
 func _rebuild_mesh() -> void:
-	_morphed_vertices.clear()
-	_morphed_vertices.append_array(_body_geometry.vertices)
+	morphed_vertices.clear()
+	morphed_vertices.append_array(_body_geometry.vertices)
 
-	_macro_registry.apply(_morphed_vertices, modifiers)
-	_target_registry.apply(_morphed_vertices, modifiers)
+	_macro_registry.apply(morphed_vertices, modifiers)
+	_target_registry.apply(morphed_vertices, modifiers)
 	_move_to_ground()
 
 	var array_mesh := mesh as ArrayMesh
@@ -146,7 +146,7 @@ func _rebuild_mesh() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := _body_geometry.build_surface(_morphed_vertices)
+	var arrays := _body_geometry.build_surface(morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
@@ -158,11 +158,11 @@ func _move_to_ground() -> void:
 
 	# Exclude helper geometry when calculating the lowest point.
 	for vertex_index in MHBodyGeometry.BODY_VERTEX_COUNT:
-		lowest_y = minf(lowest_y, _morphed_vertices[vertex_index].y)
+		lowest_y = minf(lowest_y, morphed_vertices[vertex_index].y)
 
 	# Move all geometry, including helpers since they affect attachments.
-	for vertex_index in _morphed_vertices.size():
-		_morphed_vertices[vertex_index].y -= lowest_y
+	for vertex_index in morphed_vertices.size():
+		morphed_vertices[vertex_index].y -= lowest_y
 
 
 func _rebuild_attachments() -> void:
@@ -170,7 +170,3 @@ func _rebuild_attachments() -> void:
 		var attachment := child as MHAttachmentInstance
 		if attachment:
 			attachment.rebuild_mesh()
-
-
-func get_morphed_vertices() -> PackedVector3Array:
-	return _morphed_vertices

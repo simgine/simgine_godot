@@ -53,8 +53,7 @@ func rebuild_mesh() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var body_vertices := body.get_morphed_vertices()
-	var arrays := attachment.build_surface(body_vertices)
+	var arrays := attachment.build_surface(body.morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
