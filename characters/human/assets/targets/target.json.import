@@ -1,6 +1,6 @@
 [remap]
 
-importer="make_human.target_json_importer"
+importer="make_human.json_importer"
 type="Resource"
 uid="uid://d26sarld4l3y"
 path="res://.godot/imported/target.json-6ebc1f3fda2e05ef81fdc9de24bfb3cc.res"
