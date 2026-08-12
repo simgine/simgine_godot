@@ -18,6 +18,9 @@ extends MHGeometry
 ## vertices are also excluded from the resulting render mesh.
 @export_storage var vertices: PackedVector3Array
 
+## Number of body vertices before helper geometry begins.
+const BODY_VERTEX_COUNT := 13380
+
 
 func build_surface(morphed_vertices: PackedVector3Array) -> Array:
 	assert(vertices.size() == morphed_vertices.size())

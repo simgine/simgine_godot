@@ -139,6 +139,7 @@ func _rebuild_mesh() -> void:
 
 	_macro_registry.apply(_morphed_vertices, modifiers)
 	_target_registry.apply(_morphed_vertices, modifiers)
+	_move_to_ground()
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
@@ -150,6 +151,18 @@ func _rebuild_mesh() -> void:
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	array_mesh.surface_set_name(0, "Body")
+
+
+func _move_to_ground() -> void:
+	var lowest_y := INF
+
+	# Exclude helper geometry when calculating the lowest point.
+	for vertex_index in MHBodyGeometry.BODY_VERTEX_COUNT:
+		lowest_y = minf(lowest_y, _morphed_vertices[vertex_index].y)
+
+	# Move all geometry, including helpers since they affect attachments.
+	for vertex_index in _morphed_vertices.size():
+		_morphed_vertices[vertex_index].y -= lowest_y
 
 
 func _rebuild_attachments() -> void:
