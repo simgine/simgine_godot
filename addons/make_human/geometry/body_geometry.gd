@@ -10,7 +10,12 @@ extends MHGeometry
 ## parts, because MHCLO files refer to OBJ vertices in order to
 ## reconstruct their own.
 
-## Vertex positions.
+## Vertex positions, including helper geometry.
+##
+## [member vertices] includes helper geometry to preserve the original OBJ
+## vertex indices. Helper faces are excluded from [member quads] because they
+## are not rendered. Since render topology is built from the quads, helper
+## vertices are also excluded from the resulting render mesh.
 @export_storage var vertices: PackedVector3Array
 
 
