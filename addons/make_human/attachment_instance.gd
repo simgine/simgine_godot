@@ -44,7 +44,7 @@ func set_attachment(value: MHAttachment) -> void:
 
 func rebuild_mesh() -> void:
 	var body := get_parent() as MHInstance
-	if not body or not attachment or not attachment.geometry:
+	if not body or not body.morphed_vertices or not attachment or not attachment.geometry:
 		mesh = null
 		return
 
