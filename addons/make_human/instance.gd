@@ -10,6 +10,7 @@ var _macro_registry: MHMacroRegistry
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
+## Body shape modifier values.
 var modifiers: Dictionary[StringName, float]
 
 ## Body vertices after applying the current modifier values.
