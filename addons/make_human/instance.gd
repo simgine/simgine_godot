@@ -18,6 +18,8 @@ var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
 var _macro_registry: MHMacroRegistry
 
+var _rebuild_queued := false
+
 
 func _init() -> void:
 	var data_dir: String = ProjectSettings.get_setting(MakeHumanPlugin.DATA_DIR_SETTING)
@@ -120,8 +122,7 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 	else:
 		modifiers[modifier_name] = value
 
-	_rebuild_mesh()
-	_rebuild_attachments()
+	_queue_rebuild()
 
 
 func _get_default_modifier(modifier_name: StringName) -> float:
@@ -134,7 +135,24 @@ func _get_default_modifier(modifier_name: StringName) -> float:
 	return MHTargetRegistry.DEFAULT_MODIFIER
 
 
+## Schedules a deferred rebuild, combining multiple changes into a single update.
+func _queue_rebuild() -> void:
+	if _rebuild_queued:
+		return
+
+	_rebuild_queued = true
+	_rebuild.call_deferred()
+
+
+func _rebuild() -> void:
+	_rebuild_queued = false
+
+	_rebuild_mesh()
+	_rebuild_attachments()
+
+
 func _rebuild_mesh() -> void:
+	print("rebuilding mesh")
 	morphed_vertices.clear()
 	morphed_vertices.append_array(_body_geometry.vertices)
 
@@ -167,6 +185,7 @@ func _move_to_ground() -> void:
 
 
 func _rebuild_attachments() -> void:
+	print("rebuilding attachments")
 	for child in get_children():
 		var attachment := child as MHAttachmentInstance
 		if attachment:
