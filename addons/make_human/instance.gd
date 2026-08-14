@@ -6,13 +6,13 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
-## Body shape modifier values.
-var modifiers: Dictionary[StringName, float]
-
 ## Body vertices after applying the current modifier values.
 ##
 ## Stored to fit attachment geometry to the morphed body.
 var morphed_vertices: PackedVector3Array
+
+## Body shape modifier values.
+var _modifiers: Dictionary[StringName, float]
 
 var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
@@ -91,7 +91,7 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 func _get(property: StringName) -> Variant:
 	if property.begins_with(MODIFIERS_PREFIX):
 		var modifier_name := _property_to_modifier_name(property)
-		return modifiers.get(modifier_name, _get_default_modifier(modifier_name))
+		return _modifiers.get(modifier_name, _get_default_modifier(modifier_name))
 
 	return null
 
@@ -118,9 +118,9 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 	var default := _get_default_modifier(modifier_name)
 
 	if is_equal_approx(value, default):
-		modifiers.erase(modifier_name)
+		_modifiers.erase(modifier_name)
 	else:
-		modifiers[modifier_name] = value
+		_modifiers[modifier_name] = value
 
 	_queue_rebuild()
 
@@ -156,8 +156,8 @@ func _rebuild_mesh() -> void:
 	morphed_vertices.clear()
 	morphed_vertices.append_array(_body_geometry.vertices)
 
-	_macro_registry.apply(morphed_vertices, modifiers)
-	_target_registry.apply(morphed_vertices, modifiers)
+	_macro_registry.apply(morphed_vertices, _modifiers)
+	_target_registry.apply(morphed_vertices, _modifiers)
 	_move_to_ground()
 
 	var array_mesh := mesh as ArrayMesh
