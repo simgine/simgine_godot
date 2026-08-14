@@ -31,7 +31,7 @@ extends Resource
 ## components and weights. Every valid combination of those components is used
 ## to resolve a target in [member targets].
 func apply(vertices: PackedVector3Array, components: Dictionary[StringName, Array]) -> void:
-	var selected_components := PackedStringArray()
+	var selected_components: PackedStringArray
 	_apply_recursive(vertices, components, selected_components, 0, 1.0)
 
 

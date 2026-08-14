@@ -36,10 +36,10 @@ func build_surface(vertices: PackedVector3Array) -> Array:
 
 	var vertex_count := _topology.geometry_indices.size()
 
-	var render_vertices := PackedVector3Array()
+	var render_vertices: PackedVector3Array
 	render_vertices.resize(vertex_count)
 
-	var render_normals := PackedVector3Array()
+	var render_normals: PackedVector3Array
 	render_normals.resize(vertex_count)
 
 	for render_index in vertex_count:
@@ -60,7 +60,7 @@ func build_surface(vertices: PackedVector3Array) -> Array:
 
 
 func _generate_smooth_normals(morphed_vertices: PackedVector3Array) -> PackedVector3Array:
-	var normals := PackedVector3Array()
+	var normals: PackedVector3Array
 	normals.resize(morphed_vertices.size())
 
 	for quad in quads:
@@ -162,10 +162,10 @@ class RenderTopology:
 	##
 	## Several render vertices may reference the same geometry vertex when that
 	## vertex lies on a UV seam.
-	var geometry_indices := PackedInt32Array()
+	var geometry_indices: PackedInt32Array
 
 	## One UV coordinate for every render vertex.
-	var uvs := PackedVector2Array()
+	var uvs: PackedVector2Array
 
 	## Triangle indices referencing the compact render vertex arrays.
-	var indices := PackedInt32Array()
+	var indices: PackedInt32Array

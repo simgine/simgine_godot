@@ -117,7 +117,7 @@ func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 
 	var offset_scale := _calculate_offset_scale(body_vertices)
 
-	var vertices := PackedVector3Array()
+	var vertices: PackedVector3Array
 	vertices.resize(vertex_count)
 
 	for vertex_index in vertex_count:
