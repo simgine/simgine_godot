@@ -90,6 +90,18 @@ extends Resource
 @export_storage var delete_verts: PackedInt32Array
 
 
+func apply_delete_verts(mask: PackedByteArray) -> void:
+	assert(delete_verts.size() % 2 == 0, "should be stored as range pairs")
+	for range_index in range(0, delete_verts.size(), 2):
+		var first := delete_verts[range_index]
+		var last := delete_verts[range_index + 1]
+		assert(first >= 0)
+		assert(last >= first)
+
+		for vertex_index in range(first, last + 1):
+			mask[vertex_index] = 1
+
+
 func build_surface(body_vertices: PackedVector3Array) -> Array:
 	var attachment_vertices := _fit_vertices(body_vertices)
 	return geometry.build_surface(attachment_vertices)

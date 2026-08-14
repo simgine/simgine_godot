@@ -4,7 +4,7 @@ extends MeshInstance3D
 
 const MODIFIERS_PREFIX := "modifiers/"
 
-@export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
+@export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
 ## Body vertices after applying the current modifier values.
 ##
@@ -14,14 +14,27 @@ var morphed_vertices: PackedVector3Array
 ## Body shape modifier values.
 var _modifiers: Dictionary[StringName, float]
 
+## Body vertices hidden by attachments.
+var _delete_mask: PackedByteArray
+
 var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
 var _macro_registry: MHMacroRegistry
 
-var _rebuild_queued := false
+enum Dirty {
+	NONE = 0,
+	MORPH = 1 << 0,
+	DELETE_MASK = 1 << 1,
+	ALL = MORPH | DELETE_MASK,
+}
+
+var _dirty: int = Dirty.NONE
 
 
 func _init() -> void:
+	child_entered_tree.connect(_on_child_entered_tree)
+	child_exiting_tree.connect(_on_child_exiting_tree)
+
 	var data_dir: String = ProjectSettings.get_setting(MakeHumanPlugin.DATA_DIR_SETTING)
 
 	var base_obj := data_dir.path_join("3dobjs/base.obj")
@@ -35,8 +48,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	_rebuild_mesh()
-	_rebuild_attachments()
+	_queue_rebuild(Dirty.ALL)
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -122,7 +134,7 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 	else:
 		_modifiers[modifier_name] = value
 
-	_queue_rebuild()
+	_queue_rebuild(Dirty.MORPH)
 
 
 func _get_default_modifier(modifier_name: StringName) -> float:
@@ -135,41 +147,55 @@ func _get_default_modifier(modifier_name: StringName) -> float:
 	return MHTargetRegistry.DEFAULT_MODIFIER
 
 
-## Schedules a deferred rebuild, combining multiple changes into a single update.
-func _queue_rebuild() -> void:
-	if _rebuild_queued:
+func _on_child_entered_tree(child: Node) -> void:
+	var instance := child as MHAttachmentInstance
+	if not instance:
 		return
 
-	_rebuild_queued = true
-	_rebuild.call_deferred()
+	instance.attachment_changed.connect(_queue_rebuild.bind(Dirty.DELETE_MASK))
+	_queue_rebuild(Dirty.DELETE_MASK)
+
+
+func _on_child_exiting_tree(child: Node) -> void:
+	var instance := child as MHAttachmentInstance
+	if not instance:
+		return
+
+	instance.attachment_changed.disconnect(_queue_rebuild)
+	_queue_rebuild(Dirty.DELETE_MASK)
+
+
+## Schedules a deferred rebuild, combining multiple changes into a single update.
+func _queue_rebuild(dirty: Dirty) -> void:
+	if _dirty == Dirty.NONE:
+		# Rebuild only if it wasn't queued.
+		_rebuild.call_deferred()
+
+	_dirty |= dirty
 
 
 func _rebuild() -> void:
-	_rebuild_queued = false
+	if _dirty & Dirty.MORPH:
+		_rebuild_morphed_vertices()
 
-	_rebuild_mesh()
-	_rebuild_attachments()
+	if _dirty & Dirty.DELETE_MASK:
+		_rebuild_delete_mask()
+
+	_rebuild_surface()
+
+	if _dirty & Dirty.MORPH:
+		_rebuild_attachments()
+
+	_dirty = Dirty.NONE
 
 
-func _rebuild_mesh() -> void:
-	print("rebuilding mesh")
+func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
 	morphed_vertices.append_array(_body_geometry.vertices)
 
 	_macro_registry.apply(morphed_vertices, _modifiers)
 	_target_registry.apply(morphed_vertices, _modifiers)
 	_move_to_ground()
-
-	var array_mesh := mesh as ArrayMesh
-	if not array_mesh:
-		array_mesh = ArrayMesh.new()
-		mesh = array_mesh
-
-	var arrays := _body_geometry.build_surface(morphed_vertices)
-
-	array_mesh.clear_surfaces()
-	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	array_mesh.surface_set_name(0, "Body")
 
 
 func _move_to_ground() -> void:
@@ -184,8 +210,34 @@ func _move_to_ground() -> void:
 		morphed_vertices[vertex_index].y -= lowest_y
 
 
+func _rebuild_delete_mask() -> void:
+	_delete_mask.resize(_body_geometry.vertices.size())
+	_delete_mask.fill(0)
+
+	for child in get_children():
+		var attachment_instance := child as MHAttachmentInstance
+		if not attachment_instance or not attachment_instance.attachment:
+			continue
+
+		attachment_instance.attachment.apply_delete_verts(_delete_mask)
+
+	_body_geometry.make_mask_conservative(_delete_mask)
+
+
+func _rebuild_surface() -> void:
+	var array_mesh := mesh as ArrayMesh
+	if not array_mesh:
+		array_mesh = ArrayMesh.new()
+		mesh = array_mesh
+
+	var arrays := _body_geometry.build_masked_surface(morphed_vertices, _delete_mask)
+
+	array_mesh.clear_surfaces()
+	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	array_mesh.surface_set_name(0, "Body")
+
+
 func _rebuild_attachments() -> void:
-	print("rebuilding attachments")
 	for child in get_children():
 		var attachment := child as MHAttachmentInstance
 		if attachment:

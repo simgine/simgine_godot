@@ -2,6 +2,8 @@
 class_name MHAttachmentInstance
 extends MeshInstance3D
 
+signal attachment_changed
+
 @export var attachment: MHAttachment:
 	set = set_attachment
 
@@ -32,14 +34,19 @@ func set_attachment(value: MHAttachment) -> void:
 		return
 
 	if attachment:
-		attachment.changed.disconnect(rebuild_mesh)
+		attachment.changed.disconnect(_on_attachment_changed)
 
 	attachment = value
 
 	if attachment:
-		attachment.changed.connect(rebuild_mesh)
+		attachment.changed.connect(_on_attachment_changed)
 
+	_on_attachment_changed()
+
+
+func _on_attachment_changed() -> void:
 	rebuild_mesh()
+	attachment_changed.emit()
 
 
 func rebuild_mesh() -> void:
