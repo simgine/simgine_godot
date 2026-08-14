@@ -4,10 +4,6 @@ extends MeshInstance3D
 
 const MODIFIERS_PREFIX := "modifiers/"
 
-var _body_geometry: MHBodyGeometry
-var _target_registry: MHTargetRegistry
-var _macro_registry: MHMacroRegistry
-
 @export_tool_button("Rebuild meshes", "BoxMesh") var rebuild_mesh_action := _rebuild_mesh
 
 ## Body shape modifier values.
@@ -17,6 +13,10 @@ var modifiers: Dictionary[StringName, float]
 ##
 ## Stored to fit attachment geometry to the morphed body.
 var morphed_vertices: PackedVector3Array
+
+var _body_geometry: MHBodyGeometry
+var _target_registry: MHTargetRegistry
+var _macro_registry: MHMacroRegistry
 
 
 func _init() -> void:
