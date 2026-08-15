@@ -9,13 +9,14 @@ const MODIFIERS_PREFIX := "modifiers/"
 @export var body_proxy: MHProxy:
 	set = set_body_proxy
 
+
+## Body shape modifier values.
+@export_storage var _modifiers: Dictionary[StringName, float]
+
 ## Body vertices after applying the current modifier values.
 ##
 ## Stored to fit [member MHProxy.geometry] to the morphed body.
 var morphed_vertices: PackedVector3Array
-
-## Body shape modifier values.
-var _modifiers: Dictionary[StringName, float]
 
 ## Body vertices hidden by [MHProxyInstance] children.
 var _body_mask: PackedByteArray

@@ -12,6 +12,10 @@
 [node name="MHInstance" type="MeshInstance3D" parent="." unique_id=1060179870]
 material_override = ExtResource("1_7mycd")
 script = ExtResource("6_5vw27")
+_modifiers = Dictionary[StringName, float]({
+&"asian": 0.0,
+&"gender": 0.0
+})
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
 
 [node name="Suit" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
