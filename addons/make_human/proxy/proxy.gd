@@ -1,42 +1,42 @@
 @tool
-class_name MHAttachment
+class_name MHProxy
 extends Resource
-## Metadata and geometry for a mesh that is fitted to and deforms with the
+## Definition of a MakeHuman proxy that is fitted to and deforms with the
 ## body mesh.
 ##
-## Imported from `.mhclo` files.
+## Imported from `.proxy` and `.mhclo` files.
 
-## Display name of the attachment.
+## Display name.
 @export var name: String
 
-## Name of the attachment's author.
+## Name of the author.
 @export var author: String
 
-## License under which the attachment is distributed.
+## License under which the asset is distributed.
 @export var license: String
 
-## Human-readable description of the attachment.
+## Human-readable description.
 @export var description: String
 
-## Search and classification tags associated with the attachment.
+## Search and classification tags.
 @export var tags: PackedStringArray
 
-## Source geometry loaded from the attachment's referenced OBJ file.
+## Source geometry loaded from the referenced OBJ file.
 ##
-## Defines the attachment topology, UVs, and vertex ordering.
-## But its vertex positions are ignored. Instead, each attachment
+## Defines the proxy topology, UVs, and vertex ordering.
+## But its vertex positions are ignored. Instead, each proxy
 ## vertex position is reconstructed from the body using the fitting data in
 ## this resource.
 @export var geometry: MHGeometry
 
-## Material loaded from the attachment's referenced `.mhmat` file.
+## Material loaded from the referenced `.mhmat` file.
 @export var material: MHMaterial
 
-## Defines how attachment offsets are scaled along the X axis as the body
+## Defines how offsets are scaled along the X axis as the body
 ## changes shape.
 ##
 ## The scale is calculated from the distance between two selected body
-## vertices relative to the reference distance stored in the `.mhclo` file.
+## vertices relative to the reference distance from the proxy.
 @export var x_scale: MHScale
 
 ## Like [member x_scale], but for Y axis.
@@ -45,43 +45,42 @@ extends Resource
 ## Like [member x_scale], but for Z axis.
 @export var z_scale: MHScale
 
-## Stacking depth used to determine the attachment's order relative to the
-## body and other attachments.
+## Stacking depth used to determine the order relative to the
+## body and other proxies.
 ##
 ## Higher values generally represent outer layers, such as coats or
 ## backpacks, while lower values represent layers closer to the body.
 @export var z_depth: int
 
-## First body vertex reference for each attachment source vertex.
+## First body vertex reference for each proxy source vertex.
 ##
 ## Together with [member ref_b] and [member ref_c], this identifies the three
-## body vertices from which an attachment vertex's fitted position is
-## calculated.
+## body vertices from which a proxy vertex's fitted position is calculated.
 ##
-## Must have one element for each attachment vertex.
+## Must have one element for each proxy vertex.
 @export_storage var ref_a: PackedInt32Array
 
-## Second body vertex reference for each attachment source vertex.
+## Second body vertex reference for each proxy source vertex.
 @export_storage var ref_b: PackedInt32Array
 
-## Third body vertex reference for each attachment source vertex.
+## Third body vertex reference for each proxy source vertex.
 @export_storage var ref_c: PackedInt32Array
 
-## Three interpolation weights for each attachment source vertex.
+## Three interpolation weights for each proxy source vertex.
 ##
 ## The X, Y, and Z components correspond to [member ref_a],
 ## [member ref_b], and [member ref_c], respectively. They define a weighted
 ## point relative to the three referenced body vertices.
 @export_storage var weights: PackedVector3Array
 
-## Local offset applied to each attachment source vertex after calculating
+## Local offset applied to each proxy source vertex after calculating
 ## its weighted body position.
 ##
 ## Each component is adjusted using [member x_scale], [member y_scale], or
 ## [member z_scale] before being added to the weighted position.
 @export_storage var offsets: PackedVector3Array
 
-## Inclusive ranges of body-mesh vertices hidden by this attachment.
+## Inclusive ranges of body-mesh vertices hidden by this proxy.
 ##
 ## Stored as consecutive start/end pairs:
 ## `[start_0, end_0, start_1, end_1, ...]`.
@@ -103,11 +102,11 @@ func apply_delete_verts(mask: PackedByteArray) -> void:
 
 
 func build_surface(body_vertices: PackedVector3Array) -> Array:
-	var attachment_vertices := _fit_vertices(body_vertices)
-	return geometry.build_surface(attachment_vertices)
+	var proxy_vertices := _fit_vertices(body_vertices)
+	return geometry.build_surface(proxy_vertices)
 
 
-## Reconstructs attachment vertex positions for the given body vertices.
+## Reconstructs proxy vertex positions for the given body vertices.
 func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 	var vertex_count := ref_a.size()
 	assert(ref_b.size() == vertex_count)

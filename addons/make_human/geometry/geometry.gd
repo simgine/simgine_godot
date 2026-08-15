@@ -3,10 +3,10 @@ class_name MHGeometry
 extends Resource
 ## MakeHuman mesh data imported from OBJ.
 ##
-## Used for attachments. Doesn't include vertices because they are
-## dynamically reconstructed from [MHBodyGeometry] using MHCLO data
-## after all morph targets are applied. A renderable [ArrayMesh] is
-## constructed at runtime with [method build_surface].
+## Used for [MHProxy]. Doesn't include vertices because they are
+## dynamically reconstructed from [MHBodyGeometry] using [MHProxy]
+## fitting data after all morph targets are applied. A renderable
+## [ArrayMesh] is constructed at runtime with [method build_surface].
 
 ## UV coordinates.
 @export_storage var uvs: PackedVector2Array:

@@ -6,9 +6,9 @@ extends MHGeometry
 ## A renderable [ArrayMesh] is constructed at runtime after
 ## applying morphs to the OBJ vertices.
 ##
-## OBJ vertex indices are also used for fitting clothes and body
-## parts, because MHCLO files refer to OBJ vertices in order to
-## reconstruct their own.
+## OBJ vertex indices are also used for fitting proxies, because
+## proxy definitions refer to body OBJ vertices when reconstructing
+## their own vertices.
 
 ## Vertex positions, including helper geometry.
 ##

@@ -8,13 +8,13 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 ## Body vertices after applying the current modifier values.
 ##
-## Stored to fit attachment geometry to the morphed body.
+## Stored to fit [member MHProxy.geometry] to the morphed body.
 var morphed_vertices: PackedVector3Array
 
 ## Body shape modifier values.
 var _modifiers: Dictionary[StringName, float]
 
-## Body vertices hidden by attachments.
+## Body vertices hidden by [MHProxyInstance] children.
 var _delete_mask: PackedByteArray
 
 var _body_geometry: MHBodyGeometry
@@ -148,20 +148,20 @@ func _get_default_modifier(modifier_name: StringName) -> float:
 
 
 func _on_child_entered_tree(child: Node) -> void:
-	var instance := child as MHAttachmentInstance
+	var instance := child as MHProxyInstance
 	if not instance:
 		return
 
-	instance.attachment_changed.connect(_queue_rebuild.bind(Dirty.DELETE_MASK))
+	instance.proxy_changed.connect(_queue_rebuild.bind(Dirty.DELETE_MASK))
 	_queue_rebuild(Dirty.DELETE_MASK)
 
 
 func _on_child_exiting_tree(child: Node) -> void:
-	var instance := child as MHAttachmentInstance
+	var instance := child as MHProxyInstance
 	if not instance:
 		return
 
-	instance.attachment_changed.disconnect(_queue_rebuild)
+	instance.proxy_changed.disconnect(_queue_rebuild)
 	_queue_rebuild(Dirty.DELETE_MASK)
 
 
@@ -184,7 +184,7 @@ func _rebuild() -> void:
 	_rebuild_surface()
 
 	if _dirty & Dirty.MORPH:
-		_rebuild_attachments()
+		_rebuild_proxies()
 
 	_dirty = Dirty.NONE
 
@@ -205,7 +205,7 @@ func _move_to_ground() -> void:
 	for vertex_index in MHBodyGeometry.BODY_VERTEX_COUNT:
 		lowest_y = minf(lowest_y, morphed_vertices[vertex_index].y)
 
-	# Move all geometry, including helpers since they affect attachments.
+	# Move all geometry, including helpers since they affect proxies.
 	for vertex_index in morphed_vertices.size():
 		morphed_vertices[vertex_index].y -= lowest_y
 
@@ -215,11 +215,11 @@ func _rebuild_delete_mask() -> void:
 	_delete_mask.fill(0)
 
 	for child in get_children():
-		var attachment_instance := child as MHAttachmentInstance
-		if not attachment_instance or not attachment_instance.attachment:
+		var instance := child as MHProxyInstance
+		if not instance or not instance.proxy:
 			continue
 
-		attachment_instance.attachment.apply_delete_verts(_delete_mask)
+		instance.proxy.apply_delete_verts(_delete_mask)
 
 	_body_geometry.make_mask_conservative(_delete_mask)
 
@@ -237,8 +237,8 @@ func _rebuild_surface() -> void:
 	array_mesh.surface_set_name(0, "Body")
 
 
-func _rebuild_attachments() -> void:
+func _rebuild_proxies() -> void:
 	for child in get_children():
-		var attachment := child as MHAttachmentInstance
-		if attachment:
-			attachment.rebuild_mesh()
+		var instance := child as MHProxyInstance
+		if instance:
+			instance.rebuild_mesh()

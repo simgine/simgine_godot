@@ -1,11 +1,12 @@
 @tool
-class_name MHAttachmentInstance
+class_name MHProxyInstance
 extends MeshInstance3D
+## Runtime mesh instance generated from an [MHProxy].
 
-signal attachment_changed
+signal proxy_changed
 
-@export var attachment: MHAttachment:
-	set = set_attachment
+@export var proxy: MHProxy:
+	set = set_proxy
 
 @export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh_action := rebuild_mesh
 
@@ -18,7 +19,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray
 
 	if get_parent() is not MHInstance:
-		warnings.append("MHAttachmentInstance must be a child of MHInstance.")
+		warnings.append("MHProxyInstance must be a child of MHInstance.")
 
 	return warnings
 
@@ -29,29 +30,29 @@ func _validate_property(property: Dictionary) -> void:
 		property.usage = PROPERTY_USAGE_NONE
 
 
-func set_attachment(value: MHAttachment) -> void:
-	if attachment == value:
+func set_proxy(value: MHProxy) -> void:
+	if proxy == value:
 		return
 
-	if attachment:
-		attachment.changed.disconnect(_on_attachment_changed)
+	if proxy:
+		proxy.changed.disconnect(_on_proxy_changed)
 
-	attachment = value
+	proxy = value
 
-	if attachment:
-		attachment.changed.connect(_on_attachment_changed)
+	if proxy:
+		proxy.changed.connect(_on_proxy_changed)
 
-	_on_attachment_changed()
+	_on_proxy_changed()
 
 
-func _on_attachment_changed() -> void:
+func _on_proxy_changed() -> void:
 	rebuild_mesh()
-	attachment_changed.emit()
+	proxy_changed.emit()
 
 
 func rebuild_mesh() -> void:
 	var body := get_parent() as MHInstance
-	if not body or not body.morphed_vertices or not attachment or not attachment.geometry:
+	if not body or not body.morphed_vertices or not proxy or not proxy.geometry:
 		mesh = null
 		return
 
@@ -60,11 +61,11 @@ func rebuild_mesh() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := attachment.build_surface(body.morphed_vertices)
+	var arrays := proxy.build_surface(body.morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	array_mesh.surface_set_name(0, attachment.name)
+	array_mesh.surface_set_name(0, proxy.name)
 
-	if attachment.material:
-		array_mesh.surface_set_material(0, attachment.material)
+	if proxy.material:
+		array_mesh.surface_set_material(0, proxy.material)

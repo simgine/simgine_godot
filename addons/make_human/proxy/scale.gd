@@ -1,14 +1,14 @@
 @tool
 class_name MHScale
 extends Resource
-## Defines how attachment offsets are scaled along one coordinate axis.
+## Defines how [MHProxy] offsets are scaled along one coordinate axis.
 ##
 ## The current body size along that axis is measured between two body
 ## vertices.
 
 ## Index of the first body vertex.
 ##
-## Despite the name inherited from the `.mhclo` format, this does not
+## The name is inherited from the `.mhclo`/`.proxy` format. It does not
 ## necessarily identify the vertex with the smaller coordinate value.
 @export var min_vertex: int
 
@@ -21,7 +21,7 @@ extends Resource
 @export var factor: float
 
 
-## Calculates the attachment offset scale for the given body axis.
+## Calculates the [MHProxy] offset scale for the given body axis.
 ##
 ## Uses the current distance between [member min_vertex] and [member max_vertex]
 ## along [param axis], normalized by [member factor].

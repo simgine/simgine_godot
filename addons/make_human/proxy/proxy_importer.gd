@@ -1,6 +1,6 @@
-class_name MHCloImporter
+class_name MHProxyImporter
 extends EditorImportPlugin
-## Importer for MakeHuman `.mhclo` files.
+## Importer for MakeHuman `.proxy` and `.mhclo` files.
 ##
 ## For details, see https://github.com/makehumancommunity/mpfb2/blob/master/docs/fileformats/mhclo.md
 
@@ -19,15 +19,15 @@ enum Section {
 
 
 func _get_importer_name() -> String:
-	return "make_human.mhclo_importer"
+	return "make_human.proxy_importer"
 
 
 func _get_visible_name() -> String:
-	return "MakeHuman Attachment Importer"
+	return "MakeHuman Proxy Importer"
 
 
 func _get_recognized_extensions() -> PackedStringArray:
-	return ["mhclo"]
+	return ["proxy", "mhclo"]
 
 
 func _get_save_extension() -> String:
@@ -62,7 +62,7 @@ func _import(
 
 	var section := Section.NONE
 	var base_dir := source_file.get_base_dir()
-	var attachment := MHAttachment.new()
+	var proxy := MHProxy.new()
 	var line_index := 0
 	while not file.eof_reached():
 		line_index += 1
@@ -72,7 +72,7 @@ func _import(
 			continue
 
 		if line.begins_with("#"):
-			_parse_comment_meta(line, attachment)
+			_parse_comment_meta(line, proxy)
 			continue
 
 		var tag := line
@@ -88,39 +88,39 @@ func _import(
 					push_error("Unsupported basemesh at %d: '%s'" % [line_index, value])
 					return ERR_PARSE_ERROR
 			"name":
-				attachment.name = value
+				proxy.name = value
 			"tag":
-				attachment.tags.push_back(value)
+				proxy.tags.push_back(value)
 			"uuid":
 				pass
 			"obj_file":
 				var path := base_dir.path_join(value)
 				var geometry := ResourceLoader.load(path) as MHGeometry
 				if geometry:
-					attachment.geometry = geometry
+					proxy.geometry = geometry
 				else:
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
 				var path := base_dir.path_join(value)
 				var material := ResourceLoader.load(path) as MHMaterial
 				if material:
-					attachment.material = material
+					proxy.material = material
 				else:
 					push_error("Could not load material '%s' at %d" % [path, line_index])
 			"x_scale":
 				var scale := _parse_scale(value, line_index)
 				if scale:
-					attachment.x_scale = scale
+					proxy.x_scale = scale
 			"y_scale":
 				var scale := _parse_scale(value, line_index)
 				if scale:
-					attachment.y_scale = scale
+					proxy.y_scale = scale
 			"z_scale":
 				var scale := _parse_scale(value, line_index)
 				if scale:
-					attachment.z_scale = scale
+					proxy.z_scale = scale
 			"z_depth":
-				attachment.z_depth = value.to_int()
+				proxy.z_depth = value.to_int()
 			"max_pole":
 				pass
 			"verts":
@@ -136,17 +136,17 @@ func _import(
 					Section.NONE:
 						push_error("Unknown tag at %d: '%s'" % [line_index, line])
 					Section.VERTS:
-						if not _parse_vertex_mapping(line, attachment):
+						if not _parse_vertex_mapping(line, proxy):
 							push_error("Invalid vertex mapping at %d: '%s'" % [line_index, line])
 					Section.DELETE_VERTS:
-						if not _parse_delete_verts(line, attachment):
+						if not _parse_delete_verts(line, proxy):
 							push_error("Invalid delete vertices at %d: '%s'" % [line_index, line])
 				continue
 
-	return ResourceSaver.save(attachment, "%s.%s" % [save_path, _get_save_extension()])
+	return ResourceSaver.save(proxy, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_comment_meta(line: String, attachment: MHAttachment) -> void:
+func _parse_comment_meta(line: String, proxy: MHProxy) -> void:
 	var comment := line.substr(1).strip_edges()
 	var separator := comment.find(" ")
 	if separator == -1:
@@ -155,11 +155,11 @@ func _parse_comment_meta(line: String, attachment: MHAttachment) -> void:
 	var tag := comment.substr(0, separator)
 	match tag:
 		"author":
-			attachment.author = comment.substr(separator + 1)
+			proxy.author = comment.substr(separator + 1)
 		"license":
-			attachment.license = comment.substr(separator + 1)
+			proxy.license = comment.substr(separator + 1)
 		"description":
-			attachment.description = comment.substr(separator + 1)
+			proxy.description = comment.substr(separator + 1)
 		_:
 			pass
 
@@ -177,28 +177,28 @@ func _parse_scale(value: String, line_index: int) -> MHScale:
 	return scale
 
 
-func _parse_vertex_mapping(line: String, attachment: MHAttachment) -> bool:
+func _parse_vertex_mapping(line: String, proxy: MHProxy) -> bool:
 	var parts := line.split(" ", false)
 	match parts.size():
 		1:
 			var index := parts[0].to_int()
 
-			attachment.ref_a.append(index)
-			attachment.ref_b.append(index)
-			attachment.ref_c.append(index)
-			attachment.weights.append(Vector3(1.0, 0.0, 0.0))
-			attachment.offsets.append(Vector3.ZERO)
+			proxy.ref_a.append(index)
+			proxy.ref_b.append(index)
+			proxy.ref_c.append(index)
+			proxy.weights.append(Vector3(1.0, 0.0, 0.0))
+			proxy.offsets.append(Vector3.ZERO)
 			return true
 		9:
-			attachment.ref_a.append(parts[0].to_int())
-			attachment.ref_b.append(parts[1].to_int())
-			attachment.ref_c.append(parts[2].to_int())
+			proxy.ref_a.append(parts[0].to_int())
+			proxy.ref_b.append(parts[1].to_int())
+			proxy.ref_c.append(parts[2].to_int())
 
-			attachment.weights.append(
+			proxy.weights.append(
 				Vector3(parts[3].to_float(), parts[4].to_float(), parts[5].to_float()),
 			)
 
-			attachment.offsets.append(
+			proxy.offsets.append(
 				Vector3(parts[6].to_float(), parts[7].to_float(), parts[8].to_float()),
 			)
 			return true
@@ -206,7 +206,7 @@ func _parse_vertex_mapping(line: String, attachment: MHAttachment) -> bool:
 			return false
 
 
-func _parse_delete_verts(line: String, attachment: MHAttachment) -> bool:
+func _parse_delete_verts(line: String, proxy: MHProxy) -> bool:
 	var parts := line.split(" ", false)
 
 	var index := 0
@@ -225,11 +225,11 @@ func _parse_delete_verts(line: String, attachment: MHAttachment) -> bool:
 			if end < start:
 				return false
 
-			attachment.delete_verts.push_back(start)
-			attachment.delete_verts.push_back(end)
+			proxy.delete_verts.push_back(start)
+			proxy.delete_verts.push_back(end)
 		else:
 			# Single value, start and end are equal.
-			attachment.delete_verts.push_back(start)
-			attachment.delete_verts.push_back(start)
+			proxy.delete_verts.push_back(start)
+			proxy.delete_verts.push_back(start)
 
 	return true

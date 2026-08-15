@@ -2,12 +2,11 @@ class_name MHObjImporter
 extends EditorImportPlugin
 ## Importer for MakeHuman `.obj` files.
 ##
-## We can't use the built-in parser because we need to
-## create mappings from OBJ vertices to the resulting
-## mesh vertices in order to apply morphs and clothes.
+## We can't use the built-in parser because we need to preserve the
+## original OBJ vertex topology needed for morphing the body and
+## fitting proxies.
 ##
-## Supports only a subset of OBJ that is used in
-## MakeHuman assets.
+## Supports only a subset of OBJ that is used in MakeHuman assets.
 
 
 func _get_importer_name() -> String:
@@ -74,7 +73,7 @@ func _import(
 		match tag:
 			"v":
 				if not is_body:
-					# Attachment vertex positions are reconstructed from the body using .mhclo data.
+					# Proxy vertex positions are reconstructed from the body using proxy data.
 					continue
 				if parts.size() != 4:
 					push_error("Unsupported vertex at %d: '%s'" % [line_index, line])

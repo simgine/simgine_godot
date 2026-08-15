@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btv6l1574un8"]
 
-[ext_resource type="Script" uid="uid://bk8ub20upbpvo" path="res://addons/make_human/attachment_instance.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bk8ub20upbpvo" path="res://addons/make_human/proxy_instance.gd" id="4_1bvp3"]
 [ext_resource type="Resource" uid="uid://cqjj6e30c48hp" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
 
@@ -10,7 +10,7 @@
 script = ExtResource("6_5vw27")
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
 
-[node name="MHAttachmentInstance" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
+[node name="MHProxyInstance" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
 script = ExtResource("4_1bvp3")
-attachment = ExtResource("5_lquwl")
+proxy = ExtResource("5_lquwl")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
