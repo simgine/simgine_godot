@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dr8ghylhf60k6" path="res://characters/human/assets/hair/ponytail01/ponytail01.mhclo" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
 [ext_resource type="Resource" uid="uid://csj27vg7x3iql" path="res://characters/human/assets/eyelashes/eyelashes02/eyelashes02.mhclo" id="7_272bh"]
+[ext_resource type="Resource" uid="uid://cv58jkfjgg463" path="res://characters/human/assets/eyebrows/eyebrow008/eyebrow008.mhclo" id="8_5vw27"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
@@ -37,4 +38,9 @@ metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 [node name="Eyelashes" type="MeshInstance3D" parent="MHInstance" unique_id=293267930]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("7_272bh")
+metadata/_custom_type_script = "uid://bk8ub20upbpvo"
+
+[node name="Eyebrows" type="MeshInstance3D" parent="MHInstance" unique_id=1234343540]
+script = ExtResource("4_1bvp3")
+proxy = ExtResource("8_5vw27")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"

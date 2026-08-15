@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://wrg44wgcop63"
+path="res://.godot/imported/eyebrow003.obj-b2b45696fcd8250d1d502d5a29fd2443.res"
+
+[deps]
+
+source_file="res://characters/human/assets/eyebrows/eyebrow003/eyebrow003.obj"
+dest_files=["res://.godot/imported/eyebrow003.obj-b2b45696fcd8250d1d502d5a29fd2443.res"]
+
+[params]
+
