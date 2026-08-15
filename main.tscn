@@ -1,16 +1,30 @@
 [gd_scene format=3 uid="uid://btv6l1574un8"]
 
+[ext_resource type="Material" uid="uid://br2v0llv2uqyu" path="res://characters/human/assets/skins/young_caucasian_female2.mhmat" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://bk8ub20upbpvo" path="res://addons/make_human/proxy_instance.gd" id="4_1bvp3"]
-[ext_resource type="Resource" uid="uid://cqjj6e30c48hp" path="res://characters/human/assets/clothes/female_elegantsuit01/female_elegantsuit01.mhclo" id="5_lquwl"]
+[ext_resource type="Resource" uid="uid://oex0vpiwtjf3" path="res://characters/human/assets/clothes/female_sportsuit01/female_sportsuit01.mhclo" id="4_7mycd"]
+[ext_resource type="Resource" uid="uid://djhd8x8rwt4q1" path="res://characters/human/assets/eyes/high-poly/high-poly.mhclo" id="5_7mycd"]
+[ext_resource type="Resource" uid="uid://dr8ghylhf60k6" path="res://characters/human/assets/hair/ponytail01/ponytail01.mhclo" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
 [node name="MHInstance" type="MeshInstance3D" parent="." unique_id=1060179870]
+material_override = ExtResource("1_7mycd")
 script = ExtResource("6_5vw27")
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
 
-[node name="MHProxyInstance" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
+[node name="Suit" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
+script = ExtResource("4_1bvp3")
+proxy = ExtResource("4_7mycd")
+metadata/_custom_type_script = "uid://bk8ub20upbpvo"
+
+[node name="Eyes" type="MeshInstance3D" parent="MHInstance" unique_id=1455261771]
+script = ExtResource("4_1bvp3")
+proxy = ExtResource("5_7mycd")
+metadata/_custom_type_script = "uid://bk8ub20upbpvo"
+
+[node name="Hair" type="MeshInstance3D" parent="MHInstance" unique_id=2055985007]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("5_lquwl")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"

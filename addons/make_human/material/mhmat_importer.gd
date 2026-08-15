@@ -49,6 +49,7 @@ func _import(
 
 	var base_dir := source_file.get_base_dir()
 	var material := MHMaterial.new()
+	var transparent := false
 	var line_index := 0
 	while not file.eof_reached():
 		line_index += 1
@@ -177,10 +178,7 @@ func _import(
 			"wireframe":
 				pass
 			"transparent":
-				if _parse_bool(value):
-					material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-				else:
-					material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
+				transparent = _parse_bool(value)
 			"alphaToCoverage":
 				if _parse_bool(value):
 					material.alpha_antialiasing_mode = BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE
@@ -205,6 +203,14 @@ func _import(
 			_:
 				push_error("Unknown tag at %d: '%s'" % [line_index, line])
 				continue
+
+	if transparent:
+		if material.alpha_antialiasing_mode == BaseMaterial3D.ALPHA_ANTIALIASING_ALPHA_TO_COVERAGE:
+			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		else:
+			material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	else:
+		material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
 
 	return ResourceSaver.save(material, "%s.%s" % [save_path, _get_save_extension()])
 
