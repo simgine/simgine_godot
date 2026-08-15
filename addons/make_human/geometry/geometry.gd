@@ -32,7 +32,7 @@ var _topology: RenderTopology
 ## belong to a neighbor quad that shouldn't be hidden. Such boundary
 ## vertices should be removed from the mask. This matches the
 ## conservative masking in MPFB2.
-func make_mask_conservative(delete_mask: PackedByteArray) -> void:
+func make_mask_conservative(mask: PackedByteArray) -> void:
 	# We can't zero vertices immediately because they may belong to
 	# other quads that still need to be checked.
 	# This special value marks them for zeroing later.
@@ -42,28 +42,25 @@ func make_mask_conservative(delete_mask: PackedByteArray) -> void:
 		var masked_count := 0
 
 		for vertex_index in quad.vertex_indices:
-			if delete_mask[vertex_index] != 0:
+			if mask[vertex_index] != 0:
 				masked_count += 1
 
 		if masked_count > 0 and masked_count < quad.vertex_indices.size():
 			# Partially affected quad.
 			for vertex_index in quad.vertex_indices:
-				if delete_mask[vertex_index] != 0:
-					delete_mask[vertex_index] = REMOVE
+				if mask[vertex_index] != 0:
+					mask[vertex_index] = REMOVE
 
-	for vertex_index in delete_mask.size():
-		if delete_mask[vertex_index] == REMOVE:
-			delete_mask[vertex_index] = 0
+	for vertex_index in mask.size():
+		if mask[vertex_index] == REMOVE:
+			mask[vertex_index] = 0
 
 
-func build_masked_surface(
-	morphed_vertices: PackedVector3Array,
-	delete_mask: PackedByteArray,
-) -> Array:
-	assert(delete_mask.size() == morphed_vertices.size())
+func build_masked_surface(morphed_vertices: PackedVector3Array, mask: PackedByteArray) -> Array:
+	assert(mask.size() == morphed_vertices.size())
 
 	var arrays := build_surface(morphed_vertices)
-	arrays[Mesh.ARRAY_INDEX] = _filter_indices(delete_mask)
+	arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
 	return arrays
 
 
@@ -198,14 +195,14 @@ func _get_or_create_vertex(
 	return render_index
 
 
-func _filter_indices(delete_mask: PackedByteArray) -> PackedInt32Array:
+func _filter_indices(mask: PackedByteArray) -> PackedInt32Array:
 	var indices: PackedInt32Array
 	for quad_index in quads.size():
 		var quad := quads[quad_index]
 
 		var deleted := false
 		for vertex_index in quad.vertex_indices:
-			if delete_mask[vertex_index]:
+			if mask[vertex_index]:
 				deleted = true
 				break
 

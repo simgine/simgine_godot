@@ -15,7 +15,7 @@ var morphed_vertices: PackedVector3Array
 var _modifiers: Dictionary[StringName, float]
 
 ## Body vertices hidden by [MHProxyInstance] children.
-var _delete_mask: PackedByteArray
+var _body_mask: PackedByteArray
 
 var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
@@ -24,8 +24,8 @@ var _macro_registry: MHMacroRegistry
 enum Dirty {
 	NONE = 0,
 	MORPH = 1 << 0,
-	DELETE_MASK = 1 << 1,
-	ALL = MORPH | DELETE_MASK,
+	MASK = 1 << 1,
+	ALL = MORPH | MASK,
 }
 
 var _dirty: int = Dirty.NONE
@@ -152,8 +152,8 @@ func _on_child_entered_tree(child: Node) -> void:
 	if not instance:
 		return
 
-	instance.proxy_changed.connect(_queue_rebuild.bind(Dirty.DELETE_MASK))
-	_queue_rebuild(Dirty.DELETE_MASK)
+	instance.proxy_changed.connect(_queue_rebuild.bind(Dirty.MASK))
+	_queue_rebuild(Dirty.MASK)
 
 
 func _on_child_exiting_tree(child: Node) -> void:
@@ -162,7 +162,7 @@ func _on_child_exiting_tree(child: Node) -> void:
 		return
 
 	instance.proxy_changed.disconnect(_queue_rebuild)
-	_queue_rebuild(Dirty.DELETE_MASK)
+	_queue_rebuild(Dirty.MASK)
 
 
 ## Schedules a deferred rebuild, combining multiple changes into a single update.
@@ -178,8 +178,8 @@ func _rebuild() -> void:
 	if _dirty & Dirty.MORPH:
 		_rebuild_morphed_vertices()
 
-	if _dirty & Dirty.DELETE_MASK:
-		_rebuild_delete_mask()
+	if _dirty & Dirty.MASK:
+		_rebuild_mask()
 
 	_rebuild_surface()
 
@@ -210,18 +210,18 @@ func _move_to_ground() -> void:
 		morphed_vertices[vertex_index].y -= lowest_y
 
 
-func _rebuild_delete_mask() -> void:
-	_delete_mask.resize(_body_geometry.vertices.size())
-	_delete_mask.fill(0)
+func _rebuild_mask() -> void:
+	_body_mask.resize(_body_geometry.vertices.size())
+	_body_mask.fill(0)
 
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if not instance or not instance.proxy:
 			continue
 
-		instance.proxy.apply_delete_verts(_delete_mask)
+		instance.proxy.apply_delete_verts(_body_mask)
 
-	_body_geometry.make_mask_conservative(_delete_mask)
+	_body_geometry.make_mask_conservative(_body_mask)
 
 
 func _rebuild_surface() -> void:
@@ -230,7 +230,7 @@ func _rebuild_surface() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := _body_geometry.build_masked_surface(morphed_vertices, _delete_mask)
+	var arrays := _body_geometry.build_masked_surface(morphed_vertices, _body_mask)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
