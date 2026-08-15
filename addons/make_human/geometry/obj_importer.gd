@@ -97,6 +97,9 @@ func _import(
 			"s":
 				# Smooth shading always applied.
 				pass
+			"o":
+				# Object names don't affect geometry import.
+				pass
 			"g":
 				last_groups = parts.slice(1)
 			"f":
