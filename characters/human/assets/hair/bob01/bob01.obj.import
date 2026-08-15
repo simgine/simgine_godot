@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://b758kcd75m5lg"
+path="res://.godot/imported/bob01.obj-ab7421f6e5aaae0d76ab6a69bccf9e13.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/bob01/bob01.obj"
+dest_files=["res://.godot/imported/bob01.obj-ab7421f6e5aaae0d76ab6a69bccf9e13.res"]
+
+[params]
+

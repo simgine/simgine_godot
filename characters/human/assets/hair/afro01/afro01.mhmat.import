@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://cd40hjbkywyrd"
+path="res://.godot/imported/afro01.mhmat-42b2b4478cd4e0cbd96ddb1ae0cf1a62.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/afro01/afro01.mhmat"
+dest_files=["res://.godot/imported/afro01.mhmat-42b2b4478cd4e0cbd96ddb1ae0cf1a62.res"]
+
+[params]
+

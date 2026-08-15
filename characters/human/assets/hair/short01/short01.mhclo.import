@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://4bwcj67i4f5v"
+path="res://.godot/imported/short01.mhclo-f56d5d32dd627cd3a558874761fe7fa6.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/short01/short01.mhclo"
+dest_files=["res://.godot/imported/short01.mhclo-f56d5d32dd627cd3a558874761fe7fa6.res"]
+
+[params]
+

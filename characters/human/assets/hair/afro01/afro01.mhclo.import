@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://ctsy3pvwxiuax"
+path="res://.godot/imported/afro01.mhclo-7437e210870d3a953f32a77e79cf8f3c.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/afro01/afro01.mhclo"
+dest_files=["res://.godot/imported/afro01.mhclo-7437e210870d3a953f32a77e79cf8f3c.res"]
+
+[params]
+

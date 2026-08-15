@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://bsfmu3oejombq"
+path="res://.godot/imported/braid01.mhclo-b67694dc51b93032bc96eeef62bc9fe0.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/braid01/braid01.mhclo"
+dest_files=["res://.godot/imported/braid01.mhclo-b67694dc51b93032bc96eeef62bc9fe0.res"]
+
+[params]
+

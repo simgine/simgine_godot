@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://dkmrchsochqfd"
+path="res://.godot/imported/braid01.mhmat-82470b7ccdcce3ed206b476bcbc712e3.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/braid01/braid01.mhmat"
+dest_files=["res://.godot/imported/braid01.mhmat-82470b7ccdcce3ed206b476bcbc712e3.res"]
+
+[params]
+

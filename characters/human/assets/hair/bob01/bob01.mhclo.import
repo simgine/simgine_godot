@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://big31yhjflxgo"
+path="res://.godot/imported/bob01.mhclo-d0a085ed0c79230985cdf0ee9850a26a.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/bob01/bob01.mhclo"
+dest_files=["res://.godot/imported/bob01.mhclo-d0a085ed0c79230985cdf0ee9850a26a.res"]
+
+[params]
+

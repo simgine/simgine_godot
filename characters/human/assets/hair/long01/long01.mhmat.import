@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://dq4h08q51uls7"
+path="res://.godot/imported/long01.mhmat-409a193e45a9b89ee5b4e356e806cfcc.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/long01/long01.mhmat"
+dest_files=["res://.godot/imported/long01.mhmat-409a193e45a9b89ee5b4e356e806cfcc.res"]
+
+[params]
+

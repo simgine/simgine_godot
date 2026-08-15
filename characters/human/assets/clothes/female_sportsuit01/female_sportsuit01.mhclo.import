@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://oex0vpiwtjf3"
+path="res://.godot/imported/female_sportsuit01.mhclo-e63a741bbc16cef90ec11f2e830e0e70.res"
+
+[deps]
+
+source_file="res://characters/human/assets/clothes/female_sportsuit01/female_sportsuit01.mhclo"
+dest_files=["res://.godot/imported/female_sportsuit01.mhclo-e63a741bbc16cef90ec11f2e830e0e70.res"]
+
+[params]
+

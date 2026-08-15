@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://dnv1pxkhjiull"
+path="res://.godot/imported/female_sportsuit01.mhmat-943a1dc49ab3dfffb24da8b99f5de906.res"
+
+[deps]
+
+source_file="res://characters/human/assets/clothes/female_sportsuit01/female_sportsuit01.mhmat"
+dest_files=["res://.godot/imported/female_sportsuit01.mhmat-943a1dc49ab3dfffb24da8b99f5de906.res"]
+
+[params]
+

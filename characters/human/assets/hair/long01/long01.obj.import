@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://654xq76oet8p"
+path="res://.godot/imported/long01.obj-56097ef02b08f090dd77220687daa9fc.res"
+
+[deps]
+
+source_file="res://characters/human/assets/hair/long01/long01.obj"
+dest_files=["res://.godot/imported/long01.obj-56097ef02b08f090dd77220687daa9fc.res"]
+
+[params]
+
