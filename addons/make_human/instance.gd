@@ -6,6 +6,9 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
+@export var body_proxy: MHProxy:
+	set = set_body_proxy
+
 ## Body vertices after applying the current modifier values.
 ##
 ## Stored to fit [member MHProxy.geometry] to the morphed body.
@@ -16,6 +19,11 @@ var _modifiers: Dictionary[StringName, float]
 
 ## Body vertices hidden by [MHProxyInstance] children.
 var _body_mask: PackedByteArray
+
+## Body vertices for [member body_proxy].
+##
+## Transferred to proxy geometry from [member _body_mask].
+var _proxy_mask: PackedByteArray
 
 var _body_geometry: MHBodyGeometry
 var _target_registry: MHTargetRegistry
@@ -126,6 +134,21 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
+func set_body_proxy(value: MHProxy) -> void:
+	if body_proxy == value:
+		return
+
+	if body_proxy:
+		body_proxy.changed.disconnect(_queue_rebuild)
+
+	body_proxy = value
+
+	if body_proxy:
+		body_proxy.changed.connect(_queue_rebuild.bind(Dirty.MASK))
+
+	_queue_rebuild(Dirty.MASK)
+
+
 func set_modifier(modifier_name: StringName, value: float) -> void:
 	var default := _get_default_modifier(modifier_name)
 
@@ -223,6 +246,9 @@ func _rebuild_mask() -> void:
 
 	_body_geometry.make_mask_conservative(_body_mask)
 
+	if body_proxy:
+		body_proxy.transfer_delete_mask(_body_mask, _proxy_mask)
+
 
 func _rebuild_surface() -> void:
 	var array_mesh := mesh as ArrayMesh
@@ -230,7 +256,11 @@ func _rebuild_surface() -> void:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
 
-	var arrays := _body_geometry.build_masked_surface(morphed_vertices, _body_mask)
+	var arrays: Array
+	if body_proxy:
+		arrays = body_proxy.build_masked_surface(morphed_vertices, _proxy_mask)
+	else:
+		arrays = _body_geometry.build_masked_surface(morphed_vertices, _body_mask)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)

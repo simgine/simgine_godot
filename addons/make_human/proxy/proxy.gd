@@ -95,19 +95,46 @@ func apply_delete_verts(mask: PackedByteArray) -> void:
 			mask[vertex_index] = 1
 
 
+## Transfers a body delete mask to the proxy topology using the proxy fitting references.
+func transfer_delete_mask(body_mask: PackedByteArray, proxy_mask: PackedByteArray) -> void:
+	var vertex_count := _get_vertex_count()
+	proxy_mask.resize(vertex_count)
+
+	for vertex_index in vertex_count:
+		var weight := weights[vertex_index]
+		if is_zero_approx(weight.y) and is_zero_approx(weight.z):
+			# Exact mapping.
+			proxy_mask[vertex_index] = body_mask[ref_a[vertex_index]]
+			continue
+
+		var hidden_count := 0
+		if body_mask[ref_a[vertex_index]]:
+			hidden_count += 1
+		if body_mask[ref_b[vertex_index]]:
+			hidden_count += 1
+		if body_mask[ref_c[vertex_index]]:
+			hidden_count += 1
+
+		# Equivalent to MakeHuman's rule:
+		# hide when fewer than two reference vertices remain visible.
+		proxy_mask[vertex_index] = 1 if hidden_count >= 2 else 0
+
+	geometry.make_mask_conservative(proxy_mask)
+
+
 func build_surface(body_vertices: PackedVector3Array) -> Array:
 	var proxy_vertices := _fit_vertices(body_vertices)
 	return geometry.build_surface(proxy_vertices)
 
 
+func build_masked_surface(body_vertices: PackedVector3Array, delete_mask: PackedByteArray) -> Array:
+	var proxy_vertices := _fit_vertices(body_vertices)
+	return geometry.build_masked_surface(proxy_vertices, delete_mask)
+
+
 ## Reconstructs proxy vertex positions for the given body vertices.
 func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
-	var vertex_count := ref_a.size()
-	assert(ref_b.size() == vertex_count)
-	assert(ref_c.size() == vertex_count)
-	assert(weights.size() == vertex_count)
-	assert(offsets.size() == vertex_count)
-
+	var vertex_count := _get_vertex_count()
 	var offset_scale := _calculate_offset_scale(body_vertices)
 
 	var vertices: PackedVector3Array
@@ -135,6 +162,15 @@ func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 		vertices[vertex_index] = weighted_position + scaled_offset
 
 	return vertices
+
+
+func _get_vertex_count() -> int:
+	var vertex_count := ref_a.size()
+	assert(ref_b.size() == vertex_count)
+	assert(ref_c.size() == vertex_count)
+	assert(weights.size() == vertex_count)
+	assert(offsets.size() == vertex_count)
+	return vertex_count
 
 
 func _calculate_offset_scale(body_vertices: PackedVector3Array) -> Vector3:
