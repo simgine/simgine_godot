@@ -68,11 +68,7 @@ func _import(
 		line_index += 1
 
 		var line := file.get_line().strip_edges()
-		if line.is_empty():
-			continue
-
-		if line.begins_with("#"):
-			_parse_comment_meta(line, proxy)
+		if line.is_empty() || line.begins_with("#"):
 			continue
 
 		var tag := line
@@ -89,6 +85,8 @@ func _import(
 					return ERR_PARSE_ERROR
 			"name":
 				proxy.name = value
+			"description":
+				proxy.description = value
 			"tag":
 				proxy.tags.push_back(value)
 			"uuid":
@@ -144,24 +142,6 @@ func _import(
 				continue
 
 	return ResourceSaver.save(proxy, "%s.%s" % [save_path, _get_save_extension()])
-
-
-func _parse_comment_meta(line: String, proxy: MHProxy) -> void:
-	var comment := line.substr(1).strip_edges()
-	var separator := comment.find(" ")
-	if separator == -1:
-		return
-
-	var tag := comment.substr(0, separator)
-	match tag:
-		"author":
-			proxy.author = comment.substr(separator + 1)
-		"license":
-			proxy.license = comment.substr(separator + 1)
-		"description":
-			proxy.description = comment.substr(separator + 1)
-		_:
-			pass
 
 
 func _parse_scale(value: String, line_index: int) -> MHScale:

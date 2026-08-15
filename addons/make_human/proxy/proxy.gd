@@ -9,12 +9,6 @@ extends Resource
 ## Display name.
 @export var name: String
 
-## Name of the author.
-@export var author: String
-
-## License under which the asset is distributed.
-@export var license: String
-
 ## Human-readable description.
 @export var description: String
 
