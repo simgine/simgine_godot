@@ -26,6 +26,47 @@ extends Resource
 var _topology: RenderTopology
 
 
+## Adjusts the delete mask so it doesn't hide partially masked quads.
+##
+## Since vertices are shared between quads, a masked vertex may also
+## belong to a neighbor quad that shouldn't be hidden. Such boundary
+## vertices should be removed from the mask. This matches the
+## conservative masking in MPFB2.
+func make_mask_conservative(delete_mask: PackedByteArray) -> void:
+	# We can't zero vertices immediately because they may belong to
+	# other quads that still need to be checked.
+	# This special value marks them for zeroing later.
+	const REMOVE := 2
+
+	for quad in quads:
+		var masked_count := 0
+
+		for vertex_index in quad.vertex_indices:
+			if delete_mask[vertex_index] != 0:
+				masked_count += 1
+
+		if masked_count > 0 and masked_count < quad.vertex_indices.size():
+			# Partially affected quad.
+			for vertex_index in quad.vertex_indices:
+				if delete_mask[vertex_index] != 0:
+					delete_mask[vertex_index] = REMOVE
+
+	for vertex_index in delete_mask.size():
+		if delete_mask[vertex_index] == REMOVE:
+			delete_mask[vertex_index] = 0
+
+
+func build_masked_surface(
+	morphed_vertices: PackedVector3Array,
+	delete_mask: PackedByteArray,
+) -> Array:
+	assert(delete_mask.size() == morphed_vertices.size())
+
+	var arrays := build_surface(morphed_vertices)
+	arrays[Mesh.ARRAY_INDEX] = _filter_indices(delete_mask)
+	return arrays
+
+
 ## Creates a [ArrayMesh] surface based on the geometry vertices.
 func build_surface(vertices: PackedVector3Array) -> Array:
 	var geometry_normals := _generate_smooth_normals(vertices)
@@ -155,6 +196,27 @@ func _get_or_create_vertex(
 	_topology.uvs.append(uvs[uv_index])
 
 	return render_index
+
+
+func _filter_indices(delete_mask: PackedByteArray) -> PackedInt32Array:
+	var indices: PackedInt32Array
+	for quad_index in quads.size():
+		var quad := quads[quad_index]
+
+		var deleted := false
+		for vertex_index in quad.vertex_indices:
+			if delete_mask[vertex_index]:
+				deleted = true
+				break
+
+		if deleted:
+			continue
+
+		var offset := quad_index * 6
+		for index in range(offset, offset + 6):
+			indices.append(_topology.indices[index])
+
+	return indices
 
 
 class RenderTopology:
