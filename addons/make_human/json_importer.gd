@@ -291,21 +291,6 @@ func _import_rig(dict: Dictionary, save_path: String) -> Error:
 	return ResourceSaver.save(rig, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _import_rig_weights(dict: Dictionary, save_path: String) -> Error:
-	var weights := MHRigWeights.new()
-	var weights_dict: Dictionary = dict.weights
-	for bone_name: String in weights_dict:
-		var bone := MHBoneWeights.new()
-		for bone_array: Array in weights_dict[bone_name]:
-			assert(bone_array.size() == 2)
-			bone.vertices.push_back(bone_array[0])
-			bone.weights.push_back(bone_array[1])
-
-		weights.bones[bone_name] = bone
-
-	return ResourceSaver.save(weights, "%s.%s" % [save_path, _get_save_extension()])
-
-
 func _parse_bone(dict: Dictionary) -> MHBone:
 	var bone := MHBone.new()
 	bone.parent = dict.parent
@@ -334,3 +319,18 @@ func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
 	assert(not dict.has("offset"), "'offset' shouldn't be used in the game engine rig")
 
 	return position
+
+
+func _import_rig_weights(dict: Dictionary, save_path: String) -> Error:
+	var weights := MHRigWeights.new()
+	var weights_dict: Dictionary = dict.weights
+	for bone_name: String in weights_dict:
+		var bone := MHBoneWeights.new()
+		for bone_array: Array in weights_dict[bone_name]:
+			assert(bone_array.size() == 2)
+			bone.vertices.push_back(bone_array[0])
+			bone.weights.push_back(bone_array[1])
+
+		weights.bones[bone_name] = bone
+
+	return ResourceSaver.save(weights, "%s.%s" % [save_path, _get_save_extension()])
