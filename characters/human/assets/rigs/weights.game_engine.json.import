@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.json_importer"
+type="Resource"
+uid="uid://gr3ts3ukdcvr"
+path="res://.godot/imported/weights.game_engine.json-8947c0d0374f046cb870eab7faa874ca.res"
+
+[deps]
+
+source_file="res://characters/human/assets/rigs/weights.game_engine.json"
+dest_files=["res://.godot/imported/weights.game_engine.json-8947c0d0374f046cb870eab7faa874ca.res"]
+
+[params]
+

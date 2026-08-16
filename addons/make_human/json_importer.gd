@@ -86,6 +86,8 @@ func _import(
 		or source_file.ends_with("rig.game_engine_with_breast.json")
 	):
 		return _import_rig(json.data, save_path)
+	if source_file.ends_with("weights.game_engine.json"):
+		return _import_rig_weights(json.data, save_path)
 	else:
 		push_error("Unknown MakeHuman JSON")
 		return ERR_PARSE_ERROR
@@ -289,6 +291,21 @@ func _import_rig(dict: Dictionary, save_path: String) -> Error:
 		rig.bones[bone_name] = _parse_bone(dict[bone_name])
 
 	return ResourceSaver.save(rig, "%s.%s" % [save_path, _get_save_extension()])
+
+
+func _import_rig_weights(dict: Dictionary, save_path: String) -> Error:
+	var weights := MHRigWeights.new()
+	var weights_dict: Dictionary = dict.weights
+	for bone_name: String in weights_dict:
+		var bone := MHBoneWeights.new()
+		for bone_array: Array in weights_dict[bone_name]:
+			assert(bone_array.size() == 2)
+			bone.vertices.push_back(bone_array[0])
+			bone.weights.push_back(bone_array[1])
+
+		weights.bones[bone_name] = bone
+
+	return ResourceSaver.save(weights, "%s.%s" % [save_path, _get_save_extension()])
 
 
 func _parse_bone(dict: Dictionary) -> MHBone:
