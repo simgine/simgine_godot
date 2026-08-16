@@ -290,7 +290,6 @@ func _parse_bone(dict: Dictionary) -> MHBone:
 func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
 	var position := MHRigPosition.new()
 	position.strategy = MHRigPosition.Strategy[dict.strategy]
-	position.default_position = _parse_vector3(dict.default_position)
 	if position.strategy == MHRigPosition.Strategy.CUBE:
 		position.cube_name = dict.cube_name
 	if position.strategy == MHRigPosition.Strategy.VERTEX:
@@ -301,8 +300,3 @@ func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
 	assert(not dict.has("offset"), "'offset' shouldn't be used in the game engine rig")
 
 	return position
-
-
-func _parse_vector3(value: Array) -> Vector3:
-	assert(value.size() == 3)
-	return Vector3(value[0], value[1], value[2])

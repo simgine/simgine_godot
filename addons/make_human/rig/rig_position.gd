@@ -26,6 +26,3 @@ enum Strategy {
 ##
 ## Used by `VERTEX` (holds a single value) and `MEAN`.
 @export var vertex_indices: PackedInt32Array
-
-## Fallback position.
-@export var default_position: Vector3
