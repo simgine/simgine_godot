@@ -6,9 +6,17 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
+@export var body_geometry: MHBodyGeometry:
+	set = set_body_geometry
+
 @export var body_proxy: MHProxy:
 	set = set_body_proxy
 
+@export var target_registry: MHTargetRegistry:
+	set = set_target_registry
+
+@export var macro_registry: MHMacroRegistry:
+	set = set_macro_registry
 
 ## Body shape modifier values.
 @export_storage var _modifiers: Dictionary[StringName, float]
@@ -26,10 +34,6 @@ var _body_mask: PackedByteArray
 ## Transferred to proxy geometry from [member _body_mask].
 var _proxy_mask: PackedByteArray
 
-var _body_geometry: MHBodyGeometry
-var _target_registry: MHTargetRegistry
-var _macro_registry: MHMacroRegistry
-
 enum Dirty {
 	NONE = 0,
 	MORPH = 1 << 0,
@@ -44,21 +48,6 @@ func _init() -> void:
 	child_entered_tree.connect(_on_child_entered_tree)
 	child_exiting_tree.connect(_on_child_exiting_tree)
 
-	var data_dir: String = ProjectSettings.get_setting(MakeHumanPlugin.DATA_DIR_SETTING)
-
-	var base_obj := data_dir.path_join("3dobjs/base.obj")
-	_body_geometry = ResourceLoader.load(base_obj)
-
-	var target_json := data_dir.path_join("targets/target.json")
-	_target_registry = ResourceLoader.load(target_json)
-
-	var macro_json := data_dir.path_join("targets/macrodetails/macro.json")
-	_macro_registry = ResourceLoader.load(macro_json)
-
-
-func _ready() -> void:
-	_queue_rebuild(Dirty.ALL)
-
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "mesh":
@@ -69,13 +58,16 @@ func _validate_property(property: Dictionary) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
-	for macro_name in _macro_registry.macrotargets:
+	if not macro_registry or not target_registry:
+		return properties
+
+	for macro_name in macro_registry.macrotargets:
 		properties.append(_slider(macro_name, 0.0, 1.0))
 
 	for race in MHMacroRegistry.RACES:
 		properties.append(_slider("race/" + race, 0.0, 1.0))
 
-	for section in _target_registry.sections:
+	for section in target_registry.sections:
 		for category in section.categories:
 			_add_category(properties, section, category)
 
@@ -135,6 +127,14 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
+func set_body_geometry(value: MHBodyGeometry) -> void:
+	if body_geometry == value:
+		return
+
+	body_geometry = value
+	_queue_rebuild(Dirty.ALL)
+
+
 func set_body_proxy(value: MHProxy) -> void:
 	if body_proxy == value:
 		return
@@ -150,7 +150,28 @@ func set_body_proxy(value: MHProxy) -> void:
 	_queue_rebuild(Dirty.MASK)
 
 
+func set_target_registry(value: MHTargetRegistry) -> void:
+	if target_registry == value:
+		return
+
+	target_registry = value
+	_queue_rebuild(Dirty.MORPH)
+	notify_property_list_changed()
+
+
+func set_macro_registry(value: MHMacroRegistry) -> void:
+	if macro_registry == value:
+		return
+
+	macro_registry = value
+	_queue_rebuild(Dirty.MORPH)
+	notify_property_list_changed()
+
+
 func set_modifier(modifier_name: StringName, value: float) -> void:
+	assert(macro_registry)
+	assert(target_registry)
+
 	var default := _get_default_modifier(modifier_name)
 
 	if is_equal_approx(value, default):
@@ -162,7 +183,7 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 
 
 func _get_default_modifier(modifier_name: StringName) -> float:
-	if _macro_registry.macrotargets.has(modifier_name):
+	if macro_registry.macrotargets.has(modifier_name):
 		return MHMacroRegistry.DEFAULT_MODIFIER
 
 	if modifier_name in MHMacroRegistry.RACES:
@@ -199,6 +220,9 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 
 func _rebuild() -> void:
+	if not body_geometry or not target_registry or not macro_registry:
+		return
+
 	if _dirty & Dirty.MORPH:
 		_rebuild_morphed_vertices()
 
@@ -215,10 +239,10 @@ func _rebuild() -> void:
 
 func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
-	morphed_vertices.append_array(_body_geometry.vertices)
+	morphed_vertices.append_array(body_geometry.vertices)
 
-	_macro_registry.apply(morphed_vertices, _modifiers)
-	_target_registry.apply(morphed_vertices, _modifiers)
+	macro_registry.apply(morphed_vertices, _modifiers)
+	target_registry.apply(morphed_vertices, _modifiers)
 	_move_to_ground()
 
 
@@ -235,7 +259,7 @@ func _move_to_ground() -> void:
 
 
 func _rebuild_mask() -> void:
-	_body_mask.resize(_body_geometry.vertices.size())
+	_body_mask.resize(body_geometry.vertices.size())
 	_body_mask.fill(0)
 
 	for child in get_children():
@@ -245,7 +269,7 @@ func _rebuild_mask() -> void:
 
 		instance.proxy.apply_delete_verts(_body_mask)
 
-	_body_geometry.make_mask_conservative(_body_mask)
+	body_geometry.make_mask_conservative(_body_mask)
 
 	if body_proxy:
 		body_proxy.transfer_delete_mask(_body_mask, _proxy_mask)
@@ -261,7 +285,7 @@ func _rebuild_surface() -> void:
 	if body_proxy:
 		arrays = body_proxy.build_masked_surface(morphed_vertices, _proxy_mask)
 	else:
-		arrays = _body_geometry.build_masked_surface(morphed_vertices, _body_mask)
+		arrays = body_geometry.build_masked_surface(morphed_vertices, _body_mask)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
