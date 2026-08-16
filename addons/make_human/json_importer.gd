@@ -1,8 +1,9 @@
 class_name MHJSONImporter
 extends EditorImportPlugin
-## Importer for `target.json` and `macro.json`.
+## Importer for `target.json`, `macro.json` and `rig.game_engine.json`.
 ##
 ## For details, see https://github.com/makehumancommunity/mpfb2/blob/master/docs/fileformats/target_metadata.md
+## and https://github.com/makehumancommunity/mpfb2/blob/master/docs/fileformats/rig.md
 
 ## Additional metadata required to interpret `macro.json`.
 ##
@@ -78,6 +79,11 @@ func _import(
 	if source_file.ends_with("macro.json"):
 		var targets_dir := source_file.get_base_dir().get_base_dir()
 		return _import_macro_registry(json.data, targets_dir, save_path)
+	if (
+		source_file.ends_with("rig.game_engine.json")
+		or source_file.ends_with("rig.game_engine_with_breast.json")
+	):
+		return _import_rig(json.data, save_path)
 	else:
 		push_error("Unknown MakeHuman JSON")
 		return ERR_PARSE_ERROR
@@ -256,3 +262,47 @@ func _load_target(target_name: String, dir: String, optional := false) -> MHTarg
 		push_error("Unable to find '%s'" % base_path)
 
 	return null
+
+
+func _import_rig(dict: Dictionary, save_path: String) -> Error:
+	var rig := MHRig.new()
+	for bone_name: String in dict:
+		rig.bones[bone_name] = _parse_bone(dict[bone_name])
+
+	return ResourceSaver.save(rig, "%s.%s" % [save_path, _get_save_extension()])
+
+
+func _parse_bone(dict: Dictionary) -> MHBone:
+	var bone := MHBone.new()
+	bone.parent = dict.parent
+	bone.head = _parse_rig_position(dict.head)
+	bone.tail = _parse_rig_position(dict.tail)
+	bone.roll = dict.roll
+
+	assert(not dict.use_connect, "'use_connect' should be 'false' in the game rig")
+	assert(dict.use_inherit_rotation, "'use_inherit_rotation' should be 'true' in the game rig")
+	assert(dict.use_local_location, "'use_local_location' should be 'true' in the game rig")
+	assert(dict.inherit_scale == "FULL", "'inherit_scale' should be 'FULL' in the game rig")
+
+	return bone
+
+
+func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
+	var position := MHRigPosition.new()
+	position.strategy = MHRigPosition.Strategy[dict.strategy]
+	position.default_position = _parse_vector3(dict.default_position)
+	if position.strategy == MHRigPosition.Strategy.CUBE:
+		position.cube_name = dict.cube_name
+	if position.strategy == MHRigPosition.Strategy.VERTEX:
+		position.vertex_indices.push_back(dict.vertex_index)
+	if position.strategy == MHRigPosition.Strategy.MEAN:
+		position.vertex_indices = dict.vertex_indices
+
+	assert(not dict.has("offset"), "'offset' shouldn't be used in the game engine rig")
+
+	return position
+
+
+func _parse_vector3(value: Array) -> Vector3:
+	assert(value.size() == 3)
+	return Vector3(value[0], value[1], value[2])

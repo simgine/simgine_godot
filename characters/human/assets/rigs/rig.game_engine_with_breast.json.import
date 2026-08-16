@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.json_importer"
+type="Resource"
+uid="uid://dlub8a501shqe"
+path="res://.godot/imported/rig.game_engine_with_breast.json-50175b65ad3f5388149b23557d8f3c63.res"
+
+[deps]
+
+source_file="res://characters/human/assets/rigs/rig.game_engine_with_breast.json"
+dest_files=["res://.godot/imported/rig.game_engine_with_breast.json-50175b65ad3f5388149b23557d8f3c63.res"]
+
+[params]
+
