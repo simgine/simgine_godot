@@ -73,20 +73,18 @@ func _import(
 		)
 		return ERR_PARSE_ERROR
 
-	if source_file.ends_with("target.json"):
+	var filename := source_file.get_file()
+	if filename == "target.json":
 		var targets_dir := source_file.get_base_dir()
 		return _import_target_registry(json.data, targets_dir, save_path)
-	if source_file.ends_with("macro.json"):
+	if filename == "macro.json":
 		var targets_dir := source_file.get_base_dir().get_base_dir()
 		return _import_macro_registry(json.data, targets_dir, save_path)
-	if source_file.ends_with("basemesh_vertex_groups.json"):
+	if filename == "basemesh_vertex_groups.json":
 		return _import_vertex_groups(json.data, save_path)
-	if (
-		source_file.ends_with("rig.game_engine.json")
-		or source_file.ends_with("rig.game_engine_with_breast.json")
-	):
+	if filename == "rig.game_engine.json" or filename == "rig.game_engine_with_breast.json":
 		return _import_rig(json.data, save_path)
-	if source_file.ends_with("weights.game_engine.json"):
+	if filename == "weights.game_engine.json":
 		return _import_rig_weights(json.data, save_path)
 	else:
 		push_error("Unknown MakeHuman JSON")
