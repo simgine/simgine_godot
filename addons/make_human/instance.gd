@@ -9,6 +9,9 @@ const MODIFIERS_PREFIX := "modifiers/"
 @export var body_geometry: MHBodyGeometry:
 	set = set_body_geometry
 
+@export var vertex_groups: MHVertexGroups:
+	set = set_vertex_groups
+
 @export var body_proxy: MHProxy:
 	set = set_body_proxy
 
@@ -159,6 +162,14 @@ func set_target_registry(value: MHTargetRegistry) -> void:
 	notify_property_list_changed()
 
 
+func set_vertex_groups(value: MHVertexGroups) -> void:
+	if vertex_groups == value:
+		return
+
+	vertex_groups = value
+	_queue_rebuild(Dirty.MORPH)
+
+
 func set_macro_registry(value: MHMacroRegistry) -> void:
 	if macro_registry == value:
 		return
@@ -220,7 +231,7 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 
 func _rebuild() -> void:
-	if not body_geometry or not target_registry or not macro_registry:
+	if not body_geometry or not vertex_groups or not target_registry or not macro_registry:
 		return
 
 	if _dirty & Dirty.MORPH:
@@ -250,7 +261,9 @@ func _move_to_ground() -> void:
 	var lowest_y := INF
 
 	# Exclude helper geometry when calculating the lowest point.
-	for vertex_index in MHBodyGeometry.BODY_VERTEX_COUNT:
+	var body_vertices := vertex_groups.ranges["body"]
+	assert(body_vertices.size() == 2, "body should have a single continuous range")
+	for vertex_index in range(body_vertices[0], body_vertices[1] + 1):
 		lowest_y = minf(lowest_y, morphed_vertices[vertex_index].y)
 
 	# Move all geometry, including helpers since they affect proxies.

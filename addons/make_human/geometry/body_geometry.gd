@@ -10,9 +10,6 @@ extends MHGeometry
 ## proxy definitions refer to body OBJ vertices when reconstructing
 ## their own vertices.
 
-## Number of body vertices before helper geometry begins.
-const BODY_VERTEX_COUNT := 13380
-
 ## Vertex positions, including helper geometry.
 ##
 ## [member vertices] includes helper geometry to preserve the original OBJ

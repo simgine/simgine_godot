@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.json_importer"
+type="Resource"
+uid="uid://bwy0k7jwowhx4"
+path="res://.godot/imported/basemesh_vertex_groups.json-6902ee17a667908b09c86d58bcb2adae.res"
+
+[deps]
+
+source_file="res://characters/human/assets/mesh_metadata/basemesh_vertex_groups.json"
+dest_files=["res://.godot/imported/basemesh_vertex_groups.json-6902ee17a667908b09c86d58bcb2adae.res"]
+
+[params]
+

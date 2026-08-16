@@ -79,6 +79,8 @@ func _import(
 	if source_file.ends_with("macro.json"):
 		var targets_dir := source_file.get_base_dir().get_base_dir()
 		return _import_macro_registry(json.data, targets_dir, save_path)
+	if source_file.ends_with("basemesh_vertex_groups.json"):
+		return _import_vertex_groups(json.data, save_path)
 	if (
 		source_file.ends_with("rig.game_engine.json")
 		or source_file.ends_with("rig.game_engine_with_breast.json")
@@ -262,6 +264,23 @@ func _load_target(target_name: String, dir: String, optional := false) -> MHTarg
 		push_error("Unable to find '%s'" % base_path)
 
 	return null
+
+
+func _import_vertex_groups(dict: Dictionary, save_path: String) -> Error:
+	var vertex_groups := MHVertexGroups.new()
+	for group_name: String in dict:
+		if group_name != "body" and not group_name.begins_with("joint-"):
+			continue
+
+		var ranges: PackedInt32Array
+		for vertex_range: Array in dict[group_name]:
+			assert(vertex_range.size() == 2)
+			ranges.push_back(vertex_range[0])
+			ranges.push_back(vertex_range[1])
+
+		vertex_groups.ranges[group_name] = ranges
+
+	return ResourceSaver.save(vertex_groups, "%s.%s" % [save_path, _get_save_extension()])
 
 
 func _import_rig(dict: Dictionary, save_path: String) -> Error:

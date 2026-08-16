@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bk8ub20upbpvo" path="res://addons/make_human/proxy_instance.gd" id="4_1bvp3"]
 [ext_resource type="Resource" uid="uid://oex0vpiwtjf3" path="res://characters/human/assets/clothes/female_sportsuit01/female_sportsuit01.mhclo" id="4_7mycd"]
 [ext_resource type="Resource" uid="uid://d26sarld4l3y" path="res://characters/human/assets/targets/target.json" id="4_dg77c"]
+[ext_resource type="Resource" uid="uid://bwy0k7jwowhx4" path="res://characters/human/assets/mesh_metadata/basemesh_vertex_groups.json" id="4_ycdy4"]
 [ext_resource type="Resource" uid="uid://djhd8x8rwt4q1" path="res://characters/human/assets/eyes/high-poly/high-poly.mhclo" id="5_7mycd"]
 [ext_resource type="Resource" uid="uid://dr8ghylhf60k6" path="res://characters/human/assets/hair/ponytail01/ponytail01.mhclo" id="5_lquwl"]
 [ext_resource type="Resource" uid="uid://rwn1dv1lhdq" path="res://characters/human/assets/targets/macrodetails/macro.json" id="5_ycdy4"]
@@ -19,6 +20,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 material_override = ExtResource("1_7mycd")
 script = ExtResource("6_5vw27")
 body_geometry = ExtResource("3_efxa6")
+vertex_groups = ExtResource("4_ycdy4")
 target_registry = ExtResource("4_dg77c")
 macro_registry = ExtResource("5_ycdy4")
 _modifiers = Dictionary[StringName, float]({
