@@ -25,7 +25,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name == "mesh":
+	if property.name == "mesh" or property.name == "skin":
 		# Constructed dynamically from the proxy geometry.
 		property.usage &= ~PROPERTY_USAGE_STORAGE
 		property.usage |= PROPERTY_USAGE_READ_ONLY
