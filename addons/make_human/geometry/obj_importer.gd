@@ -119,7 +119,7 @@ func _import(
 	return ResourceSaver.save(geometry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_quad(parts: PackedStringArray, line_index: int) -> MHQuad:
+static func _parse_quad(parts: PackedStringArray, line_index: int) -> MHQuad:
 	var quad := MHQuad.new()
 	for i in range(1, parts.size()):
 		var corner := parts[i]

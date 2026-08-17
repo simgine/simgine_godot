@@ -215,7 +215,7 @@ func _import(
 	return ResourceSaver.save(material, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _load_texture(base_dir: String, value: String, line_index: int) -> Texture2D:
+static func _load_texture(base_dir: String, value: String, line_index: int) -> Texture2D:
 	var path := base_dir.path_join(value)
 	var texture := ResourceLoader.load(path) as Texture2D
 	if not texture:
@@ -224,5 +224,5 @@ func _load_texture(base_dir: String, value: String, line_index: int) -> Texture2
 	return texture
 
 
-func _parse_bool(value: String) -> bool:
+static func _parse_bool(value: String) -> bool:
 	return value.to_lower() in ["true", "t", "1"]

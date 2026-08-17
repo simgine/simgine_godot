@@ -144,7 +144,7 @@ func _import(
 	return ResourceSaver.save(proxy, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_scale(value: String, line_index: int) -> MHScale:
+static func _parse_scale(value: String, line_index: int) -> MHScale:
 	var parts := value.split(" ", false)
 	if parts.size() != 3:
 		push_error("Invalid X scale at %d: '%s'" % [line_index, value])
@@ -157,7 +157,7 @@ func _parse_scale(value: String, line_index: int) -> MHScale:
 	return scale
 
 
-func _parse_vertex_mapping(line: String, proxy: MHProxy) -> bool:
+static func _parse_vertex_mapping(line: String, proxy: MHProxy) -> bool:
 	var parts := line.split(" ", false)
 	match parts.size():
 		1:
@@ -186,7 +186,7 @@ func _parse_vertex_mapping(line: String, proxy: MHProxy) -> bool:
 			return false
 
 
-func _parse_delete_verts(line: String, proxy: MHProxy) -> bool:
+static func _parse_delete_verts(line: String, proxy: MHProxy) -> bool:
 	var parts := line.split(" ", false)
 
 	var index := 0

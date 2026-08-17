@@ -100,7 +100,7 @@ func _import_target_registry(dict: Dictionary, targets_dir: String, save_path: S
 	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
+static func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
 	var section := MHTargetSection.new()
 	section.label = dict.label
 	section.include_per_default = dict.include_per_default
@@ -112,7 +112,7 @@ func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
 	return section
 
 
-func _parse_category(dict: Dictionary, section_dir: String) -> MHTargetCategory:
+static func _parse_category(dict: Dictionary, section_dir: String) -> MHTargetCategory:
 	var category := MHTargetCategory.new()
 	category.has_left_and_right = dict.has_left_and_right
 	category.label = dict.label
@@ -128,7 +128,7 @@ func _parse_category(dict: Dictionary, section_dir: String) -> MHTargetCategory:
 	return category
 
 
-func _parse_opposites(dict: Dictionary) -> MHTargetOpposites:
+static func _parse_opposites(dict: Dictionary) -> MHTargetOpposites:
 	var opposites := MHTargetOpposites.new()
 	opposites.negative_left = dict["negative-left"]
 	opposites.negative_right = dict["negative-right"]
@@ -159,7 +159,7 @@ func _import_macro_registry(dict: Dictionary, targets_dir: String, save_path: St
 	return ResourceSaver.save(registry, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_macro(dict: Dictionary) -> MHMacro:
+static func _parse_macro(dict: Dictionary) -> MHMacro:
 	var macro := MHMacro.new()
 	macro.label = dict.label
 
@@ -170,7 +170,7 @@ func _parse_macro(dict: Dictionary) -> MHMacro:
 	return macro
 
 
-func _parse_macro_part(dict: Dictionary) -> MHMacroPart:
+static func _parse_macro_part(dict: Dictionary) -> MHMacroPart:
 	var part := MHMacroPart.new()
 	part.lowest = dict.lowest
 	part.highest = dict.highest
@@ -179,7 +179,7 @@ func _parse_macro_part(dict: Dictionary) -> MHMacroPart:
 	return part
 
 
-func _parse_combination(
+static func _parse_combination(
 	combination_name: String,
 	dimensions: PackedStringArray,
 	macrotargets: Dictionary[StringName, MHMacro],
@@ -214,7 +214,7 @@ func _parse_combination(
 	return combination
 
 
-func _load_target_combinations(
+static func _load_target_combinations(
 	combination: MHMacroCombination,
 	component_sets: Array[PackedStringArray],
 	selected_components: PackedStringArray,
@@ -250,7 +250,7 @@ func _load_target_combinations(
 		selected_components.remove_at(selected_components.size() - 1)
 
 
-func _load_target(target_name: String, dir: String, optional := false) -> MHTarget:
+static func _load_target(target_name: String, dir: String, optional := false) -> MHTarget:
 	var base_path := dir.path_join(target_name)
 	var full_path := base_path + ".target"
 	if FileAccess.file_exists(full_path):
@@ -291,7 +291,7 @@ func _import_rig(dict: Dictionary, save_path: String) -> Error:
 	return ResourceSaver.save(rig, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_bone(dict: Dictionary) -> MHBone:
+static func _parse_bone(dict: Dictionary) -> MHBone:
 	var bone := MHBone.new()
 	bone.parent = dict.parent
 	bone.head = _parse_rig_position(dict.head)
@@ -306,7 +306,7 @@ func _parse_bone(dict: Dictionary) -> MHBone:
 	return bone
 
 
-func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
+static func _parse_rig_position(dict: Dictionary) -> MHRigPosition:
 	var position := MHRigPosition.new()
 	position.strategy = MHRigPosition.Strategy[dict.strategy]
 	if position.strategy == MHRigPosition.Strategy.CUBE:
