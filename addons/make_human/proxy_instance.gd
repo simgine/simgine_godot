@@ -26,8 +26,9 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "mesh":
-		# Hide entirely since it is constructed dynamically.
-		property.usage = PROPERTY_USAGE_NONE
+		# Constructed dynamically from the proxy geometry.
+		property.usage &= ~PROPERTY_USAGE_STORAGE
+		property.usage |= PROPERTY_USAGE_READ_ONLY
 
 
 func set_proxy(value: MHProxy) -> void:

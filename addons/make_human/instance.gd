@@ -54,8 +54,9 @@ func _init() -> void:
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "mesh":
-		# Hide entirely since it is constructed dynamically.
-		property.usage = PROPERTY_USAGE_NONE
+		# Constructed dynamically from the body geometry.
+		property.usage &= ~PROPERTY_USAGE_STORAGE
+		property.usage |= PROPERTY_USAGE_READ_ONLY
 
 
 func _get_property_list() -> Array[Dictionary]:
