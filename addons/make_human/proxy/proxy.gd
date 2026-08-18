@@ -127,9 +127,9 @@ func build_surface(body_vertices: PackedVector3Array) -> Array:
 	return geometry.build_surface(proxy_vertices)
 
 
-func build_masked_surface(body_vertices: PackedVector3Array, delete_mask: PackedByteArray) -> Array:
+func build_masked_surface(delete_mask: PackedByteArray, body_vertices: PackedVector3Array) -> Array:
 	var proxy_vertices := _fit_vertices(body_vertices)
-	return geometry.build_masked_surface(proxy_vertices, delete_mask)
+	return geometry.build_masked_surface(delete_mask, proxy_vertices)
 
 
 ## Reconstructs proxy vertex positions for the given body vertices.

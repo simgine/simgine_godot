@@ -75,7 +75,7 @@ func _import(
 				var x := parts[1].to_float()
 				var y := parts[2].to_float()
 				var z := parts[3].to_float()
-				geometry.original_vertices.push_back(Vector3(x, y, z))
+				geometry.vertices.push_back(Vector3(x, y, z))
 			"vt":
 				if parts.size() != 3:
 					push_error("Unsupported UV at %d: '%s'" % [line_index, line])

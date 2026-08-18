@@ -39,7 +39,7 @@ extends Resource
 ## [member quads] because they are not rendered. Since the render
 ## topology is built from the quads, helper vertices are
 ## automatically excluded from the resulting render mesh.
-@export_storage var original_vertices: PackedVector3Array
+@export_storage var vertices: PackedVector3Array
 
 ## Cached data for [method build_surface].
 var _topology: RenderTopology
@@ -52,7 +52,7 @@ var _topology: RenderTopology
 ## vertices should be removed from the mask. This matches the
 ## conservative masking in MPFB2.
 func make_mask_conservative(mask: PackedByteArray) -> void:
-	assert(original_vertices.size() == mask.size())
+	assert(vertices.size() == mask.size())
 
 	# We can't zero vertices immediately because they may belong to
 	# other quads that still need to be checked.
@@ -77,17 +77,25 @@ func make_mask_conservative(mask: PackedByteArray) -> void:
 			mask[vertex_index] = 0
 
 
-func build_masked_surface(vertices: PackedVector3Array, mask: PackedByteArray) -> Array:
-	assert(vertices.size() == mask.size())
-	var arrays := build_surface(vertices)
+func build_masked_surface(mask: PackedByteArray, source_vertices: PackedVector3Array = []) -> Array:
+	if not source_vertices:
+		source_vertices = vertices
+
+	assert(source_vertices.size() == mask.size())
+
+	var arrays := build_surface(source_vertices)
 	arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
 	return arrays
 
 
 ## Creates a [ArrayMesh] surface based on the geometry vertices.
-func build_surface(vertices: PackedVector3Array) -> Array:
-	assert(original_vertices.size() == vertices.size())
-	var geometry_normals := _generate_smooth_normals(vertices)
+func build_surface(source_vertices: PackedVector3Array = []) -> Array:
+	if not source_vertices:
+		source_vertices = vertices
+
+	assert(source_vertices.size() == vertices.size())
+
+	var geometry_normals := _generate_smooth_normals(source_vertices)
 
 	if not _topology:
 		_topology = RenderTopology.new()
@@ -104,7 +112,7 @@ func build_surface(vertices: PackedVector3Array) -> Array:
 	for render_index in vertex_count:
 		var geometry_index := _topology.geometry_indices[render_index]
 
-		render_vertices[render_index] = vertices[geometry_index]
+		render_vertices[render_index] = source_vertices[geometry_index]
 		render_normals[render_index] = geometry_normals[geometry_index]
 
 	var arrays := []
@@ -118,9 +126,9 @@ func build_surface(vertices: PackedVector3Array) -> Array:
 	return arrays
 
 
-func _generate_smooth_normals(vertices: PackedVector3Array) -> PackedVector3Array:
+func _generate_smooth_normals(source_vertices: PackedVector3Array) -> PackedVector3Array:
 	var normals: PackedVector3Array
-	normals.resize(vertices.size())
+	normals.resize(source_vertices.size())
 
 	for quad in quads:
 		var i0 := quad.vertex_indices[0]
@@ -132,13 +140,17 @@ func _generate_smooth_normals(vertices: PackedVector3Array) -> PackedVector3Arra
 		# outward-facing normals.
 
 		# Triangle 1: 0, 1, 2.
-		var normal_1 := (vertices[i1] - vertices[i0]).cross(vertices[i2] - vertices[i0])
+		var normal_1 := (source_vertices[i1] - source_vertices[i0]).cross(
+			source_vertices[i2] - source_vertices[i0]
+		)
 		normals[i0] += normal_1
 		normals[i2] += normal_1
 		normals[i1] += normal_1
 
 		# Triangle 2: 0, 2, 3.
-		var normal_2 := (vertices[i2] - vertices[i0]).cross(vertices[i3] - vertices[i0])
+		var normal_2 := (source_vertices[i2] - source_vertices[i0]).cross(
+			source_vertices[i3] - source_vertices[i0]
+		)
 		normals[i0] += normal_2
 		normals[i3] += normal_2
 		normals[i2] += normal_2

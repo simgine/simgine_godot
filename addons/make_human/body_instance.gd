@@ -252,7 +252,7 @@ func _rebuild() -> void:
 
 func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
-	morphed_vertices.append_array(body_geometry.original_vertices)
+	morphed_vertices.append_array(body_geometry.vertices)
 
 	macro_registry.apply(morphed_vertices, _modifiers)
 	target_registry.apply(morphed_vertices, _modifiers)
@@ -274,7 +274,7 @@ func _move_to_ground() -> void:
 
 
 func _rebuild_mask() -> void:
-	_body_mask.resize(body_geometry.original_vertices.size())
+	_body_mask.resize(body_geometry.vertices.size())
 	_body_mask.fill(0)
 
 	for child in get_children():
@@ -298,9 +298,9 @@ func _rebuild_surface() -> void:
 
 	var arrays: Array
 	if body_proxy:
-		arrays = body_proxy.build_masked_surface(morphed_vertices, _proxy_mask)
+		arrays = body_proxy.build_masked_surface(_proxy_mask, morphed_vertices)
 	else:
-		arrays = body_geometry.build_masked_surface(morphed_vertices, _body_mask)
+		arrays = body_geometry.build_masked_surface(_body_mask, morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
