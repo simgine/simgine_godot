@@ -15,15 +15,6 @@ func _enter_tree() -> void:
 	rebuild_mesh()
 
 
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings: PackedStringArray
-
-	if get_parent() is not MHBodyInstance:
-		warnings.append("MHProxyInstance must be a child of MHBodyInstance.")
-
-	return warnings
-
-
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "mesh" or property.name == "skin":
 		# Constructed dynamically from the proxy geometry.
@@ -52,17 +43,25 @@ func _on_proxy_changed() -> void:
 
 
 func rebuild_mesh() -> void:
-	var body := get_parent() as MHBodyInstance
-	if not body or not body.morphed_vertices or not proxy or not proxy.geometry:
+	if not proxy or not proxy.geometry:
 		mesh = null
 		return
+
+	var body := get_parent() as MHBodyInstance
+	var arrays: Array
+	if body:
+		if not body.morphed_vertices:
+			mesh = null
+			return
+
+		arrays = proxy.build_surface(body.morphed_vertices)
+	else:
+		arrays = proxy.geometry.build_surface()
 
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
 		array_mesh = ArrayMesh.new()
 		mesh = array_mesh
-
-	var arrays := proxy.build_surface(body.morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
