@@ -18,8 +18,8 @@ func _enter_tree() -> void:
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray
 
-	if get_parent() is not MHInstance:
-		warnings.append("MHProxyInstance must be a child of MHInstance.")
+	if get_parent() is not MHBodyInstance:
+		warnings.append("MHProxyInstance must be a child of MHBodyInstance.")
 
 	return warnings
 
@@ -52,7 +52,7 @@ func _on_proxy_changed() -> void:
 
 
 func rebuild_mesh() -> void:
-	var body := get_parent() as MHInstance
+	var body := get_parent() as MHBodyInstance
 	if not body or not body.morphed_vertices or not proxy or not proxy.geometry:
 		mesh = null
 		return

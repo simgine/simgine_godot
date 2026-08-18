@@ -1,5 +1,5 @@
 @tool
-class_name MHInstance
+class_name MHBodyInstance
 extends MeshInstance3D
 
 const MODIFIERS_PREFIX := "modifiers/"

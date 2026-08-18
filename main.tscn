@@ -9,13 +9,13 @@
 [ext_resource type="Resource" uid="uid://djhd8x8rwt4q1" path="res://characters/human/assets/eyes/high-poly/high-poly.mhclo" id="5_7mycd"]
 [ext_resource type="Resource" uid="uid://dr8ghylhf60k6" path="res://characters/human/assets/hair/ponytail01/ponytail01.mhclo" id="5_lquwl"]
 [ext_resource type="Resource" uid="uid://rwn1dv1lhdq" path="res://characters/human/assets/targets/macrodetails/macro.json" id="5_ycdy4"]
-[ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/instance.gd" id="6_5vw27"]
+[ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/body_instance.gd" id="6_5vw27"]
 [ext_resource type="Resource" uid="uid://csj27vg7x3iql" path="res://characters/human/assets/eyelashes/eyelashes02/eyelashes02.mhclo" id="7_272bh"]
 [ext_resource type="Resource" uid="uid://cv58jkfjgg463" path="res://characters/human/assets/eyebrows/eyebrow008/eyebrow008.mhclo" id="8_5vw27"]
 
 [node name="Main" type="Node" unique_id=1601018697]
 
-[node name="MHInstance" type="MeshInstance3D" parent="." unique_id=1060179870]
+[node name="MHBodyInstance" type="MeshInstance3D" parent="." unique_id=1060179870]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 material_override = ExtResource("1_7mycd")
 script = ExtResource("6_5vw27")
@@ -28,27 +28,27 @@ _modifiers = Dictionary[StringName, float]({
 })
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
 
-[node name="Suit" type="MeshInstance3D" parent="MHInstance" unique_id=1208333596]
+[node name="Suit" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1208333596]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("4_7mycd")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
-[node name="Eyes" type="MeshInstance3D" parent="MHInstance" unique_id=1455261771]
+[node name="Eyes" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1455261771]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("5_7mycd")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
-[node name="Hair" type="MeshInstance3D" parent="MHInstance" unique_id=2055985007]
+[node name="Hair" type="MeshInstance3D" parent="MHBodyInstance" unique_id=2055985007]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("5_lquwl")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
-[node name="Eyelashes" type="MeshInstance3D" parent="MHInstance" unique_id=293267930]
+[node name="Eyelashes" type="MeshInstance3D" parent="MHBodyInstance" unique_id=293267930]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("7_272bh")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
-[node name="Eyebrows" type="MeshInstance3D" parent="MHInstance" unique_id=1234343540]
+[node name="Eyebrows" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1234343540]
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("8_5vw27")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
