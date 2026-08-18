@@ -6,7 +6,7 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
-@export var body_geometry: MHBodyGeometry:
+@export var body_geometry: MHGeometry:
 	set = set_body_geometry
 
 @export var vertex_groups: MHVertexGroups:
@@ -131,7 +131,7 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
-func set_body_geometry(value: MHBodyGeometry) -> void:
+func set_body_geometry(value: MHGeometry) -> void:
 	if body_geometry == value:
 		return
 
@@ -251,7 +251,7 @@ func _rebuild() -> void:
 
 func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
-	morphed_vertices.append_array(body_geometry.vertices)
+	morphed_vertices.append_array(body_geometry.original_vertices)
 
 	macro_registry.apply(morphed_vertices, _modifiers)
 	target_registry.apply(morphed_vertices, _modifiers)
@@ -273,7 +273,7 @@ func _move_to_ground() -> void:
 
 
 func _rebuild_mask() -> void:
-	_body_mask.resize(body_geometry.vertices.size())
+	_body_mask.resize(body_geometry.original_vertices.size())
 	_body_mask.fill(0)
 
 	for child in get_children():

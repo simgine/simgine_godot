@@ -3,10 +3,13 @@ class_name MHGeometry
 extends Resource
 ## MakeHuman mesh data imported from OBJ.
 ##
-## Used for [MHProxy]. Doesn't include vertices because they are
-## dynamically reconstructed from [MHBodyGeometry] using [MHProxy]
-## fitting data after all morph targets are applied. A renderable
-## [ArrayMesh] is constructed at runtime with [method build_surface].
+## A renderable [ArrayMesh] is constructed at runtime because vertex
+## positions may be modified by morph targets or reconstructed from
+## another mesh using proxy fitting data.
+##
+## Original OBJ vertex indices are preserved because MHCLO files and
+## morph targets refer to them rather than to render mesh vertices,
+## which are different from render mesh vertices.
 
 ## UV coordinates.
 @export_storage var uvs: PackedVector2Array:
@@ -22,6 +25,22 @@ extends Resource
 		quads = value
 		_topology = null
 
+
+## Vertex positions.
+##
+## For proxy meshes, these are used only when the proxy is not
+## attached to a body. When attached to a body, vertices are
+## dynamically reconstructed from scratch using the body vertices
+## and [MHProxy] fitting data after all morph targets are applied.
+##
+## For the body, these vertices are copied and morphed before
+## constructing the surface. They include helper geometry to preserve
+## the original OBJ vertex indices. Helper faces are excluded from
+## [member quads] because they are not rendered. Since the render
+## topology is built from the quads, helper vertices are
+## automatically excluded from the resulting render mesh.
+@export_storage var original_vertices: PackedVector3Array
+
 ## Cached data for [method build_surface].
 var _topology: RenderTopology
 
@@ -33,6 +52,8 @@ var _topology: RenderTopology
 ## vertices should be removed from the mask. This matches the
 ## conservative masking in MPFB2.
 func make_mask_conservative(mask: PackedByteArray) -> void:
+	assert(original_vertices.size() == mask.size())
+
 	# We can't zero vertices immediately because they may belong to
 	# other quads that still need to be checked.
 	# This special value marks them for zeroing later.
@@ -56,16 +77,16 @@ func make_mask_conservative(mask: PackedByteArray) -> void:
 			mask[vertex_index] = 0
 
 
-func build_masked_surface(morphed_vertices: PackedVector3Array, mask: PackedByteArray) -> Array:
-	assert(mask.size() == morphed_vertices.size())
-
-	var arrays := build_surface(morphed_vertices)
+func build_masked_surface(vertices: PackedVector3Array, mask: PackedByteArray) -> Array:
+	assert(vertices.size() == mask.size())
+	var arrays := build_surface(vertices)
 	arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
 	return arrays
 
 
 ## Creates a [ArrayMesh] surface based on the geometry vertices.
 func build_surface(vertices: PackedVector3Array) -> Array:
+	assert(original_vertices.size() == vertices.size())
 	var geometry_normals := _generate_smooth_normals(vertices)
 
 	if not _topology:
@@ -97,9 +118,9 @@ func build_surface(vertices: PackedVector3Array) -> Array:
 	return arrays
 
 
-func _generate_smooth_normals(morphed_vertices: PackedVector3Array) -> PackedVector3Array:
+func _generate_smooth_normals(vertices: PackedVector3Array) -> PackedVector3Array:
 	var normals: PackedVector3Array
-	normals.resize(morphed_vertices.size())
+	normals.resize(vertices.size())
 
 	for quad in quads:
 		var i0 := quad.vertex_indices[0]
@@ -111,17 +132,13 @@ func _generate_smooth_normals(morphed_vertices: PackedVector3Array) -> PackedVec
 		# outward-facing normals.
 
 		# Triangle 1: 0, 1, 2.
-		var normal_1 := (morphed_vertices[i1] - morphed_vertices[i0]).cross(
-			morphed_vertices[i2] - morphed_vertices[i0]
-		)
+		var normal_1 := (vertices[i1] - vertices[i0]).cross(vertices[i2] - vertices[i0])
 		normals[i0] += normal_1
 		normals[i2] += normal_1
 		normals[i1] += normal_1
 
 		# Triangle 2: 0, 2, 3.
-		var normal_2 := (morphed_vertices[i2] - morphed_vertices[i0]).cross(
-			morphed_vertices[i3] - morphed_vertices[i0]
-		)
+		var normal_2 := (vertices[i2] - vertices[i0]).cross(vertices[i3] - vertices[i0])
 		normals[i0] += normal_2
 		normals[i3] += normal_2
 		normals[i2] += normal_2
