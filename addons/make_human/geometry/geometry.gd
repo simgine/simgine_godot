@@ -88,7 +88,7 @@ func build_masked_surface(mask: PackedByteArray, source_vertices: PackedVector3A
 	return arrays
 
 
-## Creates a [ArrayMesh] surface based on the geometry vertices.
+## Creates an [ArrayMesh] surface based on the geometry vertices.
 func build_surface(source_vertices: PackedVector3Array = []) -> Array:
 	if not source_vertices:
 		source_vertices = vertices
