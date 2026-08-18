@@ -233,6 +233,7 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 func _rebuild() -> void:
 	if not body_geometry or not vertex_groups or not target_registry or not macro_registry:
+		mesh = null
 		return
 
 	if _dirty & Dirty.MORPH:
