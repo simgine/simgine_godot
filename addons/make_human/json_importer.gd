@@ -285,15 +285,42 @@ func _import_vertex_groups(dict: Dictionary, save_path: String) -> Error:
 
 func _import_rig(dict: Dictionary, save_path: String) -> Error:
 	var rig := MHRig.new()
+	var bone_indices: Dictionary[StringName, int]
 	for bone_name: String in dict:
-		rig.bones[bone_name] = _parse_bone(dict[bone_name])
+		_append_bone_with_parents(bone_name, dict, rig, bone_indices)
 
 	return ResourceSaver.save(rig, "%s.%s" % [save_path, _get_save_extension()])
 
 
-static func _parse_bone(dict: Dictionary) -> MHBone:
+## Traverse bone ancestors to store them in parent-first order.
+static func _append_bone_with_parents(
+	bone_name: StringName,
+	dict: Dictionary,
+	rig: MHRig,
+	bone_indices: Dictionary[StringName, int],
+) -> int:
+	if bone_indices.has(bone_name):
+		return bone_indices[bone_name]
+
+	var bone_dict: Dictionary = dict[bone_name]
+	var parent_name: StringName = bone_dict.parent
+	var parent_index := -1
+
+	if parent_name:
+		parent_index = _append_bone_with_parents(parent_name, dict, rig, bone_indices)
+
+	var bone := _parse_bone(bone_name, parent_index, bone_dict)
+	rig.bones.push_back(bone)
+
+	var bone_index := rig.bones.size() - 1
+	bone_indices[bone_name] = bone_index
+	return bone_index
+
+
+static func _parse_bone(bone_name: StringName, parent_index: int, dict: Dictionary) -> MHBone:
 	var bone := MHBone.new()
-	bone.parent = dict.parent
+	bone.name = bone_name
+	bone.parent_index = parent_index
 	bone.head = _parse_rig_position(dict.head)
 	bone.tail = _parse_rig_position(dict.tail)
 	bone.roll = dict.roll

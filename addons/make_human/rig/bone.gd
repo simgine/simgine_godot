@@ -2,10 +2,13 @@
 class_name MHBone
 extends Resource
 
-## Parent bone name.
+## Bone name.
+@export var name: StringName
+
+## Parent index in [member MHRig.bones], or `-1` for a root bone.
 ##
-## Empty string for root bones.
-@export var parent: StringName
+## Resolved from the parent name in the rig JSON during import.
+@export var parent_index := -1
 
 ## Position strategy for the bone head.
 @export var head: MHRigPosition

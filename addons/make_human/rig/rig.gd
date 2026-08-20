@@ -6,5 +6,5 @@ extends Resource
 ##
 ## Imported from `rig.*.json`.
 
-## Maps bone names to their definitions.
-@export var bones: Dictionary[StringName, MHBone]
+## Bones in parent-first order.
+@export var bones: Array[MHBone]
