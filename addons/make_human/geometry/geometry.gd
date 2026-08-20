@@ -42,7 +42,11 @@ extends Resource
 @export_storage var vertices: PackedVector3Array
 
 ## Cached data for [method build_surface].
-var _topology: RenderTopology
+var _topology: RenderTopology:
+	get:
+		if not _topology:
+			_build_render_topology()
+		return _topology
 
 
 ## Adjusts the delete mask so it doesn't hide partially masked quads.
@@ -96,10 +100,6 @@ func build_surface(source_vertices: PackedVector3Array = []) -> Array:
 	assert(source_vertices.size() == vertices.size())
 
 	var geometry_normals := _generate_smooth_normals(source_vertices)
-
-	if not _topology:
-		_topology = RenderTopology.new()
-		_build_render_topology()
 
 	var vertex_count := _topology.geometry_indices.size()
 
@@ -187,6 +187,7 @@ func _generate_smooth_normals(source_vertices: PackedVector3Array) -> PackedVect
 ## positions and normals through [RenderTopology.geometry_indices]. UVs and triangle
 ## indices remain unchanged and are reused.
 func _build_render_topology() -> void:
+	_topology = RenderTopology.new()
 	var vertex_lookup: Dictionary[Vector2i, int]
 	for quad in quads:
 		var i0 := _get_or_create_vertex(vertex_lookup, quad.vertex_indices[0], quad.uv_indices[0])
