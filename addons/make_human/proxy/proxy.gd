@@ -88,8 +88,6 @@ func apply_delete_verts(mask: PackedByteArray) -> void:
 	for range_index in range(0, delete_verts.size(), 2):
 		var first := delete_verts[range_index]
 		var last := delete_verts[range_index + 1]
-		assert(first >= 0)
-		assert(last >= first)
 
 		for vertex_index in range(first, last + 1):
 			mask[vertex_index] = 1
