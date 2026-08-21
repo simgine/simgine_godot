@@ -60,7 +60,7 @@ extends Resource
 ## Third body vertex reference for each proxy source vertex.
 @export_storage var ref_c: PackedInt32Array
 
-## Three interpolation weights for each proxy source vertex.
+## Three interpolation weights for each proxy source vertex (sum to 1.0).
 ##
 ## The X, Y, and Z components correspond to [member ref_a],
 ## [member ref_b], and [member ref_c], respectively. They define a weighted
