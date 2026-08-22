@@ -36,10 +36,10 @@ const MODIFIERS_PREFIX := "modifiers/"
 var morphed_vertices: PackedVector3Array
 
 ## Body vertices hidden by [MHProxyInstance] children.
-var _vertices_mask: PackedByteArray
+var _mask: PackedByteArray
 
-## Delete mask transferred from [member _vertices_mask] to [member proxy] geometry.
-var _proxy_vertices_mask: PackedByteArray
+## Delete mask transferred from [member _mask] to [member proxy] geometry.
+var _proxy_mask: PackedByteArray
 
 var skinning: MHSkinning
 var _proxy_skinning: MHSkinning
@@ -287,8 +287,11 @@ func _rebuild() -> void:
 	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS | Dirty.PROXY):
 		_rebuild_proxy_skinning()
 
-	if _dirty & (Dirty.PROXY | Dirty.CHILD_PROXY):
+	if _dirty & Dirty.CHILD_PROXY:
 		_rebuild_mask()
+
+	if _dirty & (Dirty.PROXY | Dirty.CHILD_PROXY):
+		_rebuild_proxy_mask()
 
 	_rebuild_surface()
 
@@ -354,20 +357,24 @@ func _rebuild_proxy_skinning() -> void:
 
 
 func _rebuild_mask() -> void:
-	_vertices_mask.resize(geometry.vertices.size())
-	_vertices_mask.fill(0)
+	_mask.resize(geometry.vertices.size())
+	_mask.fill(0)
 
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if not instance or not instance.proxy:
 			continue
 
-		instance.proxy.apply_delete_verts(_vertices_mask)
+		instance.proxy.apply_delete_verts(_mask)
 
-	geometry.make_mask_conservative(_vertices_mask)
+	geometry.make_mask_conservative(_mask)
+
+
+func _rebuild_proxy_mask() -> void:
+	_proxy_mask.clear()
 
 	if proxy:
-		proxy.transfer_delete_mask(_vertices_mask, _proxy_vertices_mask)
+		proxy.transfer_delete_mask(_mask, _proxy_mask)
 
 
 func _rebuild_surface() -> void:
@@ -378,9 +385,9 @@ func _rebuild_surface() -> void:
 
 	var arrays: Array
 	if proxy:
-		arrays = proxy.build_masked_surface(_proxy_vertices_mask, _proxy_skinning, morphed_vertices)
+		arrays = proxy.build_masked_surface(_proxy_mask, _proxy_skinning, morphed_vertices)
 	else:
-		arrays = geometry.build_masked_surface(_vertices_mask, skinning, morphed_vertices)
+		arrays = geometry.build_masked_surface(_mask, skinning, morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(
