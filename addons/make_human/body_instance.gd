@@ -46,12 +46,12 @@ var _proxy_skinning: MHSkinning
 
 enum Dirty {
 	NONE = 0,
-	GEOMETRY = 1 << 0,
+	VERTICES = 1 << 0,
 	CHILD_PROXY = 1 << 1,
 	SKELETON = 1 << 2,
 	WEIGHTS = 1 << 3,
 	PROXY = 1 << 4,
-	ALL = GEOMETRY | CHILD_PROXY | SKELETON | WEIGHTS | PROXY,
+	ALL = VERTICES | CHILD_PROXY | SKELETON | WEIGHTS | PROXY,
 }
 
 var _dirty: int = Dirty.NONE
@@ -171,7 +171,7 @@ func set_target_registry(value: MHTargetRegistry) -> void:
 		return
 
 	target_registry = value
-	_queue_rebuild(Dirty.GEOMETRY)
+	_queue_rebuild(Dirty.VERTICES)
 	notify_property_list_changed()
 
 
@@ -180,7 +180,7 @@ func set_vertex_groups(value: MHVertexGroups) -> void:
 		return
 
 	vertex_groups = value
-	_queue_rebuild(Dirty.GEOMETRY)
+	_queue_rebuild(Dirty.VERTICES)
 
 
 func set_macro_registry(value: MHMacroRegistry) -> void:
@@ -188,7 +188,7 @@ func set_macro_registry(value: MHMacroRegistry) -> void:
 		return
 
 	macro_registry = value
-	_queue_rebuild(Dirty.GEOMETRY)
+	_queue_rebuild(Dirty.VERTICES)
 	notify_property_list_changed()
 
 
@@ -229,7 +229,7 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 	else:
 		_modifiers[modifier_name] = value
 
-	_queue_rebuild(Dirty.GEOMETRY)
+	_queue_rebuild(Dirty.VERTICES)
 
 
 func _get_default_modifier(modifier_name: StringName) -> float:
@@ -275,10 +275,10 @@ func _rebuild() -> void:
 		mesh = null
 		return
 
-	if _dirty & Dirty.GEOMETRY:
+	if _dirty & Dirty.VERTICES:
 		_rebuild_morphed_vertices()
 
-	if _dirty & (Dirty.GEOMETRY | Dirty.SKELETON):
+	if _dirty & (Dirty.VERTICES | Dirty.SKELETON):
 		_rebuild_skeleton()
 
 	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS):
@@ -298,7 +298,7 @@ func _rebuild() -> void:
 	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS):
 		_rebuild_child_skinning()
 
-	if _dirty & (Dirty.GEOMETRY | Dirty.SKELETON | Dirty.WEIGHTS):
+	if _dirty & (Dirty.VERTICES | Dirty.SKELETON | Dirty.WEIGHTS):
 		_rebuild_child_meshes()
 
 	_dirty = Dirty.NONE
