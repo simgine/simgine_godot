@@ -362,17 +362,14 @@ func _rebuild_mask() -> void:
 
 	for child in get_children():
 		var instance := child as MHProxyInstance
-		if not instance or not instance.proxy:
-			continue
-
-		instance.proxy.apply_delete_verts(_mask)
+		if instance and instance.proxy:
+			instance.proxy.apply_delete_verts(_mask)
 
 	geometry.make_mask_conservative(_mask)
 
 
 func _rebuild_proxy_mask() -> void:
 	_proxy_mask.clear()
-
 	if proxy:
 		proxy.transfer_delete_mask(_mask, _proxy_mask)
 
