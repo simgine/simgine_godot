@@ -13,6 +13,29 @@ var bone_indices: PackedInt32Array
 var weights: PackedFloat32Array
 
 
+## Builds skinning for the body from rig weights.
+##
+## Sparse bone-to-vertex weight assignments are converted into
+## [constant MAX_INFLUENCES] influences per geometry vertex.
+func build(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
+	_resize(vertex_count)
+
+	for bone_index in rig.bones.size():
+		var bone := rig.bones[bone_index]
+		var bone_weights: MHBoneWeights = rig_weights.bones.get(bone.name)
+		if not bone_weights:
+			continue
+
+		assert(bone_weights.vertices.size() == bone_weights.weights.size())
+		for influence_index in bone_weights.vertices.size():
+			var vertex_index := bone_weights.vertices[influence_index]
+			var weight := bone_weights.weights[influence_index]
+
+			_add_influence(vertex_index, bone_index, weight)
+
+	assert(_weights_are_normalized())
+
+
 ## Transfers body skinning to proxy geometry.
 ##
 ## Each proxy vertex inherits bone influences from its 3 referenced body
@@ -96,29 +119,6 @@ func _finalize_influences(
 	assert(total > 0.0)
 	for bone_index: int in sorted_bones:
 		_add_influence(vertex_index, bone_index, influences[bone_index] / total)
-
-
-## Builds skinning for the body from rig weights.
-##
-## Sparse bone-to-vertex weight assignments are converted into
-## [constant MAX_INFLUENCES] influences per geometry vertex.
-func build(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
-	_resize(vertex_count)
-
-	for bone_index in rig.bones.size():
-		var bone := rig.bones[bone_index]
-		var bone_weights: MHBoneWeights = rig_weights.bones.get(bone.name)
-		if not bone_weights:
-			continue
-
-		assert(bone_weights.vertices.size() == bone_weights.weights.size())
-		for influence_index in bone_weights.vertices.size():
-			var vertex_index := bone_weights.vertices[influence_index]
-			var weight := bone_weights.weights[influence_index]
-
-			_add_influence(vertex_index, bone_index, weight)
-
-	assert(_weights_are_normalized())
 
 
 func _resize(vertex_count: int) -> void:
