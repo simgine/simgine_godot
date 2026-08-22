@@ -6,14 +6,14 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
-@export var body_geometry: MHGeometry:
-	set = set_body_geometry
+@export var geometry: MHGeometry:
+	set = set_geometry
 
 @export var vertex_groups: MHVertexGroups:
 	set = set_vertex_groups
 
-@export var body_proxy: MHProxy:
-	set = set_body_proxy
+@export var proxy: MHProxy:
+	set = set_proxy
 
 @export var target_registry: MHTargetRegistry:
 	set = set_target_registry
@@ -36,12 +36,10 @@ const MODIFIERS_PREFIX := "modifiers/"
 var morphed_vertices: PackedVector3Array
 
 ## Body vertices hidden by [MHProxyInstance] children.
-var _body_mask: PackedByteArray
+var _vertices_mask: PackedByteArray
 
-## Body vertices for [member body_proxy].
-##
-## Transferred to proxy geometry from [member _body_mask].
-var _proxy_mask: PackedByteArray
+## Delete mask transferred from [member _vertices_mask] to [member proxy] geometry.
+var _proxy_vertices_mask: PackedByteArray
 
 var skinning: MHSkinning
 var _proxy_skinning: MHSkinning
@@ -145,25 +143,25 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
-func set_body_geometry(value: MHGeometry) -> void:
-	if body_geometry == value:
+func set_geometry(value: MHGeometry) -> void:
+	if geometry == value:
 		return
 
-	body_geometry = value
+	geometry = value
 	_queue_rebuild(Dirty.ALL)
 
 
-func set_body_proxy(value: MHProxy) -> void:
-	if body_proxy == value:
+func set_proxy(value: MHProxy) -> void:
+	if proxy == value:
 		return
 
-	if body_proxy:
-		body_proxy.changed.disconnect(_queue_rebuild)
+	if proxy:
+		proxy.changed.disconnect(_queue_rebuild)
 
-	body_proxy = value
+	proxy = value
 
-	if body_proxy:
-		body_proxy.changed.connect(_queue_rebuild.bind(Dirty.PROXY))
+	if proxy:
+		proxy.changed.connect(_queue_rebuild.bind(Dirty.PROXY))
 
 	_queue_rebuild(Dirty.PROXY)
 
@@ -272,7 +270,7 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 
 func _rebuild() -> void:
-	if not body_geometry or not vertex_groups or not target_registry or not macro_registry:
+	if not geometry or not vertex_groups or not target_registry or not macro_registry:
 		_dirty = Dirty.NONE
 		mesh = null
 		return
@@ -305,7 +303,7 @@ func _rebuild() -> void:
 
 func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
-	morphed_vertices.append_array(body_geometry.vertices)
+	morphed_vertices.append_array(geometry.vertices)
 
 	macro_registry.apply(morphed_vertices, _modifiers)
 	target_registry.apply(morphed_vertices, _modifiers)
@@ -338,38 +336,38 @@ func _rebuild_skeleton() -> void:
 func _rebuild_skinning() -> void:
 	skinning = null
 
-	if not skeleton_node or not skeleton_node.rig or not rig_weights or not body_geometry:
+	if not skeleton_node or not skeleton_node.rig or not rig_weights or not geometry:
 		return
 
 	skinning = MHSkinning.new()
-	skinning.build(skeleton_node.rig, rig_weights, body_geometry.vertices.size())
+	skinning.build(skeleton_node.rig, rig_weights, geometry.vertices.size())
 
 
 func _rebuild_proxy_skinning() -> void:
 	_proxy_skinning = null
 
-	if not body_proxy or not skinning:
+	if not proxy or not skinning:
 		return
 
 	_proxy_skinning = MHSkinning.new()
-	_proxy_skinning.transfer_from(skinning, body_proxy)
+	_proxy_skinning.transfer_from(skinning, proxy)
 
 
 func _rebuild_mask() -> void:
-	_body_mask.resize(body_geometry.vertices.size())
-	_body_mask.fill(0)
+	_vertices_mask.resize(geometry.vertices.size())
+	_vertices_mask.fill(0)
 
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if not instance or not instance.proxy:
 			continue
 
-		instance.proxy.apply_delete_verts(_body_mask)
+		instance.proxy.apply_delete_verts(_vertices_mask)
 
-	body_geometry.make_mask_conservative(_body_mask)
+	geometry.make_mask_conservative(_vertices_mask)
 
-	if body_proxy:
-		body_proxy.transfer_delete_mask(_body_mask, _proxy_mask)
+	if proxy:
+		proxy.transfer_delete_mask(_vertices_mask, _proxy_vertices_mask)
 
 
 func _rebuild_surface() -> void:
@@ -379,10 +377,10 @@ func _rebuild_surface() -> void:
 		mesh = array_mesh
 
 	var arrays: Array
-	if body_proxy:
-		arrays = body_proxy.build_masked_surface(_proxy_mask, _proxy_skinning, morphed_vertices)
+	if proxy:
+		arrays = proxy.build_masked_surface(_proxy_vertices_mask, _proxy_skinning, morphed_vertices)
 	else:
-		arrays = body_geometry.build_masked_surface(_body_mask, skinning, morphed_vertices)
+		arrays = geometry.build_masked_surface(_vertices_mask, skinning, morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(
