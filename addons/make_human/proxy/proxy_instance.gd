@@ -5,10 +5,10 @@ extends MeshInstance3D
 
 signal proxy_changed
 
+@export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh_action := rebuild_mesh
+
 @export var proxy: MHProxy:
 	set = set_proxy
-
-@export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh_action := rebuild_mesh
 
 
 func _enter_tree() -> void:
