@@ -95,7 +95,7 @@ func apply_delete_verts(mask: PackedByteArray) -> void:
 
 ## Transfers a body delete mask to the proxy topology using the proxy fitting references.
 func transfer_delete_mask(body_mask: PackedByteArray, proxy_mask: PackedByteArray) -> void:
-	var vertex_count := _get_vertex_count()
+	var vertex_count := get_vertex_count()
 	proxy_mask.resize(vertex_count)
 
 	for vertex_index in vertex_count:
@@ -120,19 +120,23 @@ func transfer_delete_mask(body_mask: PackedByteArray, proxy_mask: PackedByteArra
 	geometry.make_mask_conservative(proxy_mask)
 
 
-func build_surface(body_vertices: PackedVector3Array) -> Array:
+func build_surface(skinning: MHSkinning, body_vertices: PackedVector3Array) -> Array:
 	var proxy_vertices := _fit_vertices(body_vertices)
-	return geometry.build_surface(proxy_vertices)
+	return geometry.build_surface(skinning, proxy_vertices)
 
 
-func build_masked_surface(delete_mask: PackedByteArray, body_vertices: PackedVector3Array) -> Array:
+func build_masked_surface(
+	delete_mask: PackedByteArray,
+	skinning: MHSkinning,
+	body_vertices: PackedVector3Array,
+) -> Array:
 	var proxy_vertices := _fit_vertices(body_vertices)
-	return geometry.build_masked_surface(delete_mask, proxy_vertices)
+	return geometry.build_masked_surface(delete_mask, skinning, proxy_vertices)
 
 
 ## Reconstructs proxy vertex positions for the given body vertices.
 func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
-	var vertex_count := _get_vertex_count()
+	var vertex_count := get_vertex_count()
 	var offset_scale := _calculate_offset_scale(body_vertices)
 
 	var vertices: PackedVector3Array
@@ -162,7 +166,7 @@ func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 	return vertices
 
 
-func _get_vertex_count() -> int:
+func get_vertex_count() -> int:
 	var vertex_count := ref_a.size()
 	assert(ref_b.size() == vertex_count)
 	assert(ref_c.size() == vertex_count)

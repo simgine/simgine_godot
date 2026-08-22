@@ -26,3 +26,45 @@ enum Strategy {
 ##
 ## Used by `VERTEX` (holds a single value) and `MEAN`.
 @export var vertex_indices: PackedInt32Array
+
+
+## Resolves this endpoint against the current (already morphed) body vertices.
+##
+## This deliberately ignores the `default_position` stored in MPFB rig JSON.
+## Joint helpers and explicit vertex references deform together with the body,
+## so resolving them at runtime keeps the skeleton matched to the current shape.
+func resolve(body_vertices: PackedVector3Array, vertex_groups: MHVertexGroups) -> Vector3:
+	match strategy:
+		Strategy.CUBE:
+			return _resolve_cube(body_vertices, vertex_groups)
+		Strategy.VERTEX, Strategy.MEAN:
+			return _resolve_vertices(body_vertices)
+		_:
+			push_error("Invalid rig position strategy: %s" % strategy)
+			return Vector3.ZERO
+
+
+func _resolve_cube(body_vertices: PackedVector3Array, vertex_groups: MHVertexGroups) -> Vector3:
+	var ranges := vertex_groups.ranges[cube_name]
+	assert(ranges.size() % 2 == 0)
+
+	var sum := Vector3.ZERO
+	var count := 0
+	for range_index in range(0, ranges.size(), 2):
+		var first := ranges[range_index]
+		var last := ranges[range_index + 1]
+
+		for vertex_index in range(first, last + 1):
+			sum += body_vertices[vertex_index]
+			count += 1
+
+	return sum / count
+
+
+func _resolve_vertices(body_vertices: PackedVector3Array) -> Vector3:
+	assert(not vertex_indices.is_empty())
+	var sum := Vector3.ZERO
+	for vertex_index in vertex_indices:
+		sum += body_vertices[vertex_index]
+
+	return sum / vertex_indices.size()

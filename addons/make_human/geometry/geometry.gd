@@ -81,19 +81,23 @@ func make_mask_conservative(mask: PackedByteArray) -> void:
 			mask[vertex_index] = 0
 
 
-func build_masked_surface(mask: PackedByteArray, source_vertices: PackedVector3Array = []) -> Array:
+func build_masked_surface(
+	mask: PackedByteArray,
+	skinning: MHSkinning,
+	source_vertices: PackedVector3Array = [],
+) -> Array:
 	if not source_vertices:
 		source_vertices = vertices
 
 	assert(source_vertices.size() == mask.size())
 
-	var arrays := build_surface(source_vertices)
+	var arrays := build_surface(skinning, source_vertices)
 	arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
 	return arrays
 
 
 ## Creates an [ArrayMesh] surface based on the geometry vertices.
-func build_surface(source_vertices: PackedVector3Array = []) -> Array:
+func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = []) -> Array:
 	if not source_vertices:
 		source_vertices = vertices
 
@@ -123,7 +127,35 @@ func build_surface(source_vertices: PackedVector3Array = []) -> Array:
 	arrays[Mesh.ARRAY_TEX_UV] = _topology.uvs
 	arrays[Mesh.ARRAY_INDEX] = _topology.indices
 
+	if skinning:
+		_apply_skinning(arrays, skinning)
+
 	return arrays
+
+
+## Expands geometry skinning to render vertices and adds it to arrays.
+func _apply_skinning(arrays: Array, skinning: MHSkinning) -> void:
+	assert(skinning.get_vertex_count() == vertices.size())
+
+	var render_vertex_count := _topology.geometry_indices.size()
+
+	var render_bones: PackedInt32Array
+	render_bones.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
+
+	var render_weights: PackedFloat32Array
+	render_weights.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
+
+	for render_index in render_vertex_count:
+		var geometry_index := _topology.geometry_indices[render_index]
+		var geometry_offset := geometry_index * MHSkinning.MAX_INFLUENCES
+		var render_offset := render_index * MHSkinning.MAX_INFLUENCES
+
+		for slot in MHSkinning.MAX_INFLUENCES:
+			render_bones[render_offset + slot] = skinning.bone_indices[geometry_offset + slot]
+			render_weights[render_offset + slot] = skinning.weights[geometry_offset + slot]
+
+	arrays[Mesh.ARRAY_BONES] = render_bones
+	arrays[Mesh.ARRAY_WEIGHTS] = render_weights
 
 
 func _generate_smooth_normals(source_vertices: PackedVector3Array) -> PackedVector3Array:
