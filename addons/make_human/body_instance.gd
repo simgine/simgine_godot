@@ -39,9 +39,9 @@ var _proxy_mask: PackedByteArray
 
 enum Dirty {
 	NONE = 0,
-	MORPH = 1 << 0,
+	GEOMETRY = 1 << 0,
 	MASK = 1 << 1,
-	ALL = MORPH | MASK,
+	ALL = GEOMETRY | MASK,
 }
 
 var _dirty: int = Dirty.NONE
@@ -159,7 +159,7 @@ func set_target_registry(value: MHTargetRegistry) -> void:
 		return
 
 	target_registry = value
-	_queue_rebuild(Dirty.MORPH)
+	_queue_rebuild(Dirty.GEOMETRY)
 	notify_property_list_changed()
 
 
@@ -168,7 +168,7 @@ func set_vertex_groups(value: MHVertexGroups) -> void:
 		return
 
 	vertex_groups = value
-	_queue_rebuild(Dirty.MORPH)
+	_queue_rebuild(Dirty.GEOMETRY)
 
 
 func set_macro_registry(value: MHMacroRegistry) -> void:
@@ -176,7 +176,7 @@ func set_macro_registry(value: MHMacroRegistry) -> void:
 		return
 
 	macro_registry = value
-	_queue_rebuild(Dirty.MORPH)
+	_queue_rebuild(Dirty.GEOMETRY)
 	notify_property_list_changed()
 
 
@@ -191,7 +191,7 @@ func set_modifier(modifier_name: StringName, value: float) -> void:
 	else:
 		_modifiers[modifier_name] = value
 
-	_queue_rebuild(Dirty.MORPH)
+	_queue_rebuild(Dirty.GEOMETRY)
 
 
 func _get_default_modifier(modifier_name: StringName) -> float:
@@ -236,7 +236,7 @@ func _rebuild() -> void:
 		mesh = null
 		return
 
-	if _dirty & Dirty.MORPH:
+	if _dirty & Dirty.GEOMETRY:
 		_rebuild_morphed_vertices()
 
 	if _dirty & Dirty.MASK:
@@ -244,7 +244,7 @@ func _rebuild() -> void:
 
 	_rebuild_surface()
 
-	if _dirty & Dirty.MORPH:
+	if _dirty & Dirty.GEOMETRY:
 		_rebuild_proxies()
 
 	_dirty = Dirty.NONE
