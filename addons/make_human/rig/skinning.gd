@@ -17,7 +17,7 @@ var weights: PackedFloat32Array
 ##
 ## Sparse bone-to-vertex weight assignments are converted into
 ## [constant MAX_INFLUENCES] influences per geometry vertex.
-func build(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
+func build_from_rig(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
 	_resize(vertex_count)
 
 	for bone_index in rig.bones.size():
@@ -36,11 +36,11 @@ func build(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
 	assert(_weights_are_normalized())
 
 
-## Transfers body skinning to proxy geometry.
+## Builds skinning for proxy geometry from body skinning.
 ##
 ## Each proxy vertex inherits bone influences from its 3 referenced body
 ## vertices, scaled by the corresponding proxy fitting weights.
-func transfer_from(body_skinning: MHSkinning, proxy: MHProxy) -> void:
+func build_from_proxy(body_skinning: MHSkinning, proxy: MHProxy) -> void:
 	var vertex_count := proxy.get_vertex_count()
 	_resize(vertex_count)
 

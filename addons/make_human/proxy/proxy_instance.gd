@@ -56,7 +56,7 @@ func rebuild_skinning() -> void:
 		return
 
 	_skinning = MHSkinning.new()
-	_skinning.transfer_from(body.skinning, proxy)
+	_skinning.build_from_proxy(body.skinning, proxy)
 
 
 func rebuild_mesh() -> void:

@@ -347,7 +347,7 @@ func _rebuild_skinning() -> void:
 		return
 
 	skinning = MHSkinning.new()
-	skinning.build(skeleton_node.rig, rig_weights, geometry.vertices.size())
+	skinning.build_from_rig(skeleton_node.rig, rig_weights, geometry.vertices.size())
 
 
 func _rebuild_proxy_skinning() -> void:
@@ -357,7 +357,7 @@ func _rebuild_proxy_skinning() -> void:
 		return
 
 	_proxy_skinning = MHSkinning.new()
-	_proxy_skinning.transfer_from(skinning, proxy)
+	_proxy_skinning.build_from_proxy(skinning, proxy)
 
 
 func _rebuild_mask() -> void:
