@@ -6,7 +6,7 @@ const MODIFIERS_PREFIX := "modifiers/"
 
 @export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
 
-@export var geometry: MHGeometry:
+@export var geometry: MHBodyGeometry:
 	set = set_geometry
 
 @export var vertex_groups: MHVertexGroups:
@@ -147,7 +147,7 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
-func set_geometry(value: MHGeometry) -> void:
+func set_geometry(value: MHBodyGeometry) -> void:
 	if geometry == value:
 		return
 
