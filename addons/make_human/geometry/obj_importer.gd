@@ -33,6 +33,10 @@ func _get_preset_name(_preset_index: int) -> String:
 	return ""
 
 
+func _get_priority() -> float:
+	return 2.0 # Override the built-in OBJ importer.
+
+
 func _get_import_options(_path: String, _preset_index: int) -> Array[Dictionary]:
 	return []
 
