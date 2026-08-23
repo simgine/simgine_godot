@@ -124,11 +124,11 @@ func _finalize_influences(
 func _resize(vertex_count: int) -> void:
 	var size := vertex_count * MAX_INFLUENCES
 
+	bone_indices.clear()
 	bone_indices.resize(size)
-	bone_indices.fill(0)
 
+	weights.clear()
 	weights.resize(size)
-	weights.fill(0.0)
 
 
 ## Adds a bone influence to a vertex.
