@@ -63,12 +63,16 @@ func _init() -> void:
 
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name == "mesh" or property.name == "skin":
-		# Constructed dynamically from the body geometry.
-		property.usage &= ~PROPERTY_USAGE_STORAGE
-		property.usage |= PROPERTY_USAGE_READ_ONLY
-	elif property.name == "skeleton":
-		property.usage &= ~PROPERTY_USAGE_EDITOR
+	match property.name:
+		"mesh", "skin":
+			# Constructed dynamically from the body geometry.
+			property.usage &= ~PROPERTY_USAGE_STORAGE
+			property.usage |= PROPERTY_USAGE_READ_ONLY
+		"skeleton":
+			# Replaced by `skeleton_node`.
+			property.usage &= ~PROPERTY_USAGE_EDITOR
+		_:
+			pass
 
 
 func _get_property_list() -> Array[Dictionary]:
