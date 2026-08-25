@@ -4,25 +4,11 @@ extends MeshInstance3D
 
 const MODIFIERS_PREFIX := "modifiers/"
 
-@export_tool_button("Rebuild", "BoxMesh") var rebuild_action := _queue_rebuild.bind(Dirty.ALL)
-
-@export var geometry: MHBodyGeometry:
-	set = set_geometry
-
-@export var vertex_groups: MHVertexGroups:
-	set = set_vertex_groups
+@export var body: MHBody:
+	set = set_body
 
 @export var proxy: MHProxy:
 	set = set_proxy
-
-@export var target_registry: MHTargetRegistry:
-	set = set_target_registry
-
-@export var macro_registry: MHMacroRegistry:
-	set = set_macro_registry
-
-@export var rig_weights: MHRigWeights:
-	set = set_rig_weights
 
 @export var skeleton_node: MHSkeleton:
 	set = set_skeleton_node
@@ -40,9 +26,6 @@ var _mask: PackedByteArray
 
 ## Delete mask transferred from [member _mask] to [member proxy] geometry.
 var _proxy_mask: PackedByteArray
-
-var skinning: MHSkinning
-var _proxy_skinning: MHSkinning
 
 enum Dirty {
 	NONE = 0,
@@ -78,16 +61,16 @@ func _validate_property(property: Dictionary) -> void:
 func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
-	if not macro_registry or not target_registry:
+	if not body or not body.is_complete():
 		return properties
 
-	for macro_name in macro_registry.macrotargets:
+	for macro_name in body.macro_registry.macrotargets:
 		properties.append(_slider(macro_name, 0.0, 1.0))
 
 	for race in MHMacroRegistry.RACES:
 		properties.append(_slider("race/" + race, 0.0, 1.0))
 
-	for section in target_registry.sections:
+	for section in body.target_registry.sections:
 		for category in section.categories:
 			_add_category(properties, section, category)
 
@@ -124,7 +107,7 @@ func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
 func _get(property: StringName) -> Variant:
 	if property.begins_with(MODIFIERS_PREFIX):
 		var modifier_name := _property_to_modifier_name(property)
-		return _modifiers.get(modifier_name, _get_default_modifier(modifier_name))
+		return _modifiers.get(modifier_name, body.get_default_modifier(modifier_name))
 
 	return null
 
@@ -147,11 +130,18 @@ func _property_to_modifier_name(property: String) -> StringName:
 	return property.substr(separator + 1)
 
 
-func set_geometry(value: MHBodyGeometry) -> void:
-	if geometry == value:
+func set_body(value: MHBody) -> void:
+	if body == value:
 		return
 
-	geometry = value
+	if body:
+		body.body_changed.disconnect(_queue_rebuild)
+
+	body = value
+
+	if body:
+		body.body_changed.connect(_queue_rebuild)
+
 	_queue_rebuild(Dirty.ALL)
 
 
@@ -159,63 +149,17 @@ func set_proxy(value: MHProxy) -> void:
 	if proxy == value:
 		return
 
-	if proxy:
-		proxy.changed.disconnect(_queue_rebuild)
-
 	proxy = value
-
-	if proxy:
-		proxy.changed.connect(_queue_rebuild.bind(Dirty.PROXY))
-
 	_queue_rebuild(Dirty.PROXY)
-
-
-func set_target_registry(value: MHTargetRegistry) -> void:
-	if target_registry == value:
-		return
-
-	target_registry = value
-	_queue_rebuild(Dirty.VERTICES)
-	notify_property_list_changed()
-
-
-func set_vertex_groups(value: MHVertexGroups) -> void:
-	if vertex_groups == value:
-		return
-
-	vertex_groups = value
-	_queue_rebuild(Dirty.VERTICES)
-
-
-func set_macro_registry(value: MHMacroRegistry) -> void:
-	if macro_registry == value:
-		return
-
-	macro_registry = value
-	_queue_rebuild(Dirty.VERTICES)
-	notify_property_list_changed()
-
-
-func set_rig_weights(value: MHRigWeights) -> void:
-	if rig_weights == value:
-		return
-
-	rig_weights = value
-	_queue_rebuild(Dirty.WEIGHTS)
 
 
 func set_skeleton_node(value: MHSkeleton) -> void:
 	if skeleton_node == value:
 		return
 
-	if skeleton_node:
-		skeleton_node.rig_changed.disconnect(_queue_rebuild)
-
 	skeleton_node = value
-
 	if skeleton_node:
 		skeleton = get_path_to(skeleton_node)
-		skeleton_node.rig_changed.connect(_queue_rebuild.bind(Dirty.SKELETON))
 	else:
 		skeleton = NodePath()
 
@@ -223,27 +167,17 @@ func set_skeleton_node(value: MHSkeleton) -> void:
 
 
 func set_modifier(modifier_name: StringName, value: float) -> void:
-	assert(macro_registry)
-	assert(target_registry)
+	if not body or not body.is_complete():
+		push_error("modifiers can only be set on instances with fully configured bodies")
+		return
 
-	var default := _get_default_modifier(modifier_name)
-
+	var default := body.get_default_modifier(modifier_name)
 	if is_equal_approx(value, default):
 		_modifiers.erase(modifier_name)
 	else:
 		_modifiers[modifier_name] = value
 
 	_queue_rebuild(Dirty.VERTICES)
-
-
-func _get_default_modifier(modifier_name: StringName) -> float:
-	if macro_registry.macrotargets.has(modifier_name):
-		return MHMacroRegistry.DEFAULT_MODIFIER
-
-	if modifier_name in MHMacroRegistry.RACES:
-		return MHMacroRegistry.DEFAULT_RACE_MODIFIER
-
-	return MHTargetRegistry.DEFAULT_MODIFIER
 
 
 func _on_child_entered_tree(child: Node) -> void:
@@ -274,7 +208,7 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 
 func _rebuild() -> void:
-	if not geometry or not vertex_groups or not target_registry or not macro_registry:
+	if not body or not body.is_complete():
 		_dirty = Dirty.NONE
 		mesh = null
 		return
@@ -285,12 +219,6 @@ func _rebuild() -> void:
 	if _dirty & (Dirty.VERTICES | Dirty.SKELETON):
 		_rebuild_skeleton()
 
-	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS):
-		_rebuild_skinning()
-
-	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS | Dirty.PROXY):
-		_rebuild_proxy_skinning()
-
 	if _dirty & Dirty.CHILD_PROXY:
 		_rebuild_mask()
 
@@ -299,21 +227,18 @@ func _rebuild() -> void:
 
 	_rebuild_surface()
 
-	if _dirty & (Dirty.SKELETON | Dirty.WEIGHTS):
-		_rebuild_child_skinning()
-
 	if _dirty & (Dirty.VERTICES | Dirty.SKELETON | Dirty.WEIGHTS):
-		_rebuild_child_meshes()
+		_rebuild_children()
 
 	_dirty = Dirty.NONE
 
 
 func _rebuild_morphed_vertices() -> void:
 	morphed_vertices.clear()
-	morphed_vertices.append_array(geometry.vertices)
+	morphed_vertices.append_array(body.geometry.vertices)
 
-	macro_registry.apply(morphed_vertices, _modifiers)
-	target_registry.apply(morphed_vertices, _modifiers)
+	body.macro_registry.apply(morphed_vertices, _modifiers)
+	body.target_registry.apply(morphed_vertices, _modifiers)
 	_move_to_ground()
 
 
@@ -321,7 +246,7 @@ func _move_to_ground() -> void:
 	var lowest_y := INF
 
 	# Exclude helper geometry when calculating the lowest point.
-	var body_vertices := vertex_groups.ranges["body"]
+	var body_vertices := body.vertex_groups.ranges["body"]
 	assert(body_vertices.size() == 2, "body should have a single continuous range")
 	for vertex_index in range(body_vertices[0], body_vertices[1] + 1):
 		lowest_y = minf(lowest_y, morphed_vertices[vertex_index].y)
@@ -336,32 +261,12 @@ func _rebuild_skeleton() -> void:
 		skin = null
 		return
 
-	skeleton_node.rebuild(morphed_vertices, vertex_groups)
+	skeleton_node.rebuild(body.rig, body.vertex_groups, morphed_vertices)
 	skin = skeleton_node.create_skin_from_rest_transforms()
 
 
-func _rebuild_skinning() -> void:
-	skinning = null
-
-	if not skeleton_node or not skeleton_node.rig or not rig_weights or not geometry:
-		return
-
-	skinning = MHSkinning.new()
-	skinning.build_from_rig(skeleton_node.rig, rig_weights, geometry.vertices.size())
-
-
-func _rebuild_proxy_skinning() -> void:
-	_proxy_skinning = null
-
-	if not proxy or not skinning:
-		return
-
-	_proxy_skinning = MHSkinning.new()
-	_proxy_skinning.build_from_proxy(skinning, proxy)
-
-
 func _rebuild_mask() -> void:
-	_mask.resize(geometry.vertices.size())
+	_mask.resize(body.geometry.vertices.size())
 	_mask.fill(0)
 
 	for child in get_children():
@@ -369,7 +274,7 @@ func _rebuild_mask() -> void:
 		if instance and instance.proxy:
 			instance.proxy.apply_delete_verts(_mask)
 
-	geometry.make_mask_conservative(_mask)
+	body.geometry.make_mask_conservative(_mask)
 
 
 func _rebuild_proxy_mask() -> void:
@@ -386,9 +291,10 @@ func _rebuild_surface() -> void:
 
 	var arrays: Array
 	if proxy:
-		arrays = proxy.build_masked_surface(_proxy_mask, _proxy_skinning, morphed_vertices)
+		var proxy_skinning := body.get_proxy_skinning(proxy)
+		arrays = proxy.build_masked_surface(_proxy_mask, proxy_skinning, morphed_vertices)
 	else:
-		arrays = geometry.build_masked_surface(_mask, skinning, morphed_vertices)
+		arrays = body.geometry.build_masked_surface(_mask, body.skinning, morphed_vertices)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(
@@ -401,15 +307,8 @@ func _rebuild_surface() -> void:
 	array_mesh.surface_set_name(0, "Body")
 
 
-func _rebuild_child_meshes() -> void:
+func _rebuild_children() -> void:
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if instance:
-			instance.rebuild_mesh()
-
-
-func _rebuild_child_skinning() -> void:
-	for child in get_children():
-		var instance := child as MHProxyInstance
-		if instance:
-			instance.rebuild_skinning()
+			instance.rebuild()

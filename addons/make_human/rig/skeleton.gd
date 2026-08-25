@@ -2,16 +2,6 @@
 class_name MHSkeleton
 extends Skeleton3D
 
-signal rig_changed
-
-@export var rig: MHRig:
-	set(value):
-		if rig == value:
-			return
-
-		rig = value
-		rig_changed.emit()
-
 ## Temporary storage for moving bones out during scene saving.
 ##
 ## By default, bones are serialized, and it's not possible to disable
@@ -66,7 +56,7 @@ func _restore_bones() -> void:
 ##
 ## Bone rest transforms are first resolved in global skeleton space, then
 ## converted to parent-relative rests required by [Skeleton3D].
-func rebuild(body_vertices: PackedVector3Array, vertex_groups: MHVertexGroups) -> void:
+func rebuild(rig: MHRig, vertex_groups: MHVertexGroups, body_vertices: PackedVector3Array) -> void:
 	clear_bones()
 
 	if not rig:

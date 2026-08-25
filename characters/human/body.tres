@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MHBody" format=3 uid="uid://craf0e0x1m6ho"]
+
+[ext_resource type="Resource" uid="uid://cq4l65kp7fx6a" path="res://characters/human/assets/3dobjs/base.obj" id="1_0dmtq"]
+[ext_resource type="Script" uid="uid://b3tm7pgue0gxn" path="res://addons/make_human/body.gd" id="1_h8hfm"]
+[ext_resource type="Resource" uid="uid://rwn1dv1lhdq" path="res://characters/human/assets/targets/macrodetails/macro.json" id="2_vgtya"]
+[ext_resource type="Resource" uid="uid://gr3ts3ukdcvr" path="res://characters/human/assets/rigs/weights.game_engine.json" id="3_leucs"]
+[ext_resource type="Resource" uid="uid://dlub8a501shqe" path="res://characters/human/assets/rigs/rig.game_engine_with_breast.json" id="3_vgtya"]
+[ext_resource type="Resource" uid="uid://d26sarld4l3y" path="res://characters/human/assets/targets/target.json" id="5_j5wd6"]
+[ext_resource type="Resource" uid="uid://bwy0k7jwowhx4" path="res://characters/human/assets/mesh_metadata/basemesh_vertex_groups.json" id="6_4ng66"]
+
+[resource]
+script = ExtResource("1_h8hfm")
+geometry = ExtResource("1_0dmtq")
+vertex_groups = ExtResource("6_4ng66")
+target_registry = ExtResource("5_j5wd6")
+macro_registry = ExtResource("2_vgtya")
+rig = ExtResource("3_vgtya")
+rig_weights = ExtResource("3_leucs")
+metadata/_custom_type_script = "uid://b3tm7pgue0gxn"

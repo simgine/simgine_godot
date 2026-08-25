@@ -5,17 +5,12 @@ extends MeshInstance3D
 
 signal proxy_changed
 
-@export_tool_button("Rebuild mesh", "BoxMesh") var rebuild_mesh_action := rebuild_mesh
-
 @export var proxy: MHProxy:
 	set = set_proxy
 
-var _skinning: MHSkinning
-
 
 func _enter_tree() -> void:
-	rebuild_skinning()
-	rebuild_mesh()
+	rebuild()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -29,57 +24,37 @@ func set_proxy(value: MHProxy) -> void:
 	if proxy == value:
 		return
 
-	if proxy:
-		proxy.changed.disconnect(_on_proxy_changed)
-
 	proxy = value
-
-	if proxy:
-		proxy.changed.connect(_on_proxy_changed)
-
-	_on_proxy_changed()
-
-
-func _on_proxy_changed() -> void:
-	rebuild_skinning()
-	rebuild_mesh()
+	rebuild()
 	proxy_changed.emit()
 
 
-func rebuild_skinning() -> void:
-	_skinning = null
-	skin = null
-	skeleton = NodePath()
-
-	var body := get_parent() as MHBodyInstance
-	if not body or not proxy or not body.skinning:
-		return
-
-	_skinning = MHSkinning.new()
-	_skinning.build_from_proxy(body.skinning, proxy)
-
-
-func rebuild_mesh() -> void:
+func rebuild() -> void:
 	if not proxy or not proxy.geometry:
 		mesh = null
+		skin = null
+		skeleton = NodePath()
 		return
 
-	var body := get_parent() as MHBodyInstance
 	var arrays: Array
-	if body:
-		if not body.morphed_vertices:
+	var body_instance := get_parent() as MHBodyInstance
+	if body_instance:
+		if not body_instance.morphed_vertices:
 			mesh = null
+			skin = null
+			skeleton = NodePath()
 			return
 
-		arrays = proxy.build_surface(_skinning, body.morphed_vertices)
-		if _skinning:
-			skin = body.skin
-			skeleton = get_path_to(body.skeleton_node)
+		var skinning := body_instance.body.get_proxy_skinning(proxy)
+		arrays = proxy.build_surface(skinning, body_instance.morphed_vertices)
+		if body_instance.skeleton_node:
+			skin = body_instance.skin
+			skeleton = get_path_to(body_instance.skeleton_node)
 		else:
 			skin = null
 			skeleton = NodePath()
 	else:
-		arrays = proxy.geometry.build_surface(_skinning)
+		arrays = proxy.geometry.build_surface(null)
 		skin = null
 		skeleton = NodePath()
 
