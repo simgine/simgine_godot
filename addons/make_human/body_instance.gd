@@ -215,6 +215,7 @@ func _rebuild() -> void:
 		_dirty = Dirty.NONE
 		mesh = null
 		skin = null
+		_rebuild_children()
 		return
 
 	if _dirty & Dirty.VERTICES:
