@@ -209,6 +209,8 @@ func _queue_rebuild(dirty: Dirty) -> void:
 
 func _rebuild() -> void:
 	if not body or not body.is_complete():
+		if skeleton_node:
+			skeleton_node.clear_bones()
 		_dirty = Dirty.NONE
 		mesh = null
 		return
