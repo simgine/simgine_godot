@@ -59,10 +59,6 @@ func _restore_bones() -> void:
 func rebuild(rig: MHRig, vertex_groups: MHVertexGroups, body_vertices: PackedVector3Array) -> void:
 	clear_bones()
 
-	if not rig:
-		notify_property_list_changed()
-		return
-
 	var global_rests: Array[Transform3D]
 	global_rests.resize(rig.bones.size())
 
