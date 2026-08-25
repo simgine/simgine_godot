@@ -158,6 +158,7 @@ func set_skeleton_node(value: MHSkeleton) -> void:
 		return
 
 	skeleton_node = value
+	skin = null
 	if skeleton_node:
 		skeleton = get_path_to(skeleton_node)
 	else:
@@ -213,6 +214,7 @@ func _rebuild() -> void:
 			skeleton_node.clear_bones()
 		_dirty = Dirty.NONE
 		mesh = null
+		skin = null
 		return
 
 	if _dirty & Dirty.VERTICES:
@@ -260,7 +262,6 @@ func _move_to_ground() -> void:
 
 func _rebuild_skeleton() -> void:
 	if not skeleton_node:
-		skin = null
 		return
 
 	skeleton_node.rebuild(body.rig, body.vertex_groups, morphed_vertices)
