@@ -15,10 +15,11 @@ func _ready() -> void:
 
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name == "mesh" or property.name == "skin":
-		# Constructed dynamically from the proxy geometry.
-		property.usage &= ~PROPERTY_USAGE_STORAGE
-		property.usage |= PROPERTY_USAGE_READ_ONLY
+	match property.name:
+		"mesh", "skin", "skeleton":
+			# Constructed dynamically from the proxy geometry or derived from the body.
+			property.usage &= ~PROPERTY_USAGE_STORAGE
+			property.usage |= PROPERTY_USAGE_READ_ONLY
 
 
 func set_proxy(value: MHProxy) -> void:

@@ -31,31 +31,26 @@ _modifiers = Dictionary[StringName, float]({
 metadata/_custom_type_script = "uid://cwil141xwoe0w"
 
 [node name="Suit" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1208333596]
-skeleton = NodePath("../../MHSkeleton")
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("4_7mycd")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
 [node name="Eyes" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1455261771]
-skeleton = NodePath("../../MHSkeleton")
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("5_7mycd")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
 [node name="Hair" type="MeshInstance3D" parent="MHBodyInstance" unique_id=2055985007]
-skeleton = NodePath("../../MHSkeleton")
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("5_lquwl")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
 [node name="Eyelashes" type="MeshInstance3D" parent="MHBodyInstance" unique_id=293267930]
-skeleton = NodePath("../../MHSkeleton")
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("7_272bh")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
 
 [node name="Eyebrows" type="MeshInstance3D" parent="MHBodyInstance" unique_id=1234343540]
-skeleton = NodePath("../../MHSkeleton")
 script = ExtResource("4_1bvp3")
 proxy = ExtResource("8_5vw27")
 metadata/_custom_type_script = "uid://bk8ub20upbpvo"
