@@ -318,4 +318,5 @@ func _rebuild_children() -> void:
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if instance:
-			instance.rebuild()
+			var skinning := body.get_proxy_skinning(instance.proxy)
+			instance.rebuild_fitted(morphed_vertices, skinning, skin, skeleton_node)

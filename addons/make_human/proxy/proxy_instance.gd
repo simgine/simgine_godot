@@ -11,7 +11,7 @@ signal proxy_changed
 
 func _ready() -> void:
 	if get_parent() is not MHBodyInstance:
-		rebuild()
+		rebuild_standalone()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -28,41 +28,38 @@ func set_proxy(value: MHProxy) -> void:
 
 	proxy = value
 
-	if is_node_ready():
-		rebuild()
+	if is_node_ready() and get_parent() is not MHBodyInstance:
+		rebuild_standalone()
 
 	proxy_changed.emit()
 
 
-func rebuild() -> void:
+func rebuild_standalone() -> void:
 	if not proxy or not proxy.geometry:
-		mesh = null
-		skin = null
-		skeleton = NodePath()
+		_clear()
 		return
 
-	var arrays: Array
-	var body_instance := get_parent() as MHBodyInstance
-	if body_instance:
-		if not body_instance.morphed_vertices:
-			mesh = null
-			skin = null
-			skeleton = NodePath()
-			return
+	_set_surface(proxy.geometry.build_surface())
+	skin = null
+	skeleton = NodePath()
 
-		var skinning := body_instance.body.get_proxy_skinning(proxy)
-		arrays = proxy.build_fitted_surface(body_instance.morphed_vertices, skinning)
-		if body_instance.skeleton_node:
-			skin = body_instance.skin
-			skeleton = get_path_to(body_instance.skeleton_node)
-		else:
-			skin = null
-			skeleton = NodePath()
-	else:
-		arrays = proxy.geometry.build_surface()
-		skin = null
-		skeleton = NodePath()
 
+func rebuild_fitted(
+	body_vertices: PackedVector3Array,
+	skinning: MHSkinning,
+	body_skin: Skin,
+	skeleton_node: Skeleton3D,
+) -> void:
+	if not proxy or not proxy.geometry:
+		_clear()
+		return
+
+	_set_surface(proxy.build_fitted_surface(body_vertices, skinning))
+	skin = body_skin
+	skeleton = get_path_to(skeleton_node)
+
+
+func _set_surface(arrays: Array) -> void:
 	var array_mesh := mesh as ArrayMesh
 	if not array_mesh:
 		array_mesh = ArrayMesh.new()
@@ -80,3 +77,9 @@ func rebuild() -> void:
 
 	if proxy.material:
 		array_mesh.surface_set_material(0, proxy.material)
+
+
+func _clear() -> void:
+	mesh = null
+	skin = null
+	skeleton = NodePath()
