@@ -1,24 +1,41 @@
 @tool
 class_name MHSkinning
-## Per-geometry-vertex bone indices and weights.
+## Skinning data for geometry and render vertices.
 ##
-## Each vertex occupies [constant MAX_INFLUENCES] consecutive entries in
-## [member bone_indices] and [member weights]. Expanded to render vertices
-## when building a mesh surface.
+## Geometry skinning follows the original [MHGeometry] vertex order and is used
+## when deriving proxy skinning. Render skinning follows the expanded render
+## topology and can be passed directly to [ArrayMesh].
 
 ## Maximum number of bone influences per vertex in Godot.
 const MAX_INFLUENCES := 8
 
-var bone_indices: PackedInt32Array
+## Bone indices for geometry vertices.
+##
+## Each geometry vertex occupies [constant MAX_INFLUENCES] consecutive entries.
+var bones: PackedInt32Array
+
+## Bone weights for geometry vertices.
+##
+## Each geometry vertex occupies [constant MAX_INFLUENCES] consecutive entries.
 var weights: PackedFloat32Array
+
+## Bone indices for [constant Mesh.ARRAY_BONES].
+##
+## Expanded from [member bone_indices] based on [MHGeometry.RenderTopology].
+var render_bones: PackedInt32Array
+
+## Bone weights for [constant Mesh.ARRAY_WEIGHTS].
+##
+## Expanded from [member bone_indices] based on [MHGeometry.RenderTopology].
+var render_weights: PackedFloat32Array
 
 
 ## Builds skinning for the body from rig weights.
 ##
 ## Sparse bone-to-vertex weight assignments are converted into
 ## [constant MAX_INFLUENCES] influences per geometry vertex.
-func build_from_rig(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) -> void:
-	_resize(vertex_count)
+func build_from_rig(geometry: MHGeometry, rig: MHRig, rig_weights: MHRigWeights) -> void:
+	_resize(geometry.vertices.size())
 
 	for bone_index in rig.bones.size():
 		var bone := rig.bones[bone_index]
@@ -34,6 +51,7 @@ func build_from_rig(rig: MHRig, rig_weights: MHRigWeights, vertex_count: int) ->
 			_add_influence(vertex_index, bone_index, weight)
 
 	assert(_weights_are_normalized())
+	_build_render_arrays(geometry)
 
 
 ## Builds skinning for proxy geometry from body skinning.
@@ -59,6 +77,7 @@ func build_from_proxy(body_skinning: MHSkinning, proxy: MHProxy) -> void:
 		_finalize_influences(influences, vertex_index, factor_sum)
 
 	assert(_weights_are_normalized())
+	_build_render_arrays(proxy.geometry)
 
 
 ## Adds one referenced body vertex's bone influences to an accumulator,
@@ -78,7 +97,7 @@ func _accumulate_reference(
 		if weight == 0.0:
 			continue
 
-		var bone_index := body_skinning.bone_indices[index]
+		var bone_index := body_skinning.bones[index]
 		var contribution := weight * factor
 		influences[bone_index] = influences.get(bone_index, 0.0) + contribution
 
@@ -124,8 +143,8 @@ func _finalize_influences(
 func _resize(vertex_count: int) -> void:
 	var size := vertex_count * MAX_INFLUENCES
 
-	bone_indices.clear()
-	bone_indices.resize(size)
+	bones.clear()
+	bones.resize(size)
 
 	weights.clear()
 	weights.resize(size)
@@ -140,13 +159,13 @@ func _add_influence(vertex_index: int, bone_index: int, weight: float) -> void:
 	var offset := vertex_index * MAX_INFLUENCES
 	for index in range(offset, offset + MAX_INFLUENCES):
 		if weights[index] > 0.0:
-			if bone_indices[index] == bone_index:
+			if bones[index] == bone_index:
 				weights[index] += weight
 				return
 
 			continue
 
-		bone_indices[index] = bone_index
+		bones[index] = bone_index
 		weights[index] = weight
 		return
 
@@ -167,8 +186,28 @@ func _weights_are_normalized() -> bool:
 	return true
 
 
+func _build_render_arrays(geometry: MHGeometry) -> void:
+	assert(get_vertex_count() == geometry.vertices.size())
+	var render_vertex_count := geometry.topology.geometry_indices.size()
+
+	render_bones.clear()
+	render_bones.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
+
+	render_weights.clear()
+	render_weights.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
+
+	for render_index in render_vertex_count:
+		var geometry_index := geometry.topology.geometry_indices[render_index]
+		var geometry_offset := geometry_index * MHSkinning.MAX_INFLUENCES
+		var render_offset := render_index * MHSkinning.MAX_INFLUENCES
+
+		for slot in MHSkinning.MAX_INFLUENCES:
+			render_bones[render_offset + slot] = bones[geometry_offset + slot]
+			render_weights[render_offset + slot] = weights[geometry_offset + slot]
+
+
 func get_vertex_count() -> int:
-	assert(weights.size() == bone_indices.size())
+	assert(weights.size() == bones.size())
 	assert(weights.size() % MAX_INFLUENCES == 0)
 
 	@warning_ignore("integer_division")

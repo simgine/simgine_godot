@@ -87,7 +87,7 @@ func set_rig_weights(value: MHRigWeights) -> void:
 func get_skinning() -> MHSkinning:
 	if not skinning and rig and rig_weights and geometry:
 		skinning = MHSkinning.new()
-		skinning.build_from_rig(rig, rig_weights, geometry.vertices.size())
+		skinning.build_from_rig(geometry, rig, rig_weights)
 
 	return skinning
 

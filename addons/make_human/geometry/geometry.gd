@@ -15,7 +15,7 @@ extends Resource
 @export_storage var uvs: PackedVector2Array:
 	set(value):
 		uvs = value
-		_topology = null
+		topology = null
 
 ## Quad faces.
 ##
@@ -23,7 +23,7 @@ extends Resource
 @export_storage var quads: Array[MHQuad]:
 	set(value):
 		quads = value
-		_topology = null
+		topology = null
 
 
 ## Vertex positions.
@@ -41,12 +41,14 @@ extends Resource
 ## automatically excluded from the resulting render mesh.
 @export_storage var vertices: PackedVector3Array
 
-## Cached data for [method build_surface].
-var _topology: RenderTopology:
+## Cached topology used to construct render-mesh vertex arrays.
+##
+## Built lazily from [member quads] and [member uvs].
+var topology: RenderTopology:
 	get:
-		if not _topology:
+		if not topology:
 			_build_render_topology()
-		return _topology
+		return topology
 
 
 ## Adjusts the delete mask so it doesn't hide partially masked quads.
@@ -105,7 +107,7 @@ func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = [
 
 	var geometry_normals := _generate_smooth_normals(source_vertices)
 
-	var vertex_count := _topology.geometry_indices.size()
+	var vertex_count := topology.geometry_indices.size()
 
 	var render_vertices: PackedVector3Array
 	render_vertices.resize(vertex_count)
@@ -114,7 +116,7 @@ func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = [
 	render_normals.resize(vertex_count)
 
 	for render_index in vertex_count:
-		var geometry_index := _topology.geometry_indices[render_index]
+		var geometry_index := topology.geometry_indices[render_index]
 
 		render_vertices[render_index] = source_vertices[geometry_index]
 		render_normals[render_index] = geometry_normals[geometry_index]
@@ -124,38 +126,14 @@ func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = [
 
 	arrays[Mesh.ARRAY_VERTEX] = render_vertices
 	arrays[Mesh.ARRAY_NORMAL] = render_normals
-	arrays[Mesh.ARRAY_TEX_UV] = _topology.uvs
-	arrays[Mesh.ARRAY_INDEX] = _topology.indices
+	arrays[Mesh.ARRAY_TEX_UV] = topology.uvs
+	arrays[Mesh.ARRAY_INDEX] = topology.indices
 
 	if skinning:
-		_apply_skinning(arrays, skinning)
+		arrays[Mesh.ARRAY_BONES] = skinning.render_bones
+		arrays[Mesh.ARRAY_WEIGHTS] = skinning.render_weights
 
 	return arrays
-
-
-## Expands geometry skinning to render vertices and adds it to arrays.
-func _apply_skinning(arrays: Array, skinning: MHSkinning) -> void:
-	assert(skinning.get_vertex_count() == vertices.size())
-
-	var render_vertex_count := _topology.geometry_indices.size()
-
-	var render_bones: PackedInt32Array
-	render_bones.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
-
-	var render_weights: PackedFloat32Array
-	render_weights.resize(render_vertex_count * MHSkinning.MAX_INFLUENCES)
-
-	for render_index in render_vertex_count:
-		var geometry_index := _topology.geometry_indices[render_index]
-		var geometry_offset := geometry_index * MHSkinning.MAX_INFLUENCES
-		var render_offset := render_index * MHSkinning.MAX_INFLUENCES
-
-		for slot in MHSkinning.MAX_INFLUENCES:
-			render_bones[render_offset + slot] = skinning.bone_indices[geometry_offset + slot]
-			render_weights[render_offset + slot] = skinning.weights[geometry_offset + slot]
-
-	arrays[Mesh.ARRAY_BONES] = render_bones
-	arrays[Mesh.ARRAY_WEIGHTS] = render_weights
 
 
 func _generate_smooth_normals(source_vertices: PackedVector3Array) -> PackedVector3Array:
@@ -219,7 +197,7 @@ func _generate_smooth_normals(source_vertices: PackedVector3Array) -> PackedVect
 ## positions and normals through [RenderTopology.geometry_indices]. UVs and triangle
 ## indices remain unchanged and are reused.
 func _build_render_topology() -> void:
-	_topology = RenderTopology.new()
+	topology = RenderTopology.new()
 	var vertex_lookup: Dictionary[Vector2i, int]
 	for quad in quads:
 		var i0 := _get_or_create_vertex(vertex_lookup, quad.vertex_indices[0], quad.uv_indices[0])
@@ -228,13 +206,13 @@ func _build_render_topology() -> void:
 		var i3 := _get_or_create_vertex(vertex_lookup, quad.vertex_indices[3], quad.uv_indices[3])
 
 		# Convert the quad into two triangles.
-		_topology.indices.append(i0)
-		_topology.indices.append(i2)
-		_topology.indices.append(i1)
+		topology.indices.append(i0)
+		topology.indices.append(i2)
+		topology.indices.append(i1)
 
-		_topology.indices.append(i0)
-		_topology.indices.append(i3)
-		_topology.indices.append(i2)
+		topology.indices.append(i0)
+		topology.indices.append(i3)
+		topology.indices.append(i2)
 
 
 func _get_or_create_vertex(
@@ -248,11 +226,11 @@ func _get_or_create_vertex(
 	if existing_index >= 0:
 		return existing_index
 
-	var render_index := _topology.geometry_indices.size()
+	var render_index := topology.geometry_indices.size()
 	vertex_lookup[key] = render_index
 
-	_topology.geometry_indices.append(geometry_index)
-	_topology.uvs.append(uvs[uv_index])
+	topology.geometry_indices.append(geometry_index)
+	topology.uvs.append(uvs[uv_index])
 
 	return render_index
 
@@ -273,7 +251,7 @@ func _filter_indices(mask: PackedByteArray) -> PackedInt32Array:
 
 		var offset := quad_index * 6
 		for index in range(offset, offset + 6):
-			indices.append(_topology.indices[index])
+			indices.append(topology.indices[index])
 
 	return indices
 
