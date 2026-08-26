@@ -9,8 +9,9 @@ signal proxy_changed
 	set = set_proxy
 
 
-func _enter_tree() -> void:
-	rebuild()
+func _ready() -> void:
+	if get_parent() is not MHBodyInstance:
+		rebuild()
 
 
 func _validate_property(property: Dictionary) -> void:
@@ -25,7 +26,10 @@ func set_proxy(value: MHProxy) -> void:
 		return
 
 	proxy = value
-	rebuild()
+
+	if is_node_ready():
+		rebuild()
+
 	proxy_changed.emit()
 
 
