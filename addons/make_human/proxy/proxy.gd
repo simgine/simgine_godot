@@ -167,7 +167,8 @@ func _fit_vertices(body_vertices: PackedVector3Array) -> PackedVector3Array:
 
 
 func get_vertex_count() -> int:
-	var vertex_count := ref_a.size()
+	var vertex_count := geometry.vertices.size()
+	assert(ref_a.size() == vertex_count)
 	assert(ref_b.size() == vertex_count)
 	assert(ref_c.size() == vertex_count)
 	assert(weights.size() == vertex_count)
