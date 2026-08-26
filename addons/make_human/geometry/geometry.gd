@@ -83,27 +83,20 @@ func make_mask_conservative(mask: PackedByteArray) -> void:
 			mask[vertex_index] = 0
 
 
-func build_masked_surface(
-	mask: PackedByteArray,
-	skinning: MHSkinning,
+## Builds arrays for an [ArrayMesh] surface.
+##
+## Uses [member vertices] when [param source_vertices] is empty.
+## If [param mask] is provided, masked faces are excluded from the index array.
+func build_surface(
 	source_vertices: PackedVector3Array = [],
+	skinning: MHSkinning = null,
+	mask: PackedByteArray = [],
 ) -> Array:
 	if not source_vertices:
 		source_vertices = vertices
 
-	assert(source_vertices.size() == mask.size())
-
-	var arrays := build_surface(skinning, source_vertices)
-	arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
-	return arrays
-
-
-## Creates an [ArrayMesh] surface based on the geometry vertices.
-func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = []) -> Array:
-	if not source_vertices:
-		source_vertices = vertices
-
 	assert(source_vertices.size() == vertices.size())
+	assert(not mask or vertices.size() == mask.size())
 
 	var geometry_normals := _generate_smooth_normals(source_vertices)
 
@@ -127,7 +120,11 @@ func build_surface(skinning: MHSkinning, source_vertices: PackedVector3Array = [
 	arrays[Mesh.ARRAY_VERTEX] = render_vertices
 	arrays[Mesh.ARRAY_NORMAL] = render_normals
 	arrays[Mesh.ARRAY_TEX_UV] = topology.uvs
-	arrays[Mesh.ARRAY_INDEX] = topology.indices
+
+	if mask:
+		arrays[Mesh.ARRAY_INDEX] = _filter_indices(mask)
+	else:
+		arrays[Mesh.ARRAY_INDEX] = topology.indices
 
 	if skinning:
 		arrays[Mesh.ARRAY_BONES] = skinning.render_bones

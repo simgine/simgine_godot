@@ -120,18 +120,14 @@ func transfer_delete_mask(body_mask: PackedByteArray, proxy_mask: PackedByteArra
 	geometry.make_mask_conservative(proxy_mask)
 
 
-func build_surface(skinning: MHSkinning, body_vertices: PackedVector3Array) -> Array:
-	var proxy_vertices := _fit_vertices(body_vertices)
-	return geometry.build_surface(skinning, proxy_vertices)
-
-
-func build_masked_surface(
-	delete_mask: PackedByteArray,
-	skinning: MHSkinning,
+## Builds surface arrays after fitting this proxy to [param body_vertices].
+func build_fitted_surface(
 	body_vertices: PackedVector3Array,
+	skinning: MHSkinning = null,
+	mask: PackedByteArray = [],
 ) -> Array:
 	var proxy_vertices := _fit_vertices(body_vertices)
-	return geometry.build_masked_surface(delete_mask, skinning, proxy_vertices)
+	return geometry.build_surface(proxy_vertices, skinning, mask)
 
 
 ## Reconstructs proxy vertex positions for the given body vertices.

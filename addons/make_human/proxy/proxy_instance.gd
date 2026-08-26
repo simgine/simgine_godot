@@ -46,7 +46,7 @@ func rebuild() -> void:
 			return
 
 		var skinning := body_instance.body.get_proxy_skinning(proxy)
-		arrays = proxy.build_surface(skinning, body_instance.morphed_vertices)
+		arrays = proxy.build_fitted_surface(body_instance.morphed_vertices, skinning)
 		if body_instance.skeleton_node:
 			skin = body_instance.skin
 			skeleton = get_path_to(body_instance.skeleton_node)
@@ -54,7 +54,7 @@ func rebuild() -> void:
 			skin = null
 			skeleton = NodePath()
 	else:
-		arrays = proxy.geometry.build_surface(null)
+		arrays = proxy.geometry.build_surface()
 		skin = null
 		skeleton = NodePath()
 

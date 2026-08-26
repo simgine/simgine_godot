@@ -296,9 +296,9 @@ func _rebuild_surface() -> void:
 	var arrays: Array
 	if proxy:
 		var proxy_skinning := body.get_proxy_skinning(proxy)
-		arrays = proxy.build_masked_surface(_proxy_mask, proxy_skinning, morphed_vertices)
+		arrays = proxy.build_fitted_surface(morphed_vertices, proxy_skinning, _proxy_mask)
 	else:
-		arrays = body.geometry.build_masked_surface(_mask, body.skinning, morphed_vertices)
+		arrays = body.geometry.build_surface(morphed_vertices, body.skinning, _mask)
 
 	array_mesh.clear_surfaces()
 	array_mesh.add_surface_from_arrays(
