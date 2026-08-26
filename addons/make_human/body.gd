@@ -71,7 +71,7 @@ func set_rig(value: MHRig) -> void:
 	rig = value
 	skinning = null
 	_proxy_skinnings.clear()
-	body_changed.emit(MHBodyInstance.Dirty.SKELETON)
+	body_changed.emit(MHBodyInstance.Dirty.RIG)
 
 
 func set_rig_weights(value: MHRigWeights) -> void:

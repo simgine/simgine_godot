@@ -31,10 +31,12 @@ enum Dirty {
 	NONE = 0,
 	VERTICES = 1 << 0,
 	CHILD_PROXY = 1 << 1,
-	SKELETON = 1 << 2,
+	RIG = 1 << 2,
 	WEIGHTS = 1 << 3,
-	PROXY = 1 << 4,
-	ALL = VERTICES | CHILD_PROXY | SKELETON | WEIGHTS | PROXY,
+	SKELETON = 1 << 4,
+	PROXY = 1 << 5,
+	SURFACE = VERTICES | CHILD_PROXY | RIG | WEIGHTS | PROXY,
+	ALL = SURFACE | SKELETON,
 }
 
 var _dirty: int = Dirty.NONE
@@ -221,7 +223,7 @@ func _rebuild() -> void:
 	if _dirty & Dirty.VERTICES:
 		_rebuild_morphed_vertices()
 
-	if _dirty & (Dirty.VERTICES | Dirty.SKELETON):
+	if _dirty & (Dirty.VERTICES | Dirty.RIG | Dirty.SKELETON):
 		_rebuild_skeleton()
 
 	if _dirty & Dirty.CHILD_PROXY:
@@ -230,9 +232,10 @@ func _rebuild() -> void:
 	if _dirty & (Dirty.PROXY | Dirty.CHILD_PROXY):
 		_rebuild_proxy_mask()
 
-	_rebuild_surface()
+	if _dirty & Dirty.SURFACE:
+		_rebuild_surface()
 
-	if _dirty & (Dirty.VERTICES | Dirty.SKELETON | Dirty.WEIGHTS):
+	if _dirty & (Dirty.VERTICES | Dirty.RIG | Dirty.WEIGHTS | Dirty.SKELETON):
 		_rebuild_children()
 
 	_dirty = Dirty.NONE
