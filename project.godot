@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 gdscript/warnings/directory_rules={
 "res://addons": 0,
+"res://addons/log": 1,
 "res://addons/make_human": 1
 }
 gdscript/warnings/untyped_declaration=1
@@ -29,7 +30,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/make_human/plugin.cfg")
+enabled=PackedStringArray("res://addons/log/plugin.cfg", "res://addons/make_human/plugin.cfg")
 
 [physics]
 
