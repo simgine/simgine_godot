@@ -35,6 +35,7 @@ enum Dirty {
 	WEIGHTS = 1 << 3,
 	SKELETON = 1 << 4,
 	PROXY = 1 << 5,
+	CHILDREN = VERTICES | RIG | WEIGHTS | SKELETON,
 	SURFACE = VERTICES | CHILD_PROXY | RIG | WEIGHTS | PROXY,
 	ALL = SURFACE | SKELETON,
 }
@@ -188,8 +189,8 @@ func _on_child_entered_tree(child: Node) -> void:
 	if not instance:
 		return
 
-	instance.proxy_changed.connect(_queue_rebuild.bind(Dirty.CHILD_PROXY))
-	_queue_rebuild(Dirty.CHILD_PROXY)
+	instance.proxy_changed.connect(_on_child_proxy_changed.bind(instance))
+	_on_child_proxy_changed(instance)
 
 
 func _on_child_exiting_tree(child: Node) -> void:
@@ -197,8 +198,18 @@ func _on_child_exiting_tree(child: Node) -> void:
 	if not instance:
 		return
 
-	instance.proxy_changed.disconnect(_queue_rebuild)
+	instance.proxy_changed.disconnect(_on_child_proxy_changed)
 	_queue_rebuild(Dirty.CHILD_PROXY)
+
+
+func _on_child_proxy_changed(instance: MHProxyInstance) -> void:
+	_queue_rebuild(Dirty.CHILD_PROXY)
+
+	if _dirty & Dirty.CHILDREN:
+		return
+
+	if body and body.is_complete():
+		_rebuild_child_proxy(instance)
 
 
 ## Schedules a deferred rebuild, combining multiple changes into a single update.
@@ -235,8 +246,7 @@ func _rebuild() -> void:
 	if _dirty & Dirty.SURFACE:
 		_rebuild_surface()
 
-	# TODO: Don't rebuild all children when a single child changes.
-	if _dirty & (Dirty.VERTICES | Dirty.CHILD_PROXY | Dirty.RIG | Dirty.WEIGHTS | Dirty.SKELETON):
+	if _dirty & Dirty.CHILDREN:
 		_rebuild_children()
 
 	_dirty = Dirty.NONE
@@ -319,5 +329,11 @@ func _rebuild_children() -> void:
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if instance:
-			var skinning := body.get_proxy_skinning(instance.proxy)
-			instance.rebuild_fitted(morphed_vertices, skinning, skin, skeleton_node)
+			_rebuild_child_proxy(instance)
+
+
+func _rebuild_child_proxy(instance: MHProxyInstance) -> void:
+	var skinning: MHSkinning
+	if instance.proxy and instance.proxy.geometry:
+		skinning = body.get_proxy_skinning(instance.proxy)
+	instance.rebuild_fitted(morphed_vertices, skinning, skin, skeleton_node)
