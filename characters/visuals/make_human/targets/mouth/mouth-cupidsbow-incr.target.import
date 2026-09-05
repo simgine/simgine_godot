@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhr5rb37g281d"
+path="res://.godot/imported/mouth-cupidsbow-incr.target-75d2b33866788089ab798f57e35c2aae.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-cupidsbow-incr.target"
+dest_files=["res://.godot/imported/mouth-cupidsbow-incr.target-75d2b33866788089ab798f57e35c2aae.res"]
+
+[params]
+

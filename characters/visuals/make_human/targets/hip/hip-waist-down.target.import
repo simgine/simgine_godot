@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d2mts80456pj4"
+path="res://.godot/imported/hip-waist-down.target-f3ddf6018781da3f5745d9801d67bf54.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/hip/hip-waist-down.target"
+dest_files=["res://.godot/imported/hip-waist-down.target-f3ddf6018781da3f5745d9801d67bf54.res"]
+
+[params]
+

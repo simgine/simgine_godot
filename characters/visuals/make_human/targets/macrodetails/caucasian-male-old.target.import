@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ce2dhetwboeat"
+path="res://.godot/imported/caucasian-male-old.target-cd20d1e0cd7d3f7bedcd326d429de1d8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/caucasian-male-old.target"
+dest_files=["res://.godot/imported/caucasian-male-old.target-cd20d1e0cd7d3f7bedcd326d429de1d8.res"]
+
+[params]
+

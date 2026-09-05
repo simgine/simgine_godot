@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://xxe10ribiogw"
+path="res://.godot/imported/mouth-parling.target-75810099e5ad48efa9742b3b4ef3288f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/caucasian/mouth-parling.target"
+dest_files=["res://.godot/imported/mouth-parling.target-75810099e5ad48efa9742b3b4ef3288f.res"]
+
+[params]
+

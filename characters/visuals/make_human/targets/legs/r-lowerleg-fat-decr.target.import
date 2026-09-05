@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://covse6hryudpd"
+path="res://.godot/imported/r-lowerleg-fat-decr.target-4d0dab667ea1bd12ae24505d8f813212.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/r-lowerleg-fat-decr.target"
+dest_files=["res://.godot/imported/r-lowerleg-fat-decr.target-4d0dab667ea1bd12ae24505d8f813212.res"]
+
+[params]
+

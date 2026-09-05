@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cw1cscjynnift"
+path="res://.godot/imported/r-eye-eyefold-convex.target-2917ee69758356383561a6e21bb27d4a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/eyes/r-eye-eyefold-convex.target"
+dest_files=["res://.godot/imported/r-eye-eyefold-convex.target-2917ee69758356383561a6e21bb27d4a.res"]
+
+[params]
+

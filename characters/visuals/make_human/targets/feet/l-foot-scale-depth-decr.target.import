@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b6vwho7a1sce3"
+path="res://.godot/imported/l-foot-scale-depth-decr.target-2705b866f161be3bf8027957a093ab6c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/feet/l-foot-scale-depth-decr.target"
+dest_files=["res://.godot/imported/l-foot-scale-depth-decr.target-2705b866f161be3bf8027957a093ab6c.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ccq512h85uq7r"
+path="res://.godot/imported/r-eye-bag-height-incr.target-70c71de70f1e28fd9ffedc8da288779c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/eyes/r-eye-bag-height-incr.target"
+dest_files=["res://.godot/imported/r-eye-bag-height-incr.target-70c71de70f1e28fd9ffedc8da288779c.res"]
+
+[params]
+

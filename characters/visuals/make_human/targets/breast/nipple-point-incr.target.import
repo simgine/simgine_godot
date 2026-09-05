@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ctu02a1ix0kio"
+path="res://.godot/imported/nipple-point-incr.target-9b600c753f539ba042e03544348aa356.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/breast/nipple-point-incr.target"
+dest_files=["res://.godot/imported/nipple-point-incr.target-9b600c753f539ba042e03544348aa356.res"]
+
+[params]
+

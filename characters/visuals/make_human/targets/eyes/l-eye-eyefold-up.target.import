@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://crcyj4iy3jrts"
+path="res://.godot/imported/l-eye-eyefold-up.target-bea5165c0e5e3a1a73fcdf447b56e453.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/eyes/l-eye-eyefold-up.target"
+dest_files=["res://.godot/imported/l-eye-eyefold-up.target-bea5165c0e5e3a1a73fcdf447b56e453.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c25vdobuhmb8j"
+path="res://.godot/imported/l-foot-trans-down.target-48718c6cb7ab85a693747019192873d5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/feet/l-foot-trans-down.target"
+dest_files=["res://.godot/imported/l-foot-trans-down.target-48718c6cb7ab85a693747019192873d5.res"]
+
+[params]
+

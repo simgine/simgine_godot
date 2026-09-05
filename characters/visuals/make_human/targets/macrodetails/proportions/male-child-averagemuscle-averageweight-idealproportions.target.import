@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cakwvan5jbv21"
+path="res://.godot/imported/male-child-averagemuscle-averageweight-idealproportions.target-0ef68e671eb03229ec97d4a0ff90da97.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/male-child-averagemuscle-averageweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-child-averagemuscle-averageweight-idealproportions.target-0ef68e671eb03229ec97d4a0ff90da97.res"]
+
+[params]
+

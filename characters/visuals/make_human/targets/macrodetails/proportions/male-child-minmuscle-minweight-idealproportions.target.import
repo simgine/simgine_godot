@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bhiyoouiqha6x"
+path="res://.godot/imported/male-child-minmuscle-minweight-idealproportions.target-15012cdaf5967d6068f2e5102a5b1548.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/male-child-minmuscle-minweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-child-minmuscle-minweight-idealproportions.target-15012cdaf5967d6068f2e5102a5b1548.res"]
+
+[params]
+

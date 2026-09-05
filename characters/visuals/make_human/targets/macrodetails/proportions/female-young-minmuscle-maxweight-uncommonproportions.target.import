@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cefuvmlenuyw3"
+path="res://.godot/imported/female-young-minmuscle-maxweight-uncommonproportions.target-288e248abf79fec424840bbbca9db988.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/female-young-minmuscle-maxweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-young-minmuscle-maxweight-uncommonproportions.target-288e248abf79fec424840bbbca9db988.res"]
+
+[params]
+

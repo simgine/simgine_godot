@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dminysqtrrcq4"
+path="res://.godot/imported/nose-trans-out.target-2839f28f658360217bd506ba79ec4e89.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/nose/nose-trans-out.target"
+dest_files=["res://.godot/imported/nose-trans-out.target-2839f28f658360217bd506ba79ec4e89.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://da77urfamlfgu"
+path="res://.godot/imported/l-cheek-trans-up.target-1c0a4949aee21605fae577663dc4d695.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/cheek/l-cheek-trans-up.target"
+dest_files=["res://.godot/imported/l-cheek-trans-up.target-1c0a4949aee21605fae577663dc4d695.res"]
+
+[params]
+

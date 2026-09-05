@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b5opoe1lb3iv2"
+path="res://.godot/imported/measure-knee-circ-incr.target-fac575c77a0fe88821368463d1b24789.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/measure-knee-circ-incr.target"
+dest_files=["res://.godot/imported/measure-knee-circ-incr.target-fac575c77a0fe88821368463d1b24789.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cvmvdsm87pjfx"
+path="res://.godot/imported/asym-temple-2-r.target-c9c368bc61cc1dfe4f4b831ac191d30d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/asym/asym-temple-2-r.target"
+dest_files=["res://.godot/imported/asym-temple-2-r.target-c9c368bc61cc1dfe4f4b831ac191d30d.res"]
+
+[params]
+

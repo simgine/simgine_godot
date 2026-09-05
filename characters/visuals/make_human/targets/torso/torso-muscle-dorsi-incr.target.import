@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bwaho70sq2ii1"
+path="res://.godot/imported/torso-muscle-dorsi-incr.target-fb0ae5705cad33a0843c87750063025b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/torso/torso-muscle-dorsi-incr.target"
+dest_files=["res://.godot/imported/torso-muscle-dorsi-incr.target-fb0ae5705cad33a0843c87750063025b.res"]
+
+[params]
+

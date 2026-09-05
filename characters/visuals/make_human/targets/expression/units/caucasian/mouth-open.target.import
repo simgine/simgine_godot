@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cgdualqi0qpkb"
+path="res://.godot/imported/mouth-open.target-ad8962270961feed232e209b494c743e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/caucasian/mouth-open.target"
+dest_files=["res://.godot/imported/mouth-open.target-ad8962270961feed232e209b494c743e.res"]
+
+[params]
+

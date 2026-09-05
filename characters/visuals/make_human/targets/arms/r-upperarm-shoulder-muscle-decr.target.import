@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dimi8cuwvx6fd"
+path="res://.godot/imported/r-upperarm-shoulder-muscle-decr.target-3182838f11d9838045e09fb0a96c58d9.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/arms/r-upperarm-shoulder-muscle-decr.target"
+dest_files=["res://.godot/imported/r-upperarm-shoulder-muscle-decr.target-3182838f11d9838045e09fb0a96c58d9.res"]
+
+[params]
+

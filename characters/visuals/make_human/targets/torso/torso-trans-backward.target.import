@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://kl0w7bospn75"
+path="res://.godot/imported/torso-trans-backward.target-9e411e914d4b6346566e5b5f7ea9e098.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/torso/torso-trans-backward.target"
+dest_files=["res://.godot/imported/torso-trans-backward.target-9e411e914d4b6346566e5b5f7ea9e098.res"]
+
+[params]
+

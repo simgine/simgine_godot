@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://1kla2jb46a3f"
+path="res://.godot/imported/head-angle-out.target-22eeec63a3be5b3d83635f3e13e495cf.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/head/head-angle-out.target"
+dest_files=["res://.godot/imported/head-angle-out.target-22eeec63a3be5b3d83635f3e13e495cf.res"]
+
+[params]
+

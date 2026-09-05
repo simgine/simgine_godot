@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://dbgw127hefryw"
+path="res://.godot/imported/short03.mhmat-6a318e4f2b99c7b558f5645bcf5710e4.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/hair/short03/short03.mhmat"
+dest_files=["res://.godot/imported/short03.mhmat-6a318e4f2b99c7b558f5645bcf5710e4.res"]
+
+[params]
+

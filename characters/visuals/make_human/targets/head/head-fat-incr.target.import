@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bm8pewb4du8jd"
+path="res://.godot/imported/head-fat-incr.target-208eff165caf287f05d3ad7fb97d4889.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/head/head-fat-incr.target"
+dest_files=["res://.godot/imported/head-fat-incr.target-208eff165caf287f05d3ad7fb97d4889.res"]
+
+[params]
+

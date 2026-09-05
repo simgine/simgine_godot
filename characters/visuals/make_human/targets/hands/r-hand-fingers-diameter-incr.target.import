@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ftsdeg4oamn0"
+path="res://.godot/imported/r-hand-fingers-diameter-incr.target-fdf3ae6775c252dec7d85c47843df367.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/hands/r-hand-fingers-diameter-incr.target"
+dest_files=["res://.godot/imported/r-hand-fingers-diameter-incr.target-fdf3ae6775c252dec7d85c47843df367.res"]
+
+[params]
+

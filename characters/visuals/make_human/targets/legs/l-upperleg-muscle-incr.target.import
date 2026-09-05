@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://3b1kbp67w0bo"
+path="res://.godot/imported/l-upperleg-muscle-incr.target-047f6d95ea2dc87254477e634510aeec.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/l-upperleg-muscle-incr.target"
+dest_files=["res://.godot/imported/l-upperleg-muscle-incr.target-047f6d95ea2dc87254477e634510aeec.res"]
+
+[params]
+

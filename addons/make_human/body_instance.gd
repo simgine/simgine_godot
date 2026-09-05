@@ -235,7 +235,8 @@ func _rebuild() -> void:
 	if _dirty & Dirty.SURFACE:
 		_rebuild_surface()
 
-	if _dirty & (Dirty.VERTICES | Dirty.RIG | Dirty.WEIGHTS | Dirty.SKELETON):
+	# TODO: Don't rebuild all children when a single child changes.
+	if _dirty & (Dirty.VERTICES | Dirty.CHILD_PROXY | Dirty.RIG | Dirty.WEIGHTS | Dirty.SKELETON):
 		_rebuild_children()
 
 	_dirty = Dirty.NONE

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://w8yx44sffj3y"
+path="res://.godot/imported/universal-female-young-maxmuscle-maxweight.target-9ec85921802356157583c5978aee932d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/universal-female-young-maxmuscle-maxweight.target"
+dest_files=["res://.godot/imported/universal-female-young-maxmuscle-maxweight.target-9ec85921802356157583c5978aee932d.res"]
+
+[params]
+

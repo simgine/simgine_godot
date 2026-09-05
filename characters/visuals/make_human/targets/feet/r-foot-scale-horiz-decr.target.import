@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cj3ak6gnt4q2x"
+path="res://.godot/imported/r-foot-scale-horiz-decr.target-45916e7f58ac2d0e21d8e0a1ac7c0480.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/feet/r-foot-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/r-foot-scale-horiz-decr.target-45916e7f58ac2d0e21d8e0a1ac7c0480.res"]
+
+[params]
+

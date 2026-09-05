@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://cfql28bqucbpe"
+path="res://.godot/imported/afro01.obj-3f48cedf788c5ca99f35f654149ebd9a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/hair/afro01/afro01.obj"
+dest_files=["res://.godot/imported/afro01.obj-3f48cedf788c5ca99f35f654149ebd9a.res"]
+
+[params]
+

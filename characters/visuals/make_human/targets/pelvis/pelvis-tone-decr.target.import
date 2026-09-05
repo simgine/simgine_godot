@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bj1hd28p5xi8r"
+path="res://.godot/imported/pelvis-tone-decr.target-22a5a3d48bf402e3a4cd3e0da28854c5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/pelvis/pelvis-tone-decr.target"
+dest_files=["res://.godot/imported/pelvis-tone-decr.target-22a5a3d48bf402e3a4cd3e0da28854c5.res"]
+
+[params]
+

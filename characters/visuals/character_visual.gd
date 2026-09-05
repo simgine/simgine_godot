@@ -1,0 +1,91 @@
+@tool
+@abstract
+class_name CharacterVisual
+extends Node3D
+## Visual representation of a character.
+
+@export var _look: Array[LookItem]:
+	set = set_look
+
+
+func _ready() -> void:
+	for index in range(_look.size() - 1, -1, -1):
+		var item := _look[index]
+		if not item or not _attach(item):
+			_look.remove_at(index)
+
+
+## Displays item's visual.
+##
+## Returns `false` if nothing was attached.
+@abstract
+func _attach(item: LookItem) -> bool
+
+
+## Removes item's visual.
+##
+## Does nothing if the item is not attached.
+@abstract
+func _detach(item: LookItem) -> void
+
+
+## Replaces the old look with a new one.
+func set_look(new_look: Array[LookItem]) -> void:
+	remove_conflicts(new_look)
+
+	if is_node_ready():
+		for old_item in _look:
+			if old_item and not new_look.has(old_item):
+				Log.debug("Removing old %s", old_item)
+				_detach(old_item)
+
+		for index in range(new_look.size() - 1, -1, -1):
+			var new_item := new_look[index]
+			if new_item and not _look.has(new_item):
+				Log.debug("Adding new %s", new_item)
+				if not _attach(new_item):
+					new_look.remove_at(index)
+
+	_look = new_look
+
+
+static func remove_conflicts(items: Array[LookItem]) -> void:
+	# Iterate backwards so conflicting items can be removed safely.
+	for index in range(items.size() - 1, -1, -1):
+		var item := items[index]
+		if not item:
+			# Keep null items for editing from the inspector.
+			if not Engine.is_editor_hint():
+				items.remove_at(index)
+			continue
+
+		if not item.slot:
+			continue
+
+		for later_index in range(index + 1, items.size()):
+			var other_item := items[later_index]
+			if item.conflicts_with(other_item):
+				items.remove_at(index)
+				break
+
+
+func add_look_item(item: LookItem) -> void:
+	# Try to attach first since it can fail.
+	if not _attach(item):
+		return
+
+	if item.slot:
+		for index in range(_look.size() - 1, -1, -1):
+			var existing_item := _look[index]
+			if item.conflicts_with(existing_item):
+				_detach(existing_item)
+				_look.remove_at(index)
+
+	Log.debug("Adding %s", item)
+	_look.append(item)
+
+
+func remove_look_item(item: LookItem) -> void:
+	Log.debug("Removing %s", item)
+	_look.erase(item)
+	_detach(item)

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://mdvfoptp03y"
+path="res://.godot/imported/r-leg-valgus-incr.target-72c4e0205479b69f6be479feebfc5f5d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/r-leg-valgus-incr.target"
+dest_files=["res://.godot/imported/r-leg-valgus-incr.target-72c4e0205479b69f6be479feebfc5f5d.res"]
+
+[params]
+

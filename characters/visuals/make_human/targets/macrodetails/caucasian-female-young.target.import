@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d0qwfmm0n0qfv"
+path="res://.godot/imported/caucasian-female-young.target-68bc6e4e9b2f0a64a833413c42d4d1db.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/caucasian-female-young.target"
+dest_files=["res://.godot/imported/caucasian-female-young.target-68bc6e4e9b2f0a64a833413c42d4d1db.res"]
+
+[params]
+

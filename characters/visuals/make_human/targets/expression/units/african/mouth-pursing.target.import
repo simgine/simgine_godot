@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dh2epmfask7ug"
+path="res://.godot/imported/mouth-pursing.target-9a8a443ea11a8aa7504f39e92012cfaf.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/african/mouth-pursing.target"
+dest_files=["res://.godot/imported/mouth-pursing.target-9a8a443ea11a8aa7504f39e92012cfaf.res"]
+
+[params]
+

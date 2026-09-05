@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bp8w5dek6rsff"
+path="res://.godot/imported/eyebrows-left-down.target-1f1100125be36ab408c49d8ce7118daa.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/asian/eyebrows-left-down.target"
+dest_files=["res://.godot/imported/eyebrows-left-down.target-1f1100125be36ab408c49d8ce7118daa.res"]
+
+[params]
+

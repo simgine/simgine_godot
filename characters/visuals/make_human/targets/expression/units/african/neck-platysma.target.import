@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhaythiway4s7"
+path="res://.godot/imported/neck-platysma.target-d4ca75cd8aaf15d9d44897267b59048a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/african/neck-platysma.target"
+dest_files=["res://.godot/imported/neck-platysma.target-d4ca75cd8aaf15d9d44897267b59048a.res"]
+
+[params]
+

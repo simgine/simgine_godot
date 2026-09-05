@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://fwgy1xjiygen"
+path="res://.godot/imported/deepblue.mhmat-2577061a1c3d93a9957d539f15bde297.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyes/materials/deepblue.mhmat"
+dest_files=["res://.godot/imported/deepblue.mhmat-2577061a1c3d93a9957d539f15bde297.res"]
+
+[params]
+

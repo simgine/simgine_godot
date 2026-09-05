@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://belnx0c36ntkl"
+path="res://.godot/imported/l-upperarm-muscle-decr.target-6ecb07caccf86840e9252da2c885f155.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/arms/l-upperarm-muscle-decr.target"
+dest_files=["res://.godot/imported/l-upperarm-muscle-decr.target-6ecb07caccf86840e9252da2c885f155.res"]
+
+[params]
+

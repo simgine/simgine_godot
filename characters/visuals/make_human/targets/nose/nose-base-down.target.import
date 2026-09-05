@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cp2oolp3r7mnu"
+path="res://.godot/imported/nose-base-down.target-1beff2a3534080804f7d1ca5f0b2a262.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/nose/nose-base-down.target"
+dest_files=["res://.godot/imported/nose-base-down.target-1beff2a3534080804f7d1ca5f0b2a262.res"]
+
+[params]
+

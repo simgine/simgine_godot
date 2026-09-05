@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://qd84dmc8u4xc"
+path="res://.godot/imported/mouth-scale-depth-decr.target-77a98045eaab4bea4f4abe6edf292a65.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-scale-depth-decr.target"
+dest_files=["res://.godot/imported/mouth-scale-depth-decr.target-77a98045eaab4bea4f4abe6edf292a65.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cv3imhrafpj5x"
+path="res://.godot/imported/torso-scale-vert-decr.target-3f63e92cdd42f22a736944172b50f318.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/torso/torso-scale-vert-decr.target"
+dest_files=["res://.godot/imported/torso-scale-vert-decr.target-3f63e92cdd42f22a736944172b50f318.res"]
+
+[params]
+

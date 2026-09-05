@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ds0qx12afqy4m"]
+
+[ext_resource type="Script" uid="uid://c4v7h84fbfv1k" path="res://characters/character.gd" id="1_bmheq"]
+[ext_resource type="PackedScene" uid="uid://qgahouc3pgjn" path="res://characters/visuals/make_human/make_human_visual.tscn" id="2_4y88p"]
+[ext_resource type="Script" uid="uid://bc4jama1ho3n0" path="res://characters/look_item.gd" id="3_ms5lh"]
+[ext_resource type="Resource" uid="uid://ymxshli76xgs" path="res://characters/visuals/make_human/clothes/female_elegantsuit01/female_elegantsuit01.tres" id="4_ag0la"]
+[ext_resource type="Resource" uid="uid://bs4s8kk2p8ry2" path="res://characters/visuals/make_human/hair/ponytail01/ponytail01.tres" id="5_ag0la"]
+
+[node name="Human" type="Node3D" unique_id=1028284929 node_paths=PackedStringArray("visual")]
+script = ExtResource("1_bmheq")
+visual = NodePath("MakeHumanVisual")
+metadata/_custom_type_script = "uid://c4v7h84fbfv1k"
+
+[node name="MakeHumanVisual" parent="." unique_id=1038237501 instance=ExtResource("2_4y88p")]
+_look = Array[ExtResource("3_ms5lh")]([ExtResource("4_ag0la"), ExtResource("5_ag0la")])

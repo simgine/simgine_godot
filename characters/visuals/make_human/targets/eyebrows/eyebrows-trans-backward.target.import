@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://uqgarwpvcxc2"
+path="res://.godot/imported/eyebrows-trans-backward.target-af51ce172bd480e3d895ce0db120f8b8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/eyebrows/eyebrows-trans-backward.target"
+dest_files=["res://.godot/imported/eyebrows-trans-backward.target-af51ce172bd480e3d895ce0db120f8b8.res"]
+
+[params]
+

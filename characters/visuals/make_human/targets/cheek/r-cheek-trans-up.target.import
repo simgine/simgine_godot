@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d7ed5asjvxlm"
+path="res://.godot/imported/r-cheek-trans-up.target-c622c553bee3a23e5a65fafa5ab4681d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/cheek/r-cheek-trans-up.target"
+dest_files=["res://.godot/imported/r-cheek-trans-up.target-c622c553bee3a23e5a65fafa5ab4681d.res"]
+
+[params]
+

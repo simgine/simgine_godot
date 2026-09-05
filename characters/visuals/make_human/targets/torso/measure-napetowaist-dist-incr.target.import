@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cmcxgl0x0oe6w"
+path="res://.godot/imported/measure-napetowaist-dist-incr.target-9efc938c60cbcfe322743d3056560295.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/torso/measure-napetowaist-dist-incr.target"
+dest_files=["res://.godot/imported/measure-napetowaist-dist-incr.target-9efc938c60cbcfe322743d3056560295.res"]
+
+[params]
+

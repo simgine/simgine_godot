@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://vb6g87qmmiah"
+path="res://.godot/imported/r-upperleg-scale-horiz-decr.target-95674a6f5c5b361e6f991e90086ce7e0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/r-upperleg-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/r-upperleg-scale-horiz-decr.target-95674a6f5c5b361e6f991e90086ce7e0.res"]
+
+[params]
+

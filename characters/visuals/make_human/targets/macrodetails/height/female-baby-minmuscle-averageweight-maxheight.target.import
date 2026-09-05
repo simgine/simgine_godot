@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://s2nd8opo6q77"
+path="res://.godot/imported/female-baby-minmuscle-averageweight-maxheight.target-bcf6860fb95a17cd72be81f5ea9e6da0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/height/female-baby-minmuscle-averageweight-maxheight.target"
+dest_files=["res://.godot/imported/female-baby-minmuscle-averageweight-maxheight.target-bcf6860fb95a17cd72be81f5ea9e6da0.res"]
+
+[params]
+

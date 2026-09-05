@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://k6hd42wd3avv"
+path="res://.godot/imported/l-lowerleg-scale-horiz-incr.target-374e3e77553b69ae9771b4ff9cbef996.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/l-lowerleg-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/l-lowerleg-scale-horiz-incr.target-374e3e77553b69ae9771b4ff9cbef996.res"]
+
+[params]
+

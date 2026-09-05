@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cebowtvn1wvpk"
+path="res://.godot/imported/asym-eye-1-l.target-cb3e7cc2d8bf209e7638d1f9488be57e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/asym/asym-eye-1-l.target"
+dest_files=["res://.godot/imported/asym-eye-1-l.target-cb3e7cc2d8bf209e7638d1f9488be57e.res"]
+
+[params]
+

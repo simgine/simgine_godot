@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://rs2vlmc08gum"
+path="res://.godot/imported/braid01.obj-7e8d6fb17855eea06ce4717f17b4b475.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/hair/braid01/braid01.obj"
+dest_files=["res://.godot/imported/braid01.obj-7e8d6fb17855eea06ce4717f17b4b475.res"]
+
+[params]
+

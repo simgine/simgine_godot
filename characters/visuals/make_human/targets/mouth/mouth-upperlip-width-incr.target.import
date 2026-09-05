@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d0yu5m4irvehj"
+path="res://.godot/imported/mouth-upperlip-width-incr.target-ca44759e54580cb3b5afb5c80e054b4a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-upperlip-width-incr.target"
+dest_files=["res://.godot/imported/mouth-upperlip-width-incr.target-ca44759e54580cb3b5afb5c80e054b4a.res"]
+
+[params]
+

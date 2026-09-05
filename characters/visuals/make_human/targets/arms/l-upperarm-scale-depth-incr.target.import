@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bpkw8sibbyljn"
+path="res://.godot/imported/l-upperarm-scale-depth-incr.target-ae9c4e18b0107ffd475bc93f8c94b9ee.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/arms/l-upperarm-scale-depth-incr.target"
+dest_files=["res://.godot/imported/l-upperarm-scale-depth-incr.target-ae9c4e18b0107ffd475bc93f8c94b9ee.res"]
+
+[params]
+

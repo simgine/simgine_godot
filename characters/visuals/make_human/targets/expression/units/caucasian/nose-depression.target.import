@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cu81oyho2p1yl"
+path="res://.godot/imported/nose-depression.target-71a5b762427dd9d76fbe037cd5d4c237.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/caucasian/nose-depression.target"
+dest_files=["res://.godot/imported/nose-depression.target-71a5b762427dd9d76fbe037cd5d4c237.res"]
+
+[params]
+

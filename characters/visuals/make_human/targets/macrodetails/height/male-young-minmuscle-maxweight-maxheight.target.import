@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bvcsvhtujihom"
+path="res://.godot/imported/male-young-minmuscle-maxweight-maxheight.target-fc2f989b1a25d4a78f85780ed5513cd0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/height/male-young-minmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/male-young-minmuscle-maxweight-maxheight.target-fc2f989b1a25d4a78f85780ed5513cd0.res"]
+
+[params]
+

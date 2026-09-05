@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bk1ximxkji6ul"
+path="res://.godot/imported/mouth-trans-forward.target-4d5f643cc500275844c08e0916f6f056.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-trans-forward.target"
+dest_files=["res://.godot/imported/mouth-trans-forward.target-4d5f643cc500275844c08e0916f6f056.res"]
+
+[params]
+

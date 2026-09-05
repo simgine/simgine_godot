@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bru2b1yqv0400"
+path="res://.godot/imported/male-baby-minmuscle-maxweight-maxheight.target-655e2a939490bf930943ecf72c8f1911.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/height/male-baby-minmuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/male-baby-minmuscle-maxweight-maxheight.target-655e2a939490bf930943ecf72c8f1911.res"]
+
+[params]
+

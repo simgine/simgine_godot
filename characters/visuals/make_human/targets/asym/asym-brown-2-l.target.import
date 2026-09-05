@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bmlh06a3t7noy"
+path="res://.godot/imported/asym-brown-2-l.target-ae098feef2eb79e1c069fa650aec2290.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/asym/asym-brown-2-l.target"
+dest_files=["res://.godot/imported/asym-brown-2-l.target-ae098feef2eb79e1c069fa650aec2290.res"]
+
+[params]
+

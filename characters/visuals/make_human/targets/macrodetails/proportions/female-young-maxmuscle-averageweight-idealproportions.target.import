@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dendhc18awur1"
+path="res://.godot/imported/female-young-maxmuscle-averageweight-idealproportions.target-b2c2b5f6f3e1bd1989380ef6e9cf4828.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/female-young-maxmuscle-averageweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-young-maxmuscle-averageweight-idealproportions.target-b2c2b5f6f3e1bd1989380ef6e9cf4828.res"]
+
+[params]
+

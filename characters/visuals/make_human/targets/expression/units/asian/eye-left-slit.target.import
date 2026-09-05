@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dfxs2lb2ayehb"
+path="res://.godot/imported/eye-left-slit.target-ebee00fa61fe2aca085acf4a40c5ae18.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/asian/eye-left-slit.target"
+dest_files=["res://.godot/imported/eye-left-slit.target-ebee00fa61fe2aca085acf4a40c5ae18.res"]
+
+[params]
+

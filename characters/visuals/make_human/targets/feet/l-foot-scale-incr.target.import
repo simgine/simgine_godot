@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://kdqlddvosd6m"
+path="res://.godot/imported/l-foot-scale-incr.target-ab2bca139b2d0fa9c668bfc2a4605691.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/feet/l-foot-scale-incr.target"
+dest_files=["res://.godot/imported/l-foot-scale-incr.target-ab2bca139b2d0fa9c668bfc2a4605691.res"]
+
+[params]
+

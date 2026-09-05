@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://0r6uqe5l8bl6"
+path="res://.godot/imported/mouth-scale-horiz-decr.target-7ecfc2aee9d1aa1e651093a1dcaad0b8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/mouth-scale-horiz-decr.target-7ecfc2aee9d1aa1e651093a1dcaad0b8.res"]
+
+[params]
+

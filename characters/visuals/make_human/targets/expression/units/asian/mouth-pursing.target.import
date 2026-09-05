@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cdxymodoophro"
+path="res://.godot/imported/mouth-pursing.target-db2f282181774ac1c9972809135bc954.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/asian/mouth-pursing.target"
+dest_files=["res://.godot/imported/mouth-pursing.target-db2f282181774ac1c9972809135bc954.res"]
+
+[params]
+

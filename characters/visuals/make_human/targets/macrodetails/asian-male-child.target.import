@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dldhyrkfipft6"
+path="res://.godot/imported/asian-male-child.target-0508fbd615f3cb642ff3a4567a1fb4e0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/asian-male-child.target"
+dest_files=["res://.godot/imported/asian-male-child.target-0508fbd615f3cb642ff3a4567a1fb4e0.res"]
+
+[params]
+

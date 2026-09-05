@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://wdsvwdigl8u8"
+path="res://.godot/imported/mouth-parling.target-d42b5259af9b3ebb6180f7f923ff386c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/african/mouth-parling.target"
+dest_files=["res://.godot/imported/mouth-parling.target-d42b5259af9b3ebb6180f7f923ff386c.res"]
+
+[params]
+

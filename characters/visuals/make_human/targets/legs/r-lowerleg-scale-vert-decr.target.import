@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b6ydhnltqhg4t"
+path="res://.godot/imported/r-lowerleg-scale-vert-decr.target-945f84e2b8cf693c2ee079852c3d0e41.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/legs/r-lowerleg-scale-vert-decr.target"
+dest_files=["res://.godot/imported/r-lowerleg-scale-vert-decr.target-945f84e2b8cf693c2ee079852c3d0e41.res"]
+
+[params]
+

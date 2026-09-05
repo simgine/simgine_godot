@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://obmc0drxop3v"
+path="res://.godot/imported/mouth-angles-up.target-56343088adad386c227d5f06fedc4e04.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/mouth/mouth-angles-up.target"
+dest_files=["res://.godot/imported/mouth-angles-up.target-56343088adad386c227d5f06fedc4e04.res"]
+
+[params]
+

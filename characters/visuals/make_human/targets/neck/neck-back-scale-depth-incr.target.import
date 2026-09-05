@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bos7o2f4wym4y"
+path="res://.godot/imported/neck-back-scale-depth-incr.target-eb65df68d207452c6b1f8eb582a3d64d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/neck/neck-back-scale-depth-incr.target"
+dest_files=["res://.godot/imported/neck-back-scale-depth-incr.target-eb65df68d207452c6b1f8eb582a3d64d.res"]
+
+[params]
+

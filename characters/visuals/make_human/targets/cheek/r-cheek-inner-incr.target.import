@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dbb8uke1occr6"
+path="res://.godot/imported/r-cheek-inner-incr.target-caa1ab14fc6109cbbb57315f450b9964.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/cheek/r-cheek-inner-incr.target"
+dest_files=["res://.godot/imported/r-cheek-inner-incr.target-caa1ab14fc6109cbbb57315f450b9964.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cqroaknrt07ix"
+path="res://.godot/imported/r-ear-scale-depth-incr.target-522801f5b539dbd9c51fbc37d90f11d0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/ears/r-ear-scale-depth-incr.target"
+dest_files=["res://.godot/imported/r-ear-scale-depth-incr.target-522801f5b539dbd9c51fbc37d90f11d0.res"]
+
+[params]
+

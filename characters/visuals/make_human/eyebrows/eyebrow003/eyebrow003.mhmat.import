@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://da31q7jeoxn6s"
+path="res://.godot/imported/eyebrow003.mhmat-d65dbe3699ea636bf6d349c1817785e6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyebrows/eyebrow003/eyebrow003.mhmat"
+dest_files=["res://.godot/imported/eyebrow003.mhmat-d65dbe3699ea636bf6d349c1817785e6.res"]
+
+[params]
+

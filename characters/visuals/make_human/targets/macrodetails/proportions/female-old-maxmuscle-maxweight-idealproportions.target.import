@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b3a3qoil4eyux"
+path="res://.godot/imported/female-old-maxmuscle-maxweight-idealproportions.target-82520f3f23208d26868d81797741bda0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/female-old-maxmuscle-maxweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-old-maxmuscle-maxweight-idealproportions.target-82520f3f23208d26868d81797741bda0.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhrwdwc0gs8ko"
+path="res://.godot/imported/head-age-decr.target-a69a9c7042f866027705c88b2ab8b5a6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/head/head-age-decr.target"
+dest_files=["res://.godot/imported/head-age-decr.target-a69a9c7042f866027705c88b2ab8b5a6.res"]
+
+[params]
+

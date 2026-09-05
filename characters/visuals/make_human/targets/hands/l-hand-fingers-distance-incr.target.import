@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dkeeaaxhdb2xj"
+path="res://.godot/imported/l-hand-fingers-distance-incr.target-983b3c252161f5ded478203ffbb963df.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/hands/l-hand-fingers-distance-incr.target"
+dest_files=["res://.godot/imported/l-hand-fingers-distance-incr.target-983b3c252161f5ded478203ffbb963df.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://bsifbwyp0y3yj"
+path="res://.godot/imported/ponytail01.obj-435d49441fa172e606d63fc0aaf011a1.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/hair/ponytail01/ponytail01.obj"
+dest_files=["res://.godot/imported/ponytail01.obj-435d49441fa172e606d63fc0aaf011a1.res"]
+
+[params]
+

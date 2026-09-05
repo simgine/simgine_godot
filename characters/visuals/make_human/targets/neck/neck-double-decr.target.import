@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bnax4ks8maec0"
+path="res://.godot/imported/neck-double-decr.target-583940b3f31afc9efd6e01860bff9d84.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/neck/neck-double-decr.target"
+dest_files=["res://.godot/imported/neck-double-decr.target-583940b3f31afc9efd6e01860bff9d84.res"]
+
+[params]
+

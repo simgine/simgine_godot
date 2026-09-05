@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://i13w7gbwvvss"
+path="res://.godot/imported/stomach-navel-up.target-40cd09d157781638e63bb2829417c2f5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/stomach/stomach-navel-up.target"
+dest_files=["res://.godot/imported/stomach-navel-up.target-40cd09d157781638e63bb2829417c2f5.res"]
+
+[params]
+

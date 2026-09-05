@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c7mrvp1py61c4"
+path="res://.godot/imported/female-young-averagemuscle-minweight-uncommonproportions.target-e4ed97d56c7317c961c1629587597386.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/macrodetails/proportions/female-young-averagemuscle-minweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-young-averagemuscle-minweight-uncommonproportions.target-e4ed97d56c7317c961c1629587597386.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dd6blkwspt5lv"
+path="res://.godot/imported/neck-platysma.target-37fe2b79934967ca6751e1f07e0351e8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/asian/neck-platysma.target"
+dest_files=["res://.godot/imported/neck-platysma.target-37fe2b79934967ca6751e1f07e0351e8.res"]
+
+[params]
+

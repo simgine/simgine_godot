@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bpbc3dq6dto5k"
+path="res://.godot/imported/head-scale-depth-incr.target-d8dc0be36e6ffca900d51e8b4298c713.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/head/head-scale-depth-incr.target"
+dest_files=["res://.godot/imported/head-scale-depth-incr.target-d8dc0be36e6ffca900d51e8b4298c713.res"]
+
+[params]
+

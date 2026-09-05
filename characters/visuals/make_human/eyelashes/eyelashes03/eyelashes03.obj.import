@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://bp4r0m0k7tpph"
+path="res://.godot/imported/eyelashes03.obj-aad2b7221b71b4f034a090042d4dad0c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyelashes/eyelashes03/eyelashes03.obj"
+dest_files=["res://.godot/imported/eyelashes03.obj-aad2b7221b71b4f034a090042d4dad0c.res"]
+
+[params]
+

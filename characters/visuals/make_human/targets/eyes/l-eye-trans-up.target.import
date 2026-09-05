@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cxw7aywdquhu3"
+path="res://.godot/imported/l-eye-trans-up.target-d5d672181d69762432a376333a87bc9f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/eyes/l-eye-trans-up.target"
+dest_files=["res://.godot/imported/l-eye-trans-up.target-d5d672181d69762432a376333a87bc9f.res"]
+
+[params]
+

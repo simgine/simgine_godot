@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cwtlgkw0mvkou"
+path="res://.godot/imported/mouth-elevation.target-ba0ba87e75f370f0c648eefcd44b003f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/expression/units/african/mouth-elevation.target"
+dest_files=["res://.godot/imported/mouth-elevation.target-ba0ba87e75f370f0c648eefcd44b003f.res"]
+
+[params]
+

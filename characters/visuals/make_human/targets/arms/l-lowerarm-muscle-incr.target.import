@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d4bldlllxx3t7"
+path="res://.godot/imported/l-lowerarm-muscle-incr.target-47ee7224f97d8277b73a40f9300357bb.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/targets/arms/l-lowerarm-muscle-incr.target"
+dest_files=["res://.godot/imported/l-lowerarm-muscle-incr.target-47ee7224f97d8277b73a40f9300357bb.res"]
+
+[params]
+
