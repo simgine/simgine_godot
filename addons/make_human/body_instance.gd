@@ -30,13 +30,13 @@ var _proxy_mask: PackedByteArray
 enum Dirty {
 	NONE = 0,
 	VERTICES = 1 << 0,
-	CHILD_PROXY = 1 << 1,
+	MASK = 1 << 1,
 	RIG = 1 << 2,
 	WEIGHTS = 1 << 3,
 	SKELETON = 1 << 4,
 	PROXY = 1 << 5,
-	CHILDREN = VERTICES | RIG | WEIGHTS | SKELETON,
-	SURFACE = VERTICES | CHILD_PROXY | RIG | WEIGHTS | PROXY,
+	CHILD_PROXIES = VERTICES | RIG | WEIGHTS | SKELETON,
+	SURFACE = VERTICES | MASK | RIG | WEIGHTS | PROXY,
 	ALL = SURFACE | SKELETON,
 }
 
@@ -199,13 +199,13 @@ func _on_child_exiting_tree(child: Node) -> void:
 		return
 
 	instance.proxy_changed.disconnect(_on_child_proxy_changed)
-	_queue_rebuild(Dirty.CHILD_PROXY)
+	_queue_rebuild(Dirty.MASK)
 
 
 func _on_child_proxy_changed(instance: MHProxyInstance) -> void:
-	_queue_rebuild(Dirty.CHILD_PROXY)
+	_queue_rebuild(Dirty.MASK)
 
-	if _dirty & Dirty.CHILDREN:
+	if _dirty & Dirty.CHILD_PROXIES:
 		return
 
 	if body and body.is_complete():
@@ -228,7 +228,7 @@ func _rebuild() -> void:
 		_dirty = Dirty.NONE
 		mesh = null
 		skin = null
-		_rebuild_children()
+		_rebuild_child_proxies()
 		return
 
 	if _dirty & Dirty.VERTICES:
@@ -237,17 +237,17 @@ func _rebuild() -> void:
 	if _dirty & (Dirty.VERTICES | Dirty.RIG | Dirty.SKELETON):
 		_rebuild_skeleton()
 
-	if _dirty & Dirty.CHILD_PROXY:
+	if _dirty & Dirty.MASK:
 		_rebuild_mask()
 
-	if _dirty & (Dirty.PROXY | Dirty.CHILD_PROXY):
+	if _dirty & (Dirty.PROXY | Dirty.MASK):
 		_rebuild_proxy_mask()
 
 	if _dirty & Dirty.SURFACE:
 		_rebuild_surface()
 
-	if _dirty & Dirty.CHILDREN:
-		_rebuild_children()
+	if _dirty & Dirty.CHILD_PROXIES:
+		_rebuild_child_proxies()
 
 	_dirty = Dirty.NONE
 
@@ -325,7 +325,7 @@ func _rebuild_surface() -> void:
 	array_mesh.surface_set_name(0, "Body")
 
 
-func _rebuild_children() -> void:
+func _rebuild_child_proxies() -> void:
 	for child in get_children():
 		var instance := child as MHProxyInstance
 		if instance:
