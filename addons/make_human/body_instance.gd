@@ -273,8 +273,8 @@ func _rebuild_skeleton() -> void:
 
 
 func _rebuild_mask() -> void:
+	_mask.clear()
 	_mask.resize(body.geometry.vertices.size())
-	_mask.fill(0)
 
 	for child in get_children():
 		var instance := child as MHProxyInstance
