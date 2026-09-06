@@ -26,23 +26,23 @@ static func _get_settings() -> Settings:
 	return Settings.new(project_filters)
 
 
-static func error(format: String, ... args: Array) -> void:
+static func error(format: String, ...args: Array) -> void:
 	_log(Level.ERROR, format, args)
 
 
-static func warn(format: String, ... args: Array) -> void:
+static func warn(format: String, ...args: Array) -> void:
 	_log(Level.WARN, format, args)
 
 
-static func info(format: String, ... args: Array) -> void:
+static func info(format: String, ...args: Array) -> void:
 	_log(Level.INFO, format, args)
 
 
-static func debug(format: String, ... args: Array) -> void:
+static func debug(format: String, ...args: Array) -> void:
 	_log(Level.DEBUG, format, args)
 
 
-static func trace(format: String, ... args: Array) -> void:
+static func trace(format: String, ...args: Array) -> void:
 	_log(Level.TRACE, format, args)
 
 
