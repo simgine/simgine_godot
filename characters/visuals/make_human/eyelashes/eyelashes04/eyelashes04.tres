@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LookItem" format=3 uid="uid://dnorseudjcre6"]
+
+[ext_resource type="Script" uid="uid://bc4jama1ho3n0" path="res://characters/look_item.gd" id="1_oamov"]
+[ext_resource type="Resource" uid="uid://wfha0lw4m56c" path="res://characters/slots/eyelashes.tres" id="2_v2ydr"]
+
+[resource]
+script = ExtResource("1_oamov")
+name = "Eyelashes 04"
+slot = ExtResource("2_v2ydr")
+asset_path = "uid://dwcctafttmoqc"
+metadata/_custom_type_script = "uid://bc4jama1ho3n0"
