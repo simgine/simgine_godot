@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LookItem" format=3 uid="uid://dsdvlisp0wmgd"]
+
+[ext_resource type="Script" uid="uid://bc4jama1ho3n0" path="res://characters/look_item.gd" id="1_0woft"]
+[ext_resource type="Resource" uid="uid://sgkwqr72y65f" path="res://characters/slots/hair.tres" id="2_3vjb8"]
+
+[resource]
+script = ExtResource("1_0woft")
+name = "Short 03"
+slot = ExtResource("2_3vjb8")
+asset_path = "uid://08h6gy82twxa"
+metadata/_custom_type_script = "uid://bc4jama1ho3n0"
