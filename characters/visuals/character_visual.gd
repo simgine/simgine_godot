@@ -80,6 +80,7 @@ func remove_look_item(item: LookItem) -> void:
 ## Displays item's visual.
 ##
 ## Returns `false` if nothing was attached.
+## The node should be ready before calling this.
 @abstract
 func _attach(item: LookItem) -> bool
 
@@ -87,9 +88,13 @@ func _attach(item: LookItem) -> bool
 ## Removes item's visual.
 ##
 ## Does nothing if the item is not attached.
+## The node should be ready before calling this.
 @abstract
 func _detach(item: LookItem) -> void
 
 
+## Sets a material for the character skin.
+##
+## The node should be ready before calling this.
 @abstract
 func set_skin_material(material: Material) -> void
