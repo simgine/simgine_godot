@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://d1awi6y0pdpco"
+path="res://.godot/imported/brown.mhmat-a7ce9379cad1aad36cb8c4edb94beef9.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyes/high_poly/materials/brown.mhmat"
+dest_files=["res://.godot/imported/brown.mhmat-a7ce9379cad1aad36cb8c4edb94beef9.res"]
+
+[params]
+

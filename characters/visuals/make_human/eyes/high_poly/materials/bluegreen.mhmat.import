@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://ykbw0qf266a"
+path="res://.godot/imported/bluegreen.mhmat-fb379bc6421b30c724fcd5d271114179.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyes/high_poly/materials/bluegreen.mhmat"
+dest_files=["res://.godot/imported/bluegreen.mhmat-fb379bc6421b30c724fcd5d271114179.res"]
+
+[params]
+

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tcmdcaxmcp8a"
-path="res://.godot/imported/blue_eye.png-e1203a0329dab944e9c2ad2cbebf2d71.ctex"
+uid="uid://dg42qqsbljmqq"
+path="res://.godot/imported/deepblue_eye.png-87b77af4c51196d3a6275cf12ff3eeef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/visuals/make_human/eyes/materials/blue_eye.png"
-dest_files=["res://.godot/imported/blue_eye.png-e1203a0329dab944e9c2ad2cbebf2d71.ctex"]
+source_file="res://characters/visuals/make_human/eyes/high_poly/materials/deepblue_eye.png"
+dest_files=["res://.godot/imported/deepblue_eye.png-87b77af4c51196d3a6275cf12ff3eeef.ctex"]
 
 [params]
 

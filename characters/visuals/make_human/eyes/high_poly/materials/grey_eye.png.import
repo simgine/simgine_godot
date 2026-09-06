@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy0m37nlfit6f"
-path="res://.godot/imported/brownlight_eye.png-4fdc4afb21809838dccb2272330330e2.ctex"
+uid="uid://cxnttoxrq4idp"
+path="res://.godot/imported/grey_eye.png-131bd90a6ce3cdf06708121fcf4d1e70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/visuals/make_human/eyes/materials/brownlight_eye.png"
-dest_files=["res://.godot/imported/brownlight_eye.png-4fdc4afb21809838dccb2272330330e2.ctex"]
+source_file="res://characters/visuals/make_human/eyes/high_poly/materials/grey_eye.png"
+dest_files=["res://.godot/imported/grey_eye.png-131bd90a6ce3cdf06708121fcf4d1e70.ctex"]
 
 [params]
 

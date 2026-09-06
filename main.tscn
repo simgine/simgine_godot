@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://br2v0llv2uqyu" path="res://characters/visuals/make_human/skins/young_caucasian_female2.mhmat" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://bk8ub20upbpvo" path="res://addons/make_human/proxy/proxy_instance.gd" id="4_1bvp3"]
 [ext_resource type="Resource" uid="uid://oex0vpiwtjf3" path="res://characters/visuals/make_human/clothes/female_sportsuit01/female_sportsuit01.mhclo" id="4_7mycd"]
-[ext_resource type="Resource" uid="uid://djhd8x8rwt4q1" path="res://characters/visuals/make_human/eyes/high-poly/high-poly.mhclo" id="5_7mycd"]
+[ext_resource type="Resource" uid="uid://djhd8x8rwt4q1" path="res://characters/visuals/make_human/eyes/high_poly/high_poly.mhclo" id="5_7mycd"]
 [ext_resource type="Resource" uid="uid://craf0e0x1m6ho" path="res://characters/visuals/make_human/body.tres" id="5_efxa6"]
 [ext_resource type="Resource" uid="uid://dr8ghylhf60k6" path="res://characters/visuals/make_human/hair/ponytail01/ponytail01.mhclo" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/body_instance.gd" id="6_5vw27"]
