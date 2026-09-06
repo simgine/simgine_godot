@@ -15,6 +15,6 @@
 _look = Array[ExtResource("2_c4skc")]([ExtResource("3_hw4yx"), ExtResource("4_5aagr"), ExtResource("5_ec50j"), ExtResource("6_5aagr"), ExtResource("7_ec50j")])
 
 [node name="Body" parent="MakeHumanVisual/Skeleton" parent_id_path=PackedInt32Array(1038237501, 338036088) index="0" unique_id=342715325]
-surface_material_override/0 = ExtResource("2_62l4i")
+material_override = ExtResource("2_62l4i")
 
 [editable path="MakeHumanVisual"]
