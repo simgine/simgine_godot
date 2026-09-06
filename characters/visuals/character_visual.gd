@@ -15,20 +15,6 @@ func _ready() -> void:
 			_look.remove_at(index)
 
 
-## Displays item's visual.
-##
-## Returns `false` if nothing was attached.
-@abstract
-func _attach(item: LookItem) -> bool
-
-
-## Removes item's visual.
-##
-## Does nothing if the item is not attached.
-@abstract
-func _detach(item: LookItem) -> void
-
-
 ## Replaces the old look with a new one.
 func set_look(new_look: Array[LookItem]) -> void:
 	remove_conflicts(new_look)
@@ -89,3 +75,21 @@ func remove_look_item(item: LookItem) -> void:
 	Log.debug("Removing %s", item)
 	_look.erase(item)
 	_detach(item)
+
+
+## Displays item's visual.
+##
+## Returns `false` if nothing was attached.
+@abstract
+func _attach(item: LookItem) -> bool
+
+
+## Removes item's visual.
+##
+## Does nothing if the item is not attached.
+@abstract
+func _detach(item: LookItem) -> void
+
+
+@abstract
+func set_skin_material(material: Material) -> void

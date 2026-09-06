@@ -51,3 +51,7 @@ func _detach(item: LookItem) -> void:
 	if instance:
 		instance.queue_free()
 		_instances.erase(item)
+
+
+func set_skin_material(material: Material) -> void:
+	body.material_override = material
