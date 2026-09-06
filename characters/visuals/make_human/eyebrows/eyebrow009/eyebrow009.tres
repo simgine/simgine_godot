@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LookItem" format=3 uid="uid://doj035dyq0mnd"]
+
+[ext_resource type="Script" uid="uid://bc4jama1ho3n0" path="res://characters/look_item.gd" id="1_iym2s"]
+[ext_resource type="Resource" uid="uid://c8qdbjvc8foto" path="res://characters/slots/eyebrows.tres" id="2_4563g"]
+
+[resource]
+script = ExtResource("1_iym2s")
+name = "Eyebrows 009"
+slot = ExtResource("2_4563g")
+asset_path = "uid://6h4iqgw58vqj"
+metadata/_custom_type_script = "uid://bc4jama1ho3n0"
