@@ -11,14 +11,8 @@ func _attach(item: LookItem) -> bool:
 	if _instances.has(item):
 		return false
 
-	var res := ResourceLoader.load(item.asset_path)
-	if not res:
-		Log.error("Unable to load '%s'", item.asset_path)
-		return false
-
-	var instance := _create_instance(res)
+	var instance := _instance_item(item.asset_path)
 	if not instance:
-		Log.error("'%s' is not a MakeHuman equipment", item.asset_path)
 		return false
 
 	body.add_child(instance)
@@ -26,9 +20,15 @@ func _attach(item: LookItem) -> bool:
 	return true
 
 
-func _create_instance(res: Resource) -> MHProxyInstance:
+static func _instance_item(asset_path: String) -> MHProxyInstance:
+	var res := ResourceLoader.load(asset_path)
+	if not res:
+		Log.error("Unable to load '%s'", asset_path)
+		return null
+
 	var proxy := res as MHProxy
 	if proxy:
+		# Allow paths to a proxy for simple items.
 		var instance := MHProxyInstance.new()
 		instance.proxy = proxy
 		return instance
@@ -36,13 +36,22 @@ func _create_instance(res: Resource) -> MHProxyInstance:
 	var scene := res as PackedScene
 	if scene:
 		var node := scene.instantiate()
+		if not node:
+			Log.error("Unable to instantiate '%s'", asset_path)
+			return null
+
 		var instance := node as MHProxyInstance
 		if not instance:
+			Log.error("'%s' is not a MakeHuman item", asset_path)
 			node.free()
 			return null
 
 		return instance
 
+	Log.error(
+		"'%s' must be an MHProxy resource or a PackedScene with an MHProxyInstance root",
+		asset_path,
+	)
 	return null
 
 
