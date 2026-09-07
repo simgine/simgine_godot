@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LookItem" format=3 uid="uid://ca4iq0bt32pen"]
+
+[ext_resource type="Script" uid="uid://bc4jama1ho3n0" path="res://characters/look_item.gd" id="1_byhqa"]
+[ext_resource type="Resource" uid="uid://dil808x4ks6jc" path="res://characters/slots/eyes.tres" id="2_t3ih5"]
+
+[resource]
+script = ExtResource("1_byhqa")
+name = "High poly eyes"
+slot = ExtResource("2_t3ih5")
+asset_path = "uid://djhd8x8rwt4q1"
+metadata/_custom_type_script = "uid://bc4jama1ho3n0"

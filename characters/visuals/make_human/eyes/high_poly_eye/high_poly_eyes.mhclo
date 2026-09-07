@@ -19,7 +19,7 @@ basemesh hm08
 name HighPolyEyes
 tag MakeHuman™
 
-obj_file high_poly.obj
+obj_file high_poly_eyes.obj
 x_scale 5399 11998 1.6482
 z_scale 962 5320 2.2795
 y_scale 791 881 2.7213

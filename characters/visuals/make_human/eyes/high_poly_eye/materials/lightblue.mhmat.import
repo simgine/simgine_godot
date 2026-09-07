@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://bb7udbj6cneri"
+path="res://.godot/imported/lightblue.mhmat-422d3e4c78485484c48d0cfa6b616926.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/eyes/high_poly_eye/materials/lightblue.mhmat"
+dest_files=["res://.godot/imported/lightblue.mhmat-422d3e4c78485484c48d0cfa6b616926.res"]
+
+[params]
+
