@@ -1,9 +1,11 @@
 @tool
 class_name LookItem
 extends Resource
-## An appearance item, such as clothing, hair, or eyes, displayed by [CharacterVisual].
+## An appearance item, such as clothing, hair, or eyes, displayed by
+## [CharacterVisual].
 ##
-## Contains metadata and a path to the visual asset via [member asset_path].
+## Holds only metadata and a path to the visual asset, so actual assets are
+## loaded on instantiation.
 
 ## Display name.
 @export var name: String
