@@ -17,7 +17,7 @@ func _ready() -> void:
 
 ## Replaces the old look with a new one.
 func set_look(new_look: Array[LookItem]) -> void:
-	remove_conflicts(new_look)
+	_remove_conflicts(new_look)
 
 	if is_node_ready():
 		for old_item in _look:
@@ -35,7 +35,7 @@ func set_look(new_look: Array[LookItem]) -> void:
 	_look = new_look
 
 
-static func remove_conflicts(items: Array[LookItem]) -> void:
+static func _remove_conflicts(items: Array[LookItem]) -> void:
 	# Iterate backwards so conflicting items can be removed safely.
 	for index in range(items.size() - 1, -1, -1):
 		var item := items[index]
