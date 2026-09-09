@@ -62,10 +62,10 @@ func _validate_property(property: Dictionary) -> void:
 
 
 func _get_property_list() -> Array[Dictionary]:
-	var properties: Array[Dictionary] = []
-
 	if not body or not body.is_complete():
-		return properties
+		return []
+
+	var properties: Array[Dictionary] = []
 
 	for macro_name in body.macro_registry.macrotargets:
 		properties.append(_slider(macro_name, 0.0, 1.0))
