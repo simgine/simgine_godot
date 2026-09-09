@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://lvhnn0i4dcp5"
+path="res://.godot/imported/l-lowerleg-scale-depth-decr.target-def740d847f7972b88ddc8c82702ee8a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/legs/l-lowerleg-scale-depth-decr.target"
+dest_files=["res://.godot/imported/l-lowerleg-scale-depth-decr.target-def740d847f7972b88ddc8c82702ee8a.res"]
+
+[params]
+

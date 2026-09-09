@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dprys4pptf42u"
+path="res://.godot/imported/stomach-navel-out.target-927d95d27b795fb2aaa2c27ab0126084.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/stomach/stomach-navel-out.target"
+dest_files=["res://.godot/imported/stomach-navel-out.target-927d95d27b795fb2aaa2c27ab0126084.res"]
+
+[params]
+

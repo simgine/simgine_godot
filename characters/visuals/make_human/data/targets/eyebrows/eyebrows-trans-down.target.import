@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dlpk1scftvj6g"
+path="res://.godot/imported/eyebrows-trans-down.target-a62043aa46aa31b69ccebcdc8a2908b5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyebrows/eyebrows-trans-down.target"
+dest_files=["res://.godot/imported/eyebrows-trans-down.target-a62043aa46aa31b69ccebcdc8a2908b5.res"]
+
+[params]
+

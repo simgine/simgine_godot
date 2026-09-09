@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://brvut0pxq65o3"
+path="res://.godot/imported/l-foot-scale-vert-decr.target-fee229620964faef079ebcdd2f89bed6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/feet/l-foot-scale-vert-decr.target"
+dest_files=["res://.godot/imported/l-foot-scale-vert-decr.target-fee229620964faef079ebcdd2f89bed6.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://whtlruensw7p"
+path="res://.godot/imported/r-eye-eyefold-down.target-63faa837295700c240a9c67f730f78ca.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-eyefold-down.target"
+dest_files=["res://.godot/imported/r-eye-eyefold-down.target-63faa837295700c240a9c67f730f78ca.res"]
+
+[params]
+

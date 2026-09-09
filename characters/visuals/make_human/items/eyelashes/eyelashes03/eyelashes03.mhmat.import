@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://bwumi7s8bose1"
+path="res://.godot/imported/eyelashes03.mhmat-c83314cd591a18d71484cd4fbc960d70.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/eyelashes/eyelashes03/eyelashes03.mhmat"
+dest_files=["res://.godot/imported/eyelashes03.mhmat-c83314cd591a18d71484cd4fbc960d70.res"]
+
+[params]
+

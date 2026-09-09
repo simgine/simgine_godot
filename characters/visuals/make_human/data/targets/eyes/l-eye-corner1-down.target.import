@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dg13o7t6fogqx"
+path="res://.godot/imported/l-eye-corner1-down.target-17bbd2bc3d309e7dd02bb1deafffa8ad.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/l-eye-corner1-down.target"
+dest_files=["res://.godot/imported/l-eye-corner1-down.target-17bbd2bc3d309e7dd02bb1deafffa8ad.res"]
+
+[params]
+

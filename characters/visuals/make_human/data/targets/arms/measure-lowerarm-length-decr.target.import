@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dkmui2ju22iu3"
+path="res://.godot/imported/measure-lowerarm-length-decr.target-dcfddadb88b2446e398800136b9558b6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/measure-lowerarm-length-decr.target"
+dest_files=["res://.godot/imported/measure-lowerarm-length-decr.target-dcfddadb88b2446e398800136b9558b6.res"]
+
+[params]
+

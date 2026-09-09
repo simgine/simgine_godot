@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bjwnyt74ijxpm"
+path="res://.godot/imported/chin-cleft-decr.target-5f1588082e724532ea17c031db7593f2.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/chin/chin-cleft-decr.target"
+dest_files=["res://.godot/imported/chin-cleft-decr.target-5f1588082e724532ea17c031db7593f2.res"]
+
+[params]
+

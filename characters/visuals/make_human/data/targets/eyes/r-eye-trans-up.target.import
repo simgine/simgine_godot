@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://brt6vvmsybeik"
+path="res://.godot/imported/r-eye-trans-up.target-3494fd39d3cb4c0d2dcba69dcebc7ee1.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-trans-up.target"
+dest_files=["res://.godot/imported/r-eye-trans-up.target-3494fd39d3cb4c0d2dcba69dcebc7ee1.res"]
+
+[params]
+

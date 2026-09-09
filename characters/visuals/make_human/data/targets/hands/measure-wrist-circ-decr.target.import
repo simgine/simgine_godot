@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cmb2rqnvf1idv"
+path="res://.godot/imported/measure-wrist-circ-decr.target-9fa571c95d3cdd373b8bef793c7d68eb.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hands/measure-wrist-circ-decr.target"
+dest_files=["res://.godot/imported/measure-wrist-circ-decr.target-9fa571c95d3cdd373b8bef793c7d68eb.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bck3irjn3ej16"
+path="res://.godot/imported/nose-compression-compress.target-10a5eb117929bcce2120b7f60381bc22.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-compression-compress.target"
+dest_files=["res://.godot/imported/nose-compression-compress.target-10a5eb117929bcce2120b7f60381bc22.res"]
+
+[params]
+

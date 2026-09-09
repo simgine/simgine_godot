@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d2dx6shsunk1h"
+path="res://.godot/imported/female-old-averagemuscle-minweight-averagecup-minfirmness.target-c288245c866a4f3494937769e046f34c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/female-old-averagemuscle-minweight-averagecup-minfirmness.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-minweight-averagecup-minfirmness.target-c288245c866a4f3494937769e046f34c.res"]
+
+[params]
+

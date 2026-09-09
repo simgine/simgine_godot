@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ds80h8b6hpwnm"
+path="res://.godot/imported/r-eye-height1-decr.target-32ec967b79991ca91f7b52c51c156f2c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-height1-decr.target"
+dest_files=["res://.godot/imported/r-eye-height1-decr.target-32ec967b79991ca91f7b52c51c156f2c.res"]
+
+[params]
+

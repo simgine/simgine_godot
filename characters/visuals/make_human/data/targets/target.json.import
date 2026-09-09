@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.json_importer"
+type="Resource"
+uid="uid://d26sarld4l3y"
+path="res://.godot/imported/target.json-4ee8964be4493bf2d2c87fc22695f049.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/target.json"
+dest_files=["res://.godot/imported/target.json-4ee8964be4493bf2d2c87fc22695f049.res"]
+
+[params]
+

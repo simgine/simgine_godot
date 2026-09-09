@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dm7tc7yi6u6s4"
+path="res://.godot/imported/head-scale-vert-decr.target-7c5de00bd376117a82740ff47f606976.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/head/head-scale-vert-decr.target"
+dest_files=["res://.godot/imported/head-scale-vert-decr.target-7c5de00bd376117a82740ff47f606976.res"]
+
+[params]
+

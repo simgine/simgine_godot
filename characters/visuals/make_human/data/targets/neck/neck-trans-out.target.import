@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b1ah0jlimx6hb"
+path="res://.godot/imported/neck-trans-out.target-5687cf173da1927ec87ed3c370ff0352.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/neck/neck-trans-out.target"
+dest_files=["res://.godot/imported/neck-trans-out.target-5687cf173da1927ec87ed3c370ff0352.res"]
+
+[params]
+

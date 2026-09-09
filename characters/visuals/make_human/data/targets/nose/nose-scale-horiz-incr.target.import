@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ck4jxe5slb4m5"
+path="res://.godot/imported/nose-scale-horiz-incr.target-92f8bbeb645d38d9ce5784d64cbdbae6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-scale-horiz-incr.target"
+dest_files=["res://.godot/imported/nose-scale-horiz-incr.target-92f8bbeb645d38d9ce5784d64cbdbae6.res"]
+
+[params]
+

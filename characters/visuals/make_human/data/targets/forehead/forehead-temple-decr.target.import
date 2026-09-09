@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dquxq1ue3ul43"
+path="res://.godot/imported/forehead-temple-decr.target-9d2313ed1b0254c387e4c9be973977da.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/forehead/forehead-temple-decr.target"
+dest_files=["res://.godot/imported/forehead-temple-decr.target-9d2313ed1b0254c387e4c9be973977da.res"]
+
+[params]
+

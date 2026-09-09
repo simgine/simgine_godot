@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bf2f0uiokpxa8"
+path="res://.godot/imported/female-child-maxmuscle-averageweight-uncommonproportions.target-3484405fa4bcaa5add45afc8619c3894.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/female-child-maxmuscle-averageweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-child-maxmuscle-averageweight-uncommonproportions.target-3484405fa4bcaa5add45afc8619c3894.res"]
+
+[params]
+

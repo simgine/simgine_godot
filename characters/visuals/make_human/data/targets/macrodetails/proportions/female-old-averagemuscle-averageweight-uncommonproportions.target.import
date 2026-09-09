@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dyomfv8wf3n7a"
+path="res://.godot/imported/female-old-averagemuscle-averageweight-uncommonproportions.target-46c95725a7ae5e24459d76302dbf4195.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/female-old-averagemuscle-averageweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-averageweight-uncommonproportions.target-46c95725a7ae5e24459d76302dbf4195.res"]
+
+[params]
+

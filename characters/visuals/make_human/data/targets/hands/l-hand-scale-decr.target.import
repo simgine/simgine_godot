@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://clpfkcs4mj2lm"
+path="res://.godot/imported/l-hand-scale-decr.target-3354613fb4aa4f2b2f1443f26348c246.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hands/l-hand-scale-decr.target"
+dest_files=["res://.godot/imported/l-hand-scale-decr.target-3354613fb4aa4f2b2f1443f26348c246.res"]
+
+[params]
+

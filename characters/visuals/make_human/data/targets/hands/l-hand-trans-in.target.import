@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dhm8xeqjo4l1n"
+path="res://.godot/imported/l-hand-trans-in.target-d90c76471b06e482d13ead74e30687dc.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hands/l-hand-trans-in.target"
+dest_files=["res://.godot/imported/l-hand-trans-in.target-d90c76471b06e482d13ead74e30687dc.res"]
+
+[params]
+

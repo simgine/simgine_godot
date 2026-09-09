@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c4v0j1offsrrm"
+path="res://.godot/imported/universal-female-child-averagemuscle-maxweight.target-2ac7e7a8cc8f9e1296ab531b7298af39.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-female-child-averagemuscle-maxweight.target"
+dest_files=["res://.godot/imported/universal-female-child-averagemuscle-maxweight.target-2ac7e7a8cc8f9e1296ab531b7298af39.res"]
+
+[params]
+

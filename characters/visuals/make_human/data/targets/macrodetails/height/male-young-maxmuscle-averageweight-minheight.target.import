@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://skqolfgwb5yf"
+path="res://.godot/imported/male-young-maxmuscle-averageweight-minheight.target-ea0658ad1a4e024c7e7af4067eff304c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/male-young-maxmuscle-averageweight-minheight.target"
+dest_files=["res://.godot/imported/male-young-maxmuscle-averageweight-minheight.target-ea0658ad1a4e024c7e7af4067eff304c.res"]
+
+[params]
+

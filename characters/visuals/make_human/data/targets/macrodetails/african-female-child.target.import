@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://byqxc074qbb0y"
+path="res://.godot/imported/african-female-child.target-00a02dfd90a83f37bfc5a0d2e195d15c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/african-female-child.target"
+dest_files=["res://.godot/imported/african-female-child.target-00a02dfd90a83f37bfc5a0d2e195d15c.res"]
+
+[params]
+

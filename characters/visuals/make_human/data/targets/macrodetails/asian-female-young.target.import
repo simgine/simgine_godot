@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bd6gyykf841b6"
+path="res://.godot/imported/asian-female-young.target-fb28c58e119a93647cc0aa8db646b0fe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/asian-female-young.target"
+dest_files=["res://.godot/imported/asian-female-young.target-fb28c58e119a93647cc0aa8db646b0fe.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://di6vpoa0fh4hg"
+path="res://.godot/imported/forehead-trans-backward.target-2ab44132e2cb9fbab88fd8459b07a9f7.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/forehead/forehead-trans-backward.target"
+dest_files=["res://.godot/imported/forehead-trans-backward.target-2ab44132e2cb9fbab88fd8459b07a9f7.res"]
+
+[params]
+

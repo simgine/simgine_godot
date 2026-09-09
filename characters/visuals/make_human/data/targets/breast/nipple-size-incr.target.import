@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b0npw1layykqx"
+path="res://.godot/imported/nipple-size-incr.target-a15d4328bdca85ab4c02aaaaa3174329.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/nipple-size-incr.target"
+dest_files=["res://.godot/imported/nipple-size-incr.target-a15d4328bdca85ab4c02aaaaa3174329.res"]
+
+[params]
+

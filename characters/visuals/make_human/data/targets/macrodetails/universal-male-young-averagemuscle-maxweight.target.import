@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cwsv00iqr7ofx"
+path="res://.godot/imported/universal-male-young-averagemuscle-maxweight.target-8df4b25faef67d4f9568853f37293ae2.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-male-young-averagemuscle-maxweight.target"
+dest_files=["res://.godot/imported/universal-male-young-averagemuscle-maxweight.target-8df4b25faef67d4f9568853f37293ae2.res"]
+
+[params]
+

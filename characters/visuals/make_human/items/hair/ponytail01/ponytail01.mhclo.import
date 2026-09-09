@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://dr8ghylhf60k6"
+path="res://.godot/imported/ponytail01.mhclo-5cb0bac7d4bc6027e7987780f353359d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/hair/ponytail01/ponytail01.mhclo"
+dest_files=["res://.godot/imported/ponytail01.mhclo-5cb0bac7d4bc6027e7987780f353359d.res"]
+
+[params]
+

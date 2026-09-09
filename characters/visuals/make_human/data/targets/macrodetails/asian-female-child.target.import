@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://rdobdv5i883d"
+path="res://.godot/imported/asian-female-child.target-6ccf6956e084b6c2c47b20fa50aace3c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/asian-female-child.target"
+dest_files=["res://.godot/imported/asian-female-child.target-6ccf6956e084b6c2c47b20fa50aace3c.res"]
+
+[params]
+

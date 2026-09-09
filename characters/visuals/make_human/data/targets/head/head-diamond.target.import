@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dgxfhugwy5psq"
+path="res://.godot/imported/head-diamond.target-d05c00a4360dea78626772e6195301fe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/head/head-diamond.target"
+dest_files=["res://.godot/imported/head-diamond.target-d05c00a4360dea78626772e6195301fe.res"]
+
+[params]
+

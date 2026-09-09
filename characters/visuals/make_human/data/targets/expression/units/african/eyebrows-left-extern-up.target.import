@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://chrrfn1xrik75"
+path="res://.godot/imported/eyebrows-left-extern-up.target-02ff651ba6c7b9d33b7f92fc52e668d2.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/eyebrows-left-extern-up.target"
+dest_files=["res://.godot/imported/eyebrows-left-extern-up.target-02ff651ba6c7b9d33b7f92fc52e668d2.res"]
+
+[params]
+

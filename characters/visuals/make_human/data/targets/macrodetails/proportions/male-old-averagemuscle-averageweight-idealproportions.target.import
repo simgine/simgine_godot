@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://fc0slvajhpca"
+path="res://.godot/imported/male-old-averagemuscle-averageweight-idealproportions.target-be37ad342c7a358df968e669f660c524.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/male-old-averagemuscle-averageweight-idealproportions.target"
+dest_files=["res://.godot/imported/male-old-averagemuscle-averageweight-idealproportions.target-be37ad342c7a358df968e669f660c524.res"]
+
+[params]
+

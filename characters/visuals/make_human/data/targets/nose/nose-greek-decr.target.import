@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://xowwapdus5ob"
+path="res://.godot/imported/nose-greek-decr.target-02da7ca0916227fadbea939412b25f3c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-greek-decr.target"
+dest_files=["res://.godot/imported/nose-greek-decr.target-02da7ca0916227fadbea939412b25f3c.res"]
+
+[params]
+

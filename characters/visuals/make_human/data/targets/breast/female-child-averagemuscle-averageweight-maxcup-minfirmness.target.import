@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://p27sr60thoyu"
+path="res://.godot/imported/female-child-averagemuscle-averageweight-maxcup-minfirmness.target-7598c3842ac76b4ad44b9d1b1ecc131b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/female-child-averagemuscle-averageweight-maxcup-minfirmness.target"
+dest_files=["res://.godot/imported/female-child-averagemuscle-averageweight-maxcup-minfirmness.target-7598c3842ac76b4ad44b9d1b1ecc131b.res"]
+
+[params]
+

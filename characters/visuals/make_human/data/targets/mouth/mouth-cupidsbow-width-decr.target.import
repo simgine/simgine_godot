@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bhiebb2bb6wki"
+path="res://.godot/imported/mouth-cupidsbow-width-decr.target-4fd93fc99929f9325636f3f5a06570f9.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-cupidsbow-width-decr.target"
+dest_files=["res://.godot/imported/mouth-cupidsbow-width-decr.target-4fd93fc99929f9325636f3f5a06570f9.res"]
+
+[params]
+

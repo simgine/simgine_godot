@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b1glqagywfo3h"
+path="res://.godot/imported/mouth-protusion.target-0a7c2b41998de3d1383d45837b4c1df9.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/asian/mouth-protusion.target"
+dest_files=["res://.godot/imported/mouth-protusion.target-0a7c2b41998de3d1383d45837b4c1df9.res"]
+
+[params]
+

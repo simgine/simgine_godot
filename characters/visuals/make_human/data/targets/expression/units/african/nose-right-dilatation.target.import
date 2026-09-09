@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://nh2el2outrt3"
+path="res://.godot/imported/nose-right-dilatation.target-72f6f5d5aef6b622a84c68e38960bbd3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/nose-right-dilatation.target"
+dest_files=["res://.godot/imported/nose-right-dilatation.target-72f6f5d5aef6b622a84c68e38960bbd3.res"]
+
+[params]
+

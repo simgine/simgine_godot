@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://5smy8mvmlf5o"
+path="res://.godot/imported/male-young-minmuscle-minweight-minheight.target-9f549b411c833a1bf7314d9d05dc4622.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/male-young-minmuscle-minweight-minheight.target"
+dest_files=["res://.godot/imported/male-young-minmuscle-minweight-minheight.target-9f549b411c833a1bf7314d9d05dc4622.res"]
+
+[params]
+

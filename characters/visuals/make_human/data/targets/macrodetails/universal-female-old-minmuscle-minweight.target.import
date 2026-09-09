@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://blt1n1ddy5iuh"
+path="res://.godot/imported/universal-female-old-minmuscle-minweight.target-3b5613616ea28bf5299ca190be160f2b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-female-old-minmuscle-minweight.target"
+dest_files=["res://.godot/imported/universal-female-old-minmuscle-minweight.target-3b5613616ea28bf5299ca190be160f2b.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://kco2twj5qecc"
+path="res://.godot/imported/breast-dist-decr.target-74fa14f7c7ae7f2b15fd99c10c1dd77d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/breast-dist-decr.target"
+dest_files=["res://.godot/imported/breast-dist-decr.target-74fa14f7c7ae7f2b15fd99c10c1dd77d.res"]
+
+[params]
+

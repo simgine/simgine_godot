@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://7ex7byt833dw"
+path="res://.godot/imported/mouth-compression.target-c7dfb7a8b4c9a83101f38c46388d99b7.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/asian/mouth-compression.target"
+dest_files=["res://.godot/imported/mouth-compression.target-c7dfb7a8b4c9a83101f38c46388d99b7.res"]
+
+[params]
+

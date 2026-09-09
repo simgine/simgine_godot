@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dfftr030qydxq"
+path="res://.godot/imported/measure-ankle-circ-incr.target-0bad52176a6ac3578b0fd0de2a661fc5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/feet/measure-ankle-circ-incr.target"
+dest_files=["res://.godot/imported/measure-ankle-circ-incr.target-0bad52176a6ac3578b0fd0de2a661fc5.res"]
+
+[params]
+

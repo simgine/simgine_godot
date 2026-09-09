@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c26oc0m5jvx61"
+path="res://.godot/imported/caucasian-female-baby.target-8daa6f725d07196c39909c6f08c78a72.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/caucasian-female-baby.target"
+dest_files=["res://.godot/imported/caucasian-female-baby.target-8daa6f725d07196c39909c6f08c78a72.res"]
+
+[params]
+

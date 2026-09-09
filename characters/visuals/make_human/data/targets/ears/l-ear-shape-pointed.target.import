@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dr6xnw30f2feo"
+path="res://.godot/imported/l-ear-shape-pointed.target-208b23d19d44439c0d12fb94cdbbe949.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/ears/l-ear-shape-pointed.target"
+dest_files=["res://.godot/imported/l-ear-shape-pointed.target-208b23d19d44439c0d12fb94cdbbe949.res"]
+
+[params]
+

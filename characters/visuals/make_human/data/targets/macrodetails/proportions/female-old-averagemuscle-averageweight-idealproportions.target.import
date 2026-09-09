@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dpgpqbsp728gq"
+path="res://.godot/imported/female-old-averagemuscle-averageweight-idealproportions.target-b01868b4fbe3094dfe4db49a1bc0aa13.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/female-old-averagemuscle-averageweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-averageweight-idealproportions.target-b01868b4fbe3094dfe4db49a1bc0aa13.res"]
+
+[params]
+

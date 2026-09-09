@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://wexr8y41m0qf"
+path="res://.godot/imported/bulge-incr.target-d6c0d4d1df431a0a0b488fa36ed1e405.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/pelvis/bulge-incr.target"
+dest_files=["res://.godot/imported/bulge-incr.target-d6c0d4d1df431a0a0b488fa36ed1e405.res"]
+
+[params]
+

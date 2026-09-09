@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bxkwftufy1ujo"
+path="res://.godot/imported/measure-ankle-circ-decr.target-e416ddfcc988f5302cec393b5367b84a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/feet/measure-ankle-circ-decr.target"
+dest_files=["res://.godot/imported/measure-ankle-circ-decr.target-e416ddfcc988f5302cec393b5367b84a.res"]
+
+[params]
+

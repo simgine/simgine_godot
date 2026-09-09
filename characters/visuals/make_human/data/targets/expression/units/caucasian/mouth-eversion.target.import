@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bu1b0ki5s1oco"
+path="res://.godot/imported/mouth-eversion.target-065e960cdd969e7d80feccafb55d956c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/caucasian/mouth-eversion.target"
+dest_files=["res://.godot/imported/mouth-eversion.target-065e960cdd969e7d80feccafb55d956c.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://pqm1h6f14vcy"
+path="res://.godot/imported/asym-jaw-1-l.target-b0a81226b0f87c0c5abe4181b3a14a13.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/asym/asym-jaw-1-l.target"
+dest_files=["res://.godot/imported/asym-jaw-1-l.target-b0a81226b0f87c0c5abe4181b3a14a13.res"]
+
+[params]
+

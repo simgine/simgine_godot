@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d17u6jeasnfa3"
+path="res://.godot/imported/eye-left-opened-up.target-157b56621f2c30199147517701d03c08.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/eye-left-opened-up.target"
+dest_files=["res://.godot/imported/eye-left-opened-up.target-157b56621f2c30199147517701d03c08.res"]
+
+[params]
+

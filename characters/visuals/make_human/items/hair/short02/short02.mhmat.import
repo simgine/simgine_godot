@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://2e8kdijcuqcn"
+path="res://.godot/imported/short02.mhmat-003fafff5c9882b5220f577fd7132987.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/hair/short02/short02.mhmat"
+dest_files=["res://.godot/imported/short02.mhmat-003fafff5c9882b5220f577fd7132987.res"]
+
+[params]
+

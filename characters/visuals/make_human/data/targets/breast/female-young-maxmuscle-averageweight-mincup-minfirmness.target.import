@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b77a5gg21afur"
+path="res://.godot/imported/female-young-maxmuscle-averageweight-mincup-minfirmness.target-9b668f1a94154bb93cfd6653161e29e8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/female-young-maxmuscle-averageweight-mincup-minfirmness.target"
+dest_files=["res://.godot/imported/female-young-maxmuscle-averageweight-mincup-minfirmness.target-9b668f1a94154bb93cfd6653161e29e8.res"]
+
+[params]
+

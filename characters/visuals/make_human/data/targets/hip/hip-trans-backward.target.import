@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://htm1ws030si5"
+path="res://.godot/imported/hip-trans-backward.target-ff4af06b4cbbd13cbff05f98ff054150.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hip/hip-trans-backward.target"
+dest_files=["res://.godot/imported/hip-trans-backward.target-ff4af06b4cbbd13cbff05f98ff054150.res"]
+
+[params]
+

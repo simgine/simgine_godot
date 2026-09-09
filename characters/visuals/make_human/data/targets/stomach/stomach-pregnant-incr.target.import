@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d0dbggglhaf61"
+path="res://.godot/imported/stomach-pregnant-incr.target-a03cd36ad196c6e5abf5443bdef8c154.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/stomach/stomach-pregnant-incr.target"
+dest_files=["res://.godot/imported/stomach-pregnant-incr.target-a03cd36ad196c6e5abf5443bdef8c154.res"]
+
+[params]
+

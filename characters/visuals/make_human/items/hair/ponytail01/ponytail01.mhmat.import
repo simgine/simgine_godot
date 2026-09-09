@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://bt6ls5qjugdw7"
+path="res://.godot/imported/ponytail01.mhmat-f8f03c5030edfa165632ff45f4f7a951.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/hair/ponytail01/ponytail01.mhmat"
+dest_files=["res://.godot/imported/ponytail01.mhmat-f8f03c5030edfa165632ff45f4f7a951.res"]
+
+[params]
+

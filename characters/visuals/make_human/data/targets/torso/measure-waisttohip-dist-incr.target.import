@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dyvsgg8y26bpm"
+path="res://.godot/imported/measure-waisttohip-dist-incr.target-591c3f83dfe6030e914a90bc1a0f5853.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/measure-waisttohip-dist-incr.target"
+dest_files=["res://.godot/imported/measure-waisttohip-dist-incr.target-591c3f83dfe6030e914a90bc1a0f5853.res"]
+
+[params]
+

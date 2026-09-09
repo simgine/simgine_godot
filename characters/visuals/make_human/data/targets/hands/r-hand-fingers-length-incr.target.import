@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://wui3ftcs1163"
+path="res://.godot/imported/r-hand-fingers-length-incr.target-e8d8d6e981a77c49f06b075595ada0c6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hands/r-hand-fingers-length-incr.target"
+dest_files=["res://.godot/imported/r-hand-fingers-length-incr.target-e8d8d6e981a77c49f06b075595ada0c6.res"]
+
+[params]
+

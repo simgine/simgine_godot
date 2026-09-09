@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cl1lcvwruke2r"
+path="res://.godot/imported/measure-upperarm-circ-incr.target-21aead104979e405930ef95691cab6b8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/measure-upperarm-circ-incr.target"
+dest_files=["res://.godot/imported/measure-upperarm-circ-incr.target-21aead104979e405930ef95691cab6b8.res"]
+
+[params]
+

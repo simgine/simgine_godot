@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://fn0a38vn31j5"
+path="res://.godot/imported/measure-shoulder-dist-incr.target-5c2320ebe92edc3ea9a1b8712a0e7c37.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/measure-shoulder-dist-incr.target"
+dest_files=["res://.godot/imported/measure-shoulder-dist-incr.target-5c2320ebe92edc3ea9a1b8712a0e7c37.res"]
+
+[params]
+

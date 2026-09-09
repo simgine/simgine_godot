@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bkwd0omkelvwd"
+path="res://.godot/imported/mouth-depression-retraction.target-919ea13fce6987bfe3a93c77549539ad.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/mouth-depression-retraction.target"
+dest_files=["res://.godot/imported/mouth-depression-retraction.target-919ea13fce6987bfe3a93c77549539ad.res"]
+
+[params]
+

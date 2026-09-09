@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://csvk0c4cpqvje"
+path="res://.godot/imported/measure-waist-circ-incr.target-003a14e6091ff9634752ccdd4f76dd50.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/measure-waist-circ-incr.target"
+dest_files=["res://.godot/imported/measure-waist-circ-incr.target-003a14e6091ff9634752ccdd4f76dd50.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cl23mhiy007p1"
+path="res://.godot/imported/mouth-depression.target-bfa0fb067ead93e01b217f8d24d0217a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/mouth-depression.target"
+dest_files=["res://.godot/imported/mouth-depression.target-bfa0fb067ead93e01b217f8d24d0217a.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://boadctwf5yvm5"
+path="res://.godot/imported/nose-width3-incr.target-8cb2bf2cdc6eea2630138c6872eed2fe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-width3-incr.target"
+dest_files=["res://.godot/imported/nose-width3-incr.target-8cb2bf2cdc6eea2630138c6872eed2fe.res"]
+
+[params]
+

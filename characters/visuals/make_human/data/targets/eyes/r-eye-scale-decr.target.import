@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bls1uonnjx3a5"
+path="res://.godot/imported/r-eye-scale-decr.target-ad62bba0082d62d92bdde2c35228b786.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-scale-decr.target"
+dest_files=["res://.godot/imported/r-eye-scale-decr.target-ad62bba0082d62d92bdde2c35228b786.res"]
+
+[params]
+

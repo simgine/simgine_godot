@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b1ksgpw54pj3l"
+path="res://.godot/imported/male-child-minmuscle-averageweight-uncommonproportions.target-b09ca4bbd7d1bdc807709b21e9ed4aa7.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/male-child-minmuscle-averageweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/male-child-minmuscle-averageweight-uncommonproportions.target-b09ca4bbd7d1bdc807709b21e9ed4aa7.res"]
+
+[params]
+

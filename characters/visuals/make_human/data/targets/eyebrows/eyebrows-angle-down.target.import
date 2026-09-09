@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cqgdt5mcuk0au"
+path="res://.godot/imported/eyebrows-angle-down.target-dc1facb78b2c9f56b9293433684932dd.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyebrows/eyebrows-angle-down.target"
+dest_files=["res://.godot/imported/eyebrows-angle-down.target-dc1facb78b2c9f56b9293433684932dd.res"]
+
+[params]
+

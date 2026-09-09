@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cfq5p7wkqly6n"
+path="res://.godot/imported/female-baby-averagemuscle-maxweight-maxheight.target-700213cec8a4f6311f5d78667ac2568e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/female-baby-averagemuscle-maxweight-maxheight.target"
+dest_files=["res://.godot/imported/female-baby-averagemuscle-maxweight-maxheight.target-700213cec8a4f6311f5d78667ac2568e.res"]
+
+[params]
+

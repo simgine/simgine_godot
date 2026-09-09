@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bixwhcloayvxu"
+path="res://.godot/imported/eye-left-closure.target-7952906d276e536be713da7c4ea4b5cc.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/asian/eye-left-closure.target"
+dest_files=["res://.godot/imported/eye-left-closure.target-7952906d276e536be713da7c4ea4b5cc.res"]
+
+[params]
+

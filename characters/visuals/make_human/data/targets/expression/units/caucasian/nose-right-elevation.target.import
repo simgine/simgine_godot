@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dcy83hvm3xfq5"
+path="res://.godot/imported/nose-right-elevation.target-128991aa6abc2506ae6c88107f725514.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/caucasian/nose-right-elevation.target"
+dest_files=["res://.godot/imported/nose-right-elevation.target-128991aa6abc2506ae6c88107f725514.res"]
+
+[params]
+

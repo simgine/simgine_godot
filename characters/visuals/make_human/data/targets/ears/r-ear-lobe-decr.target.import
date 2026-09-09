@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bh2nkgcwwm121"
+path="res://.godot/imported/r-ear-lobe-decr.target-7145cd15e66576c96c7d6d656444c20b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/ears/r-ear-lobe-decr.target"
+dest_files=["res://.godot/imported/r-ear-lobe-decr.target-7145cd15e66576c96c7d6d656444c20b.res"]
+
+[params]
+

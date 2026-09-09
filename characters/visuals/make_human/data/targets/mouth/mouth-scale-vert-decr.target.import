@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cjr88vax1j5do"
+path="res://.godot/imported/mouth-scale-vert-decr.target-69c22519063526cf3ba22ee13790b521.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-scale-vert-decr.target"
+dest_files=["res://.godot/imported/mouth-scale-vert-decr.target-69c22519063526cf3ba22ee13790b521.res"]
+
+[params]
+

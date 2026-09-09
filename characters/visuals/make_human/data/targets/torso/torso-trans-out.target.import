@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c3g4p6wnslcpk"
+path="res://.godot/imported/torso-trans-out.target-51b301ba8db7e9bf359471d519481ae0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/torso-trans-out.target"
+dest_files=["res://.godot/imported/torso-trans-out.target-51b301ba8db7e9bf359471d519481ae0.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ewuh5txfbtc6"
+path="res://.godot/imported/l-ear-trans-backward.target-879e3808616b3c15ae36d7e00b2c6e69.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/ears/l-ear-trans-backward.target"
+dest_files=["res://.godot/imported/l-ear-trans-backward.target-879e3808616b3c15ae36d7e00b2c6e69.res"]
+
+[params]
+

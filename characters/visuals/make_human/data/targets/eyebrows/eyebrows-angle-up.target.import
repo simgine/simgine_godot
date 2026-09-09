@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://eslrd74e43f7"
+path="res://.godot/imported/eyebrows-angle-up.target-3778a987f6d5fdd9dc3021f937780f35.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyebrows/eyebrows-angle-up.target"
+dest_files=["res://.godot/imported/eyebrows-angle-up.target-3778a987f6d5fdd9dc3021f937780f35.res"]
+
+[params]
+

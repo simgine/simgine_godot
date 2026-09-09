@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://4d4bg13jhqvn"
+path="res://.godot/imported/nose-nostrils-angle-down.target-25f218fded049bdc250d94e9c609c53d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-nostrils-angle-down.target"
+dest_files=["res://.godot/imported/nose-nostrils-angle-down.target-25f218fded049bdc250d94e9c609c53d.res"]
+
+[params]
+

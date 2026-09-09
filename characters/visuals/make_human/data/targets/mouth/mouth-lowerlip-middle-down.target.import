@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dswju824t2pmk"
+path="res://.godot/imported/mouth-lowerlip-middle-down.target-0b4bd0e057f31ebb41f8cb6d50855cfe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-lowerlip-middle-down.target"
+dest_files=["res://.godot/imported/mouth-lowerlip-middle-down.target-0b4bd0e057f31ebb41f8cb6d50855cfe.res"]
+
+[params]
+

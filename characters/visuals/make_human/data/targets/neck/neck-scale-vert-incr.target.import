@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cdysp874mhhxj"
+path="res://.godot/imported/neck-scale-vert-incr.target-62f601d794d145fc006fa73e73e51e22.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/neck/neck-scale-vert-incr.target"
+dest_files=["res://.godot/imported/neck-scale-vert-incr.target-62f601d794d145fc006fa73e73e51e22.res"]
+
+[params]
+

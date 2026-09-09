@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cqsegr34owvst"
+path="res://.godot/imported/universal-female-child-minmuscle-maxweight.target-640dd9e086e6221ca4f9e262126d7b0d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-female-child-minmuscle-maxweight.target"
+dest_files=["res://.godot/imported/universal-female-child-minmuscle-maxweight.target-640dd9e086e6221ca4f9e262126d7b0d.res"]
+
+[params]
+

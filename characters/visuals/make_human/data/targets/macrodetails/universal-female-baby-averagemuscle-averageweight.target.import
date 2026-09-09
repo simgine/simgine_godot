@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dpjaa0o6v7h0u"
+path="res://.godot/imported/universal-female-baby-averagemuscle-averageweight.target-b3ece5d31b6eaba99ab9e08c4a16f99b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-female-baby-averagemuscle-averageweight.target"
+dest_files=["res://.godot/imported/universal-female-baby-averagemuscle-averageweight.target-b3ece5d31b6eaba99ab9e08c4a16f99b.res"]
+
+[params]
+

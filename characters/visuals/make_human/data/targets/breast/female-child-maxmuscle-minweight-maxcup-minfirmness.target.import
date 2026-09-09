@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bumn4yw1roayc"
+path="res://.godot/imported/female-child-maxmuscle-minweight-maxcup-minfirmness.target-7275f2d57db773eddcf20b805060fa5d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/female-child-maxmuscle-minweight-maxcup-minfirmness.target"
+dest_files=["res://.godot/imported/female-child-maxmuscle-minweight-maxcup-minfirmness.target-7275f2d57db773eddcf20b805060fa5d.res"]
+
+[params]
+

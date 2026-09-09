@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cau0dmnoe5k7l"
+path="res://.godot/imported/female-child-minmuscle-minweight-uncommonproportions.target-fb8c6d5cb06391b7208fc5df1575dc4b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/female-child-minmuscle-minweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/female-child-minmuscle-minweight-uncommonproportions.target-fb8c6d5cb06391b7208fc5df1575dc4b.res"]
+
+[params]
+

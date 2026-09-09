@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://67t8wyecnubx"
+path="res://.godot/imported/l-cheek-bones-decr.target-101bc18054f4103251ea2321fe95edd9.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/cheek/l-cheek-bones-decr.target"
+dest_files=["res://.godot/imported/l-cheek-bones-decr.target-101bc18054f4103251ea2321fe95edd9.res"]
+
+[params]
+

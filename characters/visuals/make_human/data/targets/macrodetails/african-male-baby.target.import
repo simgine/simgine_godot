@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b2d24d52wxx3h"
+path="res://.godot/imported/african-male-baby.target-d36253ebf03dee425a22565e5ba54ada.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/african-male-baby.target"
+dest_files=["res://.godot/imported/african-male-baby.target-d36253ebf03dee425a22565e5ba54ada.res"]
+
+[params]
+

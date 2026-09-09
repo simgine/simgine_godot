@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cu6i6rl7k2lla"
+path="res://.godot/imported/r-eye-eyefold-angle-down.target-d2f3fa7e682eea7022026834841f7425.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-eyefold-angle-down.target"
+dest_files=["res://.godot/imported/r-eye-eyefold-angle-down.target-d2f3fa7e682eea7022026834841f7425.res"]
+
+[params]
+

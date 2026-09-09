@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cwekobxtb2yqf"
+path="res://.godot/imported/r-foot-trans-backward.target-0d7749cda86375ec618e68b254bc2c9f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/feet/r-foot-trans-backward.target"
+dest_files=["res://.godot/imported/r-foot-trans-backward.target-0d7749cda86375ec618e68b254bc2c9f.res"]
+
+[params]
+

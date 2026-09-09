@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://r7erjbcjted0"
+path="res://.godot/imported/mouth-lowerlip-width-decr.target-656244a56e5189ba4cc7d9231631f370.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-lowerlip-width-decr.target"
+dest_files=["res://.godot/imported/mouth-lowerlip-width-decr.target-656244a56e5189ba4cc7d9231631f370.res"]
+
+[params]
+

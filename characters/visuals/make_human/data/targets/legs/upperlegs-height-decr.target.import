@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c18ykngfvlje"
+path="res://.godot/imported/upperlegs-height-decr.target-896c708a74575906426eaf704230f3ff.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/legs/upperlegs-height-decr.target"
+dest_files=["res://.godot/imported/upperlegs-height-decr.target-896c708a74575906426eaf704230f3ff.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://crgaunr56xnlh"
+path="res://.godot/imported/l-eye-height3-incr.target-032b1049c3be3e0995f03c6f200d0686.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/l-eye-height3-incr.target"
+dest_files=["res://.godot/imported/l-eye-height3-incr.target-032b1049c3be3e0995f03c6f200d0686.res"]
+
+[params]
+

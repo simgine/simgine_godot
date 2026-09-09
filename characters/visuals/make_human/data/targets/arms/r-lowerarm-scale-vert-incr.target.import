@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cu4113yqlq8cp"
+path="res://.godot/imported/r-lowerarm-scale-vert-incr.target-ed1befbc61f6f498a7bb97a863e97549.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/r-lowerarm-scale-vert-incr.target"
+dest_files=["res://.godot/imported/r-lowerarm-scale-vert-incr.target-ed1befbc61f6f498a7bb97a863e97549.res"]
+
+[params]
+

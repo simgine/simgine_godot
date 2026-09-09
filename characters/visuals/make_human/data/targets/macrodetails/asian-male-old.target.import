@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://w8035i8bb6h7"
+path="res://.godot/imported/asian-male-old.target-997fc49282256c145dd96e6b64cc7740.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/asian-male-old.target"
+dest_files=["res://.godot/imported/asian-male-old.target-997fc49282256c145dd96e6b64cc7740.res"]
+
+[params]
+

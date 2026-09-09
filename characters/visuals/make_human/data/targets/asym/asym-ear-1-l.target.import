@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dn7v5nc5ymwwx"
+path="res://.godot/imported/asym-ear-1-l.target-d5a7ab844ac96d6ab0b445c882c5c67c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/asym/asym-ear-1-l.target"
+dest_files=["res://.godot/imported/asym-ear-1-l.target-d5a7ab844ac96d6ab0b445c882c5c67c.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bejp26dqyd2gs"
+path="res://.godot/imported/r-ear-scale-incr.target-69075cab3dac6670a89179c15181b7e5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/ears/r-ear-scale-incr.target"
+dest_files=["res://.godot/imported/r-ear-scale-incr.target-69075cab3dac6670a89179c15181b7e5.res"]
+
+[params]
+

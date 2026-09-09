@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b0n3g5xk5l56r"
+path="res://.godot/imported/measure-thigh-circ-decr.target-c5c5a131434c13c0c51229d4f1f12e40.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/legs/measure-thigh-circ-decr.target"
+dest_files=["res://.godot/imported/measure-thigh-circ-decr.target-c5c5a131434c13c0c51229d4f1f12e40.res"]
+
+[params]
+

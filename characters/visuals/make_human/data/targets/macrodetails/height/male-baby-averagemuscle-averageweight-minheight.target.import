@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cdp87gqjqje0j"
+path="res://.godot/imported/male-baby-averagemuscle-averageweight-minheight.target-f31a6977cf3ae592cbacd2b35a2eeb8c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/male-baby-averagemuscle-averageweight-minheight.target"
+dest_files=["res://.godot/imported/male-baby-averagemuscle-averageweight-minheight.target-f31a6977cf3ae592cbacd2b35a2eeb8c.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://crl0tl2ylhqt8"
+path="res://.godot/imported/mouth-dimples-in.target-2d58683e6c8169cfd044c9db50ba2fc0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-dimples-in.target"
+dest_files=["res://.godot/imported/mouth-dimples-in.target-2d58683e6c8169cfd044c9db50ba2fc0.res"]
+
+[params]
+

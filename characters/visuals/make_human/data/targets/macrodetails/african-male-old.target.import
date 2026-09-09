@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c5a51dhxc4vkw"
+path="res://.godot/imported/african-male-old.target-f3c6f23df9a3c720e611e71ae72f70fd.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/african-male-old.target"
+dest_files=["res://.godot/imported/african-male-old.target-f3c6f23df9a3c720e611e71ae72f70fd.res"]
+
+[params]
+

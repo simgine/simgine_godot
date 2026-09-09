@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d4aven60ojvtj"
+path="res://.godot/imported/measure-frontchest-dist-incr.target-0d9fd769ef4a961df75ed3e9485b47b3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/measure-frontchest-dist-incr.target"
+dest_files=["res://.godot/imported/measure-frontchest-dist-incr.target-0d9fd769ef4a961df75ed3e9485b47b3.res"]
+
+[params]
+

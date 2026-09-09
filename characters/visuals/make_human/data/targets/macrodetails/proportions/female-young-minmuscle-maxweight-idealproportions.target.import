@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://qdbmyydqhqlx"
+path="res://.godot/imported/female-young-minmuscle-maxweight-idealproportions.target-f9f39c4b3f41bee669992092f525b6fe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/female-young-minmuscle-maxweight-idealproportions.target"
+dest_files=["res://.godot/imported/female-young-minmuscle-maxweight-idealproportions.target-f9f39c4b3f41bee669992092f525b6fe.res"]
+
+[params]
+

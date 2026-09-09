@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cw067jrd41m62"
+path="res://.godot/imported/r-upperarm-scale-vert-decr.target-b3869a4e5c185a9ddf5e4258361fb7c6.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/r-upperarm-scale-vert-decr.target"
+dest_files=["res://.godot/imported/r-upperarm-scale-vert-decr.target-b3869a4e5c185a9ddf5e4258361fb7c6.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://2cei7bruq0m1"
+path="res://.godot/imported/r-lowerarm-fat-incr.target-509368046b4951f4f899e3ae801a4dd5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/r-lowerarm-fat-incr.target"
+dest_files=["res://.godot/imported/r-lowerarm-fat-incr.target-509368046b4951f4f899e3ae801a4dd5.res"]
+
+[params]
+

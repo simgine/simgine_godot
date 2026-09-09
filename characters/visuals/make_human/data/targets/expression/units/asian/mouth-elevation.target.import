@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bnf6rxg5r6knj"
+path="res://.godot/imported/mouth-elevation.target-752dcb06dfdd01c0685f49588db33df3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/asian/mouth-elevation.target"
+dest_files=["res://.godot/imported/mouth-elevation.target-752dcb06dfdd01c0685f49588db33df3.res"]
+
+[params]
+

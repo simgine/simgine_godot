@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bhlyypgbmi2h0"
+path="res://.godot/imported/breast-point-incr.target-261e535e3972bd5ad93ce60bd0706558.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/breast-point-incr.target"
+dest_files=["res://.godot/imported/breast-point-incr.target-261e535e3972bd5ad93ce60bd0706558.res"]
+
+[params]
+

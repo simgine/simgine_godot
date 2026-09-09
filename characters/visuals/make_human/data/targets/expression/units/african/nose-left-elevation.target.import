@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://wvtumlt7rn2y"
+path="res://.godot/imported/nose-left-elevation.target-a3e17b6fffd56328dd8c0eaf68164e01.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/african/nose-left-elevation.target"
+dest_files=["res://.godot/imported/nose-left-elevation.target-a3e17b6fffd56328dd8c0eaf68164e01.res"]
+
+[params]
+

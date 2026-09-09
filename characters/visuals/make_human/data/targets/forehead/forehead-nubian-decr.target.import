@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://b1o45utphidej"
+path="res://.godot/imported/forehead-nubian-decr.target-8790ef9884d4a57a06ea5974666557cb.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/forehead/forehead-nubian-decr.target"
+dest_files=["res://.godot/imported/forehead-nubian-decr.target-8790ef9884d4a57a06ea5974666557cb.res"]
+
+[params]
+

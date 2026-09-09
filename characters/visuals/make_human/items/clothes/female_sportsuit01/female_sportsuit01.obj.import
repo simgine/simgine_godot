@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://e6jham8s4yp1"
+path="res://.godot/imported/female_sportsuit01.obj-1582d5bdfc621a4dfee8e36418bab9ef.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/clothes/female_sportsuit01/female_sportsuit01.obj"
+dest_files=["res://.godot/imported/female_sportsuit01.obj-1582d5bdfc621a4dfee8e36418bab9ef.res"]
+
+[params]
+

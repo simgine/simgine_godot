@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://chtnkg8mweq5k"
+path="res://.godot/imported/r-eye-eyefold-concave.target-325751e8b5b5b6fbb8c16a1e6100fe8c.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-eyefold-concave.target"
+dest_files=["res://.godot/imported/r-eye-eyefold-concave.target-325751e8b5b5b6fbb8c16a1e6100fe8c.res"]
+
+[params]
+

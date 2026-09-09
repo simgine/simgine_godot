@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ch6qlagblixdi"
+path="res://.godot/imported/male-old-maxmuscle-minweight-minheight.target-2e3cca6aa8bc2effd82886a5f883dfe0.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/male-old-maxmuscle-minweight-minheight.target"
+dest_files=["res://.godot/imported/male-old-maxmuscle-minweight-minheight.target-2e3cca6aa8bc2effd82886a5f883dfe0.res"]
+
+[params]
+

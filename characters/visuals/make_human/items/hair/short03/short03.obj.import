@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.obj_importer"
+type="Resource"
+uid="uid://1n0o4e6vwsea"
+path="res://.godot/imported/short03.obj-18063ba799eea9f6d9ba5161aad51790.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/hair/short03/short03.obj"
+dest_files=["res://.godot/imported/short03.obj-18063ba799eea9f6d9ba5161aad51790.res"]
+
+[params]
+

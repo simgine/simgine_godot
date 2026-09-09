@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://drrq3iv31hkgq"
+path="res://.godot/imported/asym-cheek-1-l.target-8d7c5b1efd94af9bf02fa727db5089b2.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/asym/asym-cheek-1-l.target"
+dest_files=["res://.godot/imported/asym-cheek-1-l.target-8d7c5b1efd94af9bf02fa727db5089b2.res"]
+
+[params]
+

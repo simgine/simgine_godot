@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dfm1ceaq5oanj"
+path="res://.godot/imported/head-round.target-789609c3de04c0c250f31507dd1724a4.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/head/head-round.target"
+dest_files=["res://.godot/imported/head-round.target-789609c3de04c0c250f31507dd1724a4.res"]
+
+[params]
+

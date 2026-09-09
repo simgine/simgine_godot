@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://sysy2lmof1mg"
+path="res://.godot/imported/african-female-old.target-7e144378c68fcf4481d9da9246338c20.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/african-female-old.target"
+dest_files=["res://.godot/imported/african-female-old.target-7e144378c68fcf4481d9da9246338c20.res"]
+
+[params]
+

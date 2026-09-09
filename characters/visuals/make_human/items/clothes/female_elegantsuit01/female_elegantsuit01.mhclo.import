@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.proxy_importer"
+type="Resource"
+uid="uid://cqjj6e30c48hp"
+path="res://.godot/imported/female_elegantsuit01.mhclo-60323f4d525ee879679c0a508e70a1b8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/clothes/female_elegantsuit01/female_elegantsuit01.mhclo"
+dest_files=["res://.godot/imported/female_elegantsuit01.mhclo-60323f4d525ee879679c0a508e70a1b8.res"]
+
+[params]
+

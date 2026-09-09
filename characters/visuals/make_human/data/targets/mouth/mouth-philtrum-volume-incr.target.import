@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ocskgoqg4hq"
+path="res://.godot/imported/mouth-philtrum-volume-incr.target-25c6a011d0ad2d846f5f1c238515bf08.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-philtrum-volume-incr.target"
+dest_files=["res://.godot/imported/mouth-philtrum-volume-incr.target-25c6a011d0ad2d846f5f1c238515bf08.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://neieem7s6jhm"
+path="res://.godot/imported/r-eye-trans-down.target-877d41769117fd9ed7568e8530dabf1f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-trans-down.target"
+dest_files=["res://.godot/imported/r-eye-trans-down.target-877d41769117fd9ed7568e8530dabf1f.res"]
+
+[params]
+

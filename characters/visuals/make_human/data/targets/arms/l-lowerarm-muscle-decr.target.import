@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://w770vyhvpbbk"
+path="res://.godot/imported/l-lowerarm-muscle-decr.target-dda37552311fcdae2819749f01fc6dca.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/l-lowerarm-muscle-decr.target"
+dest_files=["res://.godot/imported/l-lowerarm-muscle-decr.target-dda37552311fcdae2819749f01fc6dca.res"]
+
+[params]
+

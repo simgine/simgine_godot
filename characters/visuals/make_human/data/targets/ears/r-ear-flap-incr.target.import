@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dvjdttijc6sh8"
+path="res://.godot/imported/r-ear-flap-incr.target-f5d142b3d2254fc9b14b458aa7fdfe5d.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/ears/r-ear-flap-incr.target"
+dest_files=["res://.godot/imported/r-ear-flap-incr.target-f5d142b3d2254fc9b14b458aa7fdfe5d.res"]
+
+[params]
+

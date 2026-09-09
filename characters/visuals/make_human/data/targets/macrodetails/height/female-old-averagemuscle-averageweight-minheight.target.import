@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://24xb2jot8yq7"
+path="res://.godot/imported/female-old-averagemuscle-averageweight-minheight.target-f0fc6625d09811e1a4dda3bb02f1559b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/female-old-averagemuscle-averageweight-minheight.target"
+dest_files=["res://.godot/imported/female-old-averagemuscle-averageweight-minheight.target-f0fc6625d09811e1a4dda3bb02f1559b.res"]
+
+[params]
+

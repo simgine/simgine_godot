@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cuop3xp75k3pb"
+path="res://.godot/imported/breast-volume-vert-down.target-70bd300deff1e7482e356230c073a4d3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/breast/breast-volume-vert-down.target"
+dest_files=["res://.godot/imported/breast-volume-vert-down.target-70bd300deff1e7482e356230c073a4d3.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://qywusy1q0245"
+path="res://.godot/imported/nose-septumangle-decr.target-360ab619f1826b8d4f70619c8e44b1b8.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-septumangle-decr.target"
+dest_files=["res://.godot/imported/nose-septumangle-decr.target-360ab619f1826b8d4f70619c8e44b1b8.res"]
+
+[params]
+

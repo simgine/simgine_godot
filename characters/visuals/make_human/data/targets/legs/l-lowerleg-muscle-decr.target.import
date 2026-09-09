@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://d2qyyvg2ns7jw"
+path="res://.godot/imported/l-lowerleg-muscle-decr.target-ebc24c09904fac1806930c42e13904c7.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/legs/l-lowerleg-muscle-decr.target"
+dest_files=["res://.godot/imported/l-lowerleg-muscle-decr.target-ebc24c09904fac1806930c42e13904c7.res"]
+
+[params]
+

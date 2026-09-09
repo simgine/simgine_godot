@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ksua7uomk8js"
+path="res://.godot/imported/male-young-minmuscle-minweight-uncommonproportions.target-198796721d3604ad84abe251f9c57764.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/proportions/male-young-minmuscle-minweight-uncommonproportions.target"
+dest_files=["res://.godot/imported/male-young-minmuscle-minweight-uncommonproportions.target-198796721d3604ad84abe251f9c57764.res"]
+
+[params]
+

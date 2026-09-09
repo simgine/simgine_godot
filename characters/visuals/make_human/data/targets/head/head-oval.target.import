@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dd4cctyppadxq"
+path="res://.godot/imported/head-oval.target-5380e4c3e19b78392b097059a6f94b17.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/head/head-oval.target"
+dest_files=["res://.godot/imported/head-oval.target-5380e4c3e19b78392b097059a6f94b17.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bqhmj4h1cg21j"
+path="res://.godot/imported/mouth-trans-backward.target-2fb92d5c65cf0b11e29ae5bdb2daf4a3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-trans-backward.target"
+dest_files=["res://.godot/imported/mouth-trans-backward.target-2fb92d5c65cf0b11e29ae5bdb2daf4a3.res"]
+
+[params]
+

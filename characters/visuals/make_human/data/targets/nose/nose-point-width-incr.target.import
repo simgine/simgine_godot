@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bhhuuart1bqen"
+path="res://.godot/imported/nose-point-width-incr.target-8272db8c2750a42032f690b2162a1a2a.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-point-width-incr.target"
+dest_files=["res://.godot/imported/nose-point-width-incr.target-8272db8c2750a42032f690b2162a1a2a.res"]
+
+[params]
+

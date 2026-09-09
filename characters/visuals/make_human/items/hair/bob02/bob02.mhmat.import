@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.mhmat_importer"
+type="Resource"
+uid="uid://cxnaoqdro2680"
+path="res://.godot/imported/bob02.mhmat-509e7b37f817ce98156594c77ff8191e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/items/hair/bob02/bob02.mhmat"
+dest_files=["res://.godot/imported/bob02.mhmat-509e7b37f817ce98156594c77ff8191e.res"]
+
+[params]
+

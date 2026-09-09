@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c8n10xybqwiin"
+path="res://.godot/imported/universal-male-child-maxmuscle-averageweight.target-d52b2a3698dc8c76195575615bd4b34e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-male-child-maxmuscle-averageweight.target"
+dest_files=["res://.godot/imported/universal-male-child-maxmuscle-averageweight.target-d52b2a3698dc8c76195575615bd4b34e.res"]
+
+[params]
+

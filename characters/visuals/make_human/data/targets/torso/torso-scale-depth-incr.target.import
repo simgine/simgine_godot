@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bfk4rr2fkcpfx"
+path="res://.godot/imported/torso-scale-depth-incr.target-67e2c69676ae77309c080044a25b0969.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/torso/torso-scale-depth-incr.target"
+dest_files=["res://.godot/imported/torso-scale-depth-incr.target-67e2c69676ae77309c080044a25b0969.res"]
+
+[params]
+

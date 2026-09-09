@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dpxs7djet8pnt"
+path="res://.godot/imported/hip-scale-vert-incr.target-253fd402a061a5e72be9280023c71891.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/hip/hip-scale-vert-incr.target"
+dest_files=["res://.godot/imported/hip-scale-vert-incr.target-253fd402a061a5e72be9280023c71891.res"]
+
+[params]
+

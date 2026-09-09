@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cjc1aduw682nm"
+path="res://.godot/imported/chin-bones-decr.target-3bdec41a6c1fd1d2fc3c9d1421f6e8f5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/chin/chin-bones-decr.target"
+dest_files=["res://.godot/imported/chin-bones-decr.target-3bdec41a6c1fd1d2fc3c9d1421f6e8f5.res"]
+
+[params]
+

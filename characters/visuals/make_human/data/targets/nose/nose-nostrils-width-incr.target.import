@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ddtps0tr1t76m"
+path="res://.godot/imported/nose-nostrils-width-incr.target-84e08edc8a4853a402dc5a62a31ae535.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-nostrils-width-incr.target"
+dest_files=["res://.godot/imported/nose-nostrils-width-incr.target-84e08edc8a4853a402dc5a62a31ae535.res"]
+
+[params]
+

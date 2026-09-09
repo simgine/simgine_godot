@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://jurah765yluw"
+path="res://.godot/imported/nose-base-up.target-e0a0d724902e61cfc1b25933903186b3.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-base-up.target"
+dest_files=["res://.godot/imported/nose-base-up.target-e0a0d724902e61cfc1b25933903186b3.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cra1cc7yrugay"
+path="res://.godot/imported/male-baby-averagemuscle-averageweight-maxheight.target-11957ac4d1696077fe3da40d61d4e342.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/height/male-baby-averagemuscle-averageweight-maxheight.target"
+dest_files=["res://.godot/imported/male-baby-averagemuscle-averageweight-maxheight.target-11957ac4d1696077fe3da40d61d4e342.res"]
+
+[params]
+

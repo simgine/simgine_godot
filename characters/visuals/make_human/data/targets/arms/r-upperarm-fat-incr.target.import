@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://ci7pltbodf5t2"
+path="res://.godot/imported/r-upperarm-fat-incr.target-5c723ff10541bdd42e384fb64c430780.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/r-upperarm-fat-incr.target"
+dest_files=["res://.godot/imported/r-upperarm-fat-incr.target-5c723ff10541bdd42e384fb64c430780.res"]
+
+[params]
+

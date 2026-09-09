@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cajyfcg66dgcq"
+path="res://.godot/imported/neck-trans-forward.target-27944ca0a4a9e32d382a269359ce3abe.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/neck/neck-trans-forward.target"
+dest_files=["res://.godot/imported/neck-trans-forward.target-27944ca0a4a9e32d382a269359ce3abe.res"]
+
+[params]
+

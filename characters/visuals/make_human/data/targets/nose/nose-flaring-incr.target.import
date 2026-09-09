@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://biva1ex20388c"
+path="res://.godot/imported/nose-flaring-incr.target-b39a6c611ff3942026a5691a844a5046.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-flaring-incr.target"
+dest_files=["res://.godot/imported/nose-flaring-incr.target-b39a6c611ff3942026a5691a844a5046.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dud3n5ejvgaun"
+path="res://.godot/imported/mouth-upperlip-height-decr.target-67114470561d3cdfdb679bfdafa722e2.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/mouth/mouth-upperlip-height-decr.target"
+dest_files=["res://.godot/imported/mouth-upperlip-height-decr.target-67114470561d3cdfdb679bfdafa722e2.res"]
+
+[params]
+

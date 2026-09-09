@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://3ypsqcekjv5b"
+path="res://.godot/imported/r-eye-push1-in.target-83b749f0de56ebe174e1ed20c2d5565f.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/eyes/r-eye-push1-in.target"
+dest_files=["res://.godot/imported/r-eye-push1-in.target-83b749f0de56ebe174e1ed20c2d5565f.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://cjs2edmqfj7ka"
+path="res://.godot/imported/nose-right-dilatation.target-95999902e8fe1e250a498f5bb84144dd.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/asian/nose-right-dilatation.target"
+dest_files=["res://.godot/imported/nose-right-dilatation.target-95999902e8fe1e250a498f5bb84144dd.res"]
+
+[params]
+

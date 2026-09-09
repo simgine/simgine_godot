@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://beti7ypdcm2h7"
+path="res://.godot/imported/mouth-elevation.target-3fa51d3ef7b2f9af56d3f344c8a4997e.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/caucasian/mouth-elevation.target"
+dest_files=["res://.godot/imported/mouth-elevation.target-3fa51d3ef7b2f9af56d3f344c8a4997e.res"]
+
+[params]
+

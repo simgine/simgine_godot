@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://csxo0mhhs1jim"
+path="res://.godot/imported/nose-left-elevation.target-4f34cce07c4fb864a6df6c8963611033.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/expression/units/caucasian/nose-left-elevation.target"
+dest_files=["res://.godot/imported/nose-left-elevation.target-4f34cce07c4fb864a6df6c8963611033.res"]
+
+[params]
+

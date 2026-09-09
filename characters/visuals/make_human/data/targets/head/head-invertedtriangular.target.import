@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c4v5aaclie048"
+path="res://.godot/imported/head-invertedtriangular.target-5b0b6b8cb4c3a148ac075294b9e158a4.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/head/head-invertedtriangular.target"
+dest_files=["res://.godot/imported/head-invertedtriangular.target-5b0b6b8cb4c3a148ac075294b9e158a4.res"]
+
+[params]
+

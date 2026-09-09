@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c41mdx8mjxxxr"
+path="res://.godot/imported/r-upperarm-scale-horiz-decr.target-640faa6e540c764daa079d74d1568cf5.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/arms/r-upperarm-scale-horiz-decr.target"
+dest_files=["res://.godot/imported/r-upperarm-scale-horiz-decr.target-640faa6e540c764daa079d74d1568cf5.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://c82dhrjbvy4oc"
+path="res://.godot/imported/nose-scale-depth-decr.target-b0f755261cff4a49a6e9b9590644ca24.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/nose/nose-scale-depth-decr.target"
+dest_files=["res://.godot/imported/nose-scale-depth-decr.target-b0f755261cff4a49a6e9b9590644ca24.res"]
+
+[params]
+

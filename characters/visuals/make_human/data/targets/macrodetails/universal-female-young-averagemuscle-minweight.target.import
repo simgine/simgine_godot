@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://dflsa07m67yvq"
+path="res://.godot/imported/universal-female-young-averagemuscle-minweight.target-2fb108310d0460a12ed436d2f359a0ef.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/macrodetails/universal-female-young-averagemuscle-minweight.target"
+dest_files=["res://.godot/imported/universal-female-young-averagemuscle-minweight.target-2fb108310d0460a12ed436d2f359a0ef.res"]
+
+[params]
+

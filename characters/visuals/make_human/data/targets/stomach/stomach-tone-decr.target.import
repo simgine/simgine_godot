@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bk7dmfhhafbxs"
+path="res://.godot/imported/stomach-tone-decr.target-91de80e96afcf7b5d8f7d76a0569c760.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/stomach/stomach-tone-decr.target"
+dest_files=["res://.godot/imported/stomach-tone-decr.target-91de80e96afcf7b5d8f7d76a0569c760.res"]
+
+[params]
+

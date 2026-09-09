@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://vfwu5fcfx0m4"
+path="res://.godot/imported/chin-height-decr.target-0a3c989d5d055d12b6a42df53d5d8b81.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/chin/chin-height-decr.target"
+dest_files=["res://.godot/imported/chin-height-decr.target-0a3c989d5d055d12b6a42df53d5d8b81.res"]
+
+[params]
+

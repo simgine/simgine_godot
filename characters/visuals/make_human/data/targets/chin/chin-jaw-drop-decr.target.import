@@ -1,0 +1,14 @@
+[remap]
+
+importer="make_human.target_importer"
+type="Resource"
+uid="uid://bsuka50bgo28s"
+path="res://.godot/imported/chin-jaw-drop-decr.target-2c190a7e8490fe616a94921a6705173b.res"
+
+[deps]
+
+source_file="res://characters/visuals/make_human/data/targets/chin/chin-jaw-drop-decr.target"
+dest_files=["res://.godot/imported/chin-jaw-drop-decr.target-2c190a7e8490fe616a94921a6705173b.res"]
+
+[params]
+
