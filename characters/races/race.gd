@@ -40,12 +40,14 @@ static func get_available_races() -> Array[Race]:
 	var entries := ResourceLoader.list_directory(RACES_DIR)
 	entries.sort()
 
-	for entry in entries:
-		if entry.get_extension() != "tres":
+	for file_name in entries:
+		if file_name.get_extension() != "tres":
 			continue
 
-		var race := ResourceLoader.load(RACES_DIR.path_join(entry)) as Race
+		var race := ResourceLoader.load(RACES_DIR.path_join(file_name)) as Race
 		if race:
 			races.append(race)
+		else:
+			Log.warn("Resource '%s' is not a race, unloading", file_name)
 
 	return races
