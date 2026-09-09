@@ -52,7 +52,7 @@ func _import(
 		return ERR_PARSE_ERROR
 
 	var base_dir := source_file.get_base_dir()
-	var material := MHMaterial.new()
+	var material := StandardMaterial3D.new()
 	var transparent := false
 	var line_index := 0
 	while not file.eof_reached():
@@ -71,22 +71,8 @@ func _import(
 		var value := line.substr(separator + 1).strip_edges()
 		match tag:
 			# Metadata
-			"name":
-				material.name = value
-			"description":
-				material.description = value
-			"uuid":
+			"name", "description", "uuid", "license", "author", "homepage", "url", "tag":
 				pass
-			"license":
-				material.license = value
-			"author":
-				material.author = value
-			"homepage":
-				material.homepage = value
-			"url":
-				material.url = value
-			"tag":
-				material.tags.push_back(value)
 			# Colors
 			"diffuseColor":
 				var parts := value.split(" ", false)

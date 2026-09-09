@@ -24,7 +24,7 @@ extends Resource
 @export var geometry: MHGeometry
 
 ## Material loaded from the referenced `.mhmat` file.
-@export var material: MHMaterial
+@export var material: StandardMaterial3D
 
 ## Defines how offsets are scaled along the X axis as the body
 ## changes shape.

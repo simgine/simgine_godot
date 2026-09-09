@@ -15,7 +15,7 @@ func _attach_item(item: LookItem) -> bool:
 	if not attachment:
 		return false
 
-	var material := attachment as MHMaterial
+	var material := attachment as StandardMaterial3D
 	if material:
 		body.material_override = material
 	else:
@@ -31,7 +31,7 @@ static func _create_attachment(asset_path: String) -> Object:
 		Log.error("Unable to load '%s'", asset_path)
 		return null
 
-	var material := res as MHMaterial
+	var material := res as StandardMaterial3D
 	if material:
 		return material
 
@@ -58,7 +58,7 @@ static func _create_attachment(asset_path: String) -> Object:
 		return instance
 
 	Log.error(
-		"'%s' must be a MHMaterial, MHProxy resource, or PackedScene with an MHProxyInstance root",
+		"'%s' must be a StandardMaterial3D, MHProxy resource, or PackedScene with an MHProxyInstance root",
 		asset_path,
 	)
 	return null
@@ -69,7 +69,7 @@ func _detach_item(item: LookItem) -> void:
 	if not attachment:
 		return
 
-	var material := attachment as MHMaterial
+	var material := attachment as StandardMaterial3D
 	if material:
 		# A conflicting material may already have replaced this one.
 		if body.material_override == material:

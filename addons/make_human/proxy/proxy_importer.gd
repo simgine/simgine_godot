@@ -104,7 +104,7 @@ func _import(
 					push_error("Could not load mesh data '%s' at %d" % [path, line_index])
 			"material":
 				var path := base_dir.path_join(value)
-				var material := ResourceLoader.load(path) as MHMaterial
+				var material := ResourceLoader.load(path) as StandardMaterial3D
 				if material:
 					proxy.material = material
 				else:
