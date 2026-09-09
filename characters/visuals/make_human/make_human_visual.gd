@@ -42,7 +42,7 @@ static func _instance_item(asset_path: String) -> MHProxyInstance:
 
 		var instance := node as MHProxyInstance
 		if not instance:
-			Log.error("'%s' is not a MakeHuman item", asset_path)
+			Log.error("'%s' does not have an MHProxyInstance root", asset_path)
 			node.free()
 			return null
 

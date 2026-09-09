@@ -48,6 +48,6 @@ static func get_available_races() -> Array[Race]:
 		if race:
 			races.append(race)
 		else:
-			Log.warn("Resource '%s' is not a race, unloading", file_name)
+			Log.warn("Resource '%s' is not a Race, unloading", file_name)
 
 	return races
