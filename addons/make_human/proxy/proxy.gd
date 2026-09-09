@@ -30,13 +30,6 @@ extends Resource
 ## Like [member x_scale], but for Z axis.
 @export var z_scale: MHScale
 
-## Stacking depth used to determine the order relative to the
-## body and other proxies.
-##
-## Higher values generally represent outer layers, such as coats or
-## backpacks, while lower values represent layers closer to the body.
-@export var z_depth: int
-
 ## First body vertex reference for each proxy source vertex.
 ##
 ## Together with [member ref_b] and [member ref_c], this identifies the three

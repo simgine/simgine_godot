@@ -115,9 +115,7 @@ func _import(
 				var scale := _parse_scale(value, line_index)
 				if scale:
 					proxy.z_scale = scale
-			"z_depth":
-				proxy.z_depth = value.to_int()
-			"max_pole":
+			"z_depth", "max_pole":
 				pass
 			"verts":
 				if value != "0":
