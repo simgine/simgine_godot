@@ -85,7 +85,7 @@ func _add_category(
 	section: MHTargetSection,
 	category: MHTargetCategory,
 ) -> void:
-	var path := "%s/%s" % [section.label, category.name]
+	var path := "%s/%s" % [section.label, category.label]
 
 	if category.opposites:
 		if category.has_left_and_right:

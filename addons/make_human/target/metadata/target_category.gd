@@ -3,11 +3,6 @@ class_name MHTargetCategory
 extends Resource
 ## Category object from `target.json`.
 
-## Internal identifier.
-##
-## Often includes an opposite pair suffix like `-decr-incr`, `-down-up`, `-in-out`.
-@export var name: StringName
-
 ## Display label for the UI.
 @export var label: String
 
@@ -49,13 +44,13 @@ func _apply_sided_category(
 		vertices,
 		opposites.negative_left,
 		opposites.positive_left,
-		modifiers.get(name + "/left", 0.0),
+		modifiers.get(label + "/left", 0.0),
 	)
 	_apply_signed(
 		vertices,
 		opposites.negative_right,
 		opposites.positive_right,
-		modifiers.get(name + "/right", 0.0),
+		modifiers.get(label + "/right", 0.0),
 	)
 
 
@@ -67,7 +62,7 @@ func _apply_unsided_category(
 		vertices,
 		opposites.negative_unsided,
 		opposites.positive_unsided,
-		modifiers.get(name, 0.0),
+		modifiers.get(label, 0.0),
 	)
 
 

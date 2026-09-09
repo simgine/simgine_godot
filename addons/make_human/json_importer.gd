@@ -120,7 +120,6 @@ static func _parse_category(dict: Dictionary, section_dir: String) -> MHTargetCa
 	var category := MHTargetCategory.new()
 	category.has_left_and_right = dict.has_left_and_right
 	category.label = dict.label
-	category.name = dict.name
 
 	var opposites: Dictionary = dict.get("opposites", { })
 	if opposites:
