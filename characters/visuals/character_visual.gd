@@ -93,13 +93,6 @@ func _attach_item(item: LookItem) -> bool
 func _detach_item(item: LookItem) -> void
 
 
-## Sets a material for the character skin.
-##
-## The node should be ready before calling this.
-@abstract
-func set_skin_material(material: Material) -> void
-
-
 ## Returns all available [LookItem] resources.
 func get_available_items() -> Array[LookItem]:
 	var items: Array[LookItem] = []

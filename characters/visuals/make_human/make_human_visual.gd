@@ -4,27 +4,36 @@ extends CharacterVisual
 
 @onready var body: MHBodyInstance = %Body
 
-var _instances: Dictionary[LookItem, MHProxyInstance]
+var _attachments: Dictionary[LookItem, Object]
 
 
 func _attach_item(item: LookItem) -> bool:
-	if _instances.has(item):
+	if _attachments.has(item):
 		return false
 
-	var instance := _instance_item(item.asset_path)
-	if not instance:
+	var attachment := _create_attachment(item.asset_path)
+	if not attachment:
 		return false
 
-	body.add_child(instance)
-	_instances[item] = instance
+	var material := attachment as MHMaterial
+	if material:
+		body.material_override = material
+	else:
+		body.add_child(attachment)
+
+	_attachments[item] = attachment
 	return true
 
 
-static func _instance_item(asset_path: String) -> MHProxyInstance:
+static func _create_attachment(asset_path: String) -> Object:
 	var res := ResourceLoader.load(asset_path)
 	if not res:
 		Log.error("Unable to load '%s'", asset_path)
 		return null
+
+	var material := res as MHMaterial
+	if material:
+		return material
 
 	var proxy := res as MHProxy
 	if proxy:
@@ -42,28 +51,34 @@ static func _instance_item(asset_path: String) -> MHProxyInstance:
 
 		var instance := node as MHProxyInstance
 		if not instance:
-			Log.error("'%s' does not have an MHProxyInstance root", asset_path)
+			Log.error("PackedScene '%s' root is not an MHProxyInstance", asset_path)
 			node.free()
 			return null
 
 		return instance
 
 	Log.error(
-		"'%s' must be an MHProxy resource or a PackedScene with an MHProxyInstance root",
+		"'%s' must be a MHMaterial, MHProxy resource, or PackedScene with an MHProxyInstance root",
 		asset_path,
 	)
 	return null
 
 
 func _detach_item(item: LookItem) -> void:
-	var instance: MHProxyInstance = _instances.get(item)
-	if instance:
+	var attachment: Object = _attachments.get(item)
+	if not attachment:
+		return
+
+	var material := attachment as MHMaterial
+	if material:
+		# A conflicting material may already have replaced this one.
+		if body.material_override == material:
+			body.material_override = null
+	else:
+		var instance := attachment as MHProxyInstance
 		instance.queue_free()
-		_instances.erase(item)
 
-
-func set_skin_material(material: Material) -> void:
-	body.material_override = material
+	_attachments.erase(item)
 
 
 func _get_items_dir() -> String:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://n5fhexwjqcqb" path="res://characters/visuals/make_human/make_human_visual.gd" id="1_l4fvd"]
 [ext_resource type="Script" uid="uid://cx4qlf41yxuh3" path="res://addons/make_human/rig/skeleton.gd" id="2_74mn0"]
-[ext_resource type="Script" uid="uid://cwil141xwoe0w" path="res://addons/make_human/body_instance.gd" id="3_pubxi"]
+[ext_resource type="Script" uid="uid://bnskcgj4ub0v5" path="res://characters/visuals/make_human/body_instance.gd" id="3_pubxi"]
 [ext_resource type="Resource" uid="uid://craf0e0x1m6ho" path="res://characters/visuals/make_human/body.tres" id="4_pubxi"]
 
 [node name="MakeHumanVisual" type="Node3D" unique_id=1038237501]
@@ -13,10 +13,10 @@ metadata/_custom_type_script = "uid://n5fhexwjqcqb"
 script = ExtResource("2_74mn0")
 metadata/_custom_type_script = "uid://cx4qlf41yxuh3"
 
-[node name="Body" type="MeshInstance3D" parent="Skeleton" unique_id=342715325 node_paths=PackedStringArray("skeleton_node")]
+[node name="Body" type="MeshInstance3D" parent="Skeleton" unique_id=742908849 node_paths=PackedStringArray("skeleton_node")]
 unique_name_in_owner = true
 skeleton = NodePath("..")
 script = ExtResource("3_pubxi")
 body = ExtResource("4_pubxi")
 skeleton_node = NodePath("..")
-metadata/_custom_type_script = "uid://cwil141xwoe0w"
+metadata/_custom_type_script = "uid://bnskcgj4ub0v5"
