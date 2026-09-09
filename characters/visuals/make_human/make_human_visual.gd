@@ -7,7 +7,7 @@ extends CharacterVisual
 var _instances: Dictionary[LookItem, MHProxyInstance]
 
 
-func _attach(item: LookItem) -> bool:
+func _attach_item(item: LookItem) -> bool:
 	if _instances.has(item):
 		return false
 
@@ -55,7 +55,7 @@ static func _instance_item(asset_path: String) -> MHProxyInstance:
 	return null
 
 
-func _detach(item: LookItem) -> void:
+func _detach_item(item: LookItem) -> void:
 	var instance: MHProxyInstance = _instances.get(item)
 	if instance:
 		instance.queue_free()

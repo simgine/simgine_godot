@@ -11,7 +11,7 @@ extends Node3D
 func _ready() -> void:
 	for index in range(_look.size() - 1, -1, -1):
 		var item := _look[index]
-		if not item or not _attach(item):
+		if not item or not _attach_item(item):
 			_look.remove_at(index)
 
 
@@ -23,13 +23,13 @@ func set_look(new_look: Array[LookItem]) -> void:
 		for old_item in _look:
 			if old_item and not new_look.has(old_item):
 				Log.debug("Removing old %s", old_item)
-				_detach(old_item)
+				_detach_item(old_item)
 
 		for index in range(new_look.size() - 1, -1, -1):
 			var new_item := new_look[index]
 			if new_item and not _look.has(new_item):
 				Log.debug("Adding new %s", new_item)
-				if not _attach(new_item):
+				if not _attach_item(new_item):
 					new_look.remove_at(index)
 
 	_look = new_look
@@ -57,14 +57,14 @@ static func remove_conflicts(items: Array[LookItem]) -> void:
 
 func add_look_item(item: LookItem) -> void:
 	# Try to attach first since it can fail.
-	if not _attach(item):
+	if not _attach_item(item):
 		return
 
 	if item.slot:
 		for index in range(_look.size() - 1, -1, -1):
 			var existing_item := _look[index]
 			if item.conflicts_with(existing_item):
-				_detach(existing_item)
+				_detach_item(existing_item)
 				_look.remove_at(index)
 
 	Log.debug("Adding %s", item)
@@ -74,7 +74,7 @@ func add_look_item(item: LookItem) -> void:
 func remove_look_item(item: LookItem) -> void:
 	Log.debug("Removing %s", item)
 	_look.erase(item)
-	_detach(item)
+	_detach_item(item)
 
 
 ## Displays item's visual.
@@ -82,7 +82,7 @@ func remove_look_item(item: LookItem) -> void:
 ## Returns `false` if nothing was attached.
 ## The node should be ready before calling this.
 @abstract
-func _attach(item: LookItem) -> bool
+func _attach_item(item: LookItem) -> bool
 
 
 ## Removes item's visual.
@@ -90,7 +90,7 @@ func _attach(item: LookItem) -> bool
 ## Does nothing if the item is not attached.
 ## The node should be ready before calling this.
 @abstract
-func _detach(item: LookItem) -> void
+func _detach_item(item: LookItem) -> void
 
 
 ## Sets a material for the character skin.
