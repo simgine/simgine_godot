@@ -6,15 +6,6 @@ extends Resource
 ##
 ## Imported from `.proxy` and `.mhclo` files.
 
-## Display name.
-@export var name: String
-
-## Human-readable description.
-@export var description: String
-
-## Search and classification tags.
-@export var tags: PackedStringArray
-
 ## Source geometry loaded from the referenced OBJ file.
 ##
 ## Defines the proxy topology, UVs, and vertex ordering.

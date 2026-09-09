@@ -73,7 +73,7 @@ func _set_surface(arrays: Array) -> void:
 		{ },
 		Mesh.ARRAY_FLAG_USE_8_BONE_WEIGHTS,
 	)
-	array_mesh.surface_set_name(0, proxy.name)
+	array_mesh.surface_set_name(0, "Proxy mesh")
 
 	if proxy.material:
 		array_mesh.surface_set_material(0, proxy.material)

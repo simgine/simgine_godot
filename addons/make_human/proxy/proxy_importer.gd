@@ -87,13 +87,7 @@ func _import(
 				if value != "hm08":
 					push_error("Unsupported basemesh at %d: '%s'" % [line_index, value])
 					return ERR_PARSE_ERROR
-			"name":
-				proxy.name = value
-			"description":
-				proxy.description = value
-			"tag":
-				proxy.tags.push_back(value)
-			"uuid":
+			"name", "description", "tag", "uuid":
 				pass
 			"obj_file":
 				var path := base_dir.path_join(value)
