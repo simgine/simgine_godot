@@ -6,9 +6,6 @@ extends Resource
 ## Resolves a modifier value into weighted macro components using
 ## interpolation [member parts].
 
-## Display name.
-@export var label: String
-
 ## Interpolation segments used to resolve modifier values into components.
 @export var parts: Array[MHMacroPart]
 

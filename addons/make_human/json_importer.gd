@@ -107,7 +107,6 @@ func _import_target_registry(dict: Dictionary, targets_dir: String, save_path: S
 static func _parse_section(dict: Dictionary, section_dir: String) -> MHTargetSection:
 	var section := MHTargetSection.new()
 	section.label = dict.label
-	section.include_per_default = dict.include_per_default
 
 	for category_dict: Dictionary in dict.categories:
 		var category := _parse_category(category_dict, section_dir)
@@ -164,7 +163,6 @@ func _import_macro_registry(dict: Dictionary, targets_dir: String, save_path: St
 
 static func _parse_macro(dict: Dictionary) -> MHMacro:
 	var macro := MHMacro.new()
-	macro.label = dict.label
 
 	for part_dict: Dictionary in dict.parts:
 		var part := _parse_macro_part(part_dict)

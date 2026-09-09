@@ -6,9 +6,6 @@ extends Resource
 ## Display name for the UI.
 @export var label: String
 
-## Whether this section is visible by default in the UI.
-@export var include_per_default: bool
-
 ## List of deformation category objects.
 @export var categories: Array[MHTargetCategory]
 
