@@ -64,3 +64,7 @@ func _detach_item(item: LookItem) -> void:
 
 func set_skin_material(material: Material) -> void:
 	body.material_override = material
+
+
+func _get_items_dir() -> String:
+	return "res://characters/visuals/make_human/items/"

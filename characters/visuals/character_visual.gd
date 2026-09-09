@@ -98,3 +98,36 @@ func _detach_item(item: LookItem) -> void
 ## The node should be ready before calling this.
 @abstract
 func set_skin_material(material: Material) -> void
+
+
+## Returns all available [LookItem] resources.
+func get_available_items() -> Array[LookItem]:
+	var items: Array[LookItem] = []
+	_find_items(_get_items_dir(), items)
+	return items
+
+
+static func _find_items(dir_path: String, items: Array[LookItem]) -> void:
+	var entries := ResourceLoader.list_directory(dir_path)
+	entries.sort()
+
+	for entry in entries:
+		var path := dir_path.path_join(entry)
+
+		if entry.ends_with("/"):
+			_find_items(path, items)
+			continue
+
+		if entry.get_extension() not in ["tres", "res"]:
+			continue
+
+		var item := ResourceLoader.load(path) as LookItem
+		if item:
+			items.append(item)
+		else:
+			Log.warn("Resource '%s' is not a LookItem, skipping", path)
+
+
+## Returns a directory where to search for [LookItem] resources.
+@abstract
+func _get_items_dir() -> String
