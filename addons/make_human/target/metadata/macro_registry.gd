@@ -11,11 +11,14 @@ extends Resource
 ## with an independent weight.
 const RACES: Array[StringName] = ["african", "asian", "caucasian"]
 
-## Default value for all [constant RACES] modifiers.
-const DEFAULT_RACE_MODIFIER := 0.33
+## Value range for scalar macro modifiers.
+const RANGE := Vector2(0.0, 1.0)
 
 ## Default value for scalar macro modifiers.
-const DEFAULT_MODIFIER := 0.5
+const DEFAULT_VALUE := 0.5
+
+## Default value for [constant RACES] modifiers.
+const DEFAULT_RACE_VALUE := 0.33
 
 ## Maps macro modifier names to their definitions.
 @export var macrotargets: Dictionary[StringName, MHMacro]
@@ -34,7 +37,7 @@ func _resolve_components(modifiers: Dictionary[StringName, float]) -> Dictionary
 	var components: Dictionary[StringName, Array] = { }
 	for name in macrotargets:
 		var macro := macrotargets[name]
-		var value: float = modifiers.get(name, DEFAULT_MODIFIER)
+		var value: float = modifiers.get(name, DEFAULT_VALUE)
 		var part := macro.find_part(value)
 		if not part:
 			# Sometimes values cannot be mapped to a region.
@@ -53,7 +56,7 @@ func _resolve_components(modifiers: Dictionary[StringName, float]) -> Dictionary
 
 	var race_components: Array[Component] = []
 	for race in RACES:
-		var value: float = modifiers.get(race, DEFAULT_RACE_MODIFIER)
+		var value: float = modifiers.get(race, DEFAULT_RACE_VALUE)
 		race_components.push_back(Component.new(race, value))
 	components["race"] = race_components
 

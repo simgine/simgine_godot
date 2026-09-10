@@ -68,10 +68,10 @@ func _get_property_list() -> Array[Dictionary]:
 	var properties: Array[Dictionary] = []
 
 	for macro_name in body.macro_registry.macrotargets:
-		properties.append(_slider(macro_name, 0.0, 1.0))
+		properties.append(_slider(macro_name, MHMacroRegistry.RANGE))
 
 	for race in MHMacroRegistry.RACES:
-		properties.append(_slider("race/" + race, 0.0, 1.0))
+		properties.append(_slider("race/" + race, MHMacroRegistry.RANGE))
 
 	for section in body.target_registry.sections:
 		for category in section.categories:
@@ -88,21 +88,22 @@ func _add_category(
 	var path := "%s/%s" % [section.label, category.label]
 
 	if category.opposites:
+		const RANGE := MHTargetRegistry.OPPOSITE_RANGE
 		if category.has_left_and_right:
-			properties.append(_slider(path + "/left", -1.0, 1.0))
-			properties.append(_slider(path + "/right", -1.0, 1.0))
+			properties.append(_slider(path + "/left", RANGE))
+			properties.append(_slider(path + "/right", RANGE))
 		else:
-			properties.append(_slider(path, -1.0, 1.0))
+			properties.append(_slider(path, RANGE))
 	else:
-		properties.append(_slider(path, 0.0, 1.0))
+		properties.append(_slider(path, MHTargetRegistry.RANGE))
 
 
-func _slider(path: String, minimum: float, maximum: float) -> Dictionary:
+func _slider(path: String, modifier_range: Vector2) -> Dictionary:
 	return {
 		"name": MODIFIERS_PREFIX + path,
 		"type": TYPE_FLOAT,
 		"hint": PROPERTY_HINT_RANGE,
-		"hint_string": "%f,%f,0.01" % [minimum, maximum],
+		"hint_string": "%f,%f,0.01" % [modifier_range.x, modifier_range.y],
 		"usage": PROPERTY_USAGE_EDITOR,
 	}
 

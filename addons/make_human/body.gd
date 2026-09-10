@@ -99,12 +99,12 @@ func is_complete() -> bool:
 
 func get_default_modifier(modifier_name: StringName) -> float:
 	if macro_registry.macrotargets.has(modifier_name):
-		return MHMacroRegistry.DEFAULT_MODIFIER
+		return MHMacroRegistry.DEFAULT_VALUE
 
 	if modifier_name in MHMacroRegistry.RACES:
-		return MHMacroRegistry.DEFAULT_RACE_MODIFIER
+		return MHMacroRegistry.DEFAULT_RACE_VALUE
 
-	return MHTargetRegistry.DEFAULT_MODIFIER
+	return MHTargetRegistry.DEFAULT_VALUE
 
 
 func get_proxy_skinning(proxy: MHProxy) -> MHSkinning:

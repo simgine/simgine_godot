@@ -6,8 +6,14 @@ extends Resource
 ## Categorizes all individual morph targets by body region,
 ## with left/right flags and opposite-direction pairing.
 
-## Default weight for all modifiers.
-const DEFAULT_MODIFIER := 0.0
+## Value range for regular modifiers.
+const RANGE := Vector2(0.0, 1.0)
+
+## Value range for opposite modifiers.
+const OPPOSITE_RANGE := Vector2(-1.0, 1.0)
+
+## Default value for all modifiers.
+const DEFAULT_VALUE := 0.0
 
 ## Body sections.
 @export var sections: Array[MHTargetSection]
