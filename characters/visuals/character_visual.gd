@@ -124,3 +124,61 @@ static func _find_items(dir_path: String, items: Array[LookItem]) -> void:
 ## Returns a directory where to search for [LookItem] resources.
 @abstract
 func _get_items_dir() -> String
+
+
+## Returns parameters for all available [BodyModifier] resources supported by this visual implementation.
+func get_available_modifiers() -> Array[BodyModifierParams]:
+	var modifiers: Dictionary[StringName, BodyModifier]
+	_load_modifiers_recursively(_get_modifiers_dir(), modifiers)
+
+	var params := _resolve_modifier_params(modifiers)
+
+	for modifier_name in modifiers:
+		var modifier := modifiers[modifier_name]
+		Log.warn("BodyModifier '%s' does not match any modifier, skipping", modifier.resource_path)
+
+	return params
+
+
+static func _load_modifiers_recursively(
+	dir: String,
+	modifiers: Dictionary[StringName, BodyModifier],
+) -> void:
+	for file_name in ResourceLoader.list_directory(dir):
+		var path := dir.path_join(file_name)
+
+		if file_name.ends_with("/"):
+			_load_modifiers_recursively(path, modifiers)
+			continue
+
+		if file_name.get_extension() not in ["tres", "res"]:
+			continue
+
+		var modifier := ResourceLoader.load(path) as BodyModifier
+		if not modifier:
+			Log.warn("Resource '%s' is not a BodyModifier, skipping", path)
+			continue
+
+		if modifier.name.is_empty():
+			Log.warn("BodyModifier '%s' has an empty name, skipping", path)
+			continue
+
+		if modifiers.has(modifier.name):
+			Log.warn("Duplicate BodyModifier name '%s' in '%s', skipping", modifier.name, path)
+			continue
+
+		modifiers[modifier.name] = modifier
+
+
+## Returns a directory where to recursively search for [BodyModifier] resources.
+@abstract
+func _get_modifiers_dir() -> String
+
+
+## Attaches value parameters to the loaded modifier resources.
+##
+## All matched modifiers will be removed from [param modifiers].
+@abstract
+func _resolve_modifier_params(
+	modifiers: Dictionary[StringName, BodyModifier]
+) -> Array[BodyModifierParams]

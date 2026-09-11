@@ -83,3 +83,97 @@ func _detach_item(item: LookItem) -> void:
 
 func _get_items_dir() -> String:
 	return "res://characters/visuals/make_human/items/"
+
+
+func _get_modifiers_dir() -> String:
+	return "res://characters/visuals/make_human/modifiers/"
+
+
+func _resolve_modifier_params(
+	modifiers: Dictionary[StringName, BodyModifier]
+) -> Array[BodyModifierParams]:
+	var params: Array[BodyModifierParams] = []
+
+	var body := body_instance.body
+	if not body or not body.target_registry or not body.macro_registry:
+		return params
+
+	for modifier_name in body.macro_registry.macrotargets:
+		_add_modifier_params(
+			params,
+			modifiers,
+			modifier_name,
+			MHMacroRegistry.RANGE,
+			MHMacroRegistry.DEFAULT_VALUE,
+		)
+
+	for race in MHMacroRegistry.RACES:
+		_add_modifier_params(
+			params,
+			modifiers,
+			race,
+			MHMacroRegistry.RANGE,
+			MHMacroRegistry.DEFAULT_RACE_VALUE,
+		)
+
+	for section in body.target_registry.sections:
+		for category in section.categories:
+			_add_category_params(params, modifiers, category)
+
+	return params
+
+
+static func _add_category_params(
+	result: Array[BodyModifierParams],
+	modifiers_by_name: Dictionary[StringName, BodyModifier],
+	category: MHTargetCategory,
+) -> void:
+	if category.opposites:
+		if category.has_left_and_right:
+			_add_modifier_params(
+				result,
+				modifiers_by_name,
+				category.label + "/left",
+				MHTargetRegistry.OPPOSITE_RANGE,
+				MHTargetRegistry.DEFAULT_VALUE,
+			)
+			_add_modifier_params(
+				result,
+				modifiers_by_name,
+				category.label + "/right",
+				MHTargetRegistry.OPPOSITE_RANGE,
+				MHTargetRegistry.DEFAULT_VALUE,
+			)
+		else:
+			_add_modifier_params(
+				result,
+				modifiers_by_name,
+				category.label,
+				MHTargetRegistry.OPPOSITE_RANGE,
+				MHTargetRegistry.DEFAULT_VALUE,
+			)
+		return
+
+	for target_name in category.targets:
+		_add_modifier_params(
+			result,
+			modifiers_by_name,
+			target_name,
+			MHTargetRegistry.RANGE,
+			MHTargetRegistry.DEFAULT_VALUE,
+		)
+
+
+static func _add_modifier_params(
+	result: Array[BodyModifierParams],
+	modifiers: Dictionary[StringName, BodyModifier],
+	modifier_name: StringName,
+	value_range: Vector2,
+	default_value: float,
+) -> void:
+	var modifier: BodyModifier = modifiers.get(modifier_name)
+	if not modifier:
+		return
+
+	result.append(BodyModifierParams.new(modifier, value_range, default_value))
+	modifiers.erase(modifier_name)
