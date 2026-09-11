@@ -44,13 +44,13 @@ func _apply_sided_category(
 		vertices,
 		opposites.negative_left,
 		opposites.positive_left,
-		modifiers.get(label + "/left", 0.0),
+		modifiers.get(label + "/left", MHTargetRegistry.DEFAULT_VALUE),
 	)
 	_apply_signed(
 		vertices,
 		opposites.negative_right,
 		opposites.positive_right,
-		modifiers.get(label + "/right", 0.0),
+		modifiers.get(label + "/right", MHTargetRegistry.DEFAULT_VALUE),
 	)
 
 
@@ -62,7 +62,7 @@ func _apply_unsided_category(
 		vertices,
 		opposites.negative_unsided,
 		opposites.positive_unsided,
-		modifiers.get(label, 0.0),
+		modifiers.get(label, MHTargetRegistry.DEFAULT_VALUE),
 	)
 
 
