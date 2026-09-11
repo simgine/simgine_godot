@@ -2,7 +2,7 @@
 class_name MakeHumanVisual
 extends CharacterVisual
 
-@onready var body: MHBodyInstance = %Body
+@onready var body_instance: MHBodyInstance = %Body
 
 var _attachments: Dictionary[LookItem, Object]
 
@@ -17,9 +17,9 @@ func _attach_item(item: LookItem) -> bool:
 
 	var material := attachment as StandardMaterial3D
 	if material:
-		body.material_override = material
+		body_instance.material_override = material
 	else:
-		body.add_child(attachment)
+		body_instance.add_child(attachment)
 
 	_attachments[item] = attachment
 	return true
@@ -72,8 +72,8 @@ func _detach_item(item: LookItem) -> void:
 	var material := attachment as StandardMaterial3D
 	if material:
 		# A conflicting material may already have replaced this one.
-		if body.material_override == material:
-			body.material_override = null
+		if body_instance.material_override == material:
+			body_instance.material_override = null
 	else:
 		var instance := attachment as MHProxyInstance
 		instance.queue_free()
