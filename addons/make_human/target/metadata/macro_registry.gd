@@ -38,6 +38,7 @@ func _resolve_components(modifiers: Dictionary[StringName, float]) -> Dictionary
 	for name in macrotargets:
 		var macro := macrotargets[name]
 		var value: float = modifiers.get(name, DEFAULT_VALUE)
+		value = clampf(value, RANGE.x, RANGE.y)
 		var part := macro.find_part(value)
 		if not part:
 			# Sometimes values cannot be mapped to a region.
@@ -57,6 +58,7 @@ func _resolve_components(modifiers: Dictionary[StringName, float]) -> Dictionary
 	var race_components: Array[Component] = []
 	for race in RACES:
 		var value: float = modifiers.get(race, DEFAULT_RACE_VALUE)
+		value = clampf(value, RANGE.x, RANGE.y)
 		race_components.push_back(Component.new(race, value))
 	components["race"] = race_components
 

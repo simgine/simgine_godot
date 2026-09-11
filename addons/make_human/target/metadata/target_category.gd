@@ -31,7 +31,8 @@ func _apply_simple_category(
 	modifiers: Dictionary[StringName, float],
 ) -> void:
 	for target_name in targets:
-		var weight: float = modifiers.get(target_name, 0.0)
+		var weight: float = modifiers.get(target_name, MHTargetRegistry.DEFAULT_VALUE)
+		weight = clampf(weight, MHTargetRegistry.RANGE.x, MHTargetRegistry.RANGE.y)
 		var target := targets[target_name]
 		target.apply(vertices, weight)
 
@@ -72,6 +73,7 @@ func _apply_signed(
 	positive_name: StringName,
 	value: float,
 ) -> void:
+	value = clampf(value, MHTargetRegistry.OPPOSITE_RANGE.x, MHTargetRegistry.OPPOSITE_RANGE.y)
 	var target_name := positive_name if value > 0.0 else negative_name
 	var target := targets[target_name]
 	target.apply(vertices, absf(value))
