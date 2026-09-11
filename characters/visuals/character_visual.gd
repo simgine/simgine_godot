@@ -118,7 +118,7 @@ static func _find_items(dir_path: String, items: Array[LookItem]) -> void:
 		if item:
 			items.append(item)
 		else:
-			Log.warn("Resource '%s' is not a LookItem, skipping", path)
+			Log.warn("Loaded resource '%s' is not a LookItem, skipping", path)
 
 
 ## Returns a directory where to search for [LookItem] resources.
