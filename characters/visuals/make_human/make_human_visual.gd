@@ -129,29 +129,14 @@ static func _add_category_params(
 	category: MHTargetCategory,
 ) -> void:
 	if category.opposites:
-		if category.has_left_and_right:
-			_add_modifier_params(
-				result,
-				modifiers_by_name,
-				category.label + "/left",
-				MHTargetRegistry.OPPOSITE_RANGE,
-				MHTargetRegistry.DEFAULT_VALUE,
-			)
-			_add_modifier_params(
-				result,
-				modifiers_by_name,
-				category.label + "/right",
-				MHTargetRegistry.OPPOSITE_RANGE,
-				MHTargetRegistry.DEFAULT_VALUE,
-			)
-		else:
-			_add_modifier_params(
-				result,
-				modifiers_by_name,
-				category.label,
-				MHTargetRegistry.OPPOSITE_RANGE,
-				MHTargetRegistry.DEFAULT_VALUE,
-			)
+		_add_modifier_params(
+			result,
+			modifiers_by_name,
+			category.label,
+			MHTargetRegistry.OPPOSITE_RANGE,
+			MHTargetRegistry.DEFAULT_VALUE,
+			category.has_left_and_right,
+		)
 		return
 
 	for target_name in category.targets:
@@ -170,10 +155,19 @@ static func _add_modifier_params(
 	modifier_name: StringName,
 	value_range: Vector2,
 	default_value: float,
+	has_left_and_right := false,
 ) -> void:
 	var modifier: BodyModifier = modifiers.get(modifier_name)
 	if not modifier:
 		return
 
-	result.append(BodyModifierParams.new(modifier, value_range, default_value))
+	result.append(BodyModifierParams.new(modifier, value_range, default_value, has_left_and_right))
 	modifiers.erase(modifier_name)
+
+
+func get_left_modifier_suffix() -> StringName:
+	return "/left"
+
+
+func get_right_modifier_suffix() -> StringName:
+	return "/right"

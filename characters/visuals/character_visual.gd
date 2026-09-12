@@ -182,3 +182,13 @@ func _get_modifiers_dir() -> String
 func _resolve_modifier_params(
 	modifiers: Dictionary[StringName, BodyModifier]
 ) -> Array[BodyModifierParams]
+
+
+## Returns the suffix used to reference the left value of a sided modifier.
+@abstract
+func get_left_modifier_suffix() -> StringName
+
+
+## Returns the suffix used to reference the right value of a sided modifier.
+@abstract
+func get_right_modifier_suffix() -> StringName
