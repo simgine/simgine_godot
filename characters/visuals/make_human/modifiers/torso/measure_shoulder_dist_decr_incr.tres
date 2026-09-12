@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyModifier" format=3 uid="uid://267lqipc8eaat"]
+
+[ext_resource type="Resource" uid="uid://vhomt8146msjc" path="res://characters/visuals/modifier_categories/torso.tres" id="1_category"]
+[ext_resource type="Script" uid="uid://dycl2kaao42bx" path="res://characters/visuals/body_modifier.gd" id="2_modifier"]
+
+[resource]
+script = ExtResource("2_modifier")
+name = &"measure-shoulder-dist-decr-incr"
+display_name = "Measure Shoulder Distance"
+min_label = "Decrease"
+max_label = "Increase"
+category = ExtResource("1_category")
+metadata/_custom_type_script = "uid://dycl2kaao42bx"

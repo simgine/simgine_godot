@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyModifier" format=3 uid="uid://ml29bw6tyv6dg"]
+
+[ext_resource type="Resource" uid="uid://t0xdzl3yjgdeb" path="res://characters/visuals/modifier_categories/hip.tres" id="1_category"]
+[ext_resource type="Script" uid="uid://dycl2kaao42bx" path="res://characters/visuals/body_modifier.gd" id="2_modifier"]
+
+[resource]
+script = ExtResource("2_modifier")
+name = &"hip-trans-backward-forward"
+display_name = "Hip Translation Backward Forward"
+min_label = "Backward"
+max_label = "Forward"
+category = ExtResource("1_category")
+metadata/_custom_type_script = "uid://dycl2kaao42bx"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyModifier" format=3 uid="uid://8my0nhhopxvja"]
+
+[ext_resource type="Resource" uid="uid://3rt93vb0ebn59" path="res://characters/visuals/modifier_categories/breast.tres" id="1_category"]
+[ext_resource type="Script" uid="uid://dycl2kaao42bx" path="res://characters/visuals/body_modifier.gd" id="2_modifier"]
+
+[resource]
+script = ExtResource("2_modifier")
+name = &"breast-point-decr-incr"
+display_name = "Breast Point"
+min_label = "Decrease"
+max_label = "Increase"
+category = ExtResource("1_category")
+metadata/_custom_type_script = "uid://dycl2kaao42bx"

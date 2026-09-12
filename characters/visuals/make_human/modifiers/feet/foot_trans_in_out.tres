@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyModifier" format=3 uid="uid://0bblrsut3iirt"]
+
+[ext_resource type="Resource" uid="uid://zb8yysclmoeci" path="res://characters/visuals/modifier_categories/feet.tres" id="1_category"]
+[ext_resource type="Script" uid="uid://dycl2kaao42bx" path="res://characters/visuals/body_modifier.gd" id="2_modifier"]
+
+[resource]
+script = ExtResource("2_modifier")
+name = &"foot-trans-in-out"
+display_name = "Foot Translation In Out"
+min_label = "In"
+max_label = "Out"
+category = ExtResource("1_category")
+metadata/_custom_type_script = "uid://dycl2kaao42bx"
