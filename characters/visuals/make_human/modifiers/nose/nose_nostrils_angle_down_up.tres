@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"nose-nostrils-angle-down-up"
+key = &"nose-nostrils-angle-down-up"
 display_name = "Nose Nostrils Angle"
 min_label = "Down"
 max_label = "Up"

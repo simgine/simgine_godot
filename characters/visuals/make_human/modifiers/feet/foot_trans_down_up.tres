@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"foot-trans-down-up"
+key = &"foot-trans-down-up"
 display_name = "Foot Translation"
 min_label = "Down"
 max_label = "Up"

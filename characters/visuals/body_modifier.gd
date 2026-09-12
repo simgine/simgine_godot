@@ -2,8 +2,8 @@ class_name BodyModifier
 extends Resource
 ## A body shape modifier from a [CharacterVisual].
 
-## Referenced modifier name.
-@export var name: StringName
+## Key that references the modifier in a [CharacterVisual].
+@export var key: StringName
 
 ## Display name for the character editor.
 @export var display_name: String

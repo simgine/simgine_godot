@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"ear-rot-backward-forward"
+key = &"ear-rot-backward-forward"
 display_name = "Ear Rotation Backward Forward"
 min_label = "Backward"
 max_label = "Forward"

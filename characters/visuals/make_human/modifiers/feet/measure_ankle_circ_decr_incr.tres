@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"measure-ankle-circ-decr-incr"
+key = &"measure-ankle-circ-decr-incr"
 display_name = "Measure Ankle Circumference"
 min_label = "Decrease"
 max_label = "Increase"

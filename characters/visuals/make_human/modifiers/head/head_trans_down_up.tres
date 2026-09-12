@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"head-trans-down-up"
+key = &"head-trans-down-up"
 display_name = "Head Translation"
 min_label = "Down"
 max_label = "Up"

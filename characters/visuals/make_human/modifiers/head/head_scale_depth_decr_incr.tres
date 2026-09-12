@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"head-scale-depth-decr-incr"
+key = &"head-scale-depth-decr-incr"
 display_name = "Head Scale Depth"
 min_label = "Decrease"
 max_label = "Increase"

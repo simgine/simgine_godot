@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"neck-trans-down-up"
+key = &"neck-trans-down-up"
 display_name = "Neck Translation"
 min_label = "Down"
 max_label = "Up"

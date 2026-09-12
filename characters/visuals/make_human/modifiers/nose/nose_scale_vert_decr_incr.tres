@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"nose-scale-vert-decr-incr"
+key = &"nose-scale-vert-decr-incr"
 display_name = "Nose Scale Vertical"
 min_label = "Decrease"
 max_label = "Increase"

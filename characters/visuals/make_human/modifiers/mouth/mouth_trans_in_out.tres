@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"mouth-trans-in-out"
+key = &"mouth-trans-in-out"
 display_name = "Mouth Translation In Out"
 min_label = "In"
 max_label = "Out"

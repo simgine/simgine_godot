@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"eyebrows-trans-backward-forward"
+key = &"eyebrows-trans-backward-forward"
 display_name = "Eyebrows Translation Backward Forward"
 min_label = "Backward"
 max_label = "Forward"

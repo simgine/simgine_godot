@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"chin-bones-decr-incr"
+key = &"chin-bones-decr-incr"
 display_name = "Chin Bones"
 min_label = "Decrease"
 max_label = "Increase"

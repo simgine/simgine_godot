@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"eye-push2-in-out"
+key = &"eye-push2-in-out"
 display_name = "Eye Push 2 In Out"
 min_label = "In"
 max_label = "Out"

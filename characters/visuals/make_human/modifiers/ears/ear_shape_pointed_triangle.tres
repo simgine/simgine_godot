@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"ear-shape-pointed-triangle"
+key = &"ear-shape-pointed-triangle"
 display_name = "Ear Shape Pointed Triangle"
 min_label = "Pointed"
 max_label = "Triangle"

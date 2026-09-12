@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"nose-compression-compress-uncompress"
+key = &"nose-compression-compress-uncompress"
 display_name = "Nose Compression Compress Uncompress"
 min_label = "Compress"
 max_label = "Uncompress"

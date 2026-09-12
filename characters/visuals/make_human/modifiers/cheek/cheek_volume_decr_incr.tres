@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"cheek-volume-decr-incr"
+key = &"cheek-volume-decr-incr"
 display_name = "Cheek Volume"
 min_label = "Decrease"
 max_label = "Increase"

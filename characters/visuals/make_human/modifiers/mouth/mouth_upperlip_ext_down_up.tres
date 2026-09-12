@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"mouth-upperlip-ext-down-up"
+key = &"mouth-upperlip-ext-down-up"
 display_name = "Mouth Upper Lip Outer"
 min_label = "Down"
 max_label = "Up"

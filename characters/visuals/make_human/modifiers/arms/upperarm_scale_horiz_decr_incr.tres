@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"upperarm-scale-horiz-decr-incr"
+key = &"upperarm-scale-horiz-decr-incr"
 display_name = "Upper Arm Scale Horizontal"
 min_label = "Decrease"
 max_label = "Increase"

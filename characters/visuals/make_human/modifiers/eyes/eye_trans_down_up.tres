@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"eye-trans-down-up"
+key = &"eye-trans-down-up"
 display_name = "Eye Translation"
 min_label = "Down"
 max_label = "Up"

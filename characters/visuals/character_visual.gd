@@ -159,15 +159,15 @@ static func _load_modifiers_recursively(
 			Log.warn("Resource '%s' is not a BodyModifier, skipping", path)
 			continue
 
-		if modifier.name.is_empty():
-			Log.warn("BodyModifier '%s' has an empty name, skipping", path)
+		if modifier.key.is_empty():
+			Log.warn("BodyModifier '%s' has an empty key, skipping", path)
 			continue
 
-		if modifiers.has(modifier.name):
-			Log.warn("Duplicate BodyModifier name '%s' in '%s', skipping", modifier.name, path)
+		if modifiers.has(modifier.key):
+			Log.warn("Duplicate BodyModifier key '%s' in '%s', skipping", modifier.key, path)
 			continue
 
-		modifiers[modifier.name] = modifier
+		modifiers[modifier.key] = modifier
 
 
 ## Returns a directory where to recursively search for [BodyModifier] resources.

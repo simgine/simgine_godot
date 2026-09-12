@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"upperlegs-height-decr-incr"
+key = &"upperlegs-height-decr-incr"
 display_name = "Upper Legs Height"
 min_label = "Decrease"
 max_label = "Increase"

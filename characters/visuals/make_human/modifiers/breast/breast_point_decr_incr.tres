@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"breast-point-decr-incr"
+key = &"breast-point-decr-incr"
 display_name = "Breast Point"
 min_label = "Decrease"
 max_label = "Increase"

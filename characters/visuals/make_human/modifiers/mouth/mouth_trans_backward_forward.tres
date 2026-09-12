@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"mouth-trans-backward-forward"
+key = &"mouth-trans-backward-forward"
 display_name = "Mouth Translation Backward Forward"
 min_label = "Backward"
 max_label = "Forward"

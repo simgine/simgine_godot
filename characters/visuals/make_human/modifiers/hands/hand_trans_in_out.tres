@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"hand-trans-in-out"
+key = &"hand-trans-in-out"
 display_name = "Hand Translation In Out"
 min_label = "In"
 max_label = "Out"

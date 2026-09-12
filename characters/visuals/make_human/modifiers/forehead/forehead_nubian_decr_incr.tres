@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"forehead-nubian-decr-incr"
+key = &"forehead-nubian-decr-incr"
 display_name = "Forehead Nubian"
 min_label = "Decrease"
 max_label = "Increase"

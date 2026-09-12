@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"breast-volume-vert-down-up"
+key = &"breast-volume-vert-down-up"
 display_name = "Breast Volume Vertical"
 min_label = "Down"
 max_label = "Up"

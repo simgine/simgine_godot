@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_modifier")
-name = &"stomach-navel-in-out"
+key = &"stomach-navel-in-out"
 display_name = "Stomach Navel In Out"
 min_label = "In"
 max_label = "Out"
