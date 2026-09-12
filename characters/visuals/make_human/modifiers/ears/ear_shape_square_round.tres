@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"ear-shape-square-round"
-name = "Ear Shape Square Round"
+name = "Ear Shape"
 min_label = "Square"
 max_label = "Round"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"nose-trans-in-out"
-name = "Nose Translation In Out"
+name = "Nose Translation"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

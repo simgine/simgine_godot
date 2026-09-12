@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"nose-trans-backward-forward"
-name = "Nose Translation Backward Forward"
+name = "Nose Translation"
 min_label = "Backward"
 max_label = "Forward"
 category = ExtResource("1_category")

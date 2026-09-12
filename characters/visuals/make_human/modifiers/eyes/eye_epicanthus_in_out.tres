@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"eye-epicanthus-in-out"
-name = "Eye Epicanthus In Out"
+name = "Eye Epicanthus"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

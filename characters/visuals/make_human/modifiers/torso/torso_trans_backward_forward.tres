@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"torso-trans-backward-forward"
-name = "Torso Translation Backward Forward"
+name = "Torso Translation"
 min_label = "Backward"
 max_label = "Forward"
 category = ExtResource("1_category")

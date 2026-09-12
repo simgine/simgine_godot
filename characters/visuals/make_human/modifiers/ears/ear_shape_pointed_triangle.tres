@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"ear-shape-pointed-triangle"
-name = "Ear Shape Pointed Triangle"
+name = "Ear Shape"
 min_label = "Pointed"
 max_label = "Triangle"
 category = ExtResource("1_category")

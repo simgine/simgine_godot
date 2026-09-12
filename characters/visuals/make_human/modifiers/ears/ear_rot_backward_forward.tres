@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"ear-rot-backward-forward"
-name = "Ear Rotation Backward Forward"
+name = "Ear Rotation"
 min_label = "Backward"
 max_label = "Forward"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"mouth-dimples-in-out"
-name = "Mouth Dimples In Out"
+name = "Mouth Dimples"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

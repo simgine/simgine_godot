@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"eye-eyefold-concave-convex"
-name = "Eye Eye Fold Concave Convex"
+name = "Eye Eye Fold"
 min_label = "Concave"
 max_label = "Convex"
 category = ExtResource("1_category")

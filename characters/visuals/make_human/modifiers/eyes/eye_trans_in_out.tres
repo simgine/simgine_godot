@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"eye-trans-in-out"
-name = "Eye Translation In Out"
+name = "Eye Translation"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")
