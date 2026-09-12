@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"foot-trans-backward-forward"
-display_name = "Foot Translation Backward Forward"
+name = "Foot Translation Backward Forward"
 min_label = "Backward"
 max_label = "Forward"
 category = ExtResource("1_category")

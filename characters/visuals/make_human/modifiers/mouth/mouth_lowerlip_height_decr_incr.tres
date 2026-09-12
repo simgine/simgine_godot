@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"mouth-lowerlip-height-decr-incr"
-display_name = "Mouth Lower Lip Height"
+name = "Mouth Lower Lip Height"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

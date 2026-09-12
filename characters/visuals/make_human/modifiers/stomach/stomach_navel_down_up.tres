@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"stomach-navel-down-up"
-display_name = "Stomach Navel"
+name = "Stomach Navel"
 min_label = "Down"
 max_label = "Up"
 category = ExtResource("1_category")

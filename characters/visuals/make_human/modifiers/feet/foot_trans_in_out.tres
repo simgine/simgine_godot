@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"foot-trans-in-out"
-display_name = "Foot Translation In Out"
+name = "Foot Translation In Out"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

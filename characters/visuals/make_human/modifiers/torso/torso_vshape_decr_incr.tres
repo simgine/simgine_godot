@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"torso-vshape-decr-incr"
-display_name = "Torso V Shape"
+name = "Torso V Shape"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

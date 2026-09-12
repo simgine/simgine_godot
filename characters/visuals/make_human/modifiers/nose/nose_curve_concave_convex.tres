@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"nose-curve-concave-convex"
-display_name = "Nose Curve Concave Convex"
+name = "Nose Curve Concave Convex"
 min_label = "Concave"
 max_label = "Convex"
 category = ExtResource("1_category")

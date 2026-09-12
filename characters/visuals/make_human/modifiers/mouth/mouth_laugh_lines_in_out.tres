@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"mouth-laugh-lines-in-out"
-display_name = "Mouth Laugh Lines In Out"
+name = "Mouth Laugh Lines In Out"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

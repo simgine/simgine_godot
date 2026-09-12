@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-diamond"
-display_name = "Head Diamond"
+name = "Head Diamond"
 category = ExtResource("1_category")
 metadata/_custom_type_script = "uid://dycl2kaao42bx"

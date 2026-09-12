@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"nose-flaring-decr-incr"
-display_name = "Nose Flaring"
+name = "Nose Flaring"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

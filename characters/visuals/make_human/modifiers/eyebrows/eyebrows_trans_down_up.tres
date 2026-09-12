@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"eyebrows-trans-down-up"
-display_name = "Eyebrows Translation"
+name = "Eyebrows Translation"
 min_label = "Down"
 max_label = "Up"
 category = ExtResource("1_category")

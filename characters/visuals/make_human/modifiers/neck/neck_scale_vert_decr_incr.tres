@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"neck-scale-vert-decr-incr"
-display_name = "Neck Scale Vertical"
+name = "Neck Scale Vertical"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

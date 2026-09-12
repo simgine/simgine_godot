@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"neck-trans-backward-forward"
-display_name = "Neck Translation Backward Forward"
+name = "Neck Translation Backward Forward"
 min_label = "Backward"
 max_label = "Forward"
 category = ExtResource("1_category")

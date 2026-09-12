@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-scale-horiz-decr-incr"
-display_name = "Head Scale Horizontal"
+name = "Head Scale Horizontal"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

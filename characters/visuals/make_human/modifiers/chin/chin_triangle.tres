@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"chin-triangle"
-display_name = "Chin Triangle"
+name = "Chin Triangle"
 category = ExtResource("1_category")
 metadata/_custom_type_script = "uid://dycl2kaao42bx"

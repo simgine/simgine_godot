@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"cheek-inner-decr-incr"
-display_name = "Cheek Inner"
+name = "Cheek Inner"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

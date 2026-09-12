@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"measure-upperarm-circ-decr-incr"
-display_name = "Measure Upper Arm Circumference"
+name = "Measure Upper Arm Circumference"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"lowerleg-scale-horiz-decr-incr"
-display_name = "Lower Leg Scale Horizontal"
+name = "Lower Leg Scale Horizontal"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

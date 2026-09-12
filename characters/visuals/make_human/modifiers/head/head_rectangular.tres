@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-rectangular"
-display_name = "Head Rectangular"
+name = "Head Rectangular"
 category = ExtResource("1_category")
 metadata/_custom_type_script = "uid://dycl2kaao42bx"

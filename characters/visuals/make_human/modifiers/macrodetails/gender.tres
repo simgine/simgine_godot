@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"gender"
-display_name = "Gender"
+name = "Gender"
 category = ExtResource("1_category")
 metadata/_custom_type_script = "uid://dycl2kaao42bx"

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"nipple-point-decr-incr"
-display_name = "Nipple Point"
+name = "Nipple Point"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

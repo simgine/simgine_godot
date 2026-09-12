@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"upperarm-fat-decr-incr"
-display_name = "Upper Arm Fat"
+name = "Upper Arm Fat"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

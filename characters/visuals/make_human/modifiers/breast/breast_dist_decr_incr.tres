@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"breast-dist-decr-incr"
-display_name = "Breast Distance"
+name = "Breast Distance"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

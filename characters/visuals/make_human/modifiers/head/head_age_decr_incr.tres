@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-age-decr-incr"
-display_name = "Head Age"
+name = "Head Age"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"breast-trans-down-up"
-display_name = "Breast Translation"
+name = "Breast Translation"
 min_label = "Down"
 max_label = "Up"
 category = ExtResource("1_category")

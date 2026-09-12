@@ -5,8 +5,8 @@ extends Resource
 ## Key that references the modifier in a [CharacterVisual].
 @export var key: StringName
 
-## Display name for the character editor.
-@export var display_name: String
+## Display name.
+@export var name: String
 
 ## Editor label that describes the effect of decreasing the value.
 @export var min_label: String

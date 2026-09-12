@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-trans-down-up"
-display_name = "Head Translation"
+name = "Head Translation"
 min_label = "Down"
 max_label = "Up"
 category = ExtResource("1_category")

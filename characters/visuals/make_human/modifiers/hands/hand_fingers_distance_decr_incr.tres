@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"hand-fingers-distance-decr-incr"
-display_name = "Hand Fingers Distance"
+name = "Hand Fingers Distance"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"eye-bag-in-out"
-display_name = "Eye Bag In Out"
+name = "Eye Bag In Out"
 min_label = "In"
 max_label = "Out"
 category = ExtResource("1_category")

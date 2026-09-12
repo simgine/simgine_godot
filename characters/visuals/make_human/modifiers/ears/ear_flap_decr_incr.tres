@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"ear-flap-decr-incr"
-display_name = "Ear Flap"
+name = "Ear Flap"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-round"
-display_name = "Head Round"
+name = "Head Round"
 category = ExtResource("1_category")
 metadata/_custom_type_script = "uid://dycl2kaao42bx"

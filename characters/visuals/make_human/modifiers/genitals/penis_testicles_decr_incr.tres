@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"penis-testicles-decr-incr"
-display_name = "Penis Testicles"
+name = "Penis Testicles"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

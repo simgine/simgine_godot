@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"head-scale-vert-decr-incr"
-display_name = "Head Scale Vertical"
+name = "Head Scale Vertical"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

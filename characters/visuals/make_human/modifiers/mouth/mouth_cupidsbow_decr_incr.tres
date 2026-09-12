@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"mouth-cupidsbow-decr-incr"
-display_name = "Mouth Cupid's Bow"
+name = "Mouth Cupid's Bow"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"upperarm-muscle-decr-incr"
-display_name = "Upper Arm Muscle"
+name = "Upper Arm Muscle"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")

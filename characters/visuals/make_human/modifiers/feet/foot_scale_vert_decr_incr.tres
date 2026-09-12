@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_modifier")
 key = &"foot-scale-vert-decr-incr"
-display_name = "Foot Scale Vertical"
+name = "Foot Scale Vertical"
 min_label = "Decrease"
 max_label = "Increase"
 category = ExtResource("1_category")
