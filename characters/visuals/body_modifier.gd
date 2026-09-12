@@ -15,4 +15,4 @@ extends Resource
 @export var max_label: String
 
 ## Display category for the character editor.
-@export var category: String
+@export var category: ModifierCategory
